@@ -1,0 +1,6 @@
+[12-Dec-2014 23:19:50] PHP Warning:  include_once(../main.php) [<a href='function.include-once'>function.include-once</a>]: failed to open stream: No such file or directory in /home2/socktail/public_html/facebook/facebook/face.php on line 2
+[12-Dec-2014 23:19:50] PHP Warning:  include_once() [<a href='function.include'>function.include</a>]: Failed opening '../main.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home2/socktail/public_html/facebook/facebook/face.php on line 2
+[12-Dec-2014 23:19:50] PHP Fatal error:  Call to undefined function  redirect() in /home2/socktail/public_html/facebook/facebook/face.php on line 129
+[12-Dec-2014 23:19:50] PHP Warning:  include_once(../main.php) [<a href='function.include-once'>function.include-once</a>]: failed to open stream: No such file or directory in /home2/socktail/public_html/facebook/facebook/face1.php on line 2
+[12-Dec-2014 23:19:50] PHP Warning:  include_once() [<a href='function.include'>function.include</a>]: Failed opening '../main.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home2/socktail/public_html/facebook/facebook/face1.php on line 2
+[12-Dec-2014 23:19:50] PHP Fatal error:  Call to undefined function  redirect() in /home2/socktail/public_html/facebook/facebook/face1.php on line 140

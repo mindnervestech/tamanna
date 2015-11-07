@@ -1,0 +1,5 @@
+[12-Dec-2014 23:21:01] PHP Fatal error:  Call to undefined function  initsessionhistory() in /home2/socktail/public_html/js/tinymce/jscripts/tiny_mce/plugins/ajaxfilemanager/ajax_editor_reset.php on line 22
+[12-Dec-2014 23:21:02] PHP Notice:  Undefined index:  path in /home2/socktail/public_html/js/tinymce/jscripts/tiny_mce/plugins/ajaxfilemanager/ajax_preview.php on line 10
+[12-Dec-2014 23:21:02] PHP Notice:  Undefined index:  folder in /home2/socktail/public_html/js/tinymce/jscripts/tiny_mce/plugins/ajaxfilemanager/ajax_save_text.php on line 11
+[12-Dec-2014 23:21:02] PHP Notice:  Undefined index:  name in /home2/socktail/public_html/js/tinymce/jscripts/tiny_mce/plugins/ajaxfilemanager/ajax_save_text.php on line 11
+[12-Dec-2014 23:21:03] PHP Notice:  Undefined index:  file_path in /home2/socktail/public_html/js/tinymce/jscripts/tiny_mce/plugins/ajaxfilemanager/ajax_image_undo.php on line 11

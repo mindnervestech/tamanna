@@ -1,0 +1,7 @@
+<div class="sub-footer">
+<div class="footer-inner">
+<h3 style="font-size: 25px;padding-bottom: 30px;">Online Furniture and Home Decor Store - Socktail</h3>
+<p>Socktail is India's largest social marketplace for <strong>shopping furniture online in India</strong>. With something to suit everyone's taste and pocket, we specialize in offering a range of quality furniture at affordable prices, our collection changes regularly as new designs are developed and new products are launched, we have a vast range of furniture to select from, moreover we can also get you the custom made furniture based on the design you like, just share the design and specifications with our customer service and we will get it custom made only for you.</p>
+<p>On Socktail, we are committed to provide widest range of quality furniture and home decor products in <strong>affordable prices</strong>. Currently Socktail is providing products in various categories like Home Furniture, <strong>Home-Office Furniture</strong>, Garden and Outdoor Furniture, <strong>Kids Room Furniture</strong>, <strong>solid wood furniture</strong>, <strong>Rattan furniture</strong>, , <strong>Vintage Industrial Furniture</strong> & Restaurant Furniture and very soon we will be entering into home decor and furnishing as well.</p>
+</div>
+</div>
