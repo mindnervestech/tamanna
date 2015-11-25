@@ -242,37 +242,150 @@ $this->load->view('site/templates/header_new');
 							<div class="tabs styled_tabs m_bottom_18">
 								<nav class="second_font">
 									<ul class="hr_list">
-										<li class="m_right_3"><a href="#tab1" class="color_light border_light_3 d_block">Description</a></li>
-<?php if($productDetails->row()->listvalue == 'Sheesham Wood' || $productDetails->row()->listvalue == 'Mango Wood' || $productDetails->row()->listvalue == 'Solid Wood'){?>
-										<li class="m_right_3"><a href="#tab2" class="color_light border_light_3 d_block">Color Guide</a></li>
-                                        <?php } ?>
-										<li class="m_right_3"><a href="#tab3" class="color_light border_light_3 d_block">Shipping Policies</a></li>
-                                        <?php 
-$furCatArr = array('7','14','26','27','29','237');
-$prodCat = $productDetails->row()->category_id;
-$prodCatArr = @explode(',',$prodCat);
+										<li class="m_right_3"><a href="#tab1" class="color_light border_light_3 d_block"><?php if($this->lang->line('item_details') != '') { echo stripslashes($this->lang->line('item_details')); } else echo "Item Details"; ?></a></li>
+										<li class="m_right_3"><a href="#tab2" class="color_light border_light_3 d_block">Color <?php if($this->lang->line('shipping_policies') != '') { echo stripslashes($this->lang->line('shipping_policies')); } else echo "Shipping & Policies"; ?></a></li>
+										
+										<?php 
+											$furCatArr = array('7','14','26','27','29','237');
+											$prodCat = $productDetails->row()->category_id;
+											$prodCatArr = @explode(',',$prodCat);
 
-$combArr = array_merge($furCatArr, $prodCatArr);
-$combArr1 = array_unique($combArr);
+											$combArr = array_merge($furCatArr, $prodCatArr);
+											$combArr1 = array_unique($combArr);
 
-if(count($combArr) != count($combArr1)){?>  
-										<li class="m_right_3"><a href="#tab4" class="color_light border_light_3 d_block">Furniture Care</a></li>
-                                        <?php } ?>
+											if(count($combArr) != count($combArr1)){?>  
+												<li class="m_right_3"><a href="#tab3" class="color_light border_light_3 d_block">Furniture Care</a></li>											
+										<?php } ?>
+
+										<?php if($productDetails->row()->listvalue == 'Sheesham Wood' || $productDetails->row()->listvalue == 'Mango Wood' || $productDetails->row()->listvalue == 'Solid Wood'){?>
+											<li class="m_right_3"><a href="#tab4" class="color_light border_light_3 d_block">Color Guide</a></li>
+										<?php } ?>
+
 									</ul>
 								</nav>
 								<hr class="d_xs_none">
 								<div id="tab1" class="fw_light tab_content">
-									<p class="m_bottom_13">Description Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Suspendisse sollicitudin velit sed leo. Ut pharetra augue nec erat volutpat. Duis ac turpis. Donec sit amet eros. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Mauris fermentum dictum magna.Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Donec sit amet eros. Lorem ipsum.</p>
+									<p class="m_bottom_13">
+										<?php  echo $productDetails->row()->description; ?><div class="clear"></div> 
+									</p>
 								</div>
 								<div id="tab2" class="tab_content">
-									<p class="m_bottom_13">Shipping Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Suspendisse sollicitudin velit sed leo. Ut pharetra augue nec erat volutpat. Duis ac turpis. Donec sit amet eros. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Mauris fermentum dictum magna.Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Donec sit amet eros. Lorem ipsum.</p>
+									<p class="m_bottom_13">
+																			<?php 
+										if ($productDetails->row()->shipping_policies == '')
+										{
+										echo "<p>In case you have any questions or need any clarifications do not hesitate to call our Customer Support Team</p>
+
+										<p>In case of wooden furniture, please note that wood has inherent qualities such as marginal differences in stain and varnish, unique grain patterns etc. These are visible on a finished product and result in two otherwise identical items looking different. These are natural features of wood that provide character to each piece of wooden furniture and are accepted as per Industry standards. Small knots are also sometimes visible on the surface which is filled in by the furniture craftsmen during manufacture.</p>
+
+										<p><strong>Placing an order:</strong> Please <strong>check dimensions of the stairway and entrance to your premise before buying</strong>, so as to ensure that there is no problem in getting the product inside. In such a situation we will not be able to accept return or cancellation. There are some items that you will need to assemble on your own or you will need to arrange your own carpenter for assembly. Wherever Socktail provides, the carpenter visits will be scheduled subsequent to the delivery of the item.</p>
+
+										<p><strong>On Delivery:</strong> For all items that are expected to stand, ensure that the item is steady and straight. Unevenness up to 5 mm happens due to difference in surfaces and floor levels and is an accepted industry standard. Bushes will have to be attached to balance the item. In case of dust or a lack of shine, rubbing the surface with a cloth will help. This is an accepted method for cleaning the surface of a furniture item and making it shine.</p>
+
+										<p><strong>Damages:</strong> Socktail shipping arrangements to your doorstep have been designed to ensure a zero-damage, hassle-free experience, please contact us immediately, in case:
+										<ul>
+										<li>- Your item has any scratches or breakage that unfortunately might have occurred in the course of transit warranting your item to be fixed</li>
+										<li>- Any instruction manual, screws, nuts etc that might have been missed, should be informed to Customer Support immediately, so that they can arrange for the same to be delivered to you</li>
+										<li>- Your item arrives in damaged condition. All claims for damage must be made within 3 days of receipt of the item. Your request for a repair, refund or a replacement will be processed as soon as we receive the photographs of the damage to ascertain extent. We request you to retain all packing materials unless instructed otherwise by our team. You have an option of getting a full refund or replacement of the product that was received in damaged condition. Refunds or replacement for furniture returns will be processed when the item(s) has been picked up by us. Hence, please allow up to 2 to 3 weeks for reverse and then subsequent refund to process. A replacement will take the same amount of time as the order for shipping.</li>
+										</ul></p>
+										<p><strong>Cancellations:</strong> We accept cancellation of furniture orders up to 24 hours of placing the same.Pieces of furniture are made specifically for your order.</p>";
+										}
+										else
+										{
+										echo $productDetails->row()->shipping_policies;
+										}
+										?>
+									</p>
 								</div>
-								<div id="tab3" class="tab_content">
-									<p class="m_bottom_13">furniture care Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Suspendisse sollicitudin velit sed leo. Ut pharetra augue nec erat volutpat. Duis ac turpis. Donec sit amet eros. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Mauris fermentum dictum magna.Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Donec sit amet eros. Lorem ipsum.</p>
+								<?php 
+									$furCatArr = array('7','14','26','27','29','237');
+									$prodCat = $productDetails->row()->category_id;
+									$prodCatArr = @explode(',',$prodCat);
+
+									$combArr = array_merge($furCatArr, $prodCatArr);
+									$combArr1 = array_unique($combArr);
+
+									if(count($combArr) != count($combArr1)){?>  
+								
+															
+									<div id="tab3" class="tab_content">
+									<p class="m_bottom_13">
+										<?php  echo "<p><strong>Wooden Furniture Care and Cleaning Tips</strong></p>
+										<ul>
+										<li>* Keep furniture away from direct sunlight as it could cause fading.</li>
+										<li>* Keep furniture away from heaters, dehumidifiers and air conditioners.</li>
+										<li>* Use table clothes, runners, coasters and table pads on heavily used coffee and dining tables.</li>
+										<li>* Mop away any spills immediately. Don’t wipe. </li>
+										<li>* Use a damp, soft cloth to clean away dust. </li>
+										<li>* Clean when needed with a good quality wax or polish. </li>
+										<li>* Don't allow perfumes, nail polish or remover etc to come in contact with the wood. </li>
+										<li>* Treat your furniture with respect. Do not jump, stand, rock, swing, climb or play on. </li>
+										<li>* Lift furniture. Do not drag, rock or slide. Dragging can damage your furniture joints. </li>
+										</ul>
+										<br>
+										<p><strong>Leather Furniture Care and Cleaning Tips</strong></p>
+										<ul>
+										<li>* Keep furniture away from direct sunlight.</li>
+										<li>* Wipe the leather furniture down regularly with a clean, dry cloth. </li>
+										<li>* Use vacuum cleaner to remove dust and debris from crevices and under cushions. </li>
+										<li>* Apply leather conditioner regularly to keep it out of drying and developing cracks. </li>
+										<li>* Clean spills immediately with dry cloth.</li>
+										<li>* Avoid soaking the leather in water or soap.</li>
+										<li>* Avoid using any cleaning products not designed for leather. </li>
+										<li>* Buff small scratches in the leather with a microfiber cloth. </li>
+										</ul>
+										<br>
+										<p><strong>Fabric Upholstered Furniture Care and Cleaning Tips</strong></p>
+										<ul>
+										<li>* Regularly vacuum your furniture to remove dust, dirt and debris. </li>
+										<li>* Rotate & plump loose cushions to maintain their appearance and avoid uneven wear. </li>
+										<li>* Do not allow body/hair grease and oil to build up. </li>
+										<li>* Never use detergents or abrasive cleaners. </li>
+										<li>* Try not to place your furniture near heat sources or in direct sunlight, this could cause fading. </li>
+										<li>* If you accidentally spill something on your furniture, wipe excess away, do not rub. </li>
+										</ul>
+										<br>
+										<p><strong>Metal Furniture Care and Cleaning Tips</strong></p>
+										<ul>
+										<li>* Maintain with regular dusting. </li>
+										<li>* Wipe spills immediately. </li>
+										<li>* Clean with mild soap and water, dry thoroughly and do not use a brass cleaner. </li>
+										<li>* Use coasters under all beverages. </li>
+										<li>* Do not expose to excess humidity. </li>
+										</ul>
+										<br>
+										<p><strong>Wicker Furniture Care and Cleaning Tips</strong></p>
+										<ul>
+										<li>* Vacuum wicker furniture routinely with the soft brush attachment.</li>
+										<li>* Maintain even humidity in your home to keep antique wicker happy. </li>
+										<li>* To add life to the seats of your wicker furniture, use padded chair seat cushions. </li>
+										<li>* Use tweezers to pick out lint and trapped pet hair that the vacuum and soft brush can’t remove.</li>
+										<li>* If you do notice mold or mildew growing on your wicker furniture, clean immediately with a solution of bleach in water. </li>
+										</ul>
+										<br>
+										<!--<p><strong>Mattress Care and Cleaning Tips</strong></p>
+										<ul>
+										<li>* Keep the mattress dry. Use a mattress pad to prevent staining. </li>
+										<li>* Vacuum clean regularly. </li>
+										<li>* Turn and rotate a new mattress every few weeks to help smooth out contours. </li>
+										<li>* After a few months, turn and rotate a mattress twice a year to help equalize the wear and tear. </li>
+										<li>* Do not use dry cleaning products on your mattress. This may cause damage to some of the materials. </li>
+										<li>* If your mattress gets wet or soiled, blot any excess moisture using a soft cloth. </li>
+										<li>* To clean a stain, use mild soap with cold water gently. Pat dry. </li>
+										</ul>-->
+										"; ?>
+									</p>
 								</div>
-								<div id="tab4" class="tab_content">
-									<p class="m_bottom_13">Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Suspendisse sollicitudin velit sed leo. Ut pharetra augue nec erat volutpat. Duis ac turpis. Donec sit amet eros. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Mauris fermentum dictum magna.Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Donec sit amet eros. Lorem ipsum.</p>
-								</div>
+										<?php } ?>
+										
+								<?php if($productDetails->row()->listvalue == 'Sheesham Wood' || $productDetails->row()->listvalue == 'Mango Wood' || $productDetails->row()->listvalue == 'Solid Wood'){?>
+																		
+									<div id="tab4" class="tab_content">
+										<p class="m_bottom_13">
+											<img src="/images/Color Guide Sheesham Wood.png" alt="Sheesham Wood Color Guide"  style="width: 590px;height: 443px;">
+										</p>
+									</div>
+								<?php } ?>
 							</div>
 						</section>
 						<script>
