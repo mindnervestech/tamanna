@@ -75,6 +75,12 @@ class Cms extends MY_Controller {
     		$this->load->view('site/cms/display_cms',$this->data);
     	}
     }
+	public function contactus(){
+    	    $this->load->view('site/cms/contactus');
+	}
+	public function whyus(){
+    	    $this->load->view('site/cms/whyus');
+	}
 	
 }
 /*End of file cms.php */
