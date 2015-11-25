@@ -784,9 +784,9 @@ function ajaxChangeproductAttribute(attId,attname,attprice,pid){
 }
 
 function ajaxCartAttributeChange(attId,prdId){
-	debugger;
 	$('#loadingImg_'+prdId).html('<span class="loading"><img src="images/indicator.gif" alt="Loading..."></span>');
 	$('#AttrErr').html('');
+	$('#AttrErr').hide();
 	$.ajax({
 		type: 'POST',   
 		url:baseURL+'site/product/ajaxProductDetailAttributeUpdate',
@@ -1015,7 +1015,6 @@ function shipping_cart_address_delete(){
 
 
 function ajax_add_cart(AttrCountVal){
-debugger;
 	$('#QtyErr').html('');
 	var login = $('.add_to_cart').attr('require_login');
 	if(login){ require_login(); return;}
@@ -1032,10 +1031,12 @@ debugger;
 		return false;
 	}
 	if(AttrCountVal > 0){
-		$('#AttrErr').html(' ');
+		//$('#AttrErr').html(' ');
+		$('#AttrErr').hide();
 		var AttrVal=$('#attr_name_id').val();	
 		if(AttrVal == 0){
-			$('#AttrErr').html('Please Choose the Option');
+			$('#AttrErr').show();
+			$('#AttrErr').html('Please Choose one of the Option');
 			return false;
 		}
 	}
@@ -1059,7 +1060,6 @@ debugger;
 		data: {'mqty':mqty,'quantity':quantity, 'product_id':product_id, 'sell_id':sell_id, 'cate_id':cate_id, 'price':price, 'product_shipping_cost':product_shipping_cost, 'product_tax_cost':product_tax_cost, 'attribute_values':attribute_values},
 		success: function(response){
 			//alert(response);
-			debugger;
 			var arr = response.split('|');
 			if(arr[0] =='login'){
 				window.location.href= baseURL+"login";	
@@ -1068,7 +1068,11 @@ debugger;
 				$('#ADDCartErr').html('Maximum Quantity: '+mqty+'. Already in your cart: '+arr[1]+'.');
 			}else{
 				$('#MiniCartViewDisp').html(arr[1]);
-				$('#cart_popup').show().delay('2000').fadeOut();
+				//$('#shopping_cart').show().delay('2000').fadeOut();
+				$('.color_dark.active_lbrown').click();
+				setTimeout(function(){
+					$('.color_dark.active_lbrown').click();
+				}, 2000);
 			}
 
 		}

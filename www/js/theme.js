@@ -300,11 +300,45 @@
 
 					button.on('click',function(){
 						if($(this).hasClass('minus')){
-							if(val === 1) return false;
-							input.val(--val);
+							debugger;
+							//if(val === 1) return false;
+							var mqty = $('.orderQuantity').data('mqty');
+							var oldQty = parseInt($('.orderQuantity').val());
+							if(oldQty-oldQty != 0){
+								oldQty = 1;
+							}
+							if(oldQty<0){
+								oldQty = 1;
+							}
+							if(oldQty>1){
+								oldQty--;
+							}
+							if(oldQty<1){
+								oldQty = 1;
+							}
+							if(oldQty>mqty){
+								alert('Maximum Stock is '+mqty);
+								oldQty = mqty;
+							}
+							$('.orderQuantity').val(oldQty);
+							input.val(oldQty);
 						}
 						else{
-							input.val(++val);
+							var mqty = $('.orderQuantity').data('mqty');
+							var oldQty = parseInt($('.orderQuantity').val());
+							if(oldQty-oldQty != 0){
+								oldQty = 0;
+							}
+							if(oldQty<0){
+								oldQty = 0;
+							}
+							oldQty++;
+							if(oldQty>mqty){
+								alert('Maximum Stock is '+mqty);
+								oldQty = mqty;
+							}												
+							$('.orderQuantity').val(oldQty);
+							input.val(oldQty);
 						}
 					});
 				});
@@ -804,5 +838,39 @@
 			$('[data-popup="#subscribe_popup"]').trigger('click');
 		});
 	});
-
+	$("#like_product").click(function(){
+			var $this = $(this),
+				tid  = $this.attr('tid') || null,
+				rtid = $this.attr('rtid') || null,
+				sl   = $this.attr('show_add_to_list') || null,
+				login_require = $this.attr('require_login'),
+				checkbox_url  = '/_get_list_checkbox.html?t='+(new Date).getTime();
+			if (login_require && login_require=='true') return require_login();
+			
+			var fancyy_url = baseURL+'site/user/add_fancy_item';
+			if($this.hasClass('fancyd')){
+				fancyy_url = baseURL+'site/user/remove_fancy_item';
+			}
+			
+			$.ajax({
+				type:'POST',
+				url:fancyy_url,
+				data:{tid:tid},
+				dataType:'json',
+				success:function(response){
+					if(response.status_code == 1){
+						if(response.wanted == 1){
+							$('.btn-want').addClass('wanted').find('b').text('Wanted');
+						}
+					}
+				}
+			});
+	});
+	
+	function require_login(next){
+		next = $(location).attr('href');
+		next = next.replace(baseURL,'');
+		location.href = baseURL+'login'+(next?'?next='+encodeURIComponent(next):'');
+		return false;
+	}
 })(jQuery);

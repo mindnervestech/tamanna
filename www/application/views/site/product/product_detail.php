@@ -29,6 +29,16 @@ $this->load->view('site/templates/header_new');
 			}
 		}
         }
+		
+		$fancyClass = 'fancy';
+		$fancyText = LIKE_BUTTON;
+		if (count($likedProducts)>0 && $likedProducts->num_rows()>0){
+			foreach ($likedProducts->result() as $likeProRow){
+				if ($likeProRow->product_id == $productDetails->row()->seller_product_id){
+					$fancyClass = 'fancyd';$fancyText = LIKED_BUTTON;break;
+				}
+			}
+		}
 	?>	
 								<div class="product_preview f_left f_xs_none wrapper m_xs_bottom_15">
 									<div class="d_block relative r_image_container">
@@ -56,15 +66,15 @@ $this->load->view('site/templates/header_new');
 											"URLhashListener" : false
 										}'>	
                                         
-                        <?php 
-						$limitCount = 0;
-						$imgArr = explode(',', $productDetails->row()->image);
-						if (count($imgArr)>0){
-							foreach ($imgArr as $imgRow){
-								if ($limitCount>5)break;
-								if ($imgRow != '' && $imgRow != $pimg){
-									$limitCount++;
-						?>
+										<?php 
+										$limitCount = 0;
+										$imgArr = explode(',', $productDetails->row()->image);
+										if (count($imgArr)>0){
+											foreach ($imgArr as $imgRow){
+												if ($limitCount>5)break;
+												if ($imgRow != '' && $imgRow != $pimg){
+													$limitCount++;
+										?>
 						  					<a href="<?php echo base_url().PRODUCTPATH.$imgRow;?>" data-image="<?php echo base_url().PRODUCTPATH.$imgRow;?>" data-zoom-image="<?php echo base_url();?>images/product/<?php echo $imgRow;?>" class="d_block">
 												<img src="<?php echo base_url();?>images/product/<?php echo $imgRow;?>" alt="">
 											</a>
@@ -76,14 +86,23 @@ $this->load->view('site/templates/header_new');
 						?>
 										
 										</div>
+						<?php 
+						if (count($imgArr)>1){ ?>
 										<button class="thumbnails_product_prev black_hover button_type_4 grey state_2 tr_all d_block vc_child"><i class="fa fa-angle-left d_inline_m"></i></button>
 										<button class="thumbnails_product_next black_hover button_type_4 grey state_2 tr_all d_block vc_child"><i class="fa fa-angle-right d_inline_m"></i></button>
-									</div>
+									
+							<?php 		}
+						?>
+						</div>
 								</div>
-								<div class="product_description f_left f_xs_none">
+								<div class="product_description f_left f_xs_none" id="product_description">
 									<div class="wrapper">
 										<h3 class="second_font m_bottom_3 f_left product_title"><a href="#" class="sc_hover"><?php echo $productDetails->row()->product_name;?></a></h3>
-										<button class="button_type_8 grey state_2 tr_delay color_dark t_align_c vc_child f_right m_right_3 tooltip_container relative"><i class="fa fa-heart fs_large d_inline_m"></i><span class="tooltip top fs_small color_white hidden animated" data-show="fadeInDown" data-hide="fadeOutUp">Add to Wishlist</span></button>
+										
+										<!--<a href="#" item_img_url="images/product/<?php echo $img;?>" tid="<?php echo $productDetails->row()->seller_product_id;?>" class="button <?php echo $fancyClass;?>" <?php if ($loginCheck==''){?>require_login="true"<?php }?>><span><i></i></span><?php echo $fancyText;?></a> -->
+				
+								
+
 									</div>
 									<ul class="m_bottom_14">
 										<li class="m_bottom_3"><span class="project_list_title second_font d_inline_b">Dispatched in:</span> <span class="fw_light"> <?php $shipping = $productDetails->row()->shipping;
@@ -170,35 +189,50 @@ $this->load->view('site/templates/header_new');
                 <input type="hidden" class="option number" name="product_shipping_cost" id="product_shipping_cost" value="<?php echo $productDetails->row()->shipping_cost;?>"> 
                 <input type="hidden" class="option number" name="product_tax_cost" id="product_tax_cost" value="<?php echo $productDetails->row()->tax_cost;?>">
                 <input type="hidden" class="option number" name="attribute_values" id="attribute_values" value="<?php echo $attrValsSetLoad; ?>">
+										<?php if($discPrice != ''){?>
 											<tr>
 												<td colspan="3" class="bg_blue border_blue color_white">
 													<div class="m_top_2 m_bottom_6"><span class="fw_light d_inline_m m_right_5">Use Coupon Code <div style="color: #ec1e20;font-size:13px;display:inline-block;">"<?php echo $couponCode;?>"</div> to Get Additional <?php echo number_format($discVal);?>% DIscount</span></div>
 												</td>
 											</tr>
+										<?php }?>
 										</tbody>
 									</table>
                   <div class="product_options bt_none">
+				  						 <?php  
+                   	$attrValsSetLoad = ''; //echo '<pre>'; print_r($PrdAttrVal->result_array()); 
+					if($PrdAttrVal->num_rows>0){ 
+						$attrValsSetLoad = $PrdAttrVal->row()->pid; 
+					?>
+									<div>
 										<b class="second_font d_block m_bottom_10">Available Options</b>
 										<div class="relative m_bottom_15">
-											<select onchange="ajaxCartAttributeChange(this.value,'<?php echo $productDetails->row()->id; ?>');">
-											<option><div class="select_title type_2 fs_medium fw_light color_light relative d_none tr_all">--------------- <?php echo "Select"; ?> ---------------</div></option>
+											<select id="attr_name_id" name="attr_name_id" onchange="ajaxCartAttributeChange(this.value,'<?php echo $productDetails->row()->id; ?>');">
+											<option value="0"><div class="select_title type_2 fs_medium fw_light color_light relative d_none tr_all">--------------- <?php echo "Select"; ?> ---------------</div></option>
 											    <?php foreach($PrdAttrVal->result_array() as $Prdattrvals ){ ?>
 													<option value="<?php echo $Prdattrvals['pid']; ?>"><?php echo $Prdattrvals['attr_type'].':  '.$Prdattrvals['attr_name']; ?></option>
 						                        <?php } ?>
 											</select>
+											<div class="alert_box error relative m_bottom_10 fw_light" id="AttrErr" style="margin-top: 10px; display:none;">
+											</div>								
 										</div>
+									</div>
+									              <?php } ?>
 										<hr class="divider_light">
 										<footer class="bg_grey_light_2">
 											<div class="clearfix m_top_7">
 												<div class="quantity clearfix t_align_c f_left f_md_none m_right_10 m_md_bottom_3">
 													<button class="f_left d_block minus black_hover tr_all bg_white">-</button>
-													<input type="text" value="1" name="" readonly="" class="f_left color_light">
+													<input type="text" id="quantity" value="1" name="" data-mqty="<?php echo $productDetails->row()->quantity;?>" min="1" readonly="" class="f_left color_light orderQuantity">
 													<button class="f_left d_block black_hover tr_all bg_white">+</button>
 												</div>
 												<br class="d_md_block d_none">
+												
 												<button  class="button_type_2 d_block f_sm_none m_sm_bottom_3 t_align_c lbrown state_2 tr_all second_font fs_medium tt_uppercase f_left m_right_3 product_button"
-												<?php if ($loginCheck==''){echo 'require_login="true"';}?> name="addtocart" value="<?php if($this->lang->line('header_add_cart') != '') { echo stripslashes($this->lang->line('header_add_cart')); } else echo "Add to Cart"; ?>" onclick="ajax_add_cart('0');"
+												<?php if ($loginCheck==''){echo 'require_login="true"';}?> name="addtocart" value="<?php if($this->lang->line('header_add_cart') != '') { echo stripslashes($this->lang->line('header_add_cart')); } else echo "Add to Cart"; ?>" onclick="ajax_add_cart('<?php echo $PrdAttrVal->num_rows; ?>');"
 												><i class="fa fa-shopping-cart d_inline_m m_right_9"></i>Add To Cart</button>
+												
+												<button id="like_product" item_img_url="images/product/<?php echo $img;?>" tid="<?php echo $productDetails->row()->seller_product_id;?>" <?php if ($loginCheck==''){?>require_login="true"<?php }?> class="button_type_8 grey state_2 tr_delay color_dark t_align_c vc_child f_right m_right_3 tooltip_container relative button <?php echo $fancyClass;?>"><i class="fa fa-heart fs_large d_inline_m"></i><span class="tooltip top fs_small color_white hidden animated" data-show="fadeInDown" data-hide="fadeOutUp">Add to Wishlist</span></button>
 											</div>
 										</footer>
 									</div>
@@ -300,15 +334,15 @@ return false;
 									<input type="hidden" name="user_id" id="user_id" value="<?php echo $loginCheck ;?>"/>
 										<ul>
 											<li class="m_bottom_9">
-												<label for="review" class="second_font required clickable d_inline_b m_bottom_5">Customization Requirements*</label><br>
+												<label for="review" class="second_font required clickable d_inline_b m_bottom_5">Customization Requirements</label><br>
 												<textarea class="tr_all w_full fw_light fs_medium color_light" id="comments" name="comments" placeholder="Tell us size, finish and more.." rows="5"></textarea>
 											</li>
 											<li class="m_bottom_15">
-												<label for="reviewer_name" class="second_font clickable d_inline_b m_bottom_5">Your Contact Number*</label><br>
+												<label for="reviewer_name" class="second_font required clickable d_inline_b m_bottom_5">Your Contact Number</label><br>
 												<input type="text" class="tr_all w_full fw_light fs_medium color_light" id="reviewer_number" name="">
 											</li>
 											<li class="m_bottom_15">
-												<label for="reviewer_name" class="second_font clickable d_inline_b m_bottom_5">Your Email ID*</label><br>
+												<label for="reviewer_name" class="second_font required clickable d_inline_b m_bottom_5">Your Email ID</label><br>
 												<input type="text" class="tr_all w_full fw_light fs_medium color_light" id="reviewer_email" name="">
 											</li>
 											<li class="clearfix">
@@ -518,3 +552,6 @@ $this->load->view('site/templates/footer');
 
 	</body>
 </html>
+
+<script>
+</script>

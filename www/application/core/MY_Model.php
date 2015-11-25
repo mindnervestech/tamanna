@@ -280,11 +280,24 @@ class My_Model extends CI_Model {
 				$newImg = @explode(',',$CartRow->image);
 				$cartMiniAmt = $cartMiniAmt + $CartRow->indtotal;
 
-				$CartMiniValue.= '<div id="cartMindivId_'.$s.'"><table><tbody><tr>
+				$CartMiniValue1.= '<div id="cartMindivId_'.$s.'"><table><tbody><tr>
 	       	<th class="info"><a href="things/'.$CartRow->prdid.'/'.$CartRow->seourl.'"><img src="images/site/blank.gif" style="background-image:url('.PRODUCTPATH.$newImg[0].')" alt="'.$CartRow->product_name.'"><strong>'.$CartRow->product_name.'</strong><br /></a></th>
 			<td class="qty">'.$CartRow->quantity.'</td>
             <td class="price">'.$this->data['currencySymbol'].$CartRow->indtotal.'</td>
 		</tr></tbody></table></div>';
+		
+		
+		$CartMiniValue.= '<li class="relative">
+			<div style="display:none" id="cartMindivId_'.$s.'"></div>
+			<div class="clearfix lh_small">
+				<a href="things/'.$CartRow->prdid.'/'.$CartRow->seourl.'" class="f_left m_right_10 d_block"><img src="images/site/blank.gif" style="background-image:url('.PRODUCTPATH.$newImg[0].');width: 60px;height: 60px;background-size:cover;" alt="'.$CartRow->product_name.'"></a>
+					<a href="things/'.$CartRow->prdid.'/'.$CartRow->seourl.'" class="fs_medium second_font color_dark sc_hover d_block m_bottom_4">'.$CartRow->product_name.'</a>
+				    	<p class="fs_medium">'.$CartRow->quantity.' x <b class="color_dark">'.$this->data['currencySymbol'].$CartRow->indtotal.'</b></p>
+			</div>
+			<hr class="divider_white m_top_15 m_bottom_0">
+			<span class="close fs_small color_light tr_all color_dark_hover fw_light">x</span>
+		</li>';
+		
 				$cartMiniQty = $cartMiniQty + $CartRow->quantity;
 				$s++;
 			}
@@ -329,26 +342,37 @@ class My_Model extends CI_Model {
 			$cartMiniDisp= '<ul class="gnb-wrap"><li class="gnb" id="cart-new"><a href="cart" class="mn-cart"><span class="hide">cart</span> <em class="ic-cart"></em> <span>0 items</span></a></li></ul>';
 		}else{
 
-
-			$minCartVal.= '<ul class="gnb-wrap"><li class="gnb" id="cart-new"><a href="cart" class="mn-cart"><span class="hide">cart</span> <em class="ic-cart"></em> <span id="Shop_MiniId_count">'.$countMiniVal.' '.$lg_items.'</span></a>
+			$minCartVal.= '<li class="relative open_mini_shopping_cart">
+										<button class="color_dark active_lbrown tr_all" data-open-dropdown="#shopping_cart">
+											<i class="fa fa-shopping-cart fs_large"></i><sup>'.$countMiniVal.' '.$lg_items.'</sup>
+										</button><div id="shopping_cart" data-show="fadeInUp" data-hide="fadeOutDown" class="bg_grey_light dropdown animated">
+											<div class="sc_header fs_small fw_light">Recently added item(s)</div>
+											<hr class="divider_white">
+											<ul class="shopping_cart_list m_bottom_4">';
+										
+			$minCartVal1.= '<ul class="gnb-wrap"><li class="gnb" id="cart-new"><a href="cart" class="mn-cart"><span class="hide">cart</span> <em class="ic-cart"></em> <span id="Shop_MiniId_count">'.$countMiniVal.' '.$lg_items.'</span></a>
 		<div style="display: none;" class="menu-contain-cart after" id="cart_popup">
 		<table><thead><tr><th>'.$lg_description.'</th><td>'.$lg_qty.'</td><td class="price">'.$lg_price.'</td></tr></thead></table>';
 
 			$totalMiniCartAmt = $giftMiniAmt + $cartMiniAmt + $SubcribMiniAmt;
 
-			$minCartValLast.= '<div class="summary">
+			$minCartValLast1.= '<div class="summary">
 			<strong>'.$lg_sub_tot.': </strong>
 			<span>'.$this->data['currencySymbol'].number_format($totalMiniCartAmt,2,'.','').'</span>
 		</div>
 		<a href="cart/" class="more">'.$lg_proceed.'</a>
 		</div></li></ul>';
 
-			$cartMiniDisp = $minCartVal.$CartMiniValue.$SubscribMiniValue.$GiftMiniValue.$minCartValLast;
+			$cartMiniDisp1 = $minCartVal.$CartMiniValue.$SubscribMiniValue.$GiftMiniValue.$minCartValLast;
 
+			$minCartValLast.=	'</ul>
+								<ul class="fs_medium second_font color_dark m_bottom_15">
+												<li><span class="d_inline_b total_title">Total</span><span class="fw_light">'.$this->data['currencySymbol'].number_format($totalMiniCartAmt,2,'.','').'</span></li>
+								</ul>
+								<a href="cart/" role="button" class="t_align_c tt_uppercase w_full second_font d_block fs_medium button_type_2 lbrown tr_all">'.$lg_proceed.'</a>
+								</div></li>';
+			$cartMiniDisp = $minCartVal.$CartMiniValue.$minCartValLast;
 		}
-
-
-
 
 		return $cartMiniDisp;
 	}

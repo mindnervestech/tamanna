@@ -199,10 +199,12 @@ if ($meta_title != '' and $meta_title != $title){?>
 										</a>
 									</li>
 									<!--shopping cart-->
-									<li class="relative open_mini_shopping_cart">
+									<?php echo $MiniCartViewSet; ?><?php }?>
+									<!-- <li class="relative open_mini_shopping_cart">
 										<button class="color_dark active_lbrown tr_all" data-open-dropdown="#shopping_cart">
 											<i class="fa fa-shopping-cart fs_large"></i><sup>3</sup>
 										</button>
+
 										<div id="shopping_cart" data-show="fadeInUp" data-hide="fadeOutDown" class="bg_grey_light dropdown animated">
 											<div class="sc_header fs_small fw_light">Recently added item(s)</div>
 											<hr class="divider_white">
@@ -248,7 +250,7 @@ if ($meta_title != '' and $meta_title != $title){?>
 											<a href="#" role="button" class="t_align_c tt_uppercase w_full second_font d_block fs_medium button_type_2 lbrown tr_all">Checkout</a>
 										</div>
 									</li>
-                                                <?php }?>                                    
+                                    -->
 								</ul>
 							</div>
 						</div>
