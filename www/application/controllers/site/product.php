@@ -963,8 +963,7 @@ echo curl_error($ch) . '<br/>';*/
 				$sr = 0;
 				$CidName = array();
 				$si = 0;
-				$breadCumps .= '<ul class="breadcrumbsNew">
-        					    <li><a class="shop-home" href="'.base_url().'shopby/all">Shop &nbsp;</a> </li>';
+				$breadCumps .= '<a class="shop-home" href="'.base_url().'shopby/all">Shop &nbsp;</a>';
 				foreach ($categoryArr as $cat){
 					if($cat != ''){
 						$CatNameDetails = $this->product_model->get_all_details(CATEGORY,array('id'=>$cat));
@@ -973,28 +972,28 @@ echo curl_error($ch) . '<br/>';*/
 								$Cresult = $this->product_model->get_Sub_to_Root_cat($cat);
 								if ($Cresult->num_rows()==1){
 									$string = $Cresult->row()->node_name;
-									$string2 = '<li class="last">/ <a href="'.base_url().'shopby/'.$Cresult->row()->node_seourl.'">'.$Cresult->row()->node_name.'&nbsp;</a></li>';
+									$string2 = '/ <a href="'.base_url().'shopby/'.$Cresult->row()->node_seourl.'">'.$Cresult->row()->node_name.'&nbsp;</a>';
 									if(isset($Cresult->row()->up1_id)){
 										$sr++;
 										$string = $Cresult->row()->up1_name.'>'.$Cresult->row()->node_name;
-										$string2 = '<li class="last">/ <a href="'.base_url().'shopby/'.$Cresult->row()->up1_seourl.'">'.$Cresult->row()->up1_name.'&nbsp;</a></li>
-										<li class="last">/ <a href="'.base_url().'shopby/'.$Cresult->row()->up1_seourl.'/'.$Cresult->row()->node_seourl.'">'.$Cresult->row()->node_name.'&nbsp;</a></li>';
+										$string2 = '/ <a href="'.base_url().'shopby/'.$Cresult->row()->up1_seourl.'">'.$Cresult->row()->up1_name.'&nbsp;</a>
+										/ <a href="'.base_url().'shopby/'.$Cresult->row()->up1_seourl.'/'.$Cresult->row()->node_seourl.'">'.$Cresult->row()->node_name.'&nbsp;</a>';
 										if(isset($Cresult->row()->up2_id))
 										{
 											$sr++;
 											$string = $Cresult->row()->up2_name.'>'.$Cresult->row()->up1_name.'>'.$Cresult->row()->node_name;
-											$string2 = '<li class="last">/ <a href="'.base_url().'shopby/'.$Cresult->row()->up2_seourl.'">'.$Cresult->row()->up2_name.'&nbsp;</a></li>
-											<li class="last">/ <a href="'.base_url().'shopby/'.$Cresult->row()->up2_seourl.'/'.$Cresult->row()->up1_seourl.'">'.$Cresult->row()->up1_name.'&nbsp;</a></li>
-											<li class="last">/ <a href="'.base_url().'shopby/'.$Cresult->row()->up2_seourl.'/'.$Cresult->row()->up1_seourl.'/'.$Cresult->row()->node_seourl.'">'.$Cresult->row()->node_name.'&nbsp;</a></li>';
+											$string2 = '/ <a href="'.base_url().'shopby/'.$Cresult->row()->up2_seourl.'">'.$Cresult->row()->up2_name.'&nbsp;</a>
+											/ <a href="'.base_url().'shopby/'.$Cresult->row()->up2_seourl.'/'.$Cresult->row()->up1_seourl.'">'.$Cresult->row()->up1_name.'&nbsp;</a>
+											/ <a href="'.base_url().'shopby/'.$Cresult->row()->up2_seourl.'/'.$Cresult->row()->up1_seourl.'/'.$Cresult->row()->node_seourl.'">'.$Cresult->row()->node_name.'&nbsp;</a>';
 
 											if(isset($Cresult->row()->up3_id))
 											{
 												$sr++;
 												$string = $Cresult->row()->up3_name.'>'.$Cresult->row()->up2_name.'>'.$Cresult->row()->up1_name.'>'.$Cresult->row()->node_name;
-												$string2 = '<li class="last">/ <a href="'.base_url().'shopby/'.$Cresult->row()->up3_seourl.'">'.$Cresult->row()->up3_name.'&nbsp;</a></li>
-												<li class="last">/ <a href="'.base_url().'shopby/'.$Cresult->row()->up3_seourl.'/'.$Cresult->row()->up2_seourl.'">'.$Cresult->row()->up2_name.'&nbsp;</a></li>
-												<li class="last">/ <a href="'.base_url().'shopby/'.$Cresult->row()->up3_seourl.'/'.$Cresult->row()->up2_seourl.'/'.$Cresult->row()->up1_seourl.'">'.$Cresult->row()->up1_name.'&nbsp;</a></li>
-												<li class="last">/ <a href="'.base_url().'shopby/'.$Cresult->row()->up3_seourl.'/'.$Cresult->row()->up2_seourl.'/'.$Cresult->row()->up1_seourl.'/'.$Cresult->row()->node_seourl.'">'.$Cresult->row()->node_name.'&nbsp;</a></li>';
+												$string2 = '/ <a href="'.base_url().'shopby/'.$Cresult->row()->up3_seourl.'">'.$Cresult->row()->up3_name.'&nbsp;</a>
+												/ <a href="'.base_url().'shopby/'.$Cresult->row()->up3_seourl.'/'.$Cresult->row()->up2_seourl.'">'.$Cresult->row()->up2_name.'&nbsp;</a>
+												/ <a href="'.base_url().'shopby/'.$Cresult->row()->up3_seourl.'/'.$Cresult->row()->up2_seourl.'/'.$Cresult->row()->up1_seourl.'">'.$Cresult->row()->up1_name.'&nbsp;</a>
+												/ <a href="'.base_url().'shopby/'.$Cresult->row()->up3_seourl.'/'.$Cresult->row()->up2_seourl.'/'.$Cresult->row()->up1_seourl.'/'.$Cresult->row()->node_seourl.'">'.$Cresult->row()->node_name.'&nbsp;</a>';
 												break;
 											}
 										}
