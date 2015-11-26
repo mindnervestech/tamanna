@@ -139,5 +139,19 @@ $this->load->view('site/templates/header_new');
 
 		<!--back to top-->
 		<button class="back_to_top animated button_type_6 grey state_2 d_block black_hover f_left vc_child tr_all"><i class="fa fa-angle-up d_inline_m"></i></button>
+		
+		<!--libs include-->
+		<script src="plugins/jquery.appear.js"></script>
+		<script src="plugins/jackbox/js/jackbox-packed.min.js"></script>
+		<script src="plugins/owl-carousel/owl.carousel.min.js"></script>
+		<script src="plugins/twitter/jquery.tweet.min.js"></script><script src="plugins/flickr.js"></script>
+		<script src="plugins/afterresize.min.js"></script>
+		<script src="js/retina.min.js"></script>
+		<script src="plugins/colorpicker/colorpicker.js"></script>
+		 
+
+		<!--theme initializer-->
+		<script src="js/themeCore.js"></script>
+		<script src="js/theme.js"></script>
 	</body>
 </html>

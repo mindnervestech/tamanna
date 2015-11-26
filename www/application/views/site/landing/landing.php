@@ -822,4 +822,4 @@ $this->load->view('site/templates/footer');
 		<script src="js/themeCore.js"></script>
 		<script src="js/theme.js"></script>
 	</body>
-</html>>
+</html>

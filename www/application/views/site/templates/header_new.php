@@ -2,30 +2,28 @@
 <html lang="en">
 	<head>
 		<?php if($this->config->item('google_verification')){ echo stripslashes($this->config->item('google_verification')); }
-if ($meta_title != '' and $meta_title != $title){?>
-<title><?php echo $meta_title;?></title>
-<?php } elseif ($heading != ''){?>
-<title><?php echo $heading;?></title>
-<?php }else {?>
-<title><?php echo $title;?></title>
-<?php }?>
-
-<meta name="Title" content="<?php echo $meta_title;?>" />
-
+			if ($meta_title != '' and $meta_title != $title){?>
+				<title><?php echo $meta_title;?></title>
+			<?php } elseif ($heading != ''){?>
+				<title><?php echo $heading;?></title>
+			<?php }else {?>
+				<title><?php echo $title;?></title>
+		<?php }?>
+		<meta name="Title" content="<?php echo $meta_title;?>" />
 		<meta charset="utf-8">
 		<!--add responsive layout support-->
 		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 		<!--meta info-->
 		<meta name="author" content="">
-<meta name="description" content="<?php echo $meta_description; ?>" />
-<meta property="og:image" content="<?php echo base_url();?>images/product/<?php echo $this->data['meta_image'];?>" />
-<base href="<?php echo base_url(); ?>" />
+		<meta name="description" content="<?php echo $meta_description; ?>" />
+		<meta property="og:image" content="<?php echo base_url();?>images/product/<?php echo $this->data['meta_image'];?>" />
+		<base href="<?php echo base_url(); ?>" />
 		<!--include favicon-->
 		<link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url();?>images/logo/<?php echo $fevicon;?>">
         <?php if (is_file('google-login-mats/index.php'))
-{
-	require_once 'google-login-mats/index.php';
-}?>
+		{
+			require_once 'google-login-mats/index.php';
+		}?>
 		<!--fonts include-->
 		<link href='css/Roboto.css' rel='stylesheet' type='text/css'>
 		<link href='css/Roboto_slab.css' rel='stylesheet' type='text/css'>
@@ -48,13 +46,10 @@ if ($meta_title != '' and $meta_title != $title){?>
 			</style>
 		<![endif]-->
 		<script src="js/jquery-2.1.1.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
 		<script src="js/modernizr.js"></script>
-
 	</head>
 	<body class="sticky_menu">
 		<div id="preloader"></div>
-		 
 		<!--layout-->
 		<div class="wide_layout db_centered bg_white">
 			<!--[if (lt IE 9) | IE 9]>

@@ -663,8 +663,22 @@ $this->load->view('site/templates/footer');
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
+		<!--libs include-->
+		<script src="plugins/fancybox/jquery.fancybox.pack.js"></script>
+		<script src="plugins/jquery.elevateZoom-3.0.8.min.js"></script>
+		<script src="plugins/countdown/jquery.plugin.min.js"></script>
+		<script src="plugins/countdown/jquery.countdown.min.js"></script>
+		<script src="plugins/jquery.appear.js"></script>
+		<script src="plugins/jquery.easytabs.min.js"></script>
+		<script src="plugins/owl-carousel/owl.carousel.min.js"></script>
+		<script src="plugins/twitter/jquery.tweet.min.js"></script><script src="plugins/flickr.js"></script>
+		<script src="plugins/afterresize.min.js"></script>
+		<script src="plugins/jackbox/js/jackbox-packed.min.js"></script>
+		<script src="plugins/colorpicker/colorpicker.js"></script>
+		 
+
+		<!--theme initializer-->
+		<script src="js/themeCore.js"></script>
+		<script src="js/theme.js"></script>
 	</body>
 </html>
-
-<script>
-</script>
