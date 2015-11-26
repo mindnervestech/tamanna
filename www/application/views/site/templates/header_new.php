@@ -28,12 +28,13 @@
 		<link href='css/Roboto.css' rel='stylesheet' type='text/css'>
 		<link href='css/Roboto_slab.css' rel='stylesheet' type='text/css'>
 		<!--stylesheet include-->
-		<link rel="stylesheet" type="text/css" media="all" href="plugins/fancybox/jquery.fancybox.css">
+		<link rel="stylesheet" type="text/css" media="all" href="plugins/layerslider/css/layerslider.css">
 		<link rel="stylesheet" type="text/css" media="all" href="plugins/owl-carousel/assets/owl.carousel.min.css">
+		<link rel="stylesheet" type="text/css" media="all" href="plugins/fancybox/jquery.fancybox.css">
 		<link rel="stylesheet" type="text/css" media="all" href="plugins/jackbox/css/jackbox.min.css">
 		<link rel="stylesheet" type="text/css" media="all" href="css/animate.css">
 		<link rel="stylesheet" type="text/css" media="all" href="css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" media="all" href="css/bootstrap_new.min.css">
+		<!--<link rel="stylesheet" type="text/css" media="all" href="css/bootstrap_new.min.css">-->
 		<link rel="stylesheet" type="text/css" media="all" href="css/style.css">
 		<!--[if lte IE 10]>
 			<link rel="stylesheet" type="text/css" media="screen" href="css/ie.css">
