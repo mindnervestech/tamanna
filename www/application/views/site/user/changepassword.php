@@ -1,91 +1,96 @@
-<?php $this->load->view('site/templates/header');?>
-<link rel="stylesheet" media="all" type="text/css" href="css/site/<?php echo SITE_COMMON_DEFINE ?>setting.css">
+<?php
+$this->load->view('site/templates/header_new_small');
+?>			<!--main content-->
+			<div class="page_section_offset">
+				<div class="container">
+					<div class="row">
+						<aside class="col-lg-3 col-md-3 col-sm-3 m_xs_bottom_30 p_top_4">
+							<!--categories widget-->
+							<section class="m_bottom_30">
+								<h5 class="color_dark tt_uppercase second_font fw_light m_bottom_13">Account</h5>
+								<hr class="divider_bg m_bottom_23">
+								<ul class="categories_list second_font w_break">
+								<!--	<li class="relative"><a href="#" class="fs_large_0 d_inline_b">Profile</a>
+									</li> -->
+									<li class="relative"><a href="#" class="fs_large_0 d_inline_b">Password</a>
+									</li>
+									<li class="relative"><a href="#" class="fs_large_0 d_inline_b">Purchases</a>
+									</li>
+									<li class="relative"><a href="#" class="fs_large_0 d_inline_b">Shipping Address</a>
+									</li>
+									<li class="relative"><a href="#" class="fs_large_0 d_inline_b">Orders</a>
+									</li>
+								</ul>
+							</section>
+						</aside>
+						<main class="col-lg-9 col-md-9 col-sm-9 m_bottom_30 m_xs_bottom_10">
+							<h5 class="color_dark tt_uppercase second_font fw_light m_bottom_13">Change Password</h5>
+							<hr class="divider_light m_bottom_5">
+							<div class="page_section_offset">
+									<div class="row">
+										<aside class="col-lg-3 col-md-3 col-sm-3 p_top_4">
+										</aside>
+										<div class="col-lg-6 col-md-6 col-sm-6 m_bottom_30 m_xs_bottom_10">
+										<form onsubmit="return change_user_password();" method="post" action="<?php echo base_url().'site/user_settings/change_user_password'?>">
+											<ul class="m_bottom_14">
+																<li class="m_bottom_20">
+																	<label for="password" class="second_font m_bottom_4 d_inline_b fs_medium">New Password</label>
+																	<input  type="password" name="pass" id="pass" class="w_full tr_all">
+																	<input class="next_url" type="hidden" name="next" value="<?php echo $next;?>"/>
+																</li>
+																<li class="m_bottom_20">
+																	<label for="password" class="second_font m_bottom_4 d_inline_b fs_medium">Confirm Password</label>
+																	<input  type="password" name="confirmpass" id="confirmpass"  class="w_full tr_all">
+																	<input class="next_url" type="hidden" name="next" value="<?php echo $next;?>"/>
+																	<?php if (validation_errors() != ''){?>
+																		<div id="validationErr">
+																			<script>setTimeout("hideErrDiv('validationErr')", 3000);</script>
+																			<span class="d_inline_m second_font fs_medium color_red d_md_block"><?php echo validation_errors();?></span>
+																		</div>
+																		<?php }?>
+																		<?php if($flash_data != '') { ?>
+																		<div class="errorContainer" id="<?php echo $flash_data_type;?>">
+																			<script>setTimeout("hideErrDiv('<?php echo $flash_data_type;?>')", 3000);</script>
+																			<span class="d_inline_m second_font fs_medium color_red d_md_block"><?php echo $flash_data;?></span>
+																		</div>
+																	<?php } ?>
+																</li>
+																<li>
+																	<button class="btn-save t_align_c tt_uppercase w_full second_font d_block fs_medium button_type_2 lbrown tr_all"  id="save_password"><?php if($this->lang->line('change_password') != '') { echo stripslashes($this->lang->line('change_password')); } else echo "Change Password"; ?></button>
+																</li>
+											</ul>
+										</form>
+										</div>
+										<aside class="col-lg-3 col-md-3 col-sm-3 p_top_4">
+										</aside>
+									</div>
+							</div>
+						</main>
+					</div>
+				</div>
+			</div>
+		<!--footer-->
+				<?php
+					$this->load->view('site/templates/footer');
+				?>
+				</div>
 
-<style type="text/css">
-ol.stream {position: relative;}
-ol.stream.use-css3 li.anim {transition:all .25s;-webkit-transition:all .25s;-moz-transition:all .25s;-ms-transition:all .25s;visibility:visible;opacity:1;}
-ol.stream.use-css3 li {visibility:hidden;}
-ol.stream.use-css3 li.anim.fadeout {opacity:0;}
-ol.stream.use-css3.fadein li {opacity:0;}
-ol.stream.use-css3.fadein li.anim.fadein {opacity:1;}
-</style>
-<!-- Section_start -->
-<div class="lang-en no-subnav wider winOS">
-<div id="container-wrapper">
-	<div class="container set_area">
-		
-		<?php if($flash_data != '') { ?>
-		<div class="errorContainer" id="<?php echo $flash_data_type;?>">
-			<script>setTimeout("hideErrDiv('<?php echo $flash_data_type;?>')", 3000);</script>
-			<p><span><?php echo $flash_data;?></span></p>
-		</div>
-		<?php } ?>
+		<!--libs include-->
+		<script src="plugins/jquery-ui.min.js"></script>
+		<script src="plugins/isotope.pkgd.min.js"></script>
+		<script src="plugins/jquery.appear.js"></script>
+		<script src="plugins/owl-carousel/owl.carousel.min.js"></script>
+		<script src="plugins/twitter/jquery.tweet.min.js"></script><script src="plugins/flickr.js"></script>
+		<script src="plugins/afterresize.min.js"></script>
+		<script src="plugins/jackbox/js/jackbox-packed.min.js"></script>
+		<script src="plugins/jquery.elevateZoom-3.0.8.min.js"></script>
+		<script src="plugins/fancybox/jquery.fancybox.pack.js"></script>
+		<script src="js/retina.min.js"></script>
+		<script src="plugins/colorpicker/colorpicker.js"></script>
+		 
 
-        <div id="content">
-		<form onsubmit="return change_user_password();" method="post" action="<?php echo base_url().'site/user_settings/change_user_password'?>">
-		<h2 class="ptit"><?php if($this->lang->line('change_password') != '') { echo stripslashes($this->lang->line('change_password')); } else echo "Change Password"; ?></h2>
-		<div style="display:none" class="notification-bar"></div>
-		<div class="section password">
-			<fieldset class="frm">
-				<label><?php if($this->lang->line('change_new_pwd') != '') { echo stripslashes($this->lang->line('change_new_pwd')); } else echo "New Password"; ?></label>
-				<input type="password" name="pass" id="pass">
-				<small class="comment"><?php if($this->lang->line('change_pwd_limt') != '') { echo stripslashes($this->lang->line('change_pwd_limt')); } else echo "New password, at least 6 characters."; ?></small>
-				<label><?php if($this->lang->line('change_conf_pwd') != '') { echo stripslashes($this->lang->line('change_conf_pwd')); } else echo "Confirm Password"; ?></label>
-				<input type="password" name="confirmpass" id="confirmpass">
-				<small class="comment"><?php if($this->lang->line('change_ur_pwd') != '') { echo stripslashes($this->lang->line('change_ur_pwd')); } else echo "Confirm your new password."; ?></small>
-			</fieldset>
-		</div>
-		<div class="btn-area">
-			<button id="save_password" class="btn-save"><?php if($this->lang->line('change_password') != '') { echo stripslashes($this->lang->line('change_password')); } else echo "Change Password"; ?></button>
-			<span style="display:none" class="checking"><i class="ic-loading"></i></span>
-		</div>
-		</form>
-	</div>
-
-		
-		<?php 
-		$this->load->view('site/user/settings_sidebar');
-		$this->load->view('site/templates/side_footer_menu');?>
-
-	</div>
-	<!-- / container -->
-</div>
-</div>
-
-
-<!-- Section_start -->
-
-
-
-
-<script>
-	jQuery(function($) {
-		var $select = $('.gift-recommend select.select-round');
-		$select.selectBox();
-		$select.each(function(){
-			var $this = $(this);
-			if($this.css('display') != 'none') $this.css('visibility', 'visible');
-		});
-	});
-</script>
-<script>
-    //emulate behavior of html5 textarea maxlength attribute.
-    jQuery(function($) {
-        $(document).ready(function() {
-            var check_maxlength = function(e) {
-                var max = parseInt($(this).attr('maxlength'));
-                var len = $(this).val().length;
-                if (len > max) {
-                    $(this).val($(this).val().substr(0, max));
-                }
-                if (len >= max) {
-                    return false;
-                }
-            }
-            $('textarea[maxlength]').keypress(check_maxlength).change(check_maxlength);
-            
-            
-        });
-    });
-</script>
-<?php $this->load->view('site/templates/footer');?>
+		<!--theme initializer-->
+		<script src="js/themeCore.js"></script>
+		<script src="js/theme.js"></script>
+	</body>
+</html>

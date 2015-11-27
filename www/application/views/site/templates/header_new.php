@@ -106,37 +106,11 @@
 							<div class="col-lg-8 col-md-8 col-sm-8 d_table_cell d_xs_block f_none v_align_m">
 								<div class="clearfix">
 									<div class="clearfix f_right f_xs_none d_xs_inline_b m_xs_bottom_15 t_xs_align_l">
-										<!--language
-										<div class="f_right m_right_3 relative transform3d">
-											<button class="button_type_1 tr_all second_font color_dark grey state_2" data-open-dropdown="#language">
-												<img src="images/flag_en.jpg" alt="" class="d_inline_m m_right_10"><i class="fa fa-angle-down d_inline_m fs_small"></i>
-											</button>
-											<ul id="language" data-show="wicket" data-hide="wicketout" class="sub_menu dropdown fs_medium bg_grey_light second_font animated">
-												<li>
-													<a href="#" class="sc_hover">
-														<img src="images/flag_en.jpg" alt="" class="d_inline_m m_right_7">
-														English
-													</a>
-												</li>
-												<li>
-													<a href="#" class="sc_hover">
-														<img src="images/flag_g.jpg" alt="" class="d_inline_m m_right_7">
-														German
-													</a>
-												</li>
-												<li>
-													<a href="#" class="sc_hover">
-														<img src="images/flag_s.jpg" alt="" class="d_inline_m m_right_7">
-														Spanish
-													</a>
-												</li>
-											</ul>
-										</div> -->
 									</div>
 									<!--searchform-->
-									<form role="search" class="relative f_right f_xs_none m_right_3 db_xs_centered button_in_input">
-										<input type="text" name="" tabindex="1" placeholder="Search" class="fs_medium color_light fw_light w_full tr_all">
-										<button class="color_dark tr_all color_lbrown_hover"><i class="fa fa-search d_inline_m"></i></button>
+									<form  action="<?php base_url();?>shopby/all" class="search relative f_right f_xs_none m_right_3 db_xs_centered button_in_input">
+										<input type="text" name="q" tabindex="1" class="text fs_medium color_light fw_light w_full tr_all" id="search-query" placeholder="<?php if($this->lang->line('header_search') != '') { echo stripslashes($this->lang->line('header_search')); } else echo "Search"; ?>" value="" autocomplete="off"/>
+										<button  type="submit" class="btn-submit color_dark tr_all color_lbrown_hover"><i class="fa fa-search d_inline_m"></i></button>
 									</form>
 								</div>
 							</div>
@@ -197,57 +171,6 @@
 									</li>
 									<!--shopping cart-->
 									<?php echo $MiniCartViewSet; ?><?php }?>
-									<!-- <li class="relative open_mini_shopping_cart">
-										<button class="color_dark active_lbrown tr_all" data-open-dropdown="#shopping_cart">
-											<i class="fa fa-shopping-cart fs_large"></i><sup>3</sup>
-										</button>
-
-										<div id="shopping_cart" data-show="fadeInUp" data-hide="fadeOutDown" class="bg_grey_light dropdown animated">
-											<div class="sc_header fs_small fw_light">Recently added item(s)</div>
-											<hr class="divider_white">
-											<ul class="shopping_cart_list m_bottom_4">
-												<li class="relative">
-													<div class="clearfix lh_small">
-														<a href="#" class="f_left m_right_10 d_block"><img src="images/sc_img_1.jpg" alt=""></a>
-														<a href="#" class="fs_medium second_font color_dark sc_hover d_block m_bottom_4">Cursus eleifend elit aenean</a>
-														<p class="fs_medium">1 x <b class="color_dark">$499.00</b></p>
-													</div>
-													<hr class="divider_white m_top_15 m_bottom_0">
-													<span class="close fs_small color_light tr_all color_dark_hover fw_light">x</span>
-												</li>
-												<li class="relative">
-													<div class="clearfix lh_small">
-														<a href="#" class="f_left m_right_10 d_block"><img src="images/sc_img_2.jpg" alt=""></a>
-														<a href="#" class="fs_medium second_font color_dark sc_hover d_block m_bottom_4">Auctor wisi et urna</a>
-														<p class="m_bottom_4 fs_medium">1 x <b class="color_dark">$1,599.00</b></p>
-														<ul class="fw_light fs_small lh_small">
-															<li>Size: <span class="color_dark">2-Seat Sofa</span>,</li>
-															<li>Color: <span class="color_dark">Red</span></li>
-														</ul>
-													</div>
-													<hr class="divider_white m_top_15 m_bottom_0">
-													<span class="close fs_small color_light tr_all color_dark_hover fw_light">x</span>
-												</li>
-												<li class="relative">
-													<div class="clearfix lh_small">
-														<a href="#" class="f_left m_right_10 d_block"><img src="images/sc_img_3.jpg" alt=""></a>
-														<a href="#" class="fs_medium second_font color_dark sc_hover d_block m_bottom_4">Aliquam erat volut</a>
-														<p class="fs_medium">2 x <b class="color_dark">$99.00</b></p>
-													</div>
-													<hr class="divider_white m_top_15 m_bottom_0">
-													<span class="close fs_small color_light tr_all color_dark_hover fw_light">x</span>
-												</li>
-											</ul>
-											<ul class="fs_medium second_font color_dark m_bottom_15">
-												<li><span class="d_inline_b total_title">Tax:</span><span class="fw_light">$0.00</span></li>
-												<li><span class="d_inline_b total_title">Discount:</span><span class="fw_light">$37.00</span></li>
-												<li><b><span class="d_inline_b total_title">Total:</span>$999.00</b></li>
-											</ul>
-											<a href="#" role="button" class="button_type_2 tt_uppercase fs_medium second_font d_block t_align_c black state_2 m_bottom_5">View Cart</a>
-											<a href="#" role="button" class="t_align_c tt_uppercase w_full second_font d_block fs_medium button_type_2 lbrown tr_all">Checkout</a>
-										</div>
-									</li>
-                                    -->
 								</ul>
 							</div>
 						</div>

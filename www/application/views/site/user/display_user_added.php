@@ -1,157 +1,261 @@
 <?php
-$this->load->view('site/templates/header',$this->data);
+$this->load->view('site/templates/header_new_small');
 ?>
-<link rel="stylesheet" href="css/site/<?php echo SITE_COMMON_DEFINE ?>timeline.css" type="text/css" media="all"/>
-<link rel="stylesheet" media="all" type="text/css" href="css/site/<?php echo SITE_COMMON_DEFINE ?>profile.css" />
-<!-- Section_start -->
-<div class="lang-en wider no-subnav">
-<div id="container-wrapper">
-  <div class="container usersection">
-    <div class="icon-cache"></div>
-    <div id="tooltip"></div>
-    <div class="wrapper-content right-sidebar">
-<?php if($flash_data != '') { ?>
-		<div class="errorContainer" id="<?php echo $flash_data_type;?>">
-			<script>setTimeout("hideErrDiv('<?php echo $flash_data_type;?>')", 3000);</script>
-			<p><span><?php echo $flash_data;?></span></p>
+			<!--main content-->
+			<div class="page_section_offset">
+				<div class="container">
+					<div class="row">
+						<section class="col-lg-12 col-md-12 col-sm-12">
+							<h2 class="fw_light second_font color_dark m_bottom_27 tt_uppercase">Manufacturer Name 2</h2>
+							<div class="clearfix m_bottom_10">
+								<div class="t_xs_align_c f_left m_right_20 m_xs_bottom_15 f_xs_none"><img src="images/m_img_2.jpg" alt=""></div>
+								<p class="fw_light m_bottom_14 p_top_4">Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Donec sit amet eros. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Mauris fermentum dictum magna.</p>
+								<p class="fw_light">Mauris accumsan nulla vel diam. Sed in lacus ut enim adipiscing aliquet. Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna.</p>
+							</div>
+							<p class="fw_light m_bottom_18">Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque. Vivamus eget nibh. Donec sit amet eros. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Mauris fermentum dictum magna. Sed laoreet aliquam leo. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Mauris fermentum dictum magna. Sed laoreet aliquam leo. </p>
+							<hr class="divider_light m_bottom_15">
+							<div class="second_font m_bottom_23">
+								<ul>
+													<li>
+														<button id="sign-up" re-url="/sales/create?ntid=7220865&amp;ntoid=15301425" class="t_align_c tt_uppercase second_font d_block fs_medium button_type_2 lbrown tr_all">Complete Registration</button>
+													</li>
+								</ul>
+							</div>
+							<hr class="divider_light m_bottom_15">
+							<h2 class="fw_light second_font color_dark tt_uppercase m_bottom_27">My Products</h2>
+							<?php if ($addedProductDetails->num_rows()>0 || $notSellProducts->num_rows()>0){?>
+							<!--isotope-->
+							<div id="can_change_layout" class="category_isotope_container three_columns wrapper m_bottom_10 m_xs_bottom_0" data-isotope-options='{
+								"itemSelector": ".category_isotope_item",
+					  			"layoutMode": "fitRows"
+							}'>
+							<?php
+							foreach ($addedProductDetails->result() as $productLikeDetailsRow){
+							$imgName = 'dummyProductImage.jpg';
+							$imgArr = explode(',', $productLikeDetailsRow->image);
+							if (count($imgArr)>0){
+								foreach ($imgArr as $imgRow){
+									if ($imgRow != ''){
+										$imgName = $imgRow;
+										break;
+									}
+								}
+							}
+							$fancyClass = 'fancy';
+							$fancyText = LIKE_BUTTON;
+							if (count($likedProducts)>0 && $likedProducts->num_rows()>0){
+								foreach ($likedProducts->result() as $likeProRow){
+									if ($likeProRow->product_id == $productLikeDetailsRow->seller_product_id){
+										$fancyClass = 'fancyd';$fancyText = LIKED_BUTTON;break;
+									}
+								}
+							}
+							?>
+
+								<!--isotope item-->
+								<div class="category_isotope_item">
+									<figure class="product_item type_2 c_image_container relative frame_container t_sm_align_c r_image_container qv_container">
+										<!--image & buttons & label-->
+										<div class="relative">
+											<div class="d_block">
+												<img src="images/home_img_4.jpg" alt="" class="c_image_1 tr_all">
+												<img src="images/home_v3_img_3.jpg" alt="" class="c_image_2 tr_all">
+											</div>
+										</div>
+										<figcaption class="bg_white relative p_bottom_0">
+											<div class="row">
+												<div class="col-lg-7 col-md-7 m_bottom_9">
+													<a class="second_font sc_hover d_xs_block" href="#">Sed in lacus ut enim</a>
+													<hr class="d_none divider_light m_bottom_15">
+													<p class="fw_light d_none m_bottom_14 color_grey">Mauris fermentum dictum magna. Sed laoreet aliquam leo. Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus.</p>
+													<hr class="d_none divider_light m_bottom_15">
+												</div>
+												<div class="col-lg-5 col-md-5 color_light fs_large second_font t_align_r t_sm_align_c m_bottom_9">
+													<b class="scheme_color d_block">$1 102.00</b>
+												</div>
+											</div>
+										</figcaption>
+									</figure>
+								</div>
+								<!--isotope item-->
+								<div class="category_isotope_item">
+									<figure class="product_item type_2 c_image_container relative frame_container t_sm_align_c r_image_container qv_container">
+										<!--image & buttons & label-->
+										<div class="relative">
+											<div class="d_block">
+												<img src="images/home_img_4.jpg" alt="" class="c_image_1 tr_all">
+												<img src="images/home_v3_img_3.jpg" alt="" class="c_image_2 tr_all">
+											</div>
+											<a data-popup="#quick_view" data-popup-transition-in="bounceInUp" data-popup-transition-out="bounceOutUp" class="tr_all color_white second_font qv_style_button quick_view tt_uppercase t_align_c d_block clickable d_xs_none"><i class="fa fa-eye d_inline_m m_right_10"></i><span class="fs_medium">Quick View</span></a>
+										</div>
+										<figcaption class="bg_white relative p_bottom_0">
+											<div class="row">
+												<div class="col-lg-7 col-md-7 m_bottom_9">
+													<a class="second_font sc_hover d_xs_block" href="#">Sed in lacus ut enim</a>
+													<hr class="d_none divider_light m_bottom_15">
+													<p class="fw_light d_none m_bottom_14 color_grey">Mauris fermentum dictum magna. Sed laoreet aliquam leo. Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus.</p>
+													<hr class="d_none divider_light m_bottom_15">
+												</div>
+												<div class="col-lg-5 col-md-5 color_light fs_large second_font t_align_r t_sm_align_c m_bottom_9">
+													<b class="scheme_color d_block">$1 102.00</b>
+												</div>
+											</div>
+											<button class="button_type_2 m_bottom_9 d_block w_full t_align_c lbrown state_2 tr_all second_font fs_medium tt_uppercase"><i class="fa fa-heart fs_large d_inline_m"></i> Add To Wishlist</button>
+										</figcaption>
+									</figure>
+								</div>
+								<!--isotope item-->
+								<div class="category_isotope_item">
+									<figure class="product_item type_2 c_image_container relative frame_container t_sm_align_c r_image_container qv_container">
+										<!--image & buttons & label-->
+										<div class="relative">
+											<div class="d_block">
+												<img src="images/home_img_4.jpg" alt="" class="c_image_1 tr_all">
+												<img src="images/home_v3_img_3.jpg" alt="" class="c_image_2 tr_all">
+											</div>
+											<a data-popup="#quick_view" data-popup-transition-in="bounceInUp" data-popup-transition-out="bounceOutUp" class="tr_all color_white second_font qv_style_button quick_view tt_uppercase t_align_c d_block clickable d_xs_none"><i class="fa fa-eye d_inline_m m_right_10"></i><span class="fs_medium">Quick View</span></a>
+										</div>
+										<figcaption class="bg_white relative p_bottom_0">
+											<div class="row">
+												<div class="col-lg-7 col-md-7 m_bottom_9">
+													<a class="second_font sc_hover d_xs_block" href="#">Sed in lacus ut enim</a>
+													<hr class="d_none divider_light m_bottom_15">
+													<p class="fw_light d_none m_bottom_14 color_grey">Mauris fermentum dictum magna. Sed laoreet aliquam leo. Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus.</p>
+													<hr class="d_none divider_light m_bottom_15">
+												</div>
+												<div class="col-lg-5 col-md-5 color_light fs_large second_font t_align_r t_sm_align_c m_bottom_9">
+													<b class="scheme_color d_block">$1 102.00</b>
+												</div>
+											</div>
+											<button class="button_type_2 m_bottom_9 d_block w_full t_align_c lbrown state_2 tr_all second_font fs_medium tt_uppercase"><i class="fa fa-heart fs_large d_inline_m"></i> Add To Wishlist</button>
+										</figcaption>
+									</figure>
+								</div>
+								<!--isotope item-->
+								<div class="category_isotope_item">
+									<figure class="product_item type_2 c_image_container relative frame_container t_sm_align_c r_image_container qv_container">
+										<!--image & buttons & label-->
+										<div class="relative">
+											<div class="d_block">
+												<img src="images/home_img_4.jpg" alt="" class="c_image_1 tr_all">
+												<img src="images/home_v3_img_3.jpg" alt="" class="c_image_2 tr_all">
+											</div>
+											<a data-popup="#quick_view" data-popup-transition-in="bounceInUp" data-popup-transition-out="bounceOutUp" class="tr_all color_white second_font qv_style_button quick_view tt_uppercase t_align_c d_block clickable d_xs_none"><i class="fa fa-eye d_inline_m m_right_10"></i><span class="fs_medium">Quick View</span></a>
+										</div>
+										<figcaption class="bg_white relative p_bottom_0">
+											<div class="row">
+												<div class="col-lg-7 col-md-7 m_bottom_9">
+													<a class="second_font sc_hover d_xs_block" href="#">Sed in lacus ut enim</a>
+													<hr class="d_none divider_light m_bottom_15">
+													<p class="fw_light d_none m_bottom_14 color_grey">Mauris fermentum dictum magna. Sed laoreet aliquam leo. Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus.</p>
+													<hr class="d_none divider_light m_bottom_15">
+												</div>
+												<div class="col-lg-5 col-md-5 color_light fs_large second_font t_align_r t_sm_align_c m_bottom_9">
+													<b class="scheme_color d_block">$1 102.00</b>
+												</div>
+											</div>
+											<button class="button_type_2 m_bottom_9 d_block w_full t_align_c lbrown state_2 tr_all second_font fs_medium tt_uppercase"><i class="fa fa-heart fs_large d_inline_m"></i> Add To Wishlist</button>
+										</figcaption>
+									</figure>
+								</div>
+								<!--isotope item-->
+								<div class="category_isotope_item">
+									<figure class="product_item type_2 c_image_container relative frame_container t_sm_align_c r_image_container qv_container">
+										<!--image & buttons & label-->
+										<div class="relative">
+											<div class="d_block">
+												<img src="images/home_img_4.jpg" alt="" class="c_image_1 tr_all">
+												<img src="images/home_v3_img_3.jpg" alt="" class="c_image_2 tr_all">
+											</div>
+											<a data-popup="#quick_view" data-popup-transition-in="bounceInUp" data-popup-transition-out="bounceOutUp" class="tr_all color_white second_font qv_style_button quick_view tt_uppercase t_align_c d_block clickable d_xs_none"><i class="fa fa-eye d_inline_m m_right_10"></i><span class="fs_medium">Quick View</span></a>
+										</div>
+										<figcaption class="bg_white relative p_bottom_0">
+											<div class="row">
+												<div class="col-lg-7 col-md-7 m_bottom_9">
+													<a class="second_font sc_hover d_xs_block" href="#">Sed in lacus ut enim</a>
+													<hr class="d_none divider_light m_bottom_15">
+													<p class="fw_light d_none m_bottom_14 color_grey">Mauris fermentum dictum magna. Sed laoreet aliquam leo. Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus.</p>
+													<hr class="d_none divider_light m_bottom_15">
+												</div>
+												<div class="col-lg-5 col-md-5 color_light fs_large second_font t_align_r t_sm_align_c m_bottom_9">
+													<b class="scheme_color d_block">$1 102.00</b>
+												</div>
+											</div>
+											<button class="button_type_2 m_bottom_9 d_block w_full t_align_c lbrown state_2 tr_all second_font fs_medium tt_uppercase"><i class="fa fa-heart fs_large d_inline_m"></i> Add To Wishlist</button>
+										</figcaption>
+									</figure>
+								</div>
+								<!--isotope item-->
+								<div class="category_isotope_item">
+									<figure class="product_item type_2 c_image_container relative frame_container t_sm_align_c r_image_container qv_container">
+										<!--image & buttons & label-->
+										<div class="relative">
+											<div class="d_block">
+												<img src="images/home_img_4.jpg" alt="" class="c_image_1 tr_all">
+												<img src="images/home_v3_img_3.jpg" alt="" class="c_image_2 tr_all">
+											</div>
+											<a data-popup="#quick_view" data-popup-transition-in="bounceInUp" data-popup-transition-out="bounceOutUp" class="tr_all color_white second_font qv_style_button quick_view tt_uppercase t_align_c d_block clickable d_xs_none"><i class="fa fa-eye d_inline_m m_right_10"></i><span class="fs_medium">Quick View</span></a>
+										</div>
+										<figcaption class="bg_white relative p_bottom_0">
+											<div class="row">
+												<div class="col-lg-7 col-md-7 m_bottom_9">
+													<a class="second_font sc_hover d_xs_block" href="#">Sed in lacus ut enim</a>
+													<hr class="d_none divider_light m_bottom_15">
+													<p class="fw_light d_none m_bottom_14 color_grey">Mauris fermentum dictum magna. Sed laoreet aliquam leo. Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus.</p>
+													<hr class="d_none divider_light m_bottom_15">
+												</div>
+												<div class="col-lg-5 col-md-5 color_light fs_large second_font t_align_r t_sm_align_c m_bottom_9">
+													<b class="scheme_color d_block">$1 102.00</b>
+												</div>
+											</div>
+											<button class="button_type_2 m_bottom_9 d_block w_full t_align_c lbrown state_2 tr_all second_font fs_medium tt_uppercase"><i class="fa fa-heart fs_large d_inline_m"></i> Add To Wishlist</button>
+										</figcaption>
+									</figure>
+								</div>
+								<!--isotope item-->
+								<div class="category_isotope_item">
+									<figure class="product_item type_2 c_image_container relative frame_container t_sm_align_c r_image_container qv_container">
+										<!--image & buttons & label-->
+										<div class="relative">
+											<div class="d_block">
+												<img src="images/home_img_4.jpg" alt="" class="c_image_1 tr_all">
+												<img src="images/home_v3_img_3.jpg" alt="" class="c_image_2 tr_all">
+											</div>
+											<a data-popup="#quick_view" data-popup-transition-in="bounceInUp" data-popup-transition-out="bounceOutUp" class="tr_all color_white second_font qv_style_button quick_view tt_uppercase t_align_c d_block clickable d_xs_none"><i class="fa fa-eye d_inline_m m_right_10"></i><span class="fs_medium">Quick View</span></a>
+										</div>
+										<figcaption class="bg_white relative p_bottom_0">
+											<div class="row">
+												<div class="col-lg-7 col-md-7 m_bottom_9">
+													<a class="second_font sc_hover d_xs_block" href="#">Sed in lacus ut enim</a>
+													<hr class="d_none divider_light m_bottom_15">
+													<p class="fw_light d_none m_bottom_14 color_grey">Mauris fermentum dictum magna. Sed laoreet aliquam leo. Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus.</p>
+													<hr class="d_none divider_light m_bottom_15">
+												</div>
+												<div class="col-lg-5 col-md-5 color_light fs_large second_font t_align_r t_sm_align_c m_bottom_9">
+													<b class="scheme_color d_block">$1 102.00</b>
+												</div>
+											</div>
+											<button class="button_type_2 m_bottom_9 d_block w_full t_align_c lbrown state_2 tr_all second_font fs_medium tt_uppercase"><i class="fa fa-heart fs_large d_inline_m"></i> Add To Wishlist</button>
+										</figcaption>
+									</figure>
+								</div>
+
+
+							</div>
+							<?php }}?>
+						</section>
+					</div>
+				</div>
+			</div>
+			<!--footer-->
+				<?php
+					$this->load->view('site/templates/footer');
+				?>
 		</div>
-		<?php } ?>
-      <div id="content">
-        <div class="wrapper timeline normal">
-          <ul class="user-tab">
-            <li><a href="user/<?php echo $userProfileDetails->row()->user_name;?>" ><b><?php echo LIKED_BUTTON;?></b> <small><?php echo $userProfileDetails->row()->likes;?></small></a></li>
-            <li><a href="user/<?php echo $userProfileDetails->row()->user_name;?>/added" class="current"><b><?php if($this->lang->line('display_added') != '') { echo stripslashes($this->lang->line('display_added')); } else echo "Added"; ?></b> <small><?php echo $userProfileDetails->row()->products;?></small></a></li>
-            <li><a href="user/<?php echo $userProfileDetails->row()->user_name;?>/lists"><b><?php if($this->lang->line('display_lists') != '') { echo stripslashes($this->lang->line('display_lists')); } else echo "Lists"; ?></b> <small><?php echo $userProfileDetails->row()->lists;?></small></a></li>
-            <li><a href="user/<?php echo $userProfileDetails->row()->user_name;?>/wants"><b><?php if($this->lang->line('display_wants') != '') { echo stripslashes($this->lang->line('display_wants')); } else echo "Wants"; ?></b> <small><?php echo $userProfileDetails->row()->want_count;?></small></a></li>
-          <!--  <li><a href="user/<?php echo $userProfileDetails->row()->user_name;?>/owns"><b><?php if($this->lang->line('display_owns') != '') { echo stripslashes($this->lang->line('display_owns')); } else echo "Owns"; ?></b> <small><?php echo $userProfileDetails->row()->own_count;?></small></a></li>
-            <li><a href="user/<?php echo $userProfileDetails->row()->user_name;?>/follows"><b><?php if($this->lang->line('display_follows') != '') { echo stripslashes($this->lang->line('display_follows')); } else echo "Follows"; ?></b> <small><?php echo $follow->num_rows();?></small></a></li> -->
-          </ul>
-          <div class="top-menu">
-          </div>
-          <?php if ($addedProductDetails->num_rows()>0 || $notSellProducts->num_rows()>0){?>
-          <ol class="stream">
-          <?php 
-          foreach ($addedProductDetails->result() as $productLikeDetailsRow){
-          		$imgName = 'dummyProductImage.jpg';
-         		$imgArr = explode(',', $productLikeDetailsRow->image);
-         		if (count($imgArr)>0){
-         			foreach ($imgArr as $imgRow){
-         				if ($imgRow != ''){
-         					$imgName = $imgRow;
-         					break;
-         				}
-         			}
-         		}
-          		$fancyClass = 'fancy';
-          		$fancyText = LIKE_BUTTON;
-          		if (count($likedProducts)>0 && $likedProducts->num_rows()>0){
-          			foreach ($likedProducts->result() as $likeProRow){
-          				if ($likeProRow->product_id == $productLikeDetailsRow->seller_product_id){
-          					$fancyClass = 'fancyd';$fancyText = LIKED_BUTTON;break;
-          				}
-          			}
-          		}
-          ?>
-            <li class="big clear">
-              <div class="figure-item"> 
-              <a href="<?php echo 'things/'.$productLikeDetailsRow->id.'/'.url_title($productLikeDetailsRow->product_name);?>" class="vcard">
-              <img src="images/product/<?php echo $imgName;?>">
-              </a> 
-              <a href="<?php echo 'things/'.$productLikeDetailsRow->id.'/'.url_title($productLikeDetailsRow->product_name);?>" class="figure-img"> 
-              <span class="figure grid" style="background-size: cover" data-ori-url="images/product/<?php echo $imgName;?>" data-310-url="images/product/<?php echo $imgName;?>"><em class="back"></em>
-              </span> 
-              <span class="figure classic"> <em class="back"></em> 
-              <img src="images/product/<?php echo $imgName;?>" data-width="640" data-height="640"> 
-              </span> 
-              <span class="figure vertical"> <em class="back"></em> 
-              <img src="images/product/<?php echo $imgName;?>" data-width="310" data-height="310"> </span> 
-              <span class="figcaption"><?php echo $productLikeDetailsRow->product_name;?></span> 
-              </a> 
-           <!--   <em class="figure-detail"> 
-              <span class="username"><em><a href="<?php if ($productLikeDetailsRow->user_name == ''){echo 'user/administrator';}else {echo 'user/'.$productLikeDetailsRow->user_name;}?>"><?php if ($productLikeDetailsRow->user_name == ''){echo 'administrator';}else {echo $productLikeDetailsRow->full_name;}?></a> + <?php echo $productLikeDetailsRow->likes;?></em></span> 
-              </em> -->
-                <ul class="function">
-                  <li class="share" style="margin-top: 0px; margin-right: 0px;">
-                    <button type="button" data-timage="images/product/<?php echo $imgName;?>" tname="<?php echo $productLikeDetailsRow->product_name;?>" class="btn-share"> <i class="icon-forward-outline"></i> </button>
-                  </li>
-                </ul>
-               <a href="#" item_img_url="images/product/<?php echo $imgName;?>" tid="<?php echo $productLikeDetailsRow->seller_product_id;?>" class="button <?php echo $fancyClass;?>" <?php if ($loginCheck==''){?>require_login="true"<?php }?>><span><i></i></span> <?php echo $fancyText;?></a> </div> 
-            </li>
-          <?php }?>  
-          <?php 
-          foreach ($notSellProducts->result() as $productLikeDetailsRow){
-          		$imgName = 'dummyProductImage.jpg';
-         		$imgArr = explode(',', $productLikeDetailsRow->image);
-         		if (count($imgArr)>0){
-         			foreach ($imgArr as $imgRow){
-         				if ($imgRow != ''){
-         					$imgName = $imgRow;
-         					break;
-         				}
-         			}
-         		}
-          		$fancyClass = 'fancy';
-          		$fancyText = LIKE_BUTTON;
-          		if (count($likedProducts)>0 && $likedProducts->num_rows()>0){
-          			foreach ($likedProducts->result() as $likeProRow){
-          				if ($likeProRow->product_id == $productLikeDetailsRow->seller_product_id){
-          					$fancyClass = 'fancyd';$fancyText = LIKED_BUTTON;break;
-          				}
-          			}
-          		}
-          ?>
-            <li class="big clear">
-              <div class="figure-item"> 
-              <a href="<?php echo 'user/'.$userProfileDetails->row()->user_name.'/things/'.$productLikeDetailsRow->seller_product_id.'/'.url_title($productLikeDetailsRow->product_name);?>" class="vcard">
-              <img src="images/product/<?php echo $imgName;?>">
-              </a> 
-              <a href="<?php echo 'user/'.$userProfileDetails->row()->user_name.'/things/'.$productLikeDetailsRow->seller_product_id.'/'.url_title($productLikeDetailsRow->product_name);?>" class="figure-img"> 
-              <span class="figure grid" style="background-size: cover" data-ori-url="images/product/<?php echo $imgName;?>" data-310-url="images/product/<?php echo $imgName;?>"><em class="back"></em>
-              </span> 
-              <span class="figure classic"> <em class="back"></em> 
-              <img src="images/product/<?php echo $imgName;?>" data-width="640" data-height="640"> 
-              </span> 
-              <span class="figure vertical"> <em class="back"></em> 
-              <img src="images/product/<?php echo $imgName;?>" data-width="310" data-height="310"> </span> 
-              <span class="figcaption"><?php echo $productLikeDetailsRow->product_name;?></span> 
-              </a> 
-        <!--      <em class="figure-detail"> 
-              <span class="username"><em><a href="<?php if ($productLikeDetailsRow->user_name == ''){echo 'user/administrator';}else {echo 'user/'.$productLikeDetailsRow->user_name;}?>"><?php if ($productLikeDetailsRow->user_name == ''){echo 'administrator';}else {echo $productLikeDetailsRow->full_name;}?></a> + <?php echo $productLikeDetailsRow->likes;?></em></span> 
-              </em> -->
-                <ul class="function">
-                  <li class="share" style="margin-top: 0px; margin-right: 0px;">
-                    <button type="button" data-timage="<?php echo base_url();?>images/product/<?php echo $imgName;?>" tname="<?php echo $productLikeDetailsRow->product_name;?>" class="btn-share"> <i class="icon-forward-outline"></i> </button>
-                  </li>
-                </ul>
-               <a href="#" item_img_url="images/product/<?php echo $imgName;?>" tid="<?php echo $productLikeDetailsRow->seller_product_id;?>" class="button <?php echo $fancyClass;?>" <?php if ($loginCheck==''){?>require_login="true"<?php }?>><span><i></i></span> <?php echo $fancyText;?></a> </div> 
-            </li>
-          <?php }?>  
-          </ol>
-          <?php }else {?>
-          <div class="no-result">
-          <?php if ($userProfileDetails->row()->products>0){?>
-          <b><?php if($this->lang->line('prod_det_not_avail') != '') { echo stripslashes($this->lang->line('prod_det_not_avail')); } else echo "Product details not available"; ?></b>
-          <?php }else {?>
-          	<b><?php echo $userProfileDetails->row()->full_name;?></b> <?php if($this->lang->line('display_not_added') != '') { echo stripslashes($this->lang->line('display_not_added')); } else echo "has not added anything yet"; ?>.
-          <?php }?>
-          </div>
-          <?php }?>
-        </div>
-        <div id="infscr-loading" style="display:none">
-          <span class="loading">Loading...</span> </div>
-      </div>
-      <?php $this->load->view('site/user/display_user_sidebar');?>
-    </div>
 
-    <a id="scroll-to-top" href="#header" style="display: none;"><span><?php if($this->lang->line('signup_jump_top') != '') { echo stripslashes($this->lang->line('signup_jump_top')); } else echo "Jump to top"; ?></span></a>
-  <!-- / container -->
+		<!--back to top-->
+		<button class="back_to_top animated button_type_6 grey state_2 d_block black_hover f_left vc_child tr_all"><i class="fa fa-angle-up d_inline_m"></i></button>
 
-</div>
-    <?php 
-     $this->load->view('site/templates/footer_menu');
-     ?>
-
-</div>
 <!-- Section_start -->
 <script type="text/javascript" src="js/site/profile_things.js"></script>
 <script>
@@ -699,6 +803,20 @@ jQuery(function($){
         })
         if($.browser.msie) $.infiniteshow.option('prepare',1000);
     </script>
-<?php
-$this->load->view('site/templates/footer');
-?>
+		
+		<!--libs include-->
+		<script src="plugins/jquery.appear.js"></script>
+		<script src="plugins/isotope.pkgd.min.js"></script>
+		<script src="plugins/owl-carousel/owl.carousel.min.js"></script>
+		<script src="plugins/twitter/jquery.tweet.min.js"></script><script src="plugins/flickr.js"></script>
+		<script src="plugins/afterresize.min.js"></script>
+		<script src="plugins/jackbox/js/jackbox-packed.min.js"></script>
+		<script src="js/retina.min.js"></script>
+		<script src="plugins/colorpicker/colorpicker.js"></script>
+		 
+
+		<!--theme initializer-->
+		<script src="js/themeCore.js"></script>
+		<script src="js/theme.js"></script>
+	</body>
+</html>
