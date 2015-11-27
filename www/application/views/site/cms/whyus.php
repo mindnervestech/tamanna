@@ -21,7 +21,7 @@ $this->load->view('site/templates/header_new_small');
 								<div class="t_xs_align_c f_left m_right_20 m_xs_bottom_15 f_xs_none"><img src="images/about_img_1.jpg" alt=""></div>
 								<h4 class="fw_light second_font color_dark m_bottom_27 tt_uppercase">Hand Picked Products, Unmatched Quality</h4>
 								<p class="fw_light m_bottom_14 p_top_4">All our sellers and products are hand picked. We ensure that all products sold on our website are of high quality.</p>
-								<p class="fw_light m_bottom_14 p_top_4">Our wooden furniture comes with one year warranty against manufacturing defects, termite and borers.</p>
+								<p class="fw_light m_bottom_14 p_top_4">Our wooden furniture comes with six months warranty against manufacturing defects, termite and borers.</p>
 
 							</div>
 							<div class="clearfix m_bottom_15 m_bottom_25">

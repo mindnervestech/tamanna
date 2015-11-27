@@ -90,7 +90,7 @@ $this->load->view('site/templates/header_new');
 							<div class="banner_type_2 color_lbrown m_bottom_30">
 								<div class="bg_lbrown inner color_white t_align_c">
 									<h1 class="second_font fw_light m_bottom_10">Quality Assurance</h1>
-									<p class="fw_light m_bottom_15">Six Months Warrenty Against Any Manufacturing Defect</p>
+									<p class="fw_light m_bottom_15">Six Months Warranty Against Any Manufacturing Defect</p>
 								<!--	<span class="second_font tt_uppercase color_white fs_medium button_type_7 d_inline_b bg_transparent tr_all">Learn More</span> -->
 								</div>
 							</div>

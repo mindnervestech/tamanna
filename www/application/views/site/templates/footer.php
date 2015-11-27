@@ -44,19 +44,7 @@ On Socktail, we are committed to provide widest range of quality furniture and h
 								</ul>
 									</div>
 								</div>
-								<div class="col-lg-3 col-md-3 col-sm-3 m_bottom_13 m_sm_bottom_30">
-									<h5 class="color_dark tt_uppercase second_font fw_light m_bottom_13">The Services</h5>
-									<hr class="divider_bg m_bottom_25">
-									<ul class="second_font vr_list_type_1 with_links">
-										<li class="m_bottom_14"><a href="#" class="sc_hover d_inline_b"><i class="fa fa-caret-right"></i>My account</a></li>
-										<li class="m_bottom_14"><a href="#" class="sc_hover d_inline_b"><i class="fa fa-caret-right"></i>Order history</a></li>
-										<li class="m_bottom_14"><a href="#" class="sc_hover d_inline_b"><i class="fa fa-caret-right"></i>Wishlist</a></li>
-										<li class="m_bottom_14"><a href="#" class="sc_hover d_inline_b"><i class="fa fa-caret-right"></i>Vendor contact</a></li>
-										<li class="m_bottom_14"><a href="#" class="sc_hover d_inline_b"><i class="fa fa-caret-right"></i>Front page</a></li>
-										<li class="m_bottom_14"><a href="#" class="sc_hover d_inline_b"><i class="fa fa-caret-right"></i>Categories</a></li>
-									</ul>
-								</div>
-								<div class="col-lg-3 col-md-3 col-sm-3 m_bottom_13 m_sm_bottom_30">
+								<div class="col-lg-6 col-md-6 col-sm-6 m_bottom_13 m_sm_bottom_30">
 									<h5 class="color_dark tt_uppercase second_font fw_light m_bottom_13">Information</h5>
 									<hr class="divider_bg m_bottom_25">
 									<ul class="second_font vr_list_type_1 with_links">

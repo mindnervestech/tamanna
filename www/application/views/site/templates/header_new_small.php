@@ -64,22 +64,23 @@ if ($meta_title != '' and $meta_title != $title){?>
 						<div class="row">
 							<div class="col-lg-3 col-md-3 col-sm-3 fs_small color_light fw_light t_xs_align_c">
 								<ul class="hr_list second_font si_list fs_small">
-									<li><i class="fa fa-phone color_dark fs_large"></i> <a class="sc_hover d_inline_b" href="account.html">800-599-65-80</a></li>
-									<li class="w_break" data-icon=""><i class="fa fa-envelope color_dark"></i> <a href="mailto:#" class="sc_hover d_inline_b">contact@socktail.com</a></li>
+									<li><i class="fa fa-phone color_dark fs_large" style="margin-top:1px;"></i> <a class="sc_hover d_inline_b" href="pages/contact-us"> 7304 22 44 88</a></li>
+									<li class="w_break" data-icon=""><i class="fa fa-envelope color_dark" style="margin-top:1px;"></i> <a href="mailto:contact@socktail.com" class="sc_hover d_inline_b"> contact@socktail.com</a></li>
 								</ul>
 							</div>
 							<div class="col-lg-9 col-md-9 col-sm-9 t_align_r t_xs_align_c">
 								<!--shop nav-->
 								<nav class="d_inline_b">
 									<ul class="hr_list second_font si_list fs_small">
-                                    <li><a href="index.html" class="sc_hover tr_delay" href="design-ideas">Explore</a></li>
-                                    <li><a href="index.html" class="sc_hover tr_delay" href="faq">Why Socktail</a></li>
-									<li><a href="index.html" class="sc_hover tr_delay" href="faq">Contact Us</a></li>
+                                    <li><a class="sc_hover tr_delay" href="shop">Shop</a></li>
+                                    <li><a class="sc_hover tr_delay" href="design-ideas">Explore</a></li>
+                                    <li><a class="sc_hover tr_delay" href="pages/faq">Why Socktail</a></li>
+									<li><a href="pages/contact-us" class="sc_hover tr_delay" href="faq">Contact Us</a></li>
 
                                         <?php if ($loginCheck != ''){ ?>
                                         <li><a class="sc_hover tr_delay" href="add">Add</a></li>
                                         <li><a class="sc_hover tr_delay" href="settings">My Account</a></li>
-                                        <li><a class="sc_hover tr_delay" href="purchases">Orders List</a></li>
+                                        <li><a class="sc_hover tr_delay" href="purchases">Purchase History</a></li>
 										<li><a class="sc_hover tr_delay" href="<?php echo 'user/'.$userDetails->row()->user_name;?>">Wishlist</a></li>
                                         <li><a class="sc_hover tr_delay" href="logout">Logout</a></li>
                                         <?php }else  { ?>
@@ -98,8 +99,8 @@ if ($meta_title != '' and $meta_title != $title){?>
 						<div class="d_table w_full d_xs_block">
 							<div class="col-lg-12 col-md-12 col-sm-12 d_table_cell d_xs_block f_none v_align_m m_xs_bottom_15">
 								<!--logo-->
-								<a href="index.html" class="d_inline_b">
-									<img src="images/logo.png" alt="">
+								<a href="<?php echo base_url();?>" class="d_inline_b" alt="<?php echo $siteTitle;?>" title="<?php echo $siteTitle;?>">
+									<img src="images/logo/<?php echo $logo;?>" alt="socktail logo"">
 								</a>
 							</div>
 						</div>
