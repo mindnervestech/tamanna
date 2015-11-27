@@ -1,166 +1,144 @@
 <?php
-$this->load->view('site/templates/header',$this->data);
+$this->load->view('site/templates/header_new_small');
 ?>
-<style type="text/css" media="screen">
+			<!--main content-->
+			<div class="page_section_offset" style="padding: 3px 0 75px;">
+				<div class="container">
+					<div class="row">
+						<aside class="col-lg-2 col-md-2 col-sm-2 p_top_4">
+						</aside>
+						<section class="col-lg-8 col-md-8 col-sm-8">
+								<?php if($flash_data != '') { ?>
+									<div class="errorContainer" id="<?php echo $flash_data_type;?>">
+										<script>setTimeout("hideErrDiv('<?php echo $flash_data_type;?>')", 3000);</script>
+										<p><span><?php echo $flash_data;?></span></p>
+									</div>
+								<?php } ?>
+							<h2 class="fw_light second_font color_dark m_bottom_27 tt_uppercase">Tell Us About Your Company</h2>
+							<hr class="divider_bg m_bottom_10">
+						</section>
+						<aside class="col-lg-2 col-md-2 col-sm-2 p_top_4">
+						</aside>
+					</div>
+					<div class="row">
+						<aside class="col-lg-2 col-md-2 col-sm-2 p_top_4">
+						</aside>
+						<form class="col-lg-8 col-md-8 col-sm-8" action="site/user/seller_signup" method="post" id="seller_signup" onsubmit="return validateSellerSignup();">
+							<div class="error-box" style="display:none;">
+								<p><?php if($this->lang->line('seller_some_requi') != '') { echo stripslashes($this->lang->line('seller_some_requi')); } else echo "Some required information is missing or incomplete. Please correct your entries and try again"; ?>.</p>
+								<ul></ul>
+							</div>
+							<section class="col-lg-6 col-md-6 col-sm-6">
+								<ul class="m_bottom_14">
+													<li class="m_bottom_15">
+														<label for="username" class="second_font m_bottom_4 d_inline_b fs_medium">Brand Name *</label>
+														<input  type="text" name="brand_name" id="brand_name"  class="w_full tr_all">
+													</li>
+													<li class="clearfix m_bottom_5">
+														<label for="username" class="second_font m_bottom_4 d_inline_b fs_medium">About Your Brand *</label>
+														<div class="f_left field_container" style="width:100%">
+															<textarea class="w_full tr_all" rows="6" type="text" name="brand_description" id="brand_description"></textarea>
+														</div>
+													</li>
+													<li class="m_bottom_15">
+														<label for="username" class="second_font m_bottom_4 d_inline_b fs_medium">Website Link</label>
+														<input type="text" name="web_url" id="web_url" style="margin-bottom: 10px;" class="w_full tr_all">
+													</li>
+													<li class="m_bottom_20">
+														<label for="password" class="second_font m_bottom_4 d_inline_b fs_medium">Address *</label>
+														<input type="text" name="s_address" id="s_address" class="w_full tr_all">
+													</li>
+													<li class="m_bottom_15">
+														<label for="username" class="second_font m_bottom_4 d_inline_b fs_medium">City *</label>
+														<input type="text" name="s_city" id="s_city" class="w_full tr_all">
+													</li>
+													<li class="m_bottom_15">
+														<label for="username" class="second_font m_bottom_4 d_inline_b fs_medium">State *</label>
+														<input type="text" name="s_state" id="s_state" class="w_full tr_all">
+													</li>
+													<li class="m_bottom_15">
+														<label for="username" class="second_font m_bottom_4 d_inline_b fs_medium">Postel Code *</label>
+														<input type="text" name="s_postal_code" id="s_postal_code" class="w_full tr_all">
+													</li>
+								</ul>
+							</section>
+							<section class="col-lg-6 col-md-6 col-sm-6">
+								<ul class="m_bottom_14">
 
-
-#edit-details {
-    color: #FF3333;
-    font-size: 11px;
-}
-.option-area select.option {
-    border: 1px solid #D1D3D9;
-    border-radius: 3px 3px 3px 3px;
-    box-shadow: 1px 1px 1px #EEEEEE;
-    height: 22px;
-    margin: 5px 0 12px;
-}
-a.selectBox.option {
-    margin: 5px 0 10px;
-    padding: 3px 0;
-}
-a.selectBox.option .selectBox-label {
-    font: inherit !important;
-    padding-left: 10px;
-
-}
-
-</style>
-
-
-
-<div id="container-wrapper">
-	<div class="container ">
-		
-
-<div id="content">
-		<?php if($flash_data != '') { ?>
-		<div class="errorContainer" id="<?php echo $flash_data_type;?>">
-			<script>setTimeout("hideErrDiv('<?php echo $flash_data_type;?>')", 3000);</script>
-			<p><span><?php echo $flash_data;?></span></p>
-		</div>
-		<?php } ?>
-			<section class="merchant">
-			<form action="site/user/seller_signup" method="post" id="seller_signup" onsubmit="return validateSellerSignup();">
-				<div class="error-box" style="display:none;">
-					<p><?php if($this->lang->line('seller_some_requi') != '') { echo stripslashes($this->lang->line('seller_some_requi')); } else echo "Some required information is missing or incomplete. Please correct your entries and try again"; ?>.</p>
-					<ul></ul>
+													<li class="m_bottom_20">
+														<label for="password" class="second_font m_bottom_4 d_inline_b fs_medium">Country *</label>
+														<?php 
+																if(isset($countryList) && $countryList->num_rows()>0){
+																?>
+																<select name="s_country" class="select-white select-country" id="s_country">
+																<?php 
+																	foreach ($countryList->result() as $country){
+																?>
+																<option value="<?php echo $country->country_code;?>"><?php echo $country->name;?></option>
+																<?php 
+																	}
+																?>						
+																</select>
+																<?php 
+																}else {
+																?>
+																<input type="text" name="s_country" id="s_country" class="w_full tr_all"/>
+														<?php }?>
+													</li>
+													<li class="m_bottom_20">
+														<label for="password" class="second_font m_bottom_4 d_inline_b fs_medium">Phone Number *</label>
+														<input type="text" name="s_phone_no" id="s_phone_no"  class="w_full tr_all">
+													</li>
+													<li class="m_bottom_20">
+														<label for="password" class="second_font m_bottom_4 d_inline_b fs_medium">TIN No</label>
+														<input type="text" name="s_tin_no" id="s_tin_no" class="w_full tr_all">
+													</li>
+													<li class="m_bottom_20">
+														<label for="password" class="second_font m_bottom_4 d_inline_b fs_medium">VAT No</label>
+														<input type="text" name="s_vat_no" id="s_vat_no" class="w_full tr_all">
+													</li>
+													<li class="m_bottom_20">
+														<label for="password" class="second_font m_bottom_4 d_inline_b fs_medium">CST No</label>
+														<input type="text" name="s_cst_no" id="s_cst_no" class="w_full tr_all">
+													</li>
+													<li class="m_bottom_20">
+														<label for="password" class="second_font m_bottom_4 d_inline_b fs_medium">Bank Account Holder's Name</label>
+														<input type="text" name="bank_name" id="bank_name" class="w_full tr_all">
+													</li>
+													<li class="m_bottom_20">
+														<label for="password" class="second_font m_bottom_4 d_inline_b fs_medium">Account Number</label>
+														<input type="text" name="bank_no" id="bank_no" class="w_full tr_all">
+													</li>
+													<li class="m_bottom_20">
+														<label for="password" class="second_font m_bottom_4 d_inline_b fs_medium">IFSC Code</label>
+														<input type="text" name="bank_code" id="bank_code" class="w_full tr_all">
+													</li>
+								</ul>
+							</section>
+							<section class="col-lg-12 col-md-12 col-sm-12">
+								<ul>
+													<li>
+														<button id="sign-up" re-url="/sales/create?ntid=7220865&amp;ntoid=15301425" class="btn-green t_align_c tt_uppercase w_full second_font d_block fs_medium button_type_2 lbrown tr_all">Complete Registration</button>
+													</li>
+								</ul>
+							</section>
+						</form>	
+						<aside class="col-lg-2 col-md-2 col-sm-2 p_top_4">
+						</aside>
+					</div>
 				</div>
-				<dl>
-					<dt><?php if($this->lang->line('seller_merc_info') != '') { echo stripslashes($this->lang->line('seller_merc_info')); } else echo "Merchant Information"; ?></dt>
-                    <dd><label for="" class="label"><?php if($this->lang->line('seller_brand') != '') { echo stripslashes($this->lang->line('seller_brand')); } else echo "Brand"; ?><sup style="color: red;">*</sup></label>
-                        <input type="text" name="brand_name" id="brand_name" />
-                    </dd>
-                    <dd><label for="" class="label">Category<sup style="color: red;">*</sup></label>
-                        <select name="category_id" id="category_id" class="option  selectBox" style="border: 1px solid #D1D3D9;
-  width: 222px;
-  height: 30px;
-  margin-top: 5px;
-  margin-bottom: 10px;
-  background: -webkit-linear-gradient(top,#f4f4f4,#ffffff);" onchange="" >
-                        <option value="0">--------------- <?php if($this->lang->line('checkout_select') != '') { echo stripslashes($this->lang->line('checkout_select')); } else echo "Select"; ?> ---------------</option>
-                        <?php foreach($ProfCatList->result_array() as $ProfCatvals ){ ?>
-                        <option value="<?php echo $ProfCatvals['id']; ?>"><?php echo $ProfCatvals['cat_name']; ?></option>
-                        <?php } ?>
-                        </select>
-                    </dd>
-					<dd><label for="" class="label"><?php if($this->lang->line('header_description') != '') { echo stripslashes($this->lang->line('header_description')); } else echo "Description"; ?><sup style="color: red;">*</sup></label>
-						<input type="text" name="brand_description" id="brand_description"/>
-						<!--p class="required"><span></span>This field is required</p-->
-					</dd>
-					<!--dd><label for="" class="label">Email</label>
-						<input type="text" id="account_email" value="dhdh@hdhd.com"/>
-					</dd-->
-					<dd><label for="" class="label"><?php if($this->lang->line('seller_web_link') != '') { echo stripslashes($this->lang->line('seller_web_link')); } else echo "Website Link"; ?></label>
-						<input type="text" name="web_url" id="web_url" style="margin-bottom: 10px;"/>
-                    </dd>
-					<dd><label for="" class="label"><?php if($this->lang->line('header_addrs_one') != '') { echo stripslashes($this->lang->line('header_addrs_one')); } else echo "Address Line 1"; ?><sup style="color: red;">*</sup></label>
-						<input type="text" name="s_address" id="s_address"/>
-                    </dd>
-                    <dd><label for="" class="label"><?php if($this->lang->line('header_city') != '') { echo stripslashes($this->lang->line('header_city')); } else echo "City"; ?><sup style="color: red;">*</sup></label>
-						<input type="text" name="s_city" id="s_city"/>
-                    </dd>
-                    <dd><label for="" class="label"><?php if($this->lang->line('checkout_state') != '') { echo stripslashes($this->lang->line('checkout_state')); } else echo "State"; ?><sup style="color: red;">*</sup></label>
-						<input type="text" name="s_state" id="s_state"/>
-                    </dd>
-					<dd><label for="" class="label"><?php if($this->lang->line('seller_postal_code') != '') { echo stripslashes($this->lang->line('seller_postal_code')); } else echo "Postal Code"; ?><sup style="color: red;">*</sup></label>
-						<input type="text" name="s_postal_code" id="s_postal_code"/>
-					</dd>
-					<dd>
-						<label class="label"><?php if($this->lang->line('header_country') != '') { echo stripslashes($this->lang->line('header_country')); } else echo "Country"; ?><sup style="color: red;">*</sup></label>
-						<?php 
-						if(isset($countryList) && $countryList->num_rows()>0){
-						?>
-						<select name="s_country" class="select-white select-country" id="s_country">
-						<?php 
-							foreach ($countryList->result() as $country){
-						?>
-						<option value="<?php echo $country->country_code;?>"><?php echo $country->name;?></option>
-						<?php 
-							}
-						?>						
-						</select>
-						<?php 
-						}else {
-						?>
-						<input type="text" name="s_country" id="s_country"/>
-						<?php }?>
-					</dd>
+			</div>
 
-					
-					<dd><label for="" class="label"><?php if($this->lang->line('checkout_phone_no') != '') { echo stripslashes($this->lang->line('checkout_phone_no')); } else echo "Phone Number"; ?><sup style="color: red;">*</sup></label>
-						<input type="text" name="s_phone_no" id="s_phone_no" />
-                    </dd>
-                    			<dd><label for="" class="label">TIN No.</label>
-						<input type="text" name="s_tin_no" id="s_tin_no" />
-                    </dd>
-
-                    <dd><label for="" class="label">VAT No.</label>
-						<input type="text" name="s_vat_no" id="s_vat_no" />
-                    </dd>
-
-                    <dd><label for="" class="label">CST No.</label>
-						<input type="text" name="s_cst_no" id="s_cst_no" />
-                    </dd>
-
-				</dl>
-				<!-- <dl>
-					<dt>Bank Information</dt>
-					<dd><label for="" class="label"><?php if($this->lang->line('signup_full_name') != '') { echo stripslashes($this->lang->line('signup_full_name')); } else echo "Beneficiary Name"; ?><sup style="color: red;">*</sup></label>
-						<input type="text" name="bank_name" id="bank_name" />
-					</dd>
-					<dd><label for="" class="label"><?php if($this->lang->line('seller_acc_num') != '') { echo stripslashes($this->lang->line('seller_acc_num')); } else echo "Account Number"; ?><sup style="color: red;">*</sup></label>
-						<input type="text" name="bank_no" id="bank_no" />
-					</dd>
-					<dd><label for="" class="label"><?php if($this->lang->line('seller_bank_code') != '') { echo stripslashes($this->lang->line('seller_bank_code')); } else echo "IFSC Code"; ?><sup style="color: red;">*</sup></label>
-						<input type="text" name="bank_code" id="bank_code" />
-					</dd>
-					<dd><label for="" class="label"><?php if($this->lang->line('Paypal Email') != '') { echo stripslashes($this->lang->line('Paypal Email')); } else echo "Paypal Email"; ?></label>
-						<input type="text" name="paypal_email" id="paypal_email" />
-					</dd>
-                </dl> -->
-				<div class="btn-area">
-					<button class="btn-green" id="sign-up" re-url="/sales/create?ntid=7220865&amp;ntoid=15301425" ><?php if($this->lang->line('seller_comp_signup') != '') { echo stripslashes($this->lang->line('seller_comp_signup')); } else echo "Complete Sign Up"; ?></button>
-				</div>
-				</form>
-			</section>
-			<hr />
+			<!--footer-->
+				<?php
+					$this->load->view('site/templates/footer');
+				?>
 		</div>
 
+		<!--back to top-->
+		<button class="back_to_top animated button_type_6 grey state_2 d_block black_hover f_left vc_child tr_all"><i class="fa fa-angle-up d_inline_m"></i></button>
 
-
-		
-
-		
-		<a href="#header" id="scroll-to-top"><span><?php if($this->lang->line('signup_jump_top') != '') { echo stripslashes($this->lang->line('signup_jump_top')); } else echo "Jump to top"; ?></span></a>
-
-	</div>
-	<!-- / container -->
-	<?php 
-     $this->load->view('site/templates/footer_menu');
-     ?>
-</div>
-<script type="text/javascript" src="js/site/jquery.validate.js"></script>
+		<script type="text/javascript" src="js/site/jquery.validate.js"></script>
 <script>
 $("#seller_signup").validate({
 	});
@@ -182,11 +160,11 @@ function validateSellerSignup(){
 		$('#brand_name').focus();
 		return false;
 	}else if(description == ''){
-		alert('Description required');
+		alert('Brand Description required');
 		$('#brand_description').focus();
 		return false;
 	}else if(addr == ''){
-		alert('Adrress line 1 required');
+		alert('Adrress required');
 		$('#s_address').focus();
 		return false;
 	}else if(city == ''){
@@ -225,6 +203,18 @@ function validateSellerSignup(){
 }
 
 </script>
-<?php
-$this->load->view('site/templates/footer');
-?>
+		<!--libs include-->
+		<script src="plugins/jquery.appear.js"></script>
+		<script src="plugins/owl-carousel/owl.carousel.min.js"></script>
+		<script src="plugins/twitter/jquery.tweet.min.js"></script><script src="plugins/flickr.js"></script>
+		<script src="plugins/afterresize.min.js"></script>
+		<script src="plugins/jackbox/js/jackbox-packed.min.js"></script>
+		<script src="js/retina.min.js"></script>
+		<script src="plugins/colorpicker/colorpicker.js"></script>
+		 
+
+		<!--theme initializer-->
+		<script src="js/themeCore.js"></script>
+		<script src="js/theme.js"></script>
+	</body>
+</html>
