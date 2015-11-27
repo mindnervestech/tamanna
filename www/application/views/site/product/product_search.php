@@ -42,15 +42,34 @@ $this->load->view('site/templates/header_new');
                                         foreach ($mainCategories->result() as $row){
                       	                     if ($row->cat_name != '' && $row->cat_name != 'Our Picks'){
                                             ?>
-									<li class="relative"><a href="shopby/<?php echo $row->seourl;?>" class="fs_large_0 d_inline_b"><?php echo $row->cat_name;?></a><button class="open_sub_categories fs_medium"></button>
+									<li class="relative"><a href="shopby/<?php echo $row->seourl;?>" class="fs_large_0 d_inline_b"><?php echo $row->cat_name;?></a>
 
+									            <?php 
+	                                               foreach ($all_categories->result() as $row1){
+													if ($row1->cat_name != '' && $row->id==$row1->rootID){
+														$x = '<button id="'  .$row->seourl.'" class="open_sub_categories fs_medium"></button>';
+														echo $x;
+														break;
+														}
+													}
+                                                ?>
+									
                                                 <?php 
 	                                               foreach ($all_categories->result() as $row1){
 	                      	                            if ($row1->cat_name != '' && $row->id==$row1->rootID){
                                                 ?>									
 
 										<ul class="d_none">
-											<li class="relative"><a href="shopby/<?php echo $row->seourl;?>/<?php echo $row1->seourl;?>" class="tr_delay d_inline_b"><?php echo $row1->cat_name;?></a><button class="open_sub_categories fs_medium"></button>
+											<li class="relative"><a href="shopby/<?php echo $row->seourl;?>/<?php echo $row1->seourl;?>" class="tr_delay d_inline_b"><?php echo $row1->cat_name;?></a>
+													<?php 
+													   foreach ($all_categories->result() as $row2){
+														if ($row2->cat_name != '' && $row1->id==$row2->rootID){
+																$x = '<button id="'  .$row->seourl.'" class="open_sub_categories fs_medium"></button>';
+																echo $x;
+																break;
+															}
+														}
+													?>
 													<?php 
 			                                             foreach ($all_categories->result() as $row2){
 			                      	                          if ($row2->cat_name != '' && $row1->id==$row2->rootID){
@@ -554,7 +573,9 @@ border-top-right-radius: 3px;"><img src="images/product/<?php echo $img; ?>"> </
 		<script src="js/retina.min.js"></script>
 		<script src="plugins/colorpicker/colorpicker.js"></script>
 		 
-
+		<!--Page Js-->
+		<script src="js/site/Socktail-shoplist.js"></script>
+		
 		<!--theme initializer-->
 		<script src="js/themeCore.js"></script>
 		<script src="js/theme.js"></script>
