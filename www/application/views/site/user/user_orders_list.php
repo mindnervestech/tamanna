@@ -1,42 +1,60 @@
 <?php
-$this->load->view('site/templates/header');
-?>
-<link rel="stylesheet" media="all" type="text/css" href="css/site/<?php echo SITE_COMMON_DEFINE ?>setting.css">
-<!-- Section_start -->
-<div class="lang-en no-subnav wider winOS">
-<!-- Section_start -->
-<div id="container-wrapper">
-	<div class="container set_area">
-		
-
-
-        <div id="content">
-                <h2 class="ptit"><?php if($this->lang->line('referrals_orders') != '') { echo stripslashes($this->lang->line('referrals_orders')); } else echo "Orders"; ?></h2>
-                <?php 
-                if($ordersList->num_rows()>0){
-                ?>	
-                 <div class=" section gifts">
-            <h3><?php if($this->lang->line('order_history') != '') { echo stripslashes($this->lang->line('order_history')); } else echo "Order history for your products"; ?>.</h3>
-                	<div class="chart-wrap">
-            <table class="chart" id="orderListTable">
-                <thead>
-                    <tr>
-                        <th><?php if($this->lang->line('purchases__invoice') != '') { echo stripslashes($this->lang->line('purchases__invoice')); } else echo "Invoice"; ?></th>
-                        <th><?php echo "Payment"; ?></th>
-                        <th><?php if($this->lang->line('purchases_shipstatus') != '') { echo stripslashes($this->lang->line('purchases_shipstatus')); } else echo "Shipping Status"; ?></th>
-                        <th><?php if($this->lang->line('Courier') != '') { echo stripslashes($this->lang->line('Courier')); } else echo "Courier"; ?></th>
-                        <th><?php if($this->lang->line('Tracking_ID') != '') { echo stripslashes($this->lang->line('Tracking_ID')); } else echo "Tracking ID"; ?></th>
-<!--                         <th><?php if($this->lang->line('purchases_total') != '') { echo stripslashes($this->lang->line('Tracking_ID')); } else echo "Tracking ID"; ?></th> -->
-                        <th><?php if($this->lang->line('purchases_orddate') != '') { echo stripslashes($this->lang->line('order_date')); } else echo "Date"; ?></th>
-                        <th><?php if($this->lang->line('purchases_option') != '') { echo stripslashes($this->lang->line('purchases_option')); } else echo "Option"; ?></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($ordersList->result() as $row){?>
-                    <tr>
-                        <td>#<?php echo $row->dealCodeNumber;?></td>
-                        <td><?php echo $row->payment_type;?></td>
-                        
+$this->load->view('site/templates/header_new_small');
+?>			<!--main content-->
+			<div class="page_section_offset" style="padding: 13px 0 25px;">
+				<div class="container">
+					<div class="row">
+						<aside class="col-lg-3 col-md-3 col-sm-3 m_xs_bottom_30 p_top_4">
+							<!--categories widget-->
+							<section class="m_bottom_30">
+								<h5 class="color_dark tt_uppercase second_font fw_light m_bottom_13">Account</h5>
+								<hr class="divider_bg m_bottom_23">
+								<ul class="categories_list second_font w_break">
+								<!--	<li class="relative"><a href="#" class="fs_large_0 d_inline_b">Profile</a>
+									</li> -->
+									<li class="relative"><a href="settings/password" class="<?php if ($this->uri->segment(2)=='password'){?>current<?php }?> fs_large_0 d_inline_b">Password</a>
+									</li>
+									<li class="relative"><a href="purchases"  class="<?php if ($this->uri->segment(1)=='purchases'){?>current<?php }?> fs_large_0 d_inline_b">Purchases</a>
+									</li>
+									<li class="relative"><a href="settings/shipping"  class="<?php if ($this->uri->segment(2)=='shipping'){?>current<?php }?> fs_large_0 d_inline_b">Shipping Address</a>
+									</li>
+									<?php if ($userDetails->row()->group == 'Seller'){?>
+										<li class="relative"><a href="orders"  class="<?php if ($this->uri->segment(1)=='orders'){?>current<?php }?> fs_large_0 d_inline_b">Orders</a>
+										</li>
+									<?php }?>
+								</ul>
+							</section>
+						</aside>
+						<main class="col-lg-9 col-md-9 col-sm-9 m_bottom_30 m_xs_bottom_10">
+							<h5 class="color_dark tt_uppercase second_font fw_light m_bottom_13">Your Orders</h5>
+							<hr class="divider_light m_bottom_5">
+							<div class="page_section_offset">
+							<table class="w_full wishlist_table m_bottom_30">
+								<thead class="bg_grey_light_2 d_xs_none second_font">
+									<tr>
+										<th><b>Order #</b></th>
+										<th><b>Payment Mode</b></th>
+										<th><b>Order Status</b></th>
+										<th><b>Shipping Mode</b></th>
+										<th><b>Tracking ID</b></th>
+										<th><b>Amount</b></th>
+										<th><b>Order Date</b></th>
+										<th><b>Options</b></th>
+									</tr>
+								</thead>
+								<tbody>
+								 <?php foreach ($ordersList->result() as $row){?>
+									<tr>
+										<td data-cell-title="Product Name and Category">
+											<div class="lh_small m_bottom_7">
+											#<?php echo $row->dealCodeNumber;?>
+											</div>
+										</td>
+										<td data-cell-title="Product Name and Category">
+											<div class="lh_small m_bottom_7">
+											<?php echo $row->status;?>
+											</div>
+										</td>
                         <td>
                         <select onchange="javascript:changeShipStatus(this.value,'<?php echo $row->dealCodeNumber;?>','<?php echo $row->sell_id;?>')">
                         	<option <?php if ($row->shipping_status == 'Pending'){echo 'selected="selected"';}?> value="Pending"><?php if($this->lang->line('order_pending') != '') { echo stripslashes($this->lang->line('order_pending')); } else echo "Pending"; ?></option>
@@ -49,63 +67,64 @@ $this->load->view('site/templates/header');
                         </select>
                         <img alt="Loading" style="display: none;" class="status_loading_<?php echo $row->dealCodeNumber;?>" src="images/site/ajax-loader.gif"/>
                         </td>
-							<td class="center">
-                                                                 <input style="width: 40px;height: 0;" type="text" value="<?php echo $row->courier_name;?>"/>
-                                                                 <a href="javascript:void(0);" onclick="update_courier_name(this,'<?php echo $row->id;?>');">Update</a>
-							</td>
-							<td class="center">
-                                                                 <input style="width: 70px;height: 0;" type="text" value="<?php echo $row->tracking_id;?>"/>
-                                                                 <a href="javascript:void(0);" onclick="update_tracking_id(this,'<?php echo $row->id;?>');">Update</a>
-							</td>
-<!--                         <td><?php echo $row->TotalPrice;?></td>
-      -->                   
-                        <td><?php echo $row->created;?></td>
-                        <td>
-<!--                         <a target="_blank" href="view-order/<?php echo $row->sell_id;?>/<?php echo $row->dealCodeNumber;?>"><?php if($this->lang->line('purchases_view') != '') { echo stripslashes($this->lang->line('purchases_view')); } else echo "View"; ?></a> -->
-                        <a style="color:green;" target="_blank" href="view-order/<?php echo $row->sell_id;?>/<?php echo $row->dealCodeNumber;?>"><?php if($this->lang->line('view_invoice') != '') { echo stripslashes($this->lang->line('view_invoice')); } else echo "View Invoice"; ?></a><br/>
-                      <!--  <a style="color:red;" href="order-review/<?php echo $row->user_id;?>/<?php echo $row->sell_id;?>/<?php echo $row->dealCodeNumber;?>"><?php if($this->lang->line('buyer_discuss') != '') { echo stripslashes($this->lang->line('buyer_discuss')); } else echo "Buyer Discussion"; ?></a> -->
-                        </td>
-                    </tr>
-                    <?php }?>
-                    
-                </tbody>
-            </table>
-			</div>
-			</div>
-                 <?php	
-                }else {
-                ?>
-                <div class=" section purchases no-data">
-
-                        <p><?php if($this->lang->line('order_no_products') != '') { echo stripslashes($this->lang->line('order_no_products')); } else echo "No orders on your products."; ?></p>
-                </div>
-                <?php 
-                }
-                ?>
-        </div>
-
-		
-		<?php 
-		$this->load->view('site/user/settings_sidebar');
-     $this->load->view('site/templates/side_footer_menu');
-     ?>
-	</div>
-	<!-- / container -->
+										<td data-cell-title="Product Name and Category">
+											<div class="lh_small m_bottom_7">
+                                                                 <input style="width: 100px;height: 0;" type="text" value="<?php echo $row->courier_name;?>"/>
+                                                                 <a style="color:green;" href="javascript:void(0);" onclick="update_courier_name(this,'<?php echo $row->id;?>');">Update</a>
+											</div>
+										</td>
+										<td data-cell-title="Product Name and Category">
+											<div class="lh_small m_bottom_7">
+                                                                 <input style="width: 100px;height: 0;" type="text" value="<?php echo $row->tracking_id;?>"/>
+                                                                 <a style="color:green;" href="javascript:void(0);" onclick="update_tracking_id(this,'<?php echo $row->id;?>');">Update</a>
+											</div>
+										</td>
+										<td data-cell-title="Product Name and Category">
+											<div class="lh_small m_bottom_7">
+											<?php echo $row->total;?>
+											</div>
+										</td>
+										<td data-cell-title="Product Name and Category">
+											<div class="lh_small m_bottom_7">
+											<?php echo $row->created;?>
+											</div>
+										</td>
+										<td data-cell-title="Quantity">
+											<div class="quantity clearfix t_align_c">
+											<a style="color:green;" target="_blank" href="view-order/<?php echo $row->sell_id;?>/<?php echo $row->dealCodeNumber;?>"><?php if($this->lang->line('view_invoice') != '') { echo stripslashes($this->lang->line('view_invoice')); } else echo "View Invoice"; ?></a><br/>
+											</div>
+										</td>
+									</tr>
+								<?php }?>
+								</tbody>
+							</table>
 </div>
-</div>
+						</main>
+					</div>
+				</div>
+			</div>
+		<!--footer-->
+				<?php
+					$this->load->view('site/templates/footer');
+				?>
+				</div>
 
-<script>
-	jQuery(function($) {
-		var $select = $('.gift-recommend select.select-round');
-		$select.selectBox();
-		$select.each(function(){
-			var $this = $(this);
-			if($this.css('display') != 'none') $this.css('visibility', 'visible');
-		});
+		<!--libs include-->
+		<script src="plugins/jquery-ui.min.js"></script>
+		<script src="plugins/isotope.pkgd.min.js"></script>
+		<script src="plugins/jquery.appear.js"></script>
+		<script src="plugins/owl-carousel/owl.carousel.min.js"></script>
+		<script src="plugins/twitter/jquery.tweet.min.js"></script><script src="plugins/flickr.js"></script>
+		<script src="plugins/afterresize.min.js"></script>
+		<script src="plugins/jackbox/js/jackbox-packed.min.js"></script>
+		<script src="plugins/jquery.elevateZoom-3.0.8.min.js"></script>
+		<script src="plugins/fancybox/jquery.fancybox.pack.js"></script>
+		<script src="js/retina.min.js"></script>
+		<script src="plugins/colorpicker/colorpicker.js"></script>
+		 
 
-	});
-</script>
-<script>
-<?php 
-$this->load->view('site/templates/footer');
-?>
+		<!--theme initializer-->
+		<script src="js/themeCore.js"></script>
+		<script src="js/theme.js"></script>
+	</body>
+</html>

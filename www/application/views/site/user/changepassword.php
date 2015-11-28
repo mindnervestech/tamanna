@@ -1,7 +1,7 @@
 <?php
 $this->load->view('site/templates/header_new_small');
 ?>			<!--main content-->
-			<div class="page_section_offset">
+			<div class="page_section_offset" style="padding: 13px 0 25px;">
 				<div class="container">
 					<div class="row">
 						<aside class="col-lg-3 col-md-3 col-sm-3 m_xs_bottom_30 p_top_4">
@@ -12,14 +12,16 @@ $this->load->view('site/templates/header_new_small');
 								<ul class="categories_list second_font w_break">
 								<!--	<li class="relative"><a href="#" class="fs_large_0 d_inline_b">Profile</a>
 									</li> -->
-									<li class="relative"><a href="#" class="fs_large_0 d_inline_b">Password</a>
+									<li class="relative"><a href="settings/password" class="<?php if ($this->uri->segment(2)=='password'){?>current<?php }?> fs_large_0 d_inline_b">Password</a>
 									</li>
-									<li class="relative"><a href="#" class="fs_large_0 d_inline_b">Purchases</a>
+									<li class="relative"><a href="purchases"  class="<?php if ($this->uri->segment(1)=='purchases'){?>current<?php }?> fs_large_0 d_inline_b">Purchases</a>
 									</li>
-									<li class="relative"><a href="#" class="fs_large_0 d_inline_b">Shipping Address</a>
+									<li class="relative"><a href="settings/shipping"  class="<?php if ($this->uri->segment(2)=='shipping'){?>current<?php }?> fs_large_0 d_inline_b">Shipping Address</a>
 									</li>
-									<li class="relative"><a href="#" class="fs_large_0 d_inline_b">Orders</a>
-									</li>
+									<?php if ($userDetails->row()->group == 'Seller'){?>
+										<li class="relative"><a href="orders"  class="<?php if ($this->uri->segment(1)=='orders'){?>current<?php }?> fs_large_0 d_inline_b">Orders</a>
+										</li>
+									<?php }?>
 								</ul>
 							</section>
 						</aside>

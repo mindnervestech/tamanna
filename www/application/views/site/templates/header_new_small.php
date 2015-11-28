@@ -79,7 +79,7 @@ if ($meta_title != '' and $meta_title != $title){?>
 
                                         <?php if ($loginCheck != ''){ ?>
                                         <li><a class="sc_hover tr_delay" href="add">Add</a></li>
-                                        <li><a class="sc_hover tr_delay" href="settings">My Account</a></li>
+                                        <li><a class="sc_hover tr_delay" href="settings/password">My Account</a></li>
                                         <li><a class="sc_hover tr_delay" href="purchases">Purchase History</a></li>
 										<li><a class="sc_hover tr_delay" href="<?php echo 'user/'.$userDetails->row()->user_name;?>">Wishlist</a></li>
                                         <li><a class="sc_hover tr_delay" href="logout">Logout</a></li>
@@ -123,61 +123,12 @@ if ($meta_title != '' and $meta_title != $title){?>
                                 	<li>
 										<a href="<?php echo 'user/'.$userDetails->row()->user_name;?>" class="color_lbrown_hover vc_child">
 											<span class="d_inline_m">
-												<i class="fa fa-heart fs_large"></i><sup class="color_dark">7</sup>
+												<i class="fa fa-heart fs_large"></i>
 											</span>
 										</a>
 									</li>
 									<!--shopping cart-->
-									<li class="relative open_mini_shopping_cart">
-										<button class="color_dark active_lbrown tr_all" data-open-dropdown="#shopping_cart">
-											<i class="fa fa-shopping-cart fs_large"></i><sup>3</sup>
-										</button>
-										<div id="shopping_cart" data-show="fadeInUp" data-hide="fadeOutDown" class="bg_grey_light dropdown animated">
-											<div class="sc_header fs_small fw_light">Recently added item(s)</div>
-											<hr class="divider_white">
-											<ul class="shopping_cart_list m_bottom_4">
-												<li class="relative">
-													<div class="clearfix lh_small">
-														<a href="#" class="f_left m_right_10 d_block"><img src="images/sc_img_1.jpg" alt=""></a>
-														<a href="#" class="fs_medium second_font color_dark sc_hover d_block m_bottom_4">Cursus eleifend elit aenean</a>
-														<p class="fs_medium">1 x <b class="color_dark">$499.00</b></p>
-													</div>
-													<hr class="divider_white m_top_15 m_bottom_0">
-													<span class="close fs_small color_light tr_all color_dark_hover fw_light">x</span>
-												</li>
-												<li class="relative">
-													<div class="clearfix lh_small">
-														<a href="#" class="f_left m_right_10 d_block"><img src="images/sc_img_2.jpg" alt=""></a>
-														<a href="#" class="fs_medium second_font color_dark sc_hover d_block m_bottom_4">Auctor wisi et urna</a>
-														<p class="m_bottom_4 fs_medium">1 x <b class="color_dark">$1,599.00</b></p>
-														<ul class="fw_light fs_small lh_small">
-															<li>Size: <span class="color_dark">2-Seat Sofa</span>,</li>
-															<li>Color: <span class="color_dark">Red</span></li>
-														</ul>
-													</div>
-													<hr class="divider_white m_top_15 m_bottom_0">
-													<span class="close fs_small color_light tr_all color_dark_hover fw_light">x</span>
-												</li>
-												<li class="relative">
-													<div class="clearfix lh_small">
-														<a href="#" class="f_left m_right_10 d_block"><img src="images/sc_img_3.jpg" alt=""></a>
-														<a href="#" class="fs_medium second_font color_dark sc_hover d_block m_bottom_4">Aliquam erat volut</a>
-														<p class="fs_medium">2 x <b class="color_dark">$99.00</b></p>
-													</div>
-													<hr class="divider_white m_top_15 m_bottom_0">
-													<span class="close fs_small color_light tr_all color_dark_hover fw_light">x</span>
-												</li>
-											</ul>
-											<ul class="fs_medium second_font color_dark m_bottom_15">
-												<li><span class="d_inline_b total_title">Tax:</span><span class="fw_light">$0.00</span></li>
-												<li><span class="d_inline_b total_title">Discount:</span><span class="fw_light">$37.00</span></li>
-												<li><b><span class="d_inline_b total_title">Total:</span>$999.00</b></li>
-											</ul>
-											<a href="#" role="button" class="button_type_2 tt_uppercase fs_medium second_font d_block t_align_c black state_2 m_bottom_5">View Cart</a>
-											<a href="#" role="button" class="t_align_c tt_uppercase w_full second_font d_block fs_medium button_type_2 lbrown tr_all">Checkout</a>
-										</div>
-									</li>
-                                                <?php }?>                                    
+									<?php echo $MiniCartViewSet; ?><?php }?>                                
 								</ul>
 							</div>
 						</div>

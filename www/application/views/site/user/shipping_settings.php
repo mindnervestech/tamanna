@@ -1,81 +1,87 @@
 <?php
-$this->load->view('site/templates/header',$this->data);
-?>
-<link rel="stylesheet" media="all" type="text/css" href="css/site/<?php echo SITE_COMMON_DEFINE ?>setting.css">
-<!-- Section_start -->
-<div class="lang-en no-subnav wider winOS">
-<!-- Section_start -->
-<div id="container-wrapper">
-	<div class="container set_area">
-		<?php if($flash_data != '') { ?>
-		<div class="errorContainer" id="<?php echo $flash_data_type;?>">
-			<script>setTimeout("hideErrDiv('<?php echo $flash_data_type;?>')", 3000);</script>
-			<p><span><?php echo $flash_data;?></span></p>
-		</div>
-		<?php } ?>
-        
-
-        <div id="content">
-		<h2 class="ptit"><?php if($this->lang->line('shipping_address') != '') { echo stripslashes($this->lang->line('shipping_address')); } else echo "Shipping Address"; ?></h2>
-	<?php if ($shippingList->num_rows() == 0){?>
-		<div class=" section shipping no-data">
-			
-			
-			<p><?php if($this->lang->line('shipping_no_shipaddr') != '') { echo stripslashes($this->lang->line('shipping_no_shipaddr')); } else echo "You haven't added any shipping address yet."; ?></p>
-			
-			<button class="btn-shipping add_"><i class="icon-plus"></i> <?php if($this->lang->line('shipping_add_ship') != '') { echo stripslashes($this->lang->line('shipping_add_ship')); } else echo "Add Shipping Address"; ?></button>
-		</div>
-	<?php 
-	}else {
-	?>
-	<div class="section shipping">
-            <h3><?php if($this->lang->line('shipping_saved_addrs') != '') { echo stripslashes($this->lang->line('shipping_saved_addrs')); } else echo "Your Saved Shipping Addresses"; ?></h3>
-                	<div class="chart-wrap">
-            <table class="chart">
-                <thead>
-                    <tr>
-                        <th><?php if($this->lang->line('shipping_default') != '') { echo stripslashes($this->lang->line('shipping_default')); } else echo "Default"; ?></th>
-                        <th><?php if($this->lang->line('shipping_nickname') != '') { echo stripslashes($this->lang->line('shipping_nickname')); } else echo "Nick Name"; ?></th>
-                        <th><?php if($this->lang->line('shipping_address_comm') != '') { echo stripslashes($this->lang->line('shipping_address_comm')); } else echo "Address"; ?></th>
-                        <th><?php if($this->lang->line('shipping_phone') != '') { echo stripslashes($this->lang->line('shipping_phone')); } else echo "Phone"; ?></th>
-                        <th><?php if($this->lang->line('purchases_option') != '') { echo stripslashes($this->lang->line('purchases_option')); } else echo "Option"; ?></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($shippingList->result() as $row){?>
-                    <tr aid="<?php echo $row->id;?>" isdefault="<?php if($row->primary == 'Yes'){echo TRUE; }else {echo FALSE;}?>">
-                        <td><?php if($row->primary == 'Yes'){?><i class="ic-check"></i><?php }?></td>
-                        <td><?php echo $row->nick_name;?></td>
-                        
-                        <td><?php echo $row->address1.', '.$row->address2.'<br/>'.$row->city.'<br/>'.$row->state.'<br/>'.$row->country.'-'.$row->postal_code;?></td>
-                        <td><?php echo $row->phone;?></td>
-                        
-                        <td><a aid="<?php echo $row->id;?>" class="edit_"><?php if($this->lang->line('shipping_edit') != '') { echo stripslashes($this->lang->line('shipping_edit')); } else echo "Edit"; ?></a> / <a class="remove_"><?php if($this->lang->line('shipping_delete') != '') { echo stripslashes($this->lang->line('shipping_delete')); } else echo "Delete"; ?></a></td>
-                    </tr>
-                    <?php }?>
-                    
-                </tbody>
-            </table>
+$this->load->view('site/templates/header_new_small');
+?>			<!--main content-->
+			<div class="page_section_offset" style="padding: 13px 0 25px;">
+				<div class="container">
+					<div class="row">
+						<aside class="col-lg-3 col-md-3 col-sm-3 m_xs_bottom_30 p_top_4">
+							<!--categories widget-->
+							<section class="m_bottom_30">
+								<h5 class="color_dark tt_uppercase second_font fw_light m_bottom_13">Account</h5>
+								<hr class="divider_bg m_bottom_23">
+								<ul class="categories_list second_font w_break">
+								<!--	<li class="relative"><a href="#" class="fs_large_0 d_inline_b">Profile</a>
+									</li> -->
+									<li class="relative"><a href="settings/password" class="<?php if ($this->uri->segment(2)=='password'){?>current<?php }?> fs_large_0 d_inline_b">Password</a>
+									</li>
+									<li class="relative"><a href="purchases"  class="<?php if ($this->uri->segment(1)=='purchases'){?>current<?php }?> fs_large_0 d_inline_b">Purchases</a>
+									</li>
+									<li class="relative"><a href="settings/shipping"  class="<?php if ($this->uri->segment(2)=='shipping'){?>current<?php }?> fs_large_0 d_inline_b">Shipping Address</a>
+									</li>
+									<?php if ($userDetails->row()->group == 'Seller'){?>
+										<li class="relative"><a href="orders"  class="<?php if ($this->uri->segment(1)=='orders'){?>current<?php }?> fs_large_0 d_inline_b">Orders</a>
+										</li>
+									<?php }?>
+								</ul>
+							</section>
+						</aside>
+						<main class="col-lg-9 col-md-9 col-sm-9 m_bottom_30 m_xs_bottom_10">
+							<h5 class="color_dark tt_uppercase second_font fw_light m_bottom_13">Your Shipping Addresses</h5>
+							<hr class="divider_light m_bottom_5">
+							<div class="page_section_offset">
+							<table class="w_full wishlist_table m_bottom_30">
+								<thead class="bg_grey_light_2 d_xs_none second_font">
+									<tr>
+										<th><b>Default</b></th>
+										<th><b>Address Type</b></th>
+										<th><b>Address</b></th>
+										<th><b>Phone</b></th>
+										<th><b>Options</b></th>
+									</tr>
+								</thead>
+								<tbody>
+								<?php foreach ($shippingList->result() as $row){?>
+									<tr aid="<?php echo $row->id;?>" isdefault="<?php if($row->primary == 'Yes'){echo TRUE; }else {echo FALSE;}?>">
+										<td data-cell-title="Product Name and Category">
+											<div class="lh_small m_bottom_7">
+											<?php if($row->primary == 'Yes'){?>Yes<?php }?>
+											</div>
+										</td>
+										<td data-cell-title="Product Name and Category">
+											<div class="lh_small m_bottom_7">
+											<?php echo $row->nick_name;?>
+											</div>
+										</td>
+										<td data-cell-title="Product Name and Category">
+											<div class="lh_small m_bottom_7">
+											<?php echo $row->address1.', '.$row->address2.'<br/>'.$row->city.'<br/>'.$row->state.'<br/>'.$row->country.'-'.$row->postal_code;?>
+											</div>
+										</td>
+										<td data-cell-title="Product Name and Category">
+											<div class="lh_small m_bottom_7">
+											<?php echo $row->phone;?>
+											</div>
+										</td>
+										<td data-cell-title="Product Name and Category">
+											<div class="lh_small m_bottom_7">
+											<a aid="<?php echo $row->id;?>" class="edit_"><?php if($this->lang->line('shipping_edit') != '') { echo stripslashes($this->lang->line('shipping_edit')); } else echo "Edit"; ?></a> / <a class="remove_"><?php if($this->lang->line('shipping_delete') != '') { echo stripslashes($this->lang->line('shipping_delete')); } else echo "Delete"; ?></a>
+											</div>
+										</td>
+									</tr>
+								<?php }?>
+								</tbody>
+							</table>
+							<button class="t_align_c tt_uppercase w_full second_font d_block fs_medium button_type_2 lbrown tr_all btn-shipping add_"> <?php if($this->lang->line('shipping_add_ship') != '') { echo stripslashes($this->lang->line('shipping_add_ship')); } else echo "Add Shipping Address"; ?></button>
+						</div>
+						</main>
+					</div>
+				</div>
 			</div>
-            	<button class="btn-shipping add_"><i class="ic-plus"></i> <?php if($this->lang->line('shipping_add_ship') != '') { echo stripslashes($this->lang->line('shipping_add_ship')); } else echo "Add Shipping Address"; ?></button>
-			</div>
-	<?php 
-	}
-	?>
-	</div>
-
-		
-		<?php 
-		$this->load->view('site/user/settings_sidebar');
-     $this->load->view('site/templates/side_footer_menu');
-     ?>
-
-	</div>
-	<!-- / container -->
-</div>
-</div>
-
-
+		<!--footer-->
+				<?php
+					$this->load->view('site/templates/footer');
+				?>
+				</div>
 <!-- Section_start -->
 <script type="text/javascript" src="js/site/<?php echo SITE_COMMON_DEFINE ?>address_helper.js"></script>
 <script type="text/javascript" src="js/site/jquery.validate.js"></script>
@@ -93,6 +99,22 @@ $this->load->view('site/templates/header',$this->data);
 		});
 	});
 </script>
-<?php 
-$this->load->view('site/templates/footer',$this->data);
-?>
+		<!--libs include-->
+		<script src="plugins/jquery-ui.min.js"></script>
+		<script src="plugins/isotope.pkgd.min.js"></script>
+		<script src="plugins/jquery.appear.js"></script>
+		<script src="plugins/owl-carousel/owl.carousel.min.js"></script>
+		<script src="plugins/twitter/jquery.tweet.min.js"></script><script src="plugins/flickr.js"></script>
+		<script src="plugins/afterresize.min.js"></script>
+		<script src="plugins/jackbox/js/jackbox-packed.min.js"></script>
+		<script src="plugins/jquery.elevateZoom-3.0.8.min.js"></script>
+		<script src="plugins/fancybox/jquery.fancybox.pack.js"></script>
+		<script src="js/retina.min.js"></script>
+		<script src="plugins/colorpicker/colorpicker.js"></script>
+		 
+
+		<!--theme initializer-->
+		<script src="js/themeCore.js"></script>
+		<script src="js/theme.js"></script>
+	</body>
+</html>

@@ -79,7 +79,7 @@
 
                                         <?php if ($loginCheck != ''){ ?>
                                         <li><a class="sc_hover tr_delay" href="add">Add</a></li>
-                                        <li><a class="sc_hover tr_delay" href="settings">My Account</a></li>
+                                        <li><a class="sc_hover tr_delay" href="settings/password">My Account</a></li>
                                         <li><a class="sc_hover tr_delay" href="purchases">Purchase History</a></li>
 										<li><a class="sc_hover tr_delay" href="<?php echo 'user/'.$userDetails->row()->user_name;?>">Wishlist</a></li>
                                         <li><a class="sc_hover tr_delay" href="logout">Logout</a></li>
@@ -165,12 +165,14 @@
                                 	<li>
 										<a href="<?php echo 'user/'.$userDetails->row()->user_name;?>" class="color_lbrown_hover vc_child">
 											<span class="d_inline_m">
-												<i class="fa fa-heart fs_large"></i><sup class="color_dark">7</sup>
+												<i class="fa fa-heart fs_large"></i>
 											</span>
 										</a>
 									</li>
 									<!--shopping cart-->
+									<div id="MiniCartViewDisp">
 									<?php echo $MiniCartViewSet; ?><?php }?>
+									</div>
 								</ul>
 							</div>
 						</div>

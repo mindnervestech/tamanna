@@ -131,52 +131,52 @@ $this->load->view('site/templates/header_new');
 						<!--tabs content-->
 						<div id="tab-1">
 							<div class="row">
-<?php
-		for ($i = 0; $i < 4; $i = $i + 1)
-		{
-				if (isset($productArr[$i]->id))
-				{
-						$imgArr = explode(',', $productArr[$i]->image);
-						$img = 'dummyProductImage.jpg';
-						foreach($imgArr as $imgVal)
-						{
-								if ($imgVal != '')
-								{
-										$img = $imgVal;
-										break;
-								}
-						}
+							<?php
+									for ($i = 0; $i < 4; $i = $i + 1)
+									{
+											if (isset($productArr[$i]->id))
+											{
+													$imgArr = explode(',', $productArr[$i]->image);
+													$img = 'dummyProductImage.jpg';
+													foreach($imgArr as $imgVal)
+													{
+															if ($imgVal != '')
+															{
+																	$img = $imgVal;
+																	break;
+															}
+													}
 
-						$fancyClass = 'fancy';
-						$fancyText = LIKE_BUTTON;
-						if (count($likedProducts) > 0 && $likedProducts->num_rows() > 0)
-						{
-								foreach($likedProducts->result() as $likeProRow)
-								{
-										if ($likeProRow->product_id == $productArr[$i]->seller_product_id)
-										{
-												$fancyClass = 'fancyd';
-												$fancyText = LIKED_BUTTON;
-												break;
-										}
-								}
-						}
+													/*$fancyClass = 'fancy';
+													$fancyText = LIKE_BUTTON;
+													if (count($likedProducts) > 0 && $likedProducts->num_rows() > 0)
+													{
+															foreach($likedProducts->result() as $likeProRow)
+															{
+																	if ($likeProRow->product_id == $productArr[$i]->seller_product_id)
+																	{
+																			$fancyClass = 'fancyd';
+																			$fancyText = LIKED_BUTTON;
+																			break;
+																	}
+															}
+													} */
 
-	/*					if (isset($productArr[$i]->web_link))
-						{
+													/*if (isset($productArr[$i]->web_link))
+													{
 
-								$prodLink = "user/" . $productArr[$i]->user_name . "/things/" . $productArr[$i]->seller_product_id . "/" . url_title($productArr[$i]->product_name, '-');
-						}
-						else
-						{
+															$prodLink = "user/" . $productArr[$i]->user_name . "/things/" . $productArr[$i]->seller_product_id . "/" . url_title($productArr[$i]->product_name, '-');
+													}
+													else
+													{
 
-								$prodLink = "things/" . $productArr[$i]->id . "/" . url_title($productArr[$i]->product_name, '-');
-						} */
+															$prodLink = "things/" . $productArr[$i]->id . "/" . url_title($productArr[$i]->product_name, '-');
+													} */
 
 
-								$prodLink = "things/" . $productArr[$i]->id . "/" . url_title($productArr[$i]->product_name, '-');
+															$prodLink = "things/" . $productArr[$i]->id . "/" . url_title($productArr[$i]->product_name, '-');
 
-?>
+							?>
 								<div class="col-lg-3 col-md-3 col-sm-6">
 											<!--product-->
 											<figure class="product_item relative c_image_container frame_container t_sm_align_c r_image_container">
@@ -186,30 +186,6 @@ $this->load->view('site/templates/header_new');
 														<img src="images/product/<?php echo $img; ?>" alt="" class="c_image_1 tr_all">
 														<img src="images/product/<?php echo $img; ?>" alt="" class="c_image_2 tr_all">
 													</a>
-													<div class="product_buttons_container bg_white tr_all">
-														<div class="row t_sm_align_c">
-															<div class="col-lg-8 col-md-8">
-																<div class="clearfix m_sm_bottom_3 d_sm_inline_b">
-																	<button class="button_type_8 grey state_2 tr_delay color_dark t_align_c vc_child f_left m_right_3 tooltip_container relative"><i class="fa fa-heart fs_large d_inline_m"></i><span class="tooltip top fs_small color_white hidden animated" data-show="fadeInDown" data-hide="fadeOutUp">Add to Wishlist</span></button>
-																	<button data-popup="#quick_view" data-popup-transition-in="bounceInUp" data-popup-transition-out="bounceOutUp" class="button_type_8 grey state_2 tr_delay color_dark t_align_c vc_child f_left m_right_3 tooltip_container relative m_sm_right_0"><i class="fa fa-eye fs_large d_inline_m"></i><span class="tooltip top fs_small color_white hidden animated" data-show="fadeInDown" data-hide="fadeOutUp">Quick View</span></button>
-																	<?php
-						if (!isset($productArr[$i]->web_link))
-						{ ?>
-								<span class="price"><?php
-								echo $currencySymbol; ?> <?php
-								echo $productArr[$i]->sale_price; ?>
-									<small><?php
-								echo $currencyType; ?> </small> </span> <?php
-						} ?>
-																</div>
-															</div>
-															<div class="col-lg-4 col-md-4 t_align_r t_sm_align_c">
-																<button data-popup="#add_to_cart_popup" data-popup-transition-in="bounceInUp" data-popup-transition-out="bounceOutUp" class="button_type_8 tr_all lbrown color_dark t_align_c vc_child tooltip_container relative"
-																<?php if ($loginCheck==''){echo 'require_login="true"';}?> name="addtocart" value="<?php if($this->lang->line('header_add_cart') != '') { echo stripslashes($this->lang->line('header_add_cart')); } else echo "Add to Cart"; ?>" onclick="ajax_add_cart('<?php echo $PrdAttrVal->num_rows; ?>');"
-																><i class="fa fa-shopping-cart fs_large d_inline_m"></i><span class="tooltip top fs_small color_white hidden animated" data-show="fadeInDown" data-hide="fadeOutUp">Add to Cart</span></button>
-															</div>
-														</div>
-													</div>
 												</div>
 												<figcaption class="bg_white relative">
 													<div class="row">
@@ -217,14 +193,14 @@ $this->load->view('site/templates/header_new');
 															<a class="second_font sc_hover d_xs_block" href="<?php echo $prodLink; ?>"><?php echo $productArr[$i]->product_name; ?></a>
 															</div>
 														<div class="col-lg-6 col-md-6 color_light fs_large second_font t_align_r t_sm_align_c m_bottom_5">
-															<s><?php echo $currencySymbol; echo $productArr[$i]->price; ?></s>
+															<?php if ($productArr[$i]->price > $productArr[$i]->sale_price){?><s><?php echo $currencySymbol; echo $productArr[$i]->price; ?></s><?php }?>
 															<b class="scheme_color d_block"><?php echo $currencySymbol; echo $productArr[$i]->sale_price; ?></b>
 														</div>
 													</div>
 												</figcaption>
 											</figure>
 								</div>
-		<?php }} ?>
+							<?php }} ?>
 							</div>
 						</div>
 					</div>
@@ -245,159 +221,76 @@ $this->load->view('site/templates/header_new');
 						<!--tabs content-->
 						<div id="tab-1">
 							<div class="row">
-								<div class="col-lg-6 col-md-6 col-sm-6">
-									<div class="row">
-										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 w_mxs_full m_xs_bottom_30 animated hidden" data-animation="fadeInDown">
+							<?php
+									for ($i = 4; $i < 8; $i = $i + 1)
+									{
+											if (isset($productArr[$i]->id))
+											{
+													$imgArr = explode(',', $productArr[$i]->image);
+													$img = 'dummyProductImage.jpg';
+													foreach($imgArr as $imgVal)
+													{
+															if ($imgVal != '')
+															{
+																	$img = $imgVal;
+																	break;
+															}
+													}
+
+													/*$fancyClass = 'fancy';
+													$fancyText = LIKE_BUTTON;
+													if (count($likedProducts) > 0 && $likedProducts->num_rows() > 0)
+													{
+															foreach($likedProducts->result() as $likeProRow)
+															{
+																	if ($likeProRow->product_id == $productArr[$i]->seller_product_id)
+																	{
+																			$fancyClass = 'fancyd';
+																			$fancyText = LIKED_BUTTON;
+																			break;
+																	}
+															}
+													} */
+
+													/*if (isset($productArr[$i]->web_link))
+													{
+
+															$prodLink = "user/" . $productArr[$i]->user_name . "/things/" . $productArr[$i]->seller_product_id . "/" . url_title($productArr[$i]->product_name, '-');
+													}
+													else
+													{
+
+															$prodLink = "things/" . $productArr[$i]->id . "/" . url_title($productArr[$i]->product_name, '-');
+													} */
+
+
+															$prodLink = "things/" . $productArr[$i]->id . "/" . url_title($productArr[$i]->product_name, '-');
+
+							?>
+								<div class="col-lg-3 col-md-3 col-sm-6">
 											<!--product-->
 											<figure class="product_item relative c_image_container frame_container t_sm_align_c r_image_container">
 												<!--image & buttons & label-->
 												<div class="relative">
-													<a href="#" class="d_block">
-														<img src="images/home_img_4.jpg" alt="" class="c_image_1 tr_all">
-														<img src="images/home_v3_img_3.jpg" alt="" class="c_image_2 tr_all">
+													<a href="<?php echo $prodLink;?>" class="d_block">
+														<img src="images/product/<?php echo $img; ?>" alt="" class="c_image_1 tr_all">
+														<img src="images/product/<?php echo $img; ?>" alt="" class="c_image_2 tr_all">
 													</a>
-													<div class="product_buttons_container bg_white tr_all">
-														<div class="row t_sm_align_c">
-															<div class="col-lg-8 col-md-8">
-																<div class="clearfix m_sm_bottom_3 d_sm_inline_b">
-																	<button class="button_type_8 grey state_2 tr_delay color_dark t_align_c vc_child f_left m_right_3 tooltip_container relative"><i class="fa fa-heart fs_large d_inline_m"></i><span class="tooltip top fs_small color_white hidden animated" data-show="fadeInDown" data-hide="fadeOutUp">Add to Wishlist</span></button>
-																	<button data-popup="#quick_view" data-popup-transition-in="bounceInUp" data-popup-transition-out="bounceOutUp" class="button_type_8 grey state_2 tr_delay color_dark t_align_c vc_child f_left m_right_3 tooltip_container relative m_sm_right_0"><i class="fa fa-eye fs_large d_inline_m"></i><span class="tooltip top fs_small color_white hidden animated" data-show="fadeInDown" data-hide="fadeOutUp">Quick View</span></button>
-																</div>
-															</div>
-															<div class="col-lg-4 col-md-4 t_align_r t_sm_align_c">
-																<button data-popup="#add_to_cart_popup" data-popup-transition-in="bounceInUp" data-popup-transition-out="bounceOutUp" class="button_type_8 tr_all lbrown color_dark t_align_c vc_child tooltip_container relative"><i class="fa fa-shopping-cart fs_large d_inline_m"></i><span class="tooltip top fs_small color_white hidden animated" data-show="fadeInDown" data-hide="fadeOutUp">Add to Cart</span></button>
-															</div>
-														</div>
-													</div>
 												</div>
 												<figcaption class="bg_white relative">
 													<div class="row">
-														<div class="col-lg-7 col-md-7 m_bottom_7">
-															<a class="second_font sc_hover d_xs_block" href="#"><?php echo $productArr[$i]->product_name; ?></a>
+														<div class="col-lg-6 col-md-6 m_bottom_7">
+															<a class="second_font sc_hover d_xs_block" href="<?php echo $prodLink; ?>"><?php echo $productArr[$i]->product_name; ?></a>
 															</div>
-														<div class="col-lg-5 col-md-5 color_light fs_large second_font t_align_r t_sm_align_c m_bottom_5">
-															<s>$1 302.00</s>
-															<b class="scheme_color d_block">$1 102.00</b>
+														<div class="col-lg-6 col-md-6 color_light fs_large second_font t_align_r t_sm_align_c m_bottom_5">
+															<?php if ($productArr[$i]->price > $productArr[$i]->sale_price){?><s><?php echo $currencySymbol; echo $productArr[$i]->price; ?></s><?php }?>
+															<b class="scheme_color d_block"><?php echo $currencySymbol; echo $productArr[$i]->sale_price; ?></b>
 														</div>
 													</div>
 												</figcaption>
 											</figure>
-										</div>
-										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 w_mxs_full m_xs_bottom_30 animated hidden" data-animation="fadeInDown" data-animation-delay="150">
-											<!--product-->
-											<figure class="product_item relative c_image_container frame_container t_sm_align_c r_image_container">
-												<!--image & buttons & label-->
-												<div class="relative">
-													<a href="#" class="d_block">
-														<img src="images/home_v3_img_4.jpg" alt="" class="c_image_1 tr_all">
-														<img src="images/home_img_5.jpg" alt="" class="c_image_2 tr_all">
-													</a>
-													<div class="product_buttons_container bg_white tr_all">
-														<div class="row">
-															<div class="col-lg-8 col-md-8">
-																<div class="clearfix m_sm_bottom_3 d_sm_inline_b">
-																	<button class="button_type_8 grey state_2 tr_delay color_dark t_align_c vc_child f_left m_right_3 tooltip_container relative"><i class="fa fa-heart fs_large d_inline_m"></i><span class="tooltip top fs_small color_white hidden animated" data-show="fadeInDown" data-hide="fadeOutUp">Add to Wishlist</span></button>
-																	<button data-popup="#quick_view" data-popup-transition-in="bounceInUp" data-popup-transition-out="bounceOutUp" class="button_type_8 grey state_2 tr_delay color_dark t_align_c vc_child f_left m_right_3 tooltip_container relative m_sm_right_0"><i class="fa fa-eye fs_large d_inline_m"></i><span class="tooltip top fs_small color_white hidden animated" data-show="fadeInDown" data-hide="fadeOutUp">Quick View</span></button>
-																</div>
-															</div>
-															<div class="col-lg-4 col-md-4 t_align_r t_sm_align_c">
-																<button data-popup="#add_to_cart_popup" data-popup-transition-in="bounceInUp" data-popup-transition-out="bounceOutUp" class="button_type_8 tr_all lbrown color_dark t_align_c vc_child tooltip_container relative"><i class="fa fa-shopping-cart fs_large d_inline_m"></i><span class="tooltip top fs_small color_white hidden animated" data-show="fadeInDown" data-hide="fadeOutUp">Add to Cart</span></button>
-															</div>
-														</div>
-													</div>
-												</div>
-												<figcaption class="bg_white relative">
-													<div class="row">
-														<div class="col-lg-7 col-md-7 m_bottom_7">
-															<a class="second_font sc_hover d_xs_block" href="#">Eget elementum vel</a>
-															<a href="#" class="fw_light color_light sc_hover">Bookcases</a>
-														</div>
-														<div class="col-lg-5 col-md-5 color_light fs_large second_font t_align_r t_sm_align_c m_bottom_5">
-															<b class="scheme_color d_block">$730.00</b>
-														</div>
-													</div>
-												</figcaption>
-											</figure>
-										</div>
-									</div>
 								</div>
-								<div class="col-lg-6 col-md-6 col-sm-6">
-									<div class="row">
-										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 w_mxs_full m_mxs_bottom_30 animated hidden"  data-animation="fadeInDown" data-animation-delay="300">
-											<!--product-->
-											<figure class="product_item relative c_image_container frame_container t_sm_align_c r_image_container">
-												<!--image & buttons & label-->
-												<div class="relative">
-													<a href="#" class="d_block">
-														<img src="images/home_img_6.jpg" alt="" class="c_image_1 tr_all">
-														<img src="images/home_v3_img_5.jpg" alt="" class="c_image_2 tr_all">
-													</a>
-													<div class="product_buttons_container bg_white tr_all">
-														<div class="row">
-															<div class="col-lg-8 col-md-8">
-																<div class="clearfix d_sm_inline_b t_sm_align_c m_sm_bottom_3">
-																	<button class="button_type_8 grey state_2 tr_delay color_dark t_align_c vc_child f_left m_right_3 tooltip_container relative"><i class="fa fa-heart fs_large d_inline_m"></i><span class="tooltip top fs_small color_white hidden animated" data-show="fadeInDown" data-hide="fadeOutUp">Add to Wishlist</span></button>
-																	<button data-popup="#quick_view" data-popup-transition-in="bounceInUp" data-popup-transition-out="bounceOutUp" class="button_type_8 grey state_2 tr_delay color_dark t_align_c vc_child f_left m_right_3 tooltip_container relative m_sm_right_0"><i class="fa fa-eye fs_large d_inline_m"></i><span class="tooltip top fs_small color_white hidden animated" data-show="fadeInDown" data-hide="fadeOutUp">Quick View</span></button>
-																</div>
-															</div>
-															<div class="col-lg-4 col-md-4 t_sm_align_c t_align_r">
-																<button data-popup="#add_to_cart_popup" data-popup-transition-in="bounceInUp" data-popup-transition-out="bounceOutUp" class="button_type_8 tr_all lbrown color_dark t_align_c vc_child tooltip_container relative"><i class="fa fa-shopping-cart fs_large d_inline_m"></i><span class="tooltip top fs_small color_white hidden animated" data-show="fadeInDown" data-hide="fadeOutUp">Add to Cart</span></button>
-															</div>
-														</div>
-													</div>
-												</div>
-												<figcaption class="bg_white relative">
-													<div class="row">
-														<div class="col-lg-8 col-md-8 m_bottom_7">
-															<a class="second_font sc_hover d_xs_block" href="#">Mauris accumsan nulla</a>
-															<a href="#" class="fw_light color_light sc_hover">Bookcases</a>
-															<a href="#" class="fw_light color_light sc_hover">Beds</a>
-														</div>
-														<div class="col-lg-4 col-md-4 color_light fs_large second_font t_align_r t_sm_align_c m_bottom_5">
-															<b class="scheme_color d_block">$995.00</b>
-														</div>
-													</div>
-												</figcaption>
-											</figure>
-										</div>
-										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 w_mxs_full animated hidden"  data-animation="fadeInDown" data-animation-delay="450">
-											<!--product-->
-											<figure class="product_item relative c_image_container frame_container t_sm_align_c r_image_container">
-												<!--image & buttons & label-->
-												<div class="relative">
-													<a href="#" class="d_block">
-														<img src="images/home_img_7.jpg" alt="" class="c_image_1 tr_all">
-														<img src="images/home_v3_img_6.jpg" alt="" class="c_image_2 tr_all">
-													</a>
-													<div class="product_buttons_container bg_white tr_all">
-														<div class="row">
-															<div class="col-lg-8 col-md-8">
-																<div class="clearfix d_sm_inline_b t_sm_align_c m_sm_bottom_3">
-																	<button class="button_type_8 grey state_2 tr_delay color_dark t_align_c vc_child f_left m_right_3 tooltip_container relative"><i class="fa fa-heart fs_large d_inline_m"></i><span class="tooltip top fs_small color_white hidden animated" data-show="fadeInDown" data-hide="fadeOutUp">Add to Wishlist</span></button>
-																	<button data-popup="#quick_view" data-popup-transition-in="bounceInUp" data-popup-transition-out="bounceOutUp" class="button_type_8 grey state_2 tr_delay color_dark t_align_c vc_child f_left m_right_3 tooltip_container relative m_sm_right_0"><i class="fa fa-eye fs_large d_inline_m"></i><span class="tooltip top fs_small color_white hidden animated" data-show="fadeInDown" data-hide="fadeOutUp">Quick View</span></button>
-																</div>
-															</div>
-															<div class="col-lg-4 col-md-4 t_sm_align_c t_align_r">
-																<button data-popup="#add_to_cart_popup" data-popup-transition-in="bounceInUp" data-popup-transition-out="bounceOutUp" class="button_type_8 tr_all lbrown color_dark t_align_c vc_child tooltip_container relative"><i class="fa fa-shopping-cart fs_large d_inline_m"></i><span class="tooltip top fs_small color_white hidden animated" data-show="fadeInDown" data-hide="fadeOutUp">Add to Cart</span></button>
-															</div>
-														</div>
-													</div>
-												</div>
-												<figcaption class="bg_white relative">
-													<div class="row">
-														<div class="col-lg-7 col-md-7 m_bottom_7">
-															<a class="second_font sc_hover d_xs_block" href="#">Praesent justo dolor</a>
-															<a href="#" class="fw_light color_light sc_hover">Tables</a>
-														</div>
-														<div class="col-lg-5 col-md-5 t_sm_align_c color_light fs_large second_font t_align_r m_bottom_5">
-															<b class="scheme_color d_block">$279.00</b>
-														</div>
-													</div>
-												</figcaption>
-											</figure>
-										</div>
-									</div>
-								</div>
+							<?php }} ?>
 							</div>
 						</div>
 					</div>

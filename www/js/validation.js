@@ -839,7 +839,7 @@ function delete_cart(val,cid) {
 			$('#cart_ship_amount').val(arr[1]);
 			$('#cart_tax_amount').val(arr[2]);
 			$('#cart_total_amount').val(arr[3]);
-$('#discount_Amt').val(arr[5]);			
+			$('#discount_Amt').val(arr[5]);			
 			$('#CartAmt').html(arr[0]);
 			$('#CartAmtDup').html(arr[0]);
 			$('#CartSAmt').html(arr[1]);
@@ -847,12 +847,12 @@ $('#discount_Amt').val(arr[5]);
 			$('#CartGAmt').html(arr[3]);			
 			$('#Shop_id_count').html(arr[4]);
 			$('#Shop_MiniId_count').html(arr[4]+' items');	
-$('#disAmtVal').html(arr[5]);		
+			$('#disAmtVal').html(arr[5]);		
 			$('#cartdivId_'+cid).hide();
 			$('#cartMindivId_'+cid).hide();
 			
 			if(arr[0] == 0){
-				$('#CartTable').hide();
+				$('#cartSubmit').hide();
 				if(arr[4]==0){
 					$('#EmptyCart').show();
 				}
@@ -903,8 +903,8 @@ function update_cart(val,cid,pid) {
 						$('#CartGAmt').html(arr[4]);			
 						$('#Shop_id_count').html(arr[5]);
 						$('#Shop_MiniId_count').html(arr[5]+' items');
-                                                $('#disAmtVal').html(arr[6]);	
-					
+                        $('#disAmtVal').html(arr[6]);
+						$('#MiniCartViewDisp').html(arr[1]);
 					}
 				});
 			}
