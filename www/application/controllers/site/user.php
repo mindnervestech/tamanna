@@ -493,7 +493,6 @@ public function send_sellerpending_mail($userDetails=''){
 			redirect('forgot-password');
 		}else {
 			$email = $this->input->post('email');
-			echo "abc";
 			if (valid_email($email)){
 				$condition = array('email'=>$email);
 				$checkUser = $this->user_model->get_all_details(USERS,$condition);
