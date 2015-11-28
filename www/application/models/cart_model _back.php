@@ -401,258 +401,203 @@ class Cart_model extends My_Model
 		/****************************** Cart Displays **************************************/
 
 		if($cartVal -> num_rows() > 0 ){
-			$CartValue.='
-							<form method="post" name="cartSubmit" id="cartSubmit" class="continue_payment" enctype="multipart/form-data" action="site/cart/cartcheckout">
-								<div class="col-lg-12 col-md-12 col-sm-12 m_bottom_30"> 
-									<div id="CartTable" style="display:block;">
-									<div class="cart-payment-wrap cart-note">
-										<span class="cart-payment-top">
-											<b></b>
-										</span>
-										<div class="table-cart-wrap">
-											<table class="table-cart w_full shopping_cart_table m_bottom_38 m_xs_bottom_30">
-												<thead class="d_xs_none">
-													<tr class="bg_grey_light_2 second_font">
-														<th class="product">
-															<b>'.'Product Image'.'</b>
-														</th>
-														<th class="product">
-															<b>'.$cart_product.'</b>
-														</th>
-														<th>
-															<b>'.$giftcard_price.'</b>
-														</th>
-														<th>
-															<b>'.$product_quantity.'</b>
-														</th>
-														<th>
-															<b>'.$purchases_total.'</b>
-														</th>
-													</tr>
-												</thead>
-												<tbody>';
-													$cartAmt = 0; $cartShippingAmt = 0; $cartTaxAmt = 0; $cartDiscountAmt = 0;
-													$s=0;
-													foreach ($cartVal->result() as $CartRow){
-														$curdate = date('Y-m-d');
-														$newImg = @explode(',',$CartRow->image);
-														$CartValue.='
-														<div>
-															<tr class="first" id="cartdivId_'.$s.'"s>
-																<td>
-																	<a class="sc_hover second_font fs_large d_inline_b m_bottom_4" style="width:70px;" href="things/'.$CartRow->prdid.'/'.$CartRow->seourl.'">
-																		<img style="width:70px;" src="'.PRODUCTPATH.$newImg[0].'" alt="'.$CartRow->product_name.'">
-																	</a>
-																	<a style="width:70px;" href="javascript:void(0);" onclick="javascript:delete_cart('.$CartRow->id.','.$s.')" class="remove_item ">
-																		'.$product_remove.'
-																	</a>
-																</td>
-																<td class="title">
-																	<a class="sc_hover second_font fs_large d_inline_b m_bottom_4" href="things/'.$CartRow->prdid.'/'.$CartRow->seourl.'">
-																		<b>'.$CartRow->product_name.'</b>
-																	</a>';
-																	if($CartRow->attr_name!='' || $CartRow->attr_type!=''){
-																	$CartValue.='<br>'.$CartRow->attr_type.' / '.$CartRow->attr_name.'';
-																	}
-																	$CartValue.='<br> 
-																</td>
-																<td class="price">
-																	'.$this->data['currencySymbol'].$CartRow->price.'
-																</td>
-																<td class="quantity">
-																	<input class="text tr_all w_full" value="'.$CartRow->quantity.'" name="quantity'.$s.'" data-mqty="'.$CartRow->mqty.'" id="quantity'.$s.'" type="text">
-																		<br>
-																		<a href="javascript:void(0);" onclick="javascript:update_cart('.$CartRow->id.','.$s.','.$CartRow->product_id.')" class="update_quantity">
-																			'.$update.'
-																		</a>
-																</td>
-																<td class="total">
-																	'.$this->data['currencySymbol'].'
-																	<span id="IndTotalVal'.$s.'">
-																		'.$CartRow->indtotal.'
-																	</span>
-																</td>
-															</tr>
-														</div>';
-														$cartAmt = $cartAmt + (($CartRow->product_shipping_cost + $CartRow->price + ($CartRow->price * 0.01 * $CartRow->product_tax_cost))  * $CartRow->quantity);
-														$cartShippingAmt = $cartShippingAmt + ($CartRow->product_shipping_cost * $CartRow->quantity);
-														$cartTaxAmt = $cartTaxAmt + ($CartRow->product_tax_cost * $CartRow->quantity);
-														$cartQty = $cartQty + $CartRow->quantity;
-																		$cartDiscountAmt = $cartDiscountAmt + $CartRow->discountAmount;
-														$s++;
-													}
-													$cartSAmt = $MainShipCost;
-													$cartTAmt = ($cartAmt * 0.01 * $MainTaxCost);
-													$grantAmt = $cartAmt + $cartSAmt + $cartTAmt ;
-													$disAmt = $cartDiscountAmt;
-													$CartValue.='
-												</tbody>
-											</table>
-											<div class="row">
-												<section class="col-lg-3 col-md-3 col-sm-3 m_bottom_40 m_xs_bottom_30">
-													<div class="row">
-														<section class="col-lg-12 col-md-12 col-sm-12 m_bottom_40 m_xs_bottom_30">
-															<h5 class="color_dark tt_uppercase second_font fw_light m_bottom_13">
-																Discount Codes
-															</h5>
-															<hr class="divider_bg m_bottom_23">
-															<p class="second_font m_bottom_15">
-																Enter your coupon code if you have one.
-															</p>';
-															if($disAmt>0){
-																$CartValue.='<dl class="cart-coupon">
-																<dd><input id="is_coupon" name="is_coupon" class="text coupon-code" readonly="readonly" placeholder="'.$have_coupon_code.'" data-sid="616001" type="text" value="'.$discountQuery->row()->couponCode.'">
-																<input id="CheckCodeButton" type="button" class="btn-blue-apply apply-coupon t_align_c tt_uppercase w_full second_font d_block fs_medium button_type_2 lbrown tr_all" onclick="javascript:checkRemove();" value="Remove" style="cursor:pointer;" /></dd>
-																<dd><span id="CouponErr" style="color:#FF0000;"></span></dd>
-																
-															</dl>';
-															}else{
-																$CartValue.='<dl class="cart-coupon">
-																<dd><input id="is_coupon" name="is_coupon" class="text coupon-code t_align_c w_full m_bottom_10" placeholder="'.$have_coupon_code.'" data-sid="616001" type="text">
-																<input id="CheckCodeButton" type="button" class="btn-blue-apply apply-coupon button_type_2 lbrown state_2 tr_all t_align_c tt_uppercase w_full second_font d_block fs_medium button_type_ lbrown tr_all sc_hover tr_delay" onclick="javascript:checkCode();" value="'.$apply.'" style="cursor:pointer;" /></dd>
-																<dd><span id="CouponErr" style="color:#FF0000;"></span></dd>
-																
-															</dl>
-														</section>
-													</div>
-													<div class="row">
-														<section class="col-lg-12 col-md-12 col-sm-12 m_bottom_40 m_xs_bottom_30">
-															<h5 class="color_dark tt_uppercase second_font fw_light m_bottom_13">
-																Note for Us
-															</h5>
-															<hr class="divider_bg m_bottom_23">
-															<p class="note second_font m_bottom_15">
-																Leave us a note or tell us if you have any customization request..
-															</p>
-															<ul>
-																<li class="m_bottom_10">
-																	<textarea name="note" data-id="cart-note-1192557-616001" class="note-to-seller tr_all w_full fw_light fs_medium color_light" rows="2"></textarea>
-																</li>
-															</ul>
-														</section>
-													</div>
-														';}$CartValue.='			
-												</section>
-												<section class="col-lg-4 col-md-4 col-sm-4 m_bottom_40 m_xs_bottom_30">
-													<div class="d_table w_full second_font">
-														<div class="d_table_cell col-lg-12 col-md-12 col-sm-12 col-xs-10">
-															<h5 class="fw_light second_font color_dark m_bottom_13 tt_uppercase">Ship To</h5>
-														</div>
-													</div>
-													<hr class="divider_bg m_bottom_23">
-														<div class="cart-payment" id="merchant-cart-payment">
-															<input type="hidden">
-															<span class="bg-cart-payment"></span>
-															<dl class="cart-payment-ship">
-																<dd>
-																			<select id="address-cart" class="select-round select-shipping-addr" onchange="CartChangeAddress(this.value);">
-																				<option value="" id="address-select">'.$choose_shipping_address.'</option>';
-																					foreach ($shipVal->result() as $Shiprow){
-																						if($Shiprow->primary == 'Yes'){ $optionsValues = 'selected="selected"'; $ChooseVal = $Shiprow->full_name.'<br>'.$Shiprow->address1.'<br>'.$Shiprow->city.' '.$Shiprow->state.' '.$Shiprow->postal_code.'<br>'.$Shiprow->country.'<br>'.$Shiprow->phone; $ship_id =$Shiprow->id;  }else{ $optionsValues ='';}
-																						$CartValue.='<option '.$optionsValues.' value="'.$Shiprow->id.'" l1="'.$Shiprow->full_name.'" l2="'.$Shiprow->address1.'" l3="'.$Shiprow->city.' '.$Shiprow->state.' '.$Shiprow->postal_code.'" l4="'.$Shiprow->country.'" l5="'.$Shiprow->phone.'">'.$Shiprow->full_name.'
-																				</option>';}$CartValue.='
-																			</select>
-																			<input type="hidden" name="Ship_address_val" id="Ship_address_val" value="'.$ship_id.'" />
+			$CartValue.='<div id="CartTable" style="display:block;"><p class="cart-list-from">'.$order_from.' <b>'.$this->config->item('email_title').' '.$merchant.'</b></p>
+				<form method="post" name="cartSubmit" id="cartSubmit" class="continue_payment" enctype="multipart/form-data" action="site/cart/cartcheckout">
+				<div class="cart-payment-wrap cart-note"><span class="cart-payment-top"><b></b></span><div class="table-cart-wrap"><table class="table-cart">
+		<thead><tr><th style="width:340px;line-height:30px;float:left;" colspan="2" class="product">'.$cart_product.'</th><th style="float:left;width:80px;line-height:30px;">'.$giftcard_price.'</th><th style="float:left;width:70px;line-height:30px;">'.$product_quantity.'</th><th style="float:left;width:70px;line-height:30px;">'.$purchases_total.'</th></tr></thead></table>
+       ';
+			$cartAmt = 0; $cartShippingAmt = 0; $cartTaxAmt = 0; $cartDiscountAmt = 0;
+			$s=0;
+			foreach ($cartVal->result() as $CartRow){
+				//echo '<pre>';print_r($CartRow);
+				$curdate = date('Y-m-d');
+				$newImg = @explode(',',$CartRow->image);
+				$CartValue.='<div id="cartdivId_'.$s.'"> <table class="table-cart"><tbody><tr class="first">
+			<td style="width:70px;" rowspan="2" class="thumnail"><a style="width:70px;" href="things/'.$CartRow->prdid.'/'.$CartRow->seourl.'"><img style="width:70px;" src="'.PRODUCTPATH.$newImg[0].'" alt="'.$CartRow->product_name.'"></a><a style="width:70px;" href="javascript:void(0);" onclick="javascript:delete_cart('.$CartRow->id.','.$s.')" class="remove_item">'.$product_remove.'</a></td>
+			<td style="float:left;width:260px;" class="title"><a href="things/'.$CartRow->prdid.'/'.$CartRow->seourl.'"><b>'.$CartRow->product_name.'</b></a>';
+			if($CartRow->attr_name!='' || $CartRow->attr_type!=''){
+			$CartValue.='<br>'.$CartRow->attr_type.' / '.$CartRow->attr_name.'';
+			}
+			$CartValue.='<br> </td>
+			<td style="float:left;width:80px;" class="price">'.$this->data['currencySymbol'].$CartRow->price.'</td>
+			<td style="float:left;width:70px;" class="quantity"><input class="text" value="'.$CartRow->quantity.'" name="quantity'.$s.'" data-mqty="'.$CartRow->mqty.'" id="quantity'.$s.'" type="text"><br><a href="javascript:void(0);" onclick="javascript:update_cart('.$CartRow->id.','.$s.','.$CartRow->product_id.')" class="update_quantity">'.$update.'</a></td>
+			<td style="float:left;width:70px;" class="total">'.$this->data['currencySymbol'].'<span id="IndTotalVal'.$s.'">'.$CartRow->indtotal.'</span></td>
+		</tr>
+		<tr>
+         	<td class="optional" colspan="4"><div class="relative"><span></span>
+			<!--<ul class="optional-list"><li><span class="option-tit">'.$referrals_shipping.':</span><span class="option-txt">';
+				if($CartRow->ship_immediate == 'true'){
+					$CartValue.='Immediate';
+				}else{
+					$CartValue.=date('d/m', strtotime($curdate)).' - '.date('d/m', strtotime($curdate. ' + 10 day'));
+				}
+					
+				$CartValue.='</span></li></ul> -->
+			<div class="show_detail">
+				<span class="tooltip shipping" style="display:none"><i class="ic-truck"></i><small>'.$header_ship_within.'<b></b></small></span>
+				<span class="tooltip delivery" style="display:none"><i class="ic-delivery"></i><small>Order before 11 AM and get it today!<br>Available in New York, NY<b></b></small></span>
+			</div>
+			</div>
+			</td>
+		</tr></tbody></table></div>';
+				$cartAmt = $cartAmt + (($CartRow->product_shipping_cost + $CartRow->price + ($CartRow->price * 0.01 * $CartRow->product_tax_cost))  * $CartRow->quantity);
+				$cartShippingAmt = $cartShippingAmt + ($CartRow->product_shipping_cost * $CartRow->quantity);
+				$cartTaxAmt = $cartTaxAmt + ($CartRow->product_tax_cost * $CartRow->quantity);
+				$cartQty = $cartQty + $CartRow->quantity;
+                                $cartDiscountAmt = $cartDiscountAmt + $CartRow->discountAmount;
+				$s++;
+			}
+			$cartSAmt = $MainShipCost;
+			$cartTAmt = ($cartAmt * 0.01 * $MainTaxCost);
+			$grantAmt = $cartAmt + $cartSAmt + $cartTAmt ;
+                        $disAmt = $cartDiscountAmt;
 
-																			<p class="default_addr">
-																				<span id="Chg_Add_Val">
-																					'.$ChooseVal.'
-																				</span>
-																			</p>
-																		<span style="color:#FF0000;" id="Ship_err"></span>
+			$CartValue.='<dl class="note">
+		      <dt>'.$note_to.'   <small>'.$optional.'</small></dt>
+		      <dd><textarea class="note-to-seller" name="note" data-id="cart-note-1192557-616001" placeholder="'.$note_here.'"></textarea></dd>
+		    </dl>
 
-																					<a href="javascript:void(0);" class="button_type_2 lbrown state_2 tr_all t_align_c tt_uppercase w_full second_font d_block fs_medium button_type_ lbrown tr_all sc_hover tr_delay add_addr add_" onclick="shipping_address_cart();">
-																						'.$addnew_shipping_address.'
-																					</a>
-																</dd>
-															</dl>
-														</div>
-												</section>
-												<section class="col-lg-5 col-md-5 col-sm-5 m_bottom_40 m_xs_bottom_30">
-													<h5 class="color_dark tt_uppercase second_font fw_light m_bottom_13">Total</h5>
-													<hr class="divider_bg m_bottom_25">
-													<table class="w_full total_sc_table second_font type_2 t_xs_align_c">
-														<tbody>
-															<tr>
-																<td><b>Subtotal</b></td>
-																<td><b class="color_dark fs_large">'.$this->data['currencySymbol'].'<span id="CartAmt">'.number_format($cartAmt,2,'.','').'</span></td>
-															</tr>
-															<tr class="scheme_color">
-																<td><b>Shipping Cost</b></td>
-																<td><b class="fs_large">'.$this->data['currencySymbol'].'<span id="CartSAmt">'.number_format($cartSAmt,2,'.','').'</span></b></td>
-															</tr>
-															<tr>
-																<td><b>Tax (0.00%)</b></td>
-																<td><b class="color_dark fs_large">'.$this->data['currencySymbol'].'<span id="CartTAmt">'.number_format($cartTAmt,2,'.','').'</span></b></td>
-															</tr>';
-															if($disAmt >0){
-																$grantAmt = $grantAmt - $disAmt;
-																$CartValue.='
-															<tr>
-																<td><b>Discount</b></td>
-																<td><b class="color_dark fs_large">'.$this->data['currencySymbol'].'<span id="disAmtVal">'.number_format($cartTAmt,2,'.','').'</span></b></td>
-															</tr>';
-															}else{
-															 $CartValue.='
-															<tr>
-																<td><b>Discount</b></td>
-																<td><b class="color_dark fs_large">'.$this->data['currencySymbol'].'<span id="disAmtVal">'.number_format($cartTAmt,2,'.','').'</span></b></td>
-															</tr>';
-															}$CartValue.='
-															<tr class="scheme_color">
-																<td><b>Total</b></td>
-																<td><b class="fs_large"><span id="CartGAmt">'.number_format($grantAmt,2,'.','').'</span></b></td>
-															</tr>
-														</tbody>
-														<input name="user_id" value="'.$userid.'" type="hidden">
-														<input name="cart_amount" id="cart_amount" value="'.number_format($cartAmt,2,'.','').'" type="hidden">
-														<input name="cart_ship_amount" id="cart_ship_amount" value="'.number_format($cartSAmt,2,'.','').'" type="hidden">
-														<input name="cart_tax_amount" id="cart_tax_amount" value="'.number_format($cartTAmt,2,'.','').'" type="hidden">
-														<input name="cart_tax_Value" id="cart_tax_Value" value="'.number_format($MainTaxCost,2,'.','').'" type="hidden">
-														<input name="cart_total_amount" id="cart_total_amount" value="'.number_format($grantAmt,2,'.','').'" type="hidden">
-														<input name="discount_Amt" id="discount_Amt" value="'.number_format($disAmt,2,'.','').'" type="hidden">';
-														if($disAmt>0){
-															$CartValue.='<input name="CouponCode" id="CouponCode" value="'.$discountQuery->row()->couponCode.'" type="hidden">
-															<input name="Coupon_id" id="Coupon_id" value="'.$discountQuery->row()->couponID.'" type="hidden">
-															<input name="couponType" id="couponType" value="'.$discountQuery->row()->coupontype.'" type="hidden">';
-														}else{
-															$CartValue.='<input name="CouponCode" id="CouponCode" value="" type="hidden">
-															<input name="Coupon_id" id="Coupon_id" value="0" type="hidden">
-															<input name="couponType" id="couponType" value="" type="hidden">';
-														}$CartValue.='		
-														<tfoot>
-															<tr class="bg_grey_light_2 t_align_c">
-																<td colspan="2">
-																	<input type="submit" class="btn button_type_2 tt_uppercase fs_medium second_font tr_all lbrown d_block w_full m_top_10 m_bottom_15" name="cartPayment" id="button-submit-merchant" value="'.$continue_payment.'" />
-																</td>
-															</tr>
-														</tfoot>
-													</table>
-												</section>
-											</div>';$CartValue.='
-										</div>
-									</div>
-								</div>
-							</div>			
-						</form>';
+		  </div>
+		  <div class="cart-payment" id="merchant-cart-payment">
+		    <input type="hidden">
+		    <span class="bg-cart-payment"></span>
+		    <dl class="cart-payment-ship">
+		      <dt>'.$ship_to.'</dt>
+		      <dd>
+			<select id="address-cart" class="select-round select-shipping-addr" onchange="CartChangeAddress(this.value);">
+				  <option value="" id="address-select">'.$choose_shipping_address.'</option>
+			';
+
+			foreach ($shipVal->result() as $Shiprow){
+				if($Shiprow->primary == 'Yes'){ $optionsValues = 'selected="selected"'; $ChooseVal = $Shiprow->full_name.'<br>'.$Shiprow->address1.'<br>'.$Shiprow->city.' '.$Shiprow->state.' '.$Shiprow->postal_code.'<br>'.$Shiprow->country.'<br>'.$Shiprow->phone; $ship_id =$Shiprow->id;  }else{ $optionsValues ='';}
+				$CartValue.='<option '.$optionsValues.' value="'.$Shiprow->id.'" l1="'.$Shiprow->full_name.'" l2="'.$Shiprow->address1.'" l3="'.$Shiprow->city.' '.$Shiprow->state.' '.$Shiprow->postal_code.'" l4="'.$Shiprow->country.'" l5="'.$Shiprow->phone.'">'.$Shiprow->full_name.'</option>';
+			}
+
+
+			$CartValue.='</select>
+			<input type="hidden" name="Ship_address_val" id="Ship_address_val" value="'.$ship_id.'" />
+			
+			<p class="default_addr"><span id="Chg_Add_Val">'.$ChooseVal.'</span></p>
+			<span style="color:#FF0000;" id="Ship_err"></span>
+			<a href="javascript:void(0);" class="delete_addr" onclick="shipping_cart_address_delete();">'.$delete_this_address.'</a>
+			
+			<a href="javascript:void(0);" class="add_addr add_" onclick="shipping_address_cart();">'.$addnew_shipping_address.'</a>
+
+		      </dd>
+			</dl>
+
+			<dl class="ship-speed" style="display:none;border-bottom:1px solid #D4D6DF;">
+			    <dt>'.$shipping_speed.'</dt>
+			    <dd>
+				    <input id="speed2-val1" name="shipping_speed" value="0" type="radio"> <label for="speed2-val1">Standard</label><br>
+					<input id="speed2-val3" name="shipping_speed" value="3" type="radio"> <label for="speed2-val3">Same-day Delivery</label>
+				</dd>
+			</dl>';
+
+			if($disAmt>0){
+				$CartValue.='<dl class="cart-coupon">
+				<dt>'.$cart_coupon_code.'</dt>
+                <dd><input id="is_coupon" name="is_coupon" class="text coupon-code" readonly="readonly" placeholder="'.$have_coupon_code.'" data-sid="616001" type="text" value="'.$discountQuery->row()->couponCode.'">
+				<input id="CheckCodeButton" type="button" class="btn-blue-apply apply-coupon" onclick="javascript:checkRemove();" value="Remove" style="cursor:pointer;" /></dd>
+				<dd><span id="CouponErr" style="color:#FF0000;"></span></dd>
+                
+			</dl>';
+			}else{
+				$CartValue.='<dl class="cart-coupon">
+				<dt>'.$coupon_codes.'</dt>
+                <dd><input id="is_coupon" name="is_coupon" class="text coupon-code" placeholder="'.$have_coupon_code.'" data-sid="616001" type="text">
+				<input id="CheckCodeButton" type="button" class="btn-blue-apply apply-coupon" onclick="javascript:checkCode();" value="'.$apply.'" style="cursor:pointer;" /></dd>
+				<dd><span id="CouponErr" style="color:#FF0000;"></span></dd>
+                
+			</dl>';
+			}
+
+			$CartValue.='<dl class="cart-payment-order">
+		      <dt>'.$checkout_order.'</dt>
+		      <dd>
+			<ul>
+			  <li class="first">
+			    <span class="order-payment-type">'.$checkout_item_total.'</span>
+			    <span class="order-payment-usd"><b>'.$this->data['currencySymbol'].'<span id="CartAmt">'.number_format($cartAmt,2,'.','').'</span></b> '.$this->data['currencyType'].'</span>
+			  </li>
+			  <li>
+			    <span class="order-payment-type">'.$referrals_shipping.'</span>
+			    <span class="order-payment-usd"><b>'.$this->data['currencySymbol'].'<span id="CartSAmt">'.number_format($cartSAmt,2,'.','').'</span></b> '.$this->data['currencyType'].'</span>
+			  </li>
+			  <li>
+			    <span class="order-payment-type">'.$checkout_tax.' (<span id="carTamt">'.$MainTaxCost.'</span>%) of '.$this->data['currencySymbol'].'<span id="CartAmtDup">'.$cartAmt.'</span></span>
+			    <span class="order-payment-usd"><b>'.$this->data['currencySymbol'].'<span id="CartTAmt">'.number_format($cartTAmt,2,'.','').'</span></b> '.$this->data['currencyType'].'</span>
+			  </li></ul>';
+			if($disAmt >0){
+				$grantAmt = $grantAmt - $disAmt;
+				$CartValue.='<div id="disAmtValDiv"><ul><li>
+			    <span class="order-payment-type">Discount</span>
+			    <span class="order-payment-usd"><b>'.$this->data['currencySymbol'].'<span id="disAmtVal">'.number_format($disAmt,2,'.','').'</span></b> '.$this->data['currencyType'].'</span>
+			  </li><ul></div>';
+			}else{
+			 $CartValue.='<div id="disAmtValDiv" style="display:none;"><ul>
+			 <li>
+			    <span class="order-payment-type">Discount</span>
+			    <span class="order-payment-usd"><b>'.$this->data['currencySymbol'].'<span id="disAmtVal">'.number_format($disAmt,2,'.','').'</span></b> '.$this->data['currencyType'].'</span>
+			  </li>
+			  </ul></div>';
+			}
+			$CartValue.='<ul>
+			 <li class="total">
+			    <span class="order-payment-type"><b>Total</b></span>
+			    <span class="order-payment-usd"><b>'.$this->data['currencySymbol'].'<span id="CartGAmt">'.number_format($grantAmt,2,'.','').'</span></b> '.$this->data['currencyType'].'</span>
+			  </li>
+			</ul>
+		      </dd>
+	              
+		    </dl>
+			
+		    <input name="user_id" value="'.$userid.'" type="hidden">
+			<input name="cart_amount" id="cart_amount" value="'.number_format($cartAmt,2,'.','').'" type="hidden">
+			<input name="cart_ship_amount" id="cart_ship_amount" value="'.number_format($cartSAmt,2,'.','').'" type="hidden">
+			<input name="cart_tax_amount" id="cart_tax_amount" value="'.number_format($cartTAmt,2,'.','').'" type="hidden">
+			<input name="cart_tax_Value" id="cart_tax_Value" value="'.number_format($MainTaxCost,2,'.','').'" type="hidden">
+			<input name="cart_total_amount" id="cart_total_amount" value="'.number_format($grantAmt,2,'.','').'" type="hidden">
+			<input name="discount_Amt" id="discount_Amt" value="'.number_format($disAmt,2,'.','').'" type="hidden">';
+
+			if($disAmt>0){
+				$CartValue.='<input name="CouponCode" id="CouponCode" value="'.$discountQuery->row()->couponCode.'" type="hidden">
+			<input name="Coupon_id" id="Coupon_id" value="'.$discountQuery->row()->couponID.'" type="hidden">
+			<input name="couponType" id="couponType" value="'.$discountQuery->row()->coupontype.'" type="hidden">';
+			}else{
+				$CartValue.='<input name="CouponCode" id="CouponCode" value="" type="hidden">
+			<input name="Coupon_id" id="Coupon_id" value="0" type="hidden">
+			<input name="couponType" id="couponType" value="" type="hidden">';
+			}
+			$CartValue.='<input type="submit" class="btn" name="cartPayment" id="button-submit-merchant" value="'.$continue_payment.'" />
+		    
+		  </div>
+		</div>
+	</form></div>';
 		}
+
 		$countVal = $giftRes -> num_rows() + $cartQty + $SubcribRes -> num_rows();
+
+
+
 		if($countVal >0 ){
-			$CartDisp = '<h2 class="fw_light second_font color_dark m_bottom_27 tt_uppercase"><span id="Shop_id_count">'.$countVal.'</span> '.$items_in_shopping.'</h2>'.$GiftValue.$SubscribValue.$CartValue.'<div id="EmptyCart" style="border-bottom: none; display:none;" class="empty-alert" >
+			$CartDisp = '<h2><span id="Shop_id_count">'.$countVal.'</span> '.$items_in_shopping.'</h2>'.$GiftValue.$SubscribValue.$CartValue.'<div id="EmptyCart" style="border-bottom: none; display:none;" class="empty-alert" >
 					<p style="text-align:center;"><img src="images/site/shopping_empty.jpg" alt="Shopping Cart Empty"></p>
-					<H3 class="second_font color_dark tt_uppercase fw_light m_bottom_23 t_align_c">'.$shopping_cart_empty.'</H3>
-					<H5 class="second_font color_dark tt_uppercase fw_light m_bottom_23 t_align_c">'.$dont_miss.' '.ucwords($this->config->item('email_title')).'. '.$shall_we.'</H5>
+					<p style="text-align:center;"><b>'.$shopping_cart_empty.'</b></p>
+					<p style="text-align:center;">'.$dont_miss.' '.ucwords($this->config->item('email_title')).'. '.$shall_we.'</p>
 				</div>';
 		}else{
 
-			$CartDisp = '
+			$CartDisp = '<h2>Shopping Cart</h2>
 					<div style="border-bottom: none;" class="empty-alert" >
 					<p style="text-align:center;"><img src="images/site/shopping_empty.jpg" alt="Shopping Cart Empty"></p>
-					<H3 class="second_font color_dark tt_uppercase fw_light m_bottom_23 t_align_c">'.$shopping_cart_empty.'</H3>
-					<H5 class="second_font color_dark tt_uppercase fw_light m_bottom_23 t_align_c">'.$dont_miss.' '.ucwords($this->config->item('email_title')).'. '.$shall_we.'</H5>
+					<p style="text-align:center;"><b>'.$shopping_cart_empty.'</b></p>
+					<p style="text-align:center;">'.$dont_miss.' '.ucwords($this->config->item('email_title')).'. '.$shall_we.'</p>
 				</div>';
 		}
+
 		return $CartDisp;
+
 	}
 
 
