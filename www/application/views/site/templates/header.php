@@ -183,7 +183,7 @@ if (is_file('google-login-mats/index.php'))
 		</div>
 	</li>
 </ul>
-<?php echo $MiniCartViewSet; ?>
+<!--<?php echo $MiniCartViewSet; ?>-->
 </div>
  <?php } ?>
         

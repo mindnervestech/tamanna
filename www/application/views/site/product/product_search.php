@@ -1,6 +1,7 @@
 <?php
 $this->load->view('site/templates/header_new');
 ?>
+
 			<!--breadcrumbs-->
 			<div class="breadcrumbs bg_grey_light_2 fs_medium fw_light">
 				<div class="container">
@@ -133,14 +134,15 @@ $this->load->view('site/templates/header_new');
 							</section>
 						</aside>
 						<main class="col-lg-9 col-md-9 col-sm-9 m_bottom_30 m_xs_bottom_10">
+						<div id="content">
 							<h2 class="fw_light second_font color_dark tt_uppercase m_bottom_27">Queen Beds</h2>
-							<figure class="m_bottom_45 m_xs_bottom_30">
+				<!--			<figure class="m_bottom_45 m_xs_bottom_30">
 								<figcaption>
 									<p class="fw_light">Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Suspendisse sollicitudin velit sed leo. Ut pharetra augue nec erat volutpat. Duis ac turpis. Donec sit amet eros. Lorem ipsum dolor sit amet.</p>
 								</figcaption>
-							</figure>
+							</figure> -->
 							<div class="d_table w_full m_bottom_5">
-								<div class="col-lg-4 col-md-4 col-sm-4 d_xs_block v_align_m d_table_cell f_none fs_medium color_light fw_light m_xs_bottom_5">
+								<div class="col-lg-6 col-md-6 col-sm-6 d_xs_block v_align_m d_table_cell f_none fs_medium color_light fw_light m_xs_bottom_5">
 									<div class="d_inline_m m_right_5">Sort by:</div>
 									<div class="styled_select relative d_inline_m m_right_2">
 										<div class="select_title type_3 fs_medium fw_light color_light relative d_none tr_all">Product name</div>
@@ -167,13 +169,13 @@ $this->load->view('site/templates/header_new');
 									</form>
 									</div>
 								
-								<div class="col-lg-2 col-md-2 col-sm-2 d_xs_block v_align_m d_table_cell f_none t_align_r t_xs_align_l p_xs_left_0">
+							<!--	<div class="col-lg-2 col-md-2 col-sm-2 d_xs_block v_align_m d_table_cell f_none t_align_r t_xs_align_l p_xs_left_0">
 									<p class="fw_light fs_medium d_inline_m m_right_5 color_light">View as:</p>
 									<div class="clearfix d_inline_m">
 										<button data-isotope-layout="grid" data-isotope-container="#can_change_layout" class="button_type_4 f_left grey state_2 m_right_5 tr_all second_font tt_uppercase vc_child black_button_active"><i class="fa fa-th m_top_0 d_inline_m"></i></button>
 										<button data-isotope-layout="list" data-isotope-container="#can_change_layout" class="button_type_4 f_left grey state_2 tr_all second_font tt_uppercase vc_child black_hover"><i class="fa fa-th-list m_top_0 d_inline_m"></i></button>
 									</div>
-								</div>
+								</div>-->
 							</div>
 							<hr class="divider_light m_bottom_5">
 							<!--isotope-->
@@ -208,42 +210,11 @@ $this->load->view('site/templates/header_new');
 				}
 			}
 		?>
-          <div class="category_isotope_item">
+          <div class="category_isotope_item stream">
 									<figure class="product_item type_2 c_image_container relative frame_container t_sm_align_c r_image_container qv_container">
 										<!--image & buttons & label-->
 										<div class="relative">
-											<div class="d_block">
-											<a href="things/<?php echo $productListVal->id;?>/<?php echo url_title($productListVal->product_name,'-');?>">
-												<img src="images/product/<?php echo $img; ?>" alt="" class="c_image_1 tr_all">
-												<img src="images/product/<?php echo $img; ?>" alt="" class="c_image_2 tr_all">
-											</div>
-											<div class="product_label fs_ex_small circle color_white bg_lbrown t_align_c vc_child tt_uppercase"><i class="d_inline_m">Sale!</i></div>
-											<a data-popup="#quick_view" data-popup-transition-in="bounceInUp" data-popup-transition-out="bounceOutUp" class="tr_all color_white second_font qv_style_button quick_view tt_uppercase t_align_c d_block clickable d_xs_none"><i class="fa fa-eye d_inline_m m_right_10"></i><span class="fs_medium">Quick View</span></a>
-										</div>
-										<figcaption class="bg_white relative p_bottom_0">
-											<div class="row">
-												<div class="col-lg-7 col-md-7 m_bottom_9">
-													<a class="second_font sc_hover d_xs_block" href="#"><?php echo $productListVal->product_name;?></a>
-													<div class="relative">
-														<a href="#" class="fw_light color_light sc_hover category_link tr_all">Chaises</a><br class="d_none">
-														<ul class="rating_list hr_list d_sm_inline_b tr_all">
-															<li class="color_lbrown"><i class="fa fa-star tr_all"></i></li>
-															<li class="color_lbrown"><i class="fa fa-star tr_all"></i></li>
-															<li class="color_lbrown"><i class="fa fa-star tr_all"></i></li>
-															<li><i class="fa fa-star tr_all"></i></li>
-															<li><i class="fa fa-star tr_all"></i></li>
-														</ul>
-														<span class="color_light reviews d_none">
-															<a href="#" class="sc_hover fs_medium fw_light">3 Review(s)</a> | <a href="#" class="color_dark sc_hover fs_medium fw_light">Add Your Review</a>
-														</span>
-													</div>
-													<hr class="d_none divider_light m_bottom_15">
-													<p class="fw_light d_none m_bottom_14 color_grey">Mauris fermentum dictum magna. Sed laoreet aliquam leo. Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus.</p>
-													<hr class="d_none divider_light m_bottom_15">
-												</div>
-												<div class="col-lg-5 col-md-5 color_light fs_large second_font t_align_r t_sm_align_c m_bottom_9">
-													
-									<?php
+											<?php
 											$prodID = $productListVal->id;
 											$origPrice = $productListVal->sale_price;
 											$userId = $productListVal->user_id;
@@ -262,32 +233,44 @@ $this->load->view('site/templates/header_new');
 												
 											
 											?>
-
-											<?php if($discPrice != ''){?>
-											   <?php if ($productListVal->price>$productListVal->sale_price){ ?>
-												  <s><?php echo number_format($productListVal->price);echo " ";?></s>
-											   <?php } else {?>
-												 <s><?php echo number_format($productListVal->sale_price);?></s>
-											   <?php } ?>
-											   <b class="scheme_color d_block"><?php echo $discPrice;?></b>
-											 <?php } else { ?>
-											   <?php if ($productListVal->price>$productListVal->sale_price){ ?>
-												  <s><?php echo number_format($productListVal->price);echo " ";?></s>
-												  </br>You Pay: <?php echo number_format($productListVal->sale_price);?>
-											   <?php } else {?>
-												  <b class="scheme_color d_block"><?php echo number_format($productListVal->sale_price);?></b>
-											   <?php } ?>
-											<?php } ?>
-
-													
-		
-												</div>
+											<div class="d_block">
+											<a href="things/<?php echo $productListVal->id;?>/<?php echo url_title($productListVal->product_name,'-');?>">
+												<img src="images/product/<?php echo $img; ?>" alt="" class="c_image_1 tr_all">
+												<img src="images/product/<?php echo $img; ?>" alt="" class="c_image_2 tr_all">
 											</div>
-											<button data-popup="#add_to_cart_popup" data-popup-transition-in="bounceInUp" data-popup-transition-out="bounceOutUp" class="button_type_2 m_bottom_9 d_block w_full t_align_c lbrown state_2 tr_all second_font fs_medium tt_uppercase"><i class="fa fa-shopping-cart d_inline_m m_right_9"></i>Add To Cart</button>
+											<?php if($discPrice != ''){?>
+											<div class="product_label fs_ex_small circle color_white bg_lbrown t_align_c vc_child tt_uppercase"><i class="d_inline_m">Sale!</i></div>
+											<?php } ?>
+											<a data-popup="#quick_view" data-popup-transition-in="bounceInUp" data-popup-transition-out="bounceOutUp" class="tr_all color_white second_font qv_style_button quick_view tt_uppercase t_align_c d_block clickable d_xs_none"><i class="fa fa-eye d_inline_m m_right_10"></i><span class="fs_medium">Quick View</span></a>
+										</div>
+										<figcaption class="bg_white relative p_bottom_0">
+												<div class="t_align_c">
+													<a class="second_font sc_hover d_xs_block m_bottom_5" href="things/<?php echo $productListVal->id;?>/<?php echo url_title($productListVal->product_name,'-');?>"><?php echo $productListVal->product_name;?></a>
+												</div>
+											<button data-popup="#add_to_cart_popup" data-popup-transition-in="bounceInUp" data-popup-transition-out="bounceOutUp" class="button_type_2 m_bottom_9 d_block w_full t_align_c lbrown state_2 tr_all second_font fs_medium tt_uppercase m_top_15"><i class="fa fa-shopping-cart d_inline_m m_right_9"></i>Add To Cart</button>
 											<button class="button_type_8 grey state_2 tr_delay color_dark t_align_c vc_child f_left m_right_3 tooltip_container relative d_none"><i class="fa fa-heart fs_large d_inline_m"></i><span class="tooltip top fs_small color_white hidden animated" data-show="fadeInDown" data-hide="fadeOutUp">Add to Wishlist</span></button>
-											<button class="button_type_8 grey state_2 tr_delay color_dark t_align_c vc_child f_left m_right_3 tooltip_container relative d_none"><i class="fa fa-arrow-right fs_small d_inline_m"></i><i class="fa fa-arrow-left fs_small d_inline_m"></i><span class="tooltip top fs_small color_white hidden animated" data-show="fadeInDown" data-hide="fadeOutUp">Add to Compare</span></button>
 											<div class="clearfix t_sm_align_c t_xs_align_l">
-												<a href="#" class="second_font f_sm_none d_sm_inline_b f_xs_left fs_medium sc_hover f_left">Add to Wishlist</a>
+												<div class="row">
+													<div class="col-lg-6 col-md-6 m_bottom_9">
+													<a href="#" class="second_font f_sm_none d_sm_inline_b f_xs_left fs_medium sc_hover f_left">Add to Wishlist</a>												</div>
+													<div class="col-lg-6 col-md-6 color_light fs_large second_font t_align_r t_sm_align_c m_bottom_9">
+												<?php if($discPrice != ''){?>
+												   <?php if ($productListVal->price>$productListVal->sale_price){ ?>
+													  <s>Rs <?php echo number_format($productListVal->price);echo " ";?></s>
+												   <?php } else {?>
+													 <s>Rs <?php echo number_format($productListVal->sale_price);?></s>
+												   <?php } ?>
+												   <b class="scheme_color d_block">Rs <?php echo $discPrice;?></b>
+												 <?php } else { ?>
+												   <?php if ($productListVal->price>$productListVal->sale_price){ ?>
+													  <s>Rs <?php echo number_format($productListVal->price);echo " ";?></s>
+													  </br>You Pay: Rs <?php echo number_format($productListVal->sale_price);?>
+												   <?php } else {?>
+													  <b class="scheme_color d_block">Rs <?php echo number_format($productListVal->sale_price);?></b>
+												   <?php } ?>
+												<?php } ?>
+													</div>
+											</div>
 											</div>
 										</figcaption>
 									</figure>
@@ -367,59 +350,17 @@ border-top-right-radius: 3px;"><img src="images/product/<?php echo $img; ?>"> </
 							
 							
 							
-								<!--isotope item-->
-								<div class="category_isotope_item">
-									<figure class="product_item type_2 c_image_container relative frame_container t_sm_align_c r_image_container qv_container">
-										<!--image & buttons & label-->
-										<div class="relative">
-											<div class="d_block">
-												<img src="images/home_img_4.jpg" alt="" class="c_image_1 tr_all">
-												<img src="images/home_v3_img_3.jpg" alt="" class="c_image_2 tr_all">
-											</div>
-											<div class="product_label fs_ex_small circle color_white bg_lbrown t_align_c vc_child tt_uppercase"><i class="d_inline_m">Sale!</i></div>
-											<a data-popup="#quick_view" data-popup-transition-in="bounceInUp" data-popup-transition-out="bounceOutUp" class="tr_all color_white second_font qv_style_button quick_view tt_uppercase t_align_c d_block clickable d_xs_none"><i class="fa fa-eye d_inline_m m_right_10"></i><span class="fs_medium">Quick View</span></a>
-										</div>
-										<figcaption class="bg_white relative p_bottom_0">
-											<div class="row">
-												<div class="col-lg-7 col-md-7 m_bottom_9">
-													<a class="second_font sc_hover d_xs_block" href="#">Sed in lacus ut enim</a>
-													<div class="relative">
-														<a href="#" class="fw_light color_light sc_hover category_link tr_all">Chaises</a><br class="d_none">
-														<ul class="rating_list hr_list d_sm_inline_b tr_all">
-															<li class="color_lbrown"><i class="fa fa-star tr_all"></i></li>
-															<li class="color_lbrown"><i class="fa fa-star tr_all"></i></li>
-															<li class="color_lbrown"><i class="fa fa-star tr_all"></i></li>
-															<li><i class="fa fa-star tr_all"></i></li>
-															<li><i class="fa fa-star tr_all"></i></li>
-														</ul>
-														<span class="color_light reviews d_none">
-															<a href="#" class="sc_hover fs_medium fw_light">3 Review(s)</a> | <a href="#" class="color_dark sc_hover fs_medium fw_light">Add Your Review</a>
-														</span>
-													</div>
-													<hr class="d_none divider_light m_bottom_15">
-													<p class="fw_light d_none m_bottom_14 color_grey">Mauris fermentum dictum magna. Sed laoreet aliquam leo. Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus.</p>
-													<hr class="d_none divider_light m_bottom_15">
-												</div>
-												<div class="col-lg-5 col-md-5 color_light fs_large second_font t_align_r t_sm_align_c m_bottom_9">
-													<s>$1 302.00</s>
-													<b class="scheme_color d_block">$1 102.00</b>
-												</div>
-											</div>
-											<button data-popup="#add_to_cart_popup" data-popup-transition-in="bounceInUp" data-popup-transition-out="bounceOutUp" class="button_type_2 m_bottom_9 d_block w_full t_align_c lbrown state_2 tr_all second_font fs_medium tt_uppercase"><i class="fa fa-shopping-cart d_inline_m m_right_9"></i>Add To Cart</button>
-											<button class="button_type_8 grey state_2 tr_delay color_dark t_align_c vc_child f_left m_right_3 tooltip_container relative d_none"><i class="fa fa-heart fs_large d_inline_m"></i><span class="tooltip top fs_small color_white hidden animated" data-show="fadeInDown" data-hide="fadeOutUp">Add to Wishlist</span></button>
-											<button class="button_type_8 grey state_2 tr_delay color_dark t_align_c vc_child f_left m_right_3 tooltip_container relative d_none"><i class="fa fa-arrow-right fs_small d_inline_m"></i><i class="fa fa-arrow-left fs_small d_inline_m"></i><span class="tooltip top fs_small color_white hidden animated" data-show="fadeInDown" data-hide="fadeOutUp">Add to Compare</span></button>
-											<div class="clearfix t_sm_align_c t_xs_align_l">
-												<a href="#" class="second_font f_sm_none d_sm_inline_b f_xs_left fs_medium sc_hover f_left">Add to Wishlist</a>
-											</div>
-										</figcaption>
-									</figure>
-								</div>
+							</div>
+							        <div class="pagination" style="display:none">
+										<?php echo $paginationDisplay; ?>
+									</div>
 						</main>
 					</div>
 				</div>
 			</div>
 		<!--footer-->
 		<?php
+		$this->load->view('site/templates/sub_footer_cat');
 		$this->load->view('site/templates/footer');
 		?>
 	</div>
@@ -572,9 +513,11 @@ border-top-right-radius: 3px;"><img src="images/product/<?php echo $img; ?>"> </
 		<script src="plugins/fancybox/jquery.fancybox.pack.js"></script>
 		<script src="js/retina.min.js"></script>
 		<script src="plugins/colorpicker/colorpicker.js"></script>
-		 
+		
+	 
 		<!--Page Js-->
 		<script src="js/site/Socktail-shoplist.js"></script>
+		<script src="js/site/main4_new.js" type="text/javascript"></script>
 		
 		<!--theme initializer-->
 		<script src="js/themeCore.js"></script>

@@ -87,17 +87,26 @@ $this->load->view('site/templates/header_new');
 										
 										</div>
 						<?php 
-						if (count($imgArr)>1){ ?>
+						if (count($imgArr)>2){ ?>
 										<button class="thumbnails_product_prev black_hover button_type_4 grey state_2 tr_all d_block vc_child"><i class="fa fa-angle-left d_inline_m"></i></button>
 										<button class="thumbnails_product_next black_hover button_type_4 grey state_2 tr_all d_block vc_child"><i class="fa fa-angle-right d_inline_m"></i></button>
 									
 							<?php 		}
 						?>
 						</div>
+						
+							<?php if ($loginCheck != ''  && ($userDetails->row()->id == $productDetails->row()->user_id)){?>
+							<ul>
+								<li><a id="edit-details" class="button_type_2 d_block f_sm_none m_sm_bottom_3 t_align_c lbrown state_2 tr_all second_font fs_medium tt_uppercase f_left m_right_3 product_button" href="things/<?php echo $productDetails->row()->seller_product_id;?>/edit"><?php if($this->lang->line('product_edit_dtls') != '') { echo stripslashes($this->lang->line('product_edit_dtls')); } else echo "Edit Product"; ?></a></li>
+								<li><a uid="<?php echo $productDetails->row()->user_id;?>" thing_id="<?php echo $productDetails->row()->seller_product_id;?>" ntid="7220865" class="remove_new_thing button_type_2 d_block f_sm_none m_sm_bottom_3 t_align_c lbrown state_2 tr_all second_font fs_medium tt_uppercase f_left m_right_3 product_button" href="things/<?php echo $productDetails->row()->seller_product_id;?>/delete"><?php if($this->lang->line('shipping_delete') != '') { echo stripslashes($this->lang->line('shipping_delete')); } else echo "Delete"; ?></a></li>
+							</ul>
+							<?php }?>  
+
+                    
 								</div>
 								<div class="product_description f_left f_xs_none" id="product_description">
 									<div class="wrapper">
-										<h3 class="second_font m_bottom_3 f_left product_title"><a href="#" class="sc_hover"><?php echo $productDetails->row()->product_name;?></a></h3>
+										<h4 class="second_font m_bottom_10 f_left product_title"><a href="#" class="sc_hover"><?php echo $productDetails->row()->product_name;?></a></h4>
 										
 										<!--<a href="#" item_img_url="images/product/<?php echo $img;?>" tid="<?php echo $productDetails->row()->seller_product_id;?>" class="button <?php echo $fancyClass;?>" <?php if ($loginCheck==''){?>require_login="true"<?php }?>><span><i></i></span><?php echo $fancyText;?></a> -->
 				
@@ -236,6 +245,7 @@ $this->load->view('site/templates/header_new');
 											</div>
 										</footer>
 									</div>
+
 								</div>
 							</main>
 							<!--tabs-->
@@ -243,7 +253,7 @@ $this->load->view('site/templates/header_new');
 								<nav class="second_font">
 									<ul class="hr_list">
 										<li class="m_right_3"><a href="#tab1" class="color_light border_light_3 d_block"><?php if($this->lang->line('item_details') != '') { echo stripslashes($this->lang->line('item_details')); } else echo "Item Details"; ?></a></li>
-										<li class="m_right_3"><a href="#tab2" class="color_light border_light_3 d_block">Color <?php if($this->lang->line('shipping_policies') != '') { echo stripslashes($this->lang->line('shipping_policies')); } else echo "Shipping & Policies"; ?></a></li>
+										<li class="m_right_3"><a href="#tab2" class="color_light border_light_3 d_block"><?php if($this->lang->line('shipping_policies') != '') { echo stripslashes($this->lang->line('shipping_policies')); } else echo "Shipping & Policies"; ?></a></li>
 										
 										<?php 
 											$furCatArr = array('7','14','26','27','29','237');

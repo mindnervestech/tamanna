@@ -24,16 +24,17 @@
 		{
 			require_once 'google-login-mats/index.php';
 		}?>
-		<!--fonts include-->
+		<!--fonts include
 		<link href='css/Roboto.css' rel='stylesheet' type='text/css'>
-		<link href='css/Roboto_slab.css' rel='stylesheet' type='text/css'>
+		<link href='css/Roboto_slab.css' rel='stylesheet' type='text/css'>-->
 		<!--stylesheet include-->
-		<link rel="stylesheet" type="text/css" media="all" href="plugins/layerslider/css/layerslider.css">
+		<link rel="stylesheet" type="text/css" media="all" href="plugins/royalslider/royalslider.css">
 		<link rel="stylesheet" type="text/css" media="all" href="plugins/owl-carousel/assets/owl.carousel.min.css">
 		<link rel="stylesheet" type="text/css" media="all" href="plugins/fancybox/jquery.fancybox.css">
 		<link rel="stylesheet" type="text/css" media="all" href="plugins/jackbox/css/jackbox.min.css">
 		<link rel="stylesheet" type="text/css" media="all" href="css/animate.css">
 		<link rel="stylesheet" type="text/css" media="all" href="css/bootstrap.min.css">
+		<link rel="stylesheet" media="screen" href="//fonts.googleapis.com/css?family=Raleway:400,500,700,300" />
 		<!--<link rel="stylesheet" type="text/css" media="all" href="css/bootstrap_new.min.css">-->
 		<link rel="stylesheet" type="text/css" media="all" href="css/style.css">
 		<!--[if lte IE 10]>
@@ -109,8 +110,16 @@
 									</div>
 									<!--searchform-->
 									<form  action="<?php base_url();?>shopby/all" class="search relative f_right f_xs_none m_right_3 db_xs_centered button_in_input">
-										<input type="text" name="q" tabindex="1" class="text fs_medium color_light fw_light w_full tr_all" id="search-query" placeholder="<?php if($this->lang->line('header_search') != '') { echo stripslashes($this->lang->line('header_search')); } else echo "Search"; ?>" value="" autocomplete="off"/>
-										<button  type="submit" class="btn-submit color_dark tr_all color_lbrown_hover"><i class="fa fa-search d_inline_m"></i></button>
+										<fieldset>
+											<input type="text" name="q" tabindex="1" class="text fs_medium color_light fw_light w_full tr_all" id="search-query" placeholder="<?php if($this->lang->line('header_search') != '') { echo stripslashes($this->lang->line('header_search')); } else echo "Search"; ?>" value="" autocomplete="off"/>
+											<button  type="submit" class="btn-submit color_dark tr_all color_lbrown_hover"><i class="fa fa-search d_inline_m"></i></button>
+											<div class="feed-search">
+												<h4><?php if($this->lang->line('header_suggestions') != '') { echo stripslashes($this->lang->line('header_suggestions')); } else echo "Suggestions"; ?></h4>
+												<div class="loading" style="display: block;"><i></i>
+												<img class="loader" src="images/site/loading.gif"/>
+												</div>
+											</div>
+										</fieldset>
 									</form>
 								</div>
 							</div>
@@ -132,7 +141,33 @@
                                             ?>
 										<li>
 											<a class="tt_uppercase tr_delay" href="shopby/<?php echo $row->seourl;?>"><?php echo $row->cat_name;?> <i class="fa fa-caret-down tr_inherit d_inline_m m_left_5"></i></a>
-											<div class="mega_menu bg_grey_light tr_all">
+
+
+											<!--sub menu (second level)-->
+											<ul class="sub_menu bg_grey_light tr_all">
+												<?php 
+												foreach ($all_categories->result() as $row1){
+	                      	                    if ($row1->cat_name != '' && $row->id==$row1->rootID){
+												?>
+												<li>
+													<a href="shopby/<?php echo $row->seourl;?>/<?php echo $row1->seourl;?>"><?php echo $row1->cat_name;?></a>
+													<!--sub menu (third level)-->
+													<ul class="sub_menu bg_grey_light tr_all">
+													    <?php 
+			                                             foreach ($all_categories->result() as $row2){
+			                      	                          if ($row2->cat_name != '' && $row1->id==$row2->rootID){
+			                                            ?>
+														<li><a href="shopby/<?php echo $row->seourl;?>/<?php echo $row1->seourl;?>/<?php echo $row2->seourl;?>"><?php echo $row2->cat_name;?></a></li>
+														<?php  }} ?>
+													</ul>
+												</li>
+												<?php  }} ?>
+											</ul>
+
+
+
+
+										<!--	<div class="mega_menu bg_grey_light tr_all">
 												<div class="row">
                                                 <?php 
 	                                               foreach ($all_categories->result() as $row1){
@@ -153,7 +188,7 @@
                                                     <?php  }} ?>
 													
 												</div>
-											</div>
+											</div> -->
 										</li>
                                         <?php  }} ?>
 									</ul>

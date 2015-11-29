@@ -2,43 +2,56 @@
 $this->load->view('site/templates/header_new');
 ?>
 <link rel="stylesheet" type="text/css" media="all" href="plugins/layerslider/css/layerslider.css">
-			<!--layerslider-->
-			<div class="layerslider" style="width:100%;height:550px;">
-				<div class="ls-slide" data-ls="transition2d: all;">
-					<!--slide image-->
-					<img src="images/category/banner/IMG_1533.jpg" alt="" class="ls-bg">
-					<!--slide thumbnail-->
-					<img src="images/slide_04.jpg" alt="" class="ls-tn">
-					<!--slide layers-->
-					<p class="ls-l color_white fw_light tt_uppercase" style="left:0px;top:115px;font-size:1.285em;" data-ls="offsetxin:-100;delayin:400;easingin:easeOutBack;durationin:700;">Shapes, Sizes And Styles</p>
-					<h1 class="ls-l color_white second_font tt_uppercase fw_thin" style="left:0px;top:156px;font-size:4.285em;line-height:.94em;" data-ls="offsetxin:-100;delayin:600;easingin:easeOutBack;durationin:700;"><b>Kitchen</b> That<br>works <b>perfectly</b><br><b>for you</b></h1>
-					<a href="#" class="ls-l d_block button_type_5 bg_transparent slider_button color_white tt_uppercase fw_light" style="left:0px;font-size:1.428em;top:368px;" data-ls="offsetxin:-100;delayin:700;easingin:easeOutBack;durationin:700;">Find It Here</a>
-				</div>
-				<div class="ls-slide" data-ls="transition2d: all;">
-					<!--slide image-->
-					<img src="images/slide_01.jpg" alt="" class="ls-bg">
-					<!--slide thumbnail-->
-					<img src="images/slide_01.jpg" alt="" class="ls-tn">
-					<!--slide layers-->
-					<div class="ls-l circle bg_scheme_color color_white slider_label vc_child t_align_c" style="left:207px; top:50px;" data-ls="scalexin:0.5;offsetxin:0;delayin:200;easingin:easeOutBack;durationin:700;">
-						<div class="d_inline_m second_font" style="line-height:1.8em;">
-							<div class="fs_large">for only</div>
-							<b style="font-size:2.142em;">$299</b>
+			<div class="container">
+				<!--royalslider-->
+				<div class="royalslider rsDefault relative">
+					<!--slide-->
+					<div class="rsContent t_align_r">
+						<img class="rsImg" src="images/slide_03.jpg" alt="">
+						<div class="rsABlock d_mxs_none" style="right:95px;top:22.17%;" data-move-effect="right" data-delay="300" data-speed="700" data-easing="easeOutBack">
+							<p class="color_white fw_light tt_uppercase slider_fs_3">Office Ideas</p>
+						</div>
+						<div class="rsABlock d_mxs_none" style="right:95px;top:28.94%;line-height:.94em;" data-move-effect="right" data-speed="700" data-delay="500" data-easing="easeOutBack">
+							<h1 class="color_white  second_font tt_uppercase fw_thin slider_fs_1"><b>Give your<br>workspace<br>new life</b></h1>
+						</div>
+						<div class="rsABlock d_mxs_none" style="right:95px;top:67.56%;" data-move-effect="right" data-delay="600" data-speed="700" data-easing="easeOutBack">
+							<a href="#" class="d_inline_b d_xs_none button_type_5 bg_transparent slider_button color_white tt_uppercase fw_light slider_fs_2">Buy Now!</a>
 						</div>
 					</div>
-					<p class="ls-l color_white fw_light tt_uppercase" style="left:50%;top:143px;font-size:1.285em;" data-ls="offsetxin:0; offsetyin:120;delayin:400;easingin:easeOutBack;durationin:700;">By Charles and Ray Eames</p>
-					<h1 class="ls-l color_white second_font tt_uppercase t_align_c" style="left:50%;top:185px;font-size:4.285em;line-height:.94em;" data-ls="offsetxin:0; offsetyin:120;delayin:600;easingin:easeOutBack;durationin:700;"><b>Eames Molded Plastic<br>Side Chair</b></h1>
-					<a href="#" class="ls-l d_block button_type_5 bg_transparent slider_button color_white tt_uppercase fw_light" style="left:50%;font-size:1.428em;top:342px;" data-ls="offsetxin:0; offsetyin:120;delayin:800;easingin:easeOutBack;durationin:700;">Buy Now!</a>
-				</div>
-				<div class="ls-slide" data-ls="transition2d: all;">
-					<!--slide image-->
-					<img src="images/slide_02.jpg" alt="" class="ls-bg">
-					<!--slide thumbnail-->
-					<img src="images/slide_02.jpg" alt="" class="ls-tn">
-					<!--slide layers-->
-					<p class="ls-l color_white fw_light tt_uppercase" style="left:50%;top:171px;font-size:1.285em;" data-ls="offsetxin:0; offsetyin:120; delayin:400;easingin:easeOutBack;durationin:700;">BATHROOM INSPIRATION</p>
-					<h1 class="ls-l color_white second_font tt_uppercase t_align_c" style="left:50%;top:213px;font-size:4.285em;line-height:.94em;" data-ls="offsetxin:0; offsetyin:0; rotatein:360;scalexin:0.5;scaleyin:0.5; delayin:800;easingin:easeOutBack;durationin:700;"><b>New bathroom ideas</b></h1>
-					<a href="#" class="ls-l d_block button_type_5 bg_transparent slider_button color_white tt_uppercase fw_light" style="left:50%;font-size:1.428em;top:315px;" data-ls="offsetxin:0; offsetyin:120;delayin:1100;easingin:easeOutBack;durationin:700;">View Collection</a>
+					<!--slide-->
+					<div class="rsContent t_align_r">
+						<img class="rsImg" src="images/slide_05.jpg" alt="">
+						<div class="rsABlock d_mxs_none" style="top:8.77%;left:21.754%;" data-move-effect="fade" data-delay="700" data-speed="700" data-easing="easeOutBack">
+							<div class="circle bg_scheme_color d_xs_none color_white slider_label vc_child t_align_c" style="left:207px; top:50px;" data-ls="scalexin:0.5;offsetxin:0;delayin:200;easingin:easeOutBack;durationin:700;">
+								<div class="d_inline_m second_font">
+									<div class="fs_large">from</div>
+									<b style="font-size:2.142em;line-height:1.1em;">$4,659</b>
+								</div>
+							</div>
+						</div>
+						<div class="rsABlock d_mxs_none" style="right:95px;top:26.17%;" data-move-effect="right" data-delay="300" data-speed="700" data-easing="easeOutBack">
+							<p class="color_white fw_light tt_uppercase slider_fs_3">Lounge &amp; Living</p>
+						</div>
+						<div class="rsABlock d_mxs_none" style="right:95px;top:32.94%;line-height:.94em;" data-move-effect="right" data-speed="700" data-delay="500" data-easing="easeOutBack">
+							<h1 class="color_white  second_font tt_uppercase fw_thin slider_fs_1"><b>Eames<br>Lounge Chairs</b></h1>
+						</div>
+						<div class="rsABlock d_mxs_none" style="right:95px;top:61%;" data-move-effect="right" data-delay="600" data-speed="700" data-easing="easeOutBack">
+							<a href="#" class="d_inline_b d_xs_none button_type_5 bg_transparent slider_button color_white tt_uppercase fw_light slider_fs_2">Shop Now!</a>
+						</div>
+					</div>
+					<!--slide-->
+					<div class="rsContent">
+						<img class="rsImg" src="images/slide_06.jpg" alt="">
+						<div class="rsABlock d_mxs_none" style="left:95px;top:26.17%;" data-move-effect="left" data-delay="300" data-speed="700" data-easing="easeOutBack">
+							<p class="color_white fw_light tt_uppercase slider_fs_3">Stylish Space</p>
+						</div>
+						<div class="rsABlock d_mxs_none" style="left:95px;top:32.94%;line-height:.94em;" data-move-effect="left" data-speed="700" data-delay="500" data-easing="easeOutBack">
+							<h1 class="color_white d_mxs_none second_font tt_uppercase fw_thin slider_fs_1"><b>Contemporary<br>Furniture</b></h1>
+						</div>
+						<div class="rsABlock d_mxs_none" style="left:95px;top:61%;" data-move-effect="left" data-delay="600" data-speed="700" data-easing="easeOutBack">
+							<a href="#" class="d_inline_b d_xs_none button_type_5 bg_transparent slider_button color_white tt_uppercase fw_light slider_fs_2">Find It Here</a>
+						</div>	
+					</div>
 				</div>
 			</div>
 			<!--main content-->
@@ -556,7 +569,8 @@ $this->load->view('site/templates/header_new');
 
 		<!--footer-->
 	<?php
-$this->load->view('site/templates/footer');
+			$this->load->view('site/templates/sub_footer');
+			$this->load->view('site/templates/footer');
 ?></div>
 
 		<!--back to top-->
@@ -696,9 +710,7 @@ $this->load->view('site/templates/footer');
 		</div>
 
 		<!--libs include-->
-		<script src="plugins/layerslider/js/greensock.js"></script>
-		<script src="plugins/layerslider/js/layerslider.kreaturamedia.jquery.js"></script>
-		<script src="plugins/layerslider/js/layerslider.transitions.js"></script>
+		<script src="plugins/royalslider/jquery.royalslider.min.js"></script>
 		<script src="plugins/jquery.appear.js"></script>
 		<script src="plugins/jquery.elevateZoom-3.0.8.min.js"></script>
 		<script src="plugins/fancybox/jquery.fancybox.pack.js"></script>

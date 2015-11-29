@@ -86,6 +86,7 @@ $route['user/(:any)'] = "site/user/display_user_profile/$1";
 $route['shopby/(:any)'] = "site/searchShop/search_shopby/$1";
 $route['shop'] = "site/shop";
 $route['design-ideas'] = "site/ideas";
+$route['add-thing'] = "site/add";
 $route['professionals/(:any)'] = "site/searchProfessionals/search_professionalsby/$1";
 $route['stores'] = "site/seller";
 

@@ -88,8 +88,7 @@ class SearchShop extends MY_Controller {
 		$this->session->set_userdata('sSearchQueryString',$urlValArrVal[1]);
 		//print_r($_SESSION);die;	
 		
-		$breadCumps .= '<ul class="breadcrumbs">
-        					    <li><a class="shop-home" href="'.base_url().'shopby/all"  itemprop="url">Shop</a></li>';
+		$breadCumps .= '<a class="shop-home" href="'.base_url().'shopby/all"  itemprop="url">Shop</a>';
 		
 			if($searchCriteria != 'all') {
 				$condition = " where c.seourl = '".$searchCriteria."'";
@@ -111,11 +110,11 @@ class SearchShop extends MY_Controller {
 							$condition = " where c.seourl = '".$searchCriteriaBreadCumpArr[$i]."' limit 0,1";
 							$Paging = $this->product_model->getCategoryValues(' c.*',$condition);
 							$link_str .= '/'.$Paging->row()->seourl;
-	 				        $breadCumps .=  '<li class="last">/ <a href="'.$link_str.'" itemprop="url">'.$Paging->row()->cat_name.'</a></li>';
+	 				        $breadCumps .=  '/ <a href="'.$link_str.'" itemprop="url">'.$Paging->row()->cat_name.'</a>';
 						}
 					}
 				} else {
- 				        $breadCumps .=  '<li class="last">/ <a href="'.base_url().'shopby/'.$catID->row()->seourl.'" itemprop="url">'.$catID->row()->cat_name.'</a></li>';
+ 				        $breadCumps .=  '/ <a href="'.base_url().'shopby/'.$catID->row()->seourl.'" itemprop="url">'.$catID->row()->cat_name.'</a>';
 					
 				}
 			} else {
@@ -130,7 +129,7 @@ value="'.base_url().$urlVal.'/'.$listSub->seourl.'">'.$listSub->cat_name.'</opti
 }
 $listSubCatSelBox.= '</select>';
 			}
-			$breadCumps .= '</ul>';
+		//	$breadCumps .= '</ul>';
 			$this->data['listSubCatSelBox'] = $listSubCatSelBox;
 			$this->data['breadCumps'] = $breadCumps;
 			

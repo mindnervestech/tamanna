@@ -21,16 +21,6 @@ $this->load->view('site/templates/header_new');
 				}
 			}
 		}
-		
-		$fancyClass = 'fancy';
-		$fancyText = LIKE_BUTTON;
-		if (count($likedProducts)>0 && $likedProducts->num_rows()>0){
-			foreach ($likedProducts->result() as $likeProRow){
-				if ($likeProRow->product_id == $productDetails->row()->seller_product_id){
-					$fancyClass = 'fancyd';$fancyText = LIKED_BUTTON;break;
-				}
-			}
-		}
 	}
 	?>	
 			<div class="page_section_offset">
@@ -43,6 +33,14 @@ $this->load->view('site/templates/header_new');
 					<div class="row relative">
 						<div class="col-lg-6 col-md-6 col-sm-6 m_xs_bottom_30 m_bottom_48">
 							<img src="<?php echo base_url();?>images/product/<?php echo $img;?>" alt="<?php echo $productDetails->row()->product_name;?>" class="m_bottom_30">
+							<?php if ($loginCheck != ''  && ($userDetails->row()->id == $productDetails->row()->user_id)){?>
+							<ul id="sidebar">
+								<li><a class="sell button_type_2 d_block f_sm_none m_sm_bottom_3 t_align_c lbrown state_2 tr_all second_font fs_medium tt_uppercase f_left m_right_3 product_button" ntoid="15301425" ntid="<?php echo $productDetails->row()->seller_product_id;?>" require_login="<?php if (count($userDetails)>0){echo 'false';}else {echo 'true';}?>" href="#"><?php echo "I want to sell it"; ?></a></li>
+								<li><a class="button_type_2 d_block f_sm_none m_sm_bottom_3 t_align_c lbrown state_2 tr_all second_font fs_medium tt_uppercase f_left m_right_3 product_button" id="edit-details" href="things/<?php echo $productDetails->row()->seller_product_id;?>/edit"><?php echo "Edit"; ?></a></li>
+								<li><a class="remove_new_thing button_type_2 d_block f_sm_none m_sm_bottom_3 t_align_c lbrown state_2 tr_all second_font fs_medium tt_uppercase f_left m_right_3 product_button" uid="<?php echo $productUserDetails->row()->id;?>" thing_id="<?php echo $productDetails->row()->seller_product_id;?>" ntid="7220865" href="things/<?php echo $productDetails->row()->seller_product_id;?>/delete"><?php if($this->lang->line('shipping_delete') != '') { echo stripslashes($this->lang->line('shipping_delete')); } else echo "Delete"; ?></a></li>
+							</ul>
+							<?php }?>  
+
 						</div>
 						<aside class="col-lg-6 col-md-6 col-sm-6 m_xs_bottom_30 m_bottom_48 scrolled">
 							<div style="max-height: 300px;overflow: overlay;">
@@ -83,13 +81,14 @@ $this->load->view('site/templates/header_new');
 									}
 								}
 							}
+					if ($seller_product_details_row->seller_product_id != $productDetails->row()->id){
 					?>
                     
 					<li><a href="user/<?php echo $productDetails->row()->user_name;?>/things/<?php echo $seller_product_details_row->seller_product_id;?>/<?php echo url_title($seller_product_details_row->product_name,'-');?>" class="figure-img">
 						<span style="background-image: url(<?php echo base_url();?>images/product/<?php echo $img;?>);"></span>
 					</a></li>
 					<?php 
-						}
+					}}
 					}
 					if ($limitProd<6 && $seller_affiliate_products->num_rows()>0){
 						foreach ($seller_affiliate_products->result() as $seller_affiliate_products_row){
@@ -148,7 +147,7 @@ $this->load->view('site/templates/header_new');
 		<script src="plugins/afterresize.min.js"></script>
 		<script src="js/retina.min.js"></script>
 		<script src="plugins/colorpicker/colorpicker.js"></script>
-		 
+		<script type="text/javascript" src="js/site/thing_page.js"></script>
 
 		<!--theme initializer-->
 		<script src="js/themeCore.js"></script>

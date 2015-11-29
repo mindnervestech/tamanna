@@ -25,9 +25,9 @@ if ($meta_title != '' and $meta_title != $title){?>
 {
 	require_once 'google-login-mats/index.php';
 }?>
-		<!--fonts include-->
+		<!--fonts include
 		<link href='css/Roboto.css' rel='stylesheet' type='text/css'>
-		<link href='css/Roboto_slab.css' rel='stylesheet' type='text/css'>
+		<link href='css/Roboto_slab.css' rel='stylesheet' type='text/css'>-->
 		<!--stylesheet include-->
 		<link rel="stylesheet" type="text/css" media="all" href="plugins/fancybox/jquery.fancybox.css">
 		<link rel="stylesheet" type="text/css" media="all" href="plugins/owl-carousel/assets/owl.carousel.min.css">
@@ -35,6 +35,7 @@ if ($meta_title != '' and $meta_title != $title){?>
 		<link rel="stylesheet" type="text/css" media="all" href="css/animate.css">
 		<link rel="stylesheet" type="text/css" media="all" href="css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" media="all" href="css/style.css">
+		<link rel="stylesheet" media="screen" href="//fonts.googleapis.com/css?family=Raleway:400,500,700,300" />
 		<!--[if lte IE 10]>
 			<link rel="stylesheet" type="text/css" media="screen" href="css/ie.css">
 			<link rel="stylesheet" type="text/css" media="screen" href="plugins/jackbox/css/jackbox-ie9.css">
