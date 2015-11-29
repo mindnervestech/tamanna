@@ -72,13 +72,7 @@
 								<!--shop nav-->
 								<nav class="d_inline_b">
 									<ul class="hr_list second_font si_list fs_small">
-                                    <li><a class="sc_hover tr_delay" href="shop">Shop</a></li>
-                                    <li><a class="sc_hover tr_delay" href="design-ideas">Explore</a></li>
-                                    <li><a class="sc_hover tr_delay" href="pages/faq">Why Socktail</a></li>
-									<li><a href="pages/contact-us" class="sc_hover tr_delay" href="faq">Contact Us</a></li>
-
                                         <?php if ($loginCheck != ''){ ?>
-                                        <li><a class="sc_hover tr_delay" href="add">Add</a></li>
                                         <li><a class="sc_hover tr_delay" href="settings/password">My Account</a></li>
                                         <li><a class="sc_hover tr_delay" href="purchases">Purchase History</a></li>
 										<li><a class="sc_hover tr_delay" href="<?php echo 'user/'.$userDetails->row()->user_name;?>">Wishlist</a></li>
@@ -100,7 +94,8 @@
 							<div class="col-lg-4 col-md-4 col-sm-4 d_table_cell d_xs_block f_none v_align_m m_xs_bottom_15">
 								<!--logo-->
 								<a href="<?php echo base_url();?>" class="d_inline_b" alt="<?php echo $siteTitle;?>" title="<?php echo $siteTitle;?>">
-									<img src="images/logo/<?php echo $logo;?>" alt="socktail logo"">
+								<!--	<img src="images/logo/<?php echo $logo;?>" alt="socktail logo""> -->
+								<h1>CityFurnish</h1>
 								</a>
 							</div>
 							<div class="col-lg-8 col-md-8 col-sm-8 d_table_cell d_xs_block f_none v_align_m">
@@ -108,18 +103,12 @@
 									<div class="clearfix f_right f_xs_none d_xs_inline_b m_xs_bottom_15 t_xs_align_l">
 									</div>
 									<!--searchform-->
-									<form  action="<?php base_url();?>shopby/all" class="search relative f_right f_xs_none m_right_3 db_xs_centered button_in_input">
+							<!--		<form  action="<?php base_url();?>shopby/all" class="search relative f_right f_xs_none m_right_3 db_xs_centered button_in_input">
 										<fieldset>
 											<input type="text" name="q" tabindex="1" class="text fs_medium color_light fw_light w_full tr_all" id="search-query" placeholder="<?php if($this->lang->line('header_search') != '') { echo stripslashes($this->lang->line('header_search')); } else echo "Search"; ?>" value="" autocomplete="off"/>
 											<button  type="submit" class="btn-submit color_dark tr_all color_lbrown_hover"><i class="fa fa-search d_inline_m"></i></button>
-									<!--		<div class="feed-search">
-												<h4><?php if($this->lang->line('header_suggestions') != '') { echo stripslashes($this->lang->line('header_suggestions')); } else echo "Suggestions"; ?></h4>
-												<div class="loading" style="display: block;"><i></i>
-												<img class="loader" src="images/site/loading.gif"/>
-												</div>
-											</div> -->
 										</fieldset>
-									</form>
+									</form> -->
 								</div>
 							</div>
 						</div>
@@ -162,34 +151,17 @@
 												</li>
 												<?php  }} ?>
 											</ul>
-
-
-
-
-										<!--	<div class="mega_menu bg_grey_light tr_all">
-												<div class="row">
-                                                <?php 
-	                                               foreach ($all_categories->result() as $row1){
-	                      	                            if ($row1->cat_name != '' && $row->id==$row1->rootID){
-                                                ?>
-													<section class="col-lg-3 col-md-3 col-sm-3 m_xs_bottom_15">
-                                                        <h6 class="color_dark m_bottom_13"><b class="second_font "><a class="tt_uppercase tr_delay" href="shopby/<?php echo $row->seourl;?>/<?php echo $row1->seourl;?>"><?php echo $row1->cat_name;?></a></b></h6>
-														<ul class="mega_menu_list">
-                                                        <?php 
-			                                             foreach ($all_categories->result() as $row2){
-			                      	                          if ($row2->cat_name != '' && $row1->id==$row2->rootID){
-			                                             ?>
-															<li><a href="shopby/<?php echo $row->seourl;?>/<?php echo $row1->seourl;?>/<?php echo $row2->seourl;?>" class="d_block sc_hover tr_delay"><?php echo $row2->cat_name;?></a></li>
-														<?php  }} ?>
-													
-                                                        </ul>
-													</section>
-                                                    <?php  }} ?>
-													
-												</div>
-											</div> -->
 										</li>
                                         <?php  }} ?>
+										<li>
+											<a class="tt_uppercase tr_delay" href="pages/faq">Why Us</a>
+										</li>
+										<li>
+											<a class="tt_uppercase tr_delay" href="pages/faq">How it Works</a>
+										</li>
+										<li>
+											<a class="tt_uppercase tr_delay" href="pages/contact-us">Contact Us</a>
+										</li>
 									</ul>
 								</nav>
 							</div>

@@ -6,22 +6,20 @@ $this->load->view('site/templates/header_new_small');
 				<div class="container">
 					<div class="row">
 						<section class="col-lg-12 col-md-12 col-sm-12">
-							<h2 class="fw_light second_font color_dark m_bottom_27 tt_uppercase">Manufacturer Name 2</h2>
+							<h2 class="fw_light second_font color_dark m_bottom_27 tt_uppercase"><?php echo $userProfileDetails->row()->full_name;?></h2>
 							<div class="clearfix m_bottom_10">
 								<div class="t_xs_align_c f_left m_right_20 m_xs_bottom_15 f_xs_none"><img src="images/m_img_2.jpg" alt=""></div>
-								<p class="fw_light m_bottom_14 p_top_4">Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Donec sit amet eros. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Mauris fermentum dictum magna.</p>
-								<p class="fw_light">Mauris accumsan nulla vel diam. Sed in lacus ut enim adipiscing aliquet. Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna.</p>
+								<p class="fw_light m_bottom_14 p_top_4"><?php if ($userProfileDetails->row()->about != '') {echo $userProfileDetails->row()->about;} else {echo $userProfileDetails->row()->brand_description;}?></p>
 							</div>
-							<p class="fw_light m_bottom_18">Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque. Vivamus eget nibh. Donec sit amet eros. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Mauris fermentum dictum magna. Sed laoreet aliquam leo. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Mauris fermentum dictum magna. Sed laoreet aliquam leo. </p>
 							<hr class="divider_light m_bottom_15">
-							<div class="second_font m_bottom_23">
+				<!--			<div class="second_font m_bottom_23">
 								<ul>
 													<li>
-														<button id="sign-up" re-url="/sales/create?ntid=7220865&amp;ntoid=15301425" class="t_align_c tt_uppercase second_font d_block fs_medium button_type_2 lbrown tr_all">Complete Registration</button>
+														<button id="sign-up" re-url="/sales/create?ntid=7220865&amp;ntoid=15301425" class="t_align_c tt_uppercase second_font d_block fs_medium button_type_2 lbrown tr_all">Edit Profile</button>
 													</li>
 								</ul>
 							</div>
-							<hr class="divider_light m_bottom_15">
+							<hr class="divider_light m_bottom_15"> -->
 							<h2 class="fw_light second_font color_dark tt_uppercase m_bottom_27">My Products</h2>
 							<?php if ($addedProductDetails->num_rows()>0 || $notSellProducts->num_rows()>0){?>
 							<!--isotope-->
@@ -41,15 +39,6 @@ $this->load->view('site/templates/header_new_small');
 									}
 								}
 							}
-							$fancyClass = 'fancy';
-							$fancyText = LIKE_BUTTON;
-							if (count($likedProducts)>0 && $likedProducts->num_rows()>0){
-								foreach ($likedProducts->result() as $likeProRow){
-									if ($likeProRow->product_id == $productLikeDetailsRow->seller_product_id){
-										$fancyClass = 'fancyd';$fancyText = LIKED_BUTTON;break;
-									}
-								}
-							}
 							?>
 
 								<!--isotope item-->
@@ -57,190 +46,75 @@ $this->load->view('site/templates/header_new_small');
 									<figure class="product_item type_2 c_image_container relative frame_container t_sm_align_c r_image_container qv_container">
 										<!--image & buttons & label-->
 										<div class="relative">
+										<a class="second_font sc_hover d_xs_block" href="<?php echo 'things/'.$productLikeDetailsRow->id.'/'.url_title($productLikeDetailsRow->product_name);?>">
 											<div class="d_block">
-												<img src="images/home_img_4.jpg" alt="" class="c_image_1 tr_all">
-												<img src="images/home_v3_img_3.jpg" alt="" class="c_image_2 tr_all">
+												<img src="images/product/<?php echo $imgName;?>" alt="" class="c_image_1 tr_all">
+												<img src="images/product/<?php echo $imgName;?>" alt="" class="c_image_2 tr_all">
 											</div>
+										</a>
 										</div>
 										<figcaption class="bg_white relative p_bottom_0">
 											<div class="row">
 												<div class="col-lg-7 col-md-7 m_bottom_9">
-													<a class="second_font sc_hover d_xs_block" href="#">Sed in lacus ut enim</a>
-													<hr class="d_none divider_light m_bottom_15">
-													<p class="fw_light d_none m_bottom_14 color_grey">Mauris fermentum dictum magna. Sed laoreet aliquam leo. Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus.</p>
+													<a class="second_font sc_hover d_xs_block" href="<?php echo 'things/'.$productLikeDetailsRow->id.'/'.url_title($productLikeDetailsRow->product_name);?>"><?php echo $productLikeDetailsRow->product_name;?></a>
 													<hr class="d_none divider_light m_bottom_15">
 												</div>
 												<div class="col-lg-5 col-md-5 color_light fs_large second_font t_align_r t_sm_align_c m_bottom_9">
-													<b class="scheme_color d_block">$1 102.00</b>
+													<b class="scheme_color d_block">Rs <?php echo $productLikeDetailsRow->sale_price;?></b>
 												</div>
 											</div>
 										</figcaption>
 									</figure>
 								</div>
+							<?php }?>
+							  <?php 
+							  foreach ($notSellProducts->result() as $productLikeDetailsRow){
+									$imgName = 'dummyProductImage.jpg';
+									$imgArr = explode(',', $productLikeDetailsRow->image);
+									if (count($imgArr)>0){
+										foreach ($imgArr as $imgRow){
+											if ($imgRow != ''){
+												$imgName = $imgRow;
+												break;
+											}
+										}
+									}
+									$fancyClass = 'fancy';
+									$fancyText = LIKE_BUTTON;
+									if (count($likedProducts)>0 && $likedProducts->num_rows()>0){
+										foreach ($likedProducts->result() as $likeProRow){
+											if ($likeProRow->product_id == $productLikeDetailsRow->seller_product_id){
+												$fancyClass = 'fancyd';$fancyText = LIKED_BUTTON;break;
+											}
+										}
+									}
+							  ?>						
 								<!--isotope item-->
 								<div class="category_isotope_item">
 									<figure class="product_item type_2 c_image_container relative frame_container t_sm_align_c r_image_container qv_container">
 										<!--image & buttons & label-->
 										<div class="relative">
+										<a class="second_font sc_hover d_xs_block" href="<?php echo 'user/'.$userProfileDetails->row()->user_name.'/things/'.$productLikeDetailsRow->seller_product_id.'/'.url_title($productLikeDetailsRow->product_name);?>">
 											<div class="d_block">
-												<img src="images/home_img_4.jpg" alt="" class="c_image_1 tr_all">
-												<img src="images/home_v3_img_3.jpg" alt="" class="c_image_2 tr_all">
+												<img src="images/product/<?php echo $imgName;?>" alt="" class="c_image_1 tr_all">
+												<img src="images/product/<?php echo $imgName;?>" alt="" class="c_image_2 tr_all">
 											</div>
-											<a data-popup="#quick_view" data-popup-transition-in="bounceInUp" data-popup-transition-out="bounceOutUp" class="tr_all color_white second_font qv_style_button quick_view tt_uppercase t_align_c d_block clickable d_xs_none"><i class="fa fa-eye d_inline_m m_right_10"></i><span class="fs_medium">Quick View</span></a>
+										</a>
 										</div>
 										<figcaption class="bg_white relative p_bottom_0">
 											<div class="row">
 												<div class="col-lg-7 col-md-7 m_bottom_9">
-													<a class="second_font sc_hover d_xs_block" href="#">Sed in lacus ut enim</a>
-													<hr class="d_none divider_light m_bottom_15">
-													<p class="fw_light d_none m_bottom_14 color_grey">Mauris fermentum dictum magna. Sed laoreet aliquam leo. Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus.</p>
+													<a class="second_font sc_hover d_xs_block" href="<?php echo 'user/'.$userProfileDetails->row()->user_name.'/things/'.$productLikeDetailsRow->seller_product_id.'/'.url_title($productLikeDetailsRow->product_name);?>"><?php echo $productLikeDetailsRow->product_name;?></a>
 													<hr class="d_none divider_light m_bottom_15">
 												</div>
 												<div class="col-lg-5 col-md-5 color_light fs_large second_font t_align_r t_sm_align_c m_bottom_9">
-													<b class="scheme_color d_block">$1 102.00</b>
+													<b class="scheme_color d_block">Rs <?php echo $userProfileDetails->sale_price;?></b>
 												</div>
 											</div>
-											<button class="button_type_2 m_bottom_9 d_block w_full t_align_c lbrown state_2 tr_all second_font fs_medium tt_uppercase"><i class="fa fa-heart fs_large d_inline_m"></i> Add To Wishlist</button>
 										</figcaption>
 									</figure>
 								</div>
-								<!--isotope item-->
-								<div class="category_isotope_item">
-									<figure class="product_item type_2 c_image_container relative frame_container t_sm_align_c r_image_container qv_container">
-										<!--image & buttons & label-->
-										<div class="relative">
-											<div class="d_block">
-												<img src="images/home_img_4.jpg" alt="" class="c_image_1 tr_all">
-												<img src="images/home_v3_img_3.jpg" alt="" class="c_image_2 tr_all">
-											</div>
-											<a data-popup="#quick_view" data-popup-transition-in="bounceInUp" data-popup-transition-out="bounceOutUp" class="tr_all color_white second_font qv_style_button quick_view tt_uppercase t_align_c d_block clickable d_xs_none"><i class="fa fa-eye d_inline_m m_right_10"></i><span class="fs_medium">Quick View</span></a>
-										</div>
-										<figcaption class="bg_white relative p_bottom_0">
-											<div class="row">
-												<div class="col-lg-7 col-md-7 m_bottom_9">
-													<a class="second_font sc_hover d_xs_block" href="#">Sed in lacus ut enim</a>
-													<hr class="d_none divider_light m_bottom_15">
-													<p class="fw_light d_none m_bottom_14 color_grey">Mauris fermentum dictum magna. Sed laoreet aliquam leo. Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus.</p>
-													<hr class="d_none divider_light m_bottom_15">
-												</div>
-												<div class="col-lg-5 col-md-5 color_light fs_large second_font t_align_r t_sm_align_c m_bottom_9">
-													<b class="scheme_color d_block">$1 102.00</b>
-												</div>
-											</div>
-											<button class="button_type_2 m_bottom_9 d_block w_full t_align_c lbrown state_2 tr_all second_font fs_medium tt_uppercase"><i class="fa fa-heart fs_large d_inline_m"></i> Add To Wishlist</button>
-										</figcaption>
-									</figure>
-								</div>
-								<!--isotope item-->
-								<div class="category_isotope_item">
-									<figure class="product_item type_2 c_image_container relative frame_container t_sm_align_c r_image_container qv_container">
-										<!--image & buttons & label-->
-										<div class="relative">
-											<div class="d_block">
-												<img src="images/home_img_4.jpg" alt="" class="c_image_1 tr_all">
-												<img src="images/home_v3_img_3.jpg" alt="" class="c_image_2 tr_all">
-											</div>
-											<a data-popup="#quick_view" data-popup-transition-in="bounceInUp" data-popup-transition-out="bounceOutUp" class="tr_all color_white second_font qv_style_button quick_view tt_uppercase t_align_c d_block clickable d_xs_none"><i class="fa fa-eye d_inline_m m_right_10"></i><span class="fs_medium">Quick View</span></a>
-										</div>
-										<figcaption class="bg_white relative p_bottom_0">
-											<div class="row">
-												<div class="col-lg-7 col-md-7 m_bottom_9">
-													<a class="second_font sc_hover d_xs_block" href="#">Sed in lacus ut enim</a>
-													<hr class="d_none divider_light m_bottom_15">
-													<p class="fw_light d_none m_bottom_14 color_grey">Mauris fermentum dictum magna. Sed laoreet aliquam leo. Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus.</p>
-													<hr class="d_none divider_light m_bottom_15">
-												</div>
-												<div class="col-lg-5 col-md-5 color_light fs_large second_font t_align_r t_sm_align_c m_bottom_9">
-													<b class="scheme_color d_block">$1 102.00</b>
-												</div>
-											</div>
-											<button class="button_type_2 m_bottom_9 d_block w_full t_align_c lbrown state_2 tr_all second_font fs_medium tt_uppercase"><i class="fa fa-heart fs_large d_inline_m"></i> Add To Wishlist</button>
-										</figcaption>
-									</figure>
-								</div>
-								<!--isotope item-->
-								<div class="category_isotope_item">
-									<figure class="product_item type_2 c_image_container relative frame_container t_sm_align_c r_image_container qv_container">
-										<!--image & buttons & label-->
-										<div class="relative">
-											<div class="d_block">
-												<img src="images/home_img_4.jpg" alt="" class="c_image_1 tr_all">
-												<img src="images/home_v3_img_3.jpg" alt="" class="c_image_2 tr_all">
-											</div>
-											<a data-popup="#quick_view" data-popup-transition-in="bounceInUp" data-popup-transition-out="bounceOutUp" class="tr_all color_white second_font qv_style_button quick_view tt_uppercase t_align_c d_block clickable d_xs_none"><i class="fa fa-eye d_inline_m m_right_10"></i><span class="fs_medium">Quick View</span></a>
-										</div>
-										<figcaption class="bg_white relative p_bottom_0">
-											<div class="row">
-												<div class="col-lg-7 col-md-7 m_bottom_9">
-													<a class="second_font sc_hover d_xs_block" href="#">Sed in lacus ut enim</a>
-													<hr class="d_none divider_light m_bottom_15">
-													<p class="fw_light d_none m_bottom_14 color_grey">Mauris fermentum dictum magna. Sed laoreet aliquam leo. Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus.</p>
-													<hr class="d_none divider_light m_bottom_15">
-												</div>
-												<div class="col-lg-5 col-md-5 color_light fs_large second_font t_align_r t_sm_align_c m_bottom_9">
-													<b class="scheme_color d_block">$1 102.00</b>
-												</div>
-											</div>
-											<button class="button_type_2 m_bottom_9 d_block w_full t_align_c lbrown state_2 tr_all second_font fs_medium tt_uppercase"><i class="fa fa-heart fs_large d_inline_m"></i> Add To Wishlist</button>
-										</figcaption>
-									</figure>
-								</div>
-								<!--isotope item-->
-								<div class="category_isotope_item">
-									<figure class="product_item type_2 c_image_container relative frame_container t_sm_align_c r_image_container qv_container">
-										<!--image & buttons & label-->
-										<div class="relative">
-											<div class="d_block">
-												<img src="images/home_img_4.jpg" alt="" class="c_image_1 tr_all">
-												<img src="images/home_v3_img_3.jpg" alt="" class="c_image_2 tr_all">
-											</div>
-											<a data-popup="#quick_view" data-popup-transition-in="bounceInUp" data-popup-transition-out="bounceOutUp" class="tr_all color_white second_font qv_style_button quick_view tt_uppercase t_align_c d_block clickable d_xs_none"><i class="fa fa-eye d_inline_m m_right_10"></i><span class="fs_medium">Quick View</span></a>
-										</div>
-										<figcaption class="bg_white relative p_bottom_0">
-											<div class="row">
-												<div class="col-lg-7 col-md-7 m_bottom_9">
-													<a class="second_font sc_hover d_xs_block" href="#">Sed in lacus ut enim</a>
-													<hr class="d_none divider_light m_bottom_15">
-													<p class="fw_light d_none m_bottom_14 color_grey">Mauris fermentum dictum magna. Sed laoreet aliquam leo. Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus.</p>
-													<hr class="d_none divider_light m_bottom_15">
-												</div>
-												<div class="col-lg-5 col-md-5 color_light fs_large second_font t_align_r t_sm_align_c m_bottom_9">
-													<b class="scheme_color d_block">$1 102.00</b>
-												</div>
-											</div>
-											<button class="button_type_2 m_bottom_9 d_block w_full t_align_c lbrown state_2 tr_all second_font fs_medium tt_uppercase"><i class="fa fa-heart fs_large d_inline_m"></i> Add To Wishlist</button>
-										</figcaption>
-									</figure>
-								</div>
-								<!--isotope item-->
-								<div class="category_isotope_item">
-									<figure class="product_item type_2 c_image_container relative frame_container t_sm_align_c r_image_container qv_container">
-										<!--image & buttons & label-->
-										<div class="relative">
-											<div class="d_block">
-												<img src="images/home_img_4.jpg" alt="" class="c_image_1 tr_all">
-												<img src="images/home_v3_img_3.jpg" alt="" class="c_image_2 tr_all">
-											</div>
-											<a data-popup="#quick_view" data-popup-transition-in="bounceInUp" data-popup-transition-out="bounceOutUp" class="tr_all color_white second_font qv_style_button quick_view tt_uppercase t_align_c d_block clickable d_xs_none"><i class="fa fa-eye d_inline_m m_right_10"></i><span class="fs_medium">Quick View</span></a>
-										</div>
-										<figcaption class="bg_white relative p_bottom_0">
-											<div class="row">
-												<div class="col-lg-7 col-md-7 m_bottom_9">
-													<a class="second_font sc_hover d_xs_block" href="#">Sed in lacus ut enim</a>
-													<hr class="d_none divider_light m_bottom_15">
-													<p class="fw_light d_none m_bottom_14 color_grey">Mauris fermentum dictum magna. Sed laoreet aliquam leo. Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus.</p>
-													<hr class="d_none divider_light m_bottom_15">
-												</div>
-												<div class="col-lg-5 col-md-5 color_light fs_large second_font t_align_r t_sm_align_c m_bottom_9">
-													<b class="scheme_color d_block">$1 102.00</b>
-												</div>
-											</div>
-											<button class="button_type_2 m_bottom_9 d_block w_full t_align_c lbrown state_2 tr_all second_font fs_medium tt_uppercase"><i class="fa fa-heart fs_large d_inline_m"></i> Add To Wishlist</button>
-										</figcaption>
-									</figure>
-								</div>
-
-
+														
 							</div>
 							<?php }}?>
 						</section>

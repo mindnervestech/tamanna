@@ -517,7 +517,7 @@ border-top-right-radius: 3px;"><img src="images/product/<?php echo $img; ?>"> </
 	 
 		<!--Page Js-->
 		<script src="js/site/Socktail-shoplist.js"></script>
-		<script src="js/site/main4_new.js" type="text/javascript"></script>
+	<!--	<script src="js/site/main4_new.js" type="text/javascript"></script> -->
 		
 		<!--theme initializer-->
 		<script src="js/themeCore.js"></script>

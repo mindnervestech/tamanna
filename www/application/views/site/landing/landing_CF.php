@@ -8,7 +8,7 @@ $this->load->view('site/templates/header_new');
 				<div class="royalslider rsDefault relative">
 					<!--slide-->
 					<div class="rsContent t_align_r">
-						<img class="rsImg" src="images/slide_03.jpg" alt="">
+						<img class="rsImg" src="images/product/camera-411.jpg" alt="">
 						<div class="rsABlock d_mxs_none" style="right:95px;top:22.17%;" data-move-effect="right" data-delay="300" data-speed="700" data-easing="easeOutBack">
 							<p class="color_white fw_light tt_uppercase slider_fs_3">Office Ideas</p>
 						</div>
@@ -21,7 +21,7 @@ $this->load->view('site/templates/header_new');
 					</div>
 					<!--slide-->
 					<div class="rsContent t_align_r">
-						<img class="rsImg" src="images/slide_05.jpg" alt="">
+						<img class="rsImg" src="images/product/slide_06.jpg" alt="">
 						<div class="rsABlock d_mxs_none" style="top:8.77%;left:21.754%;" data-move-effect="fade" data-delay="700" data-speed="700" data-easing="easeOutBack">
 							<div class="circle bg_scheme_color d_xs_none color_white slider_label vc_child t_align_c" style="left:207px; top:50px;" data-ls="scalexin:0.5;offsetxin:0;delayin:200;easingin:easeOutBack;durationin:700;">
 								<div class="d_inline_m second_font">
@@ -42,7 +42,7 @@ $this->load->view('site/templates/header_new');
 					</div>
 					<!--slide-->
 					<div class="rsContent">
-						<img class="rsImg" src="images/slide_06.jpg" alt="">
+						<img class="rsImg" src="images/product/image22.jpg" alt="">
 						<div class="rsABlock d_mxs_none" style="left:95px;top:26.17%;" data-move-effect="left" data-delay="300" data-speed="700" data-easing="easeOutBack">
 							<p class="color_white fw_light tt_uppercase slider_fs_3">Stylish Space</p>
 						</div>
@@ -56,68 +56,52 @@ $this->load->view('site/templates/header_new');
 				</div>
 			</div>
 			<!--main content-->
-			<section class="section_offset hidden animated" data-animation="fadeInDown">
+			<section class="section_offset">
 				<div class="container">
 					<div class="row">
-						<div class="col-lg-4 col-md-4 col-sm-4">
+						<div class="col-lg-4 col-md-4 col-sm-6 m_sm_bottom_30 animated hidden" data-animation="fadeInDown">
 							<!--banner-->
-							<figure class="relative wrapper scale_image_container m_bottom_30 r_image_container">
-								<img src="images/category/banner/Stria-Bed-Queen-31.jpg" alt="" class="tr_all scale_image">
+							<figure class="relative wrapper scale_image_container r_image_container">
+								<img src="images/product/_MG_5723.jpg" alt="" class="tr_all scale_image">
 								<!--caption-->
-								<figcaption class="caption_type_1 tr_all">
-									<!--<div class="d_inline_b color_white fw_light caption_title tt_uppercase bg_lbrown_translucent">
+								<figcaption class="caption_type_1 pos_2 tr_all">
+									<div class="d_inline_b color_white fw_light caption_title tt_uppercase bg_lbrown_translucent">
 										Special Offer
-									</div>-->
+									</div>
 									<div class="caption_inner">
-										<h3 class="color_white second_font fw_light m_bottom_5 fs_sm_default">Your Bedroom Lives Here</h3>
+										<h3 class="color_white second_font fw_light m_bottom_5 w_break">Your Bedroom Lives Here</h3>
 										<p class="color_light fw_light color_light_2">Donec sit amet eros. Lorem ipsum. <a href="#" class="color_lbrown color_white_hover">Buy Now!</a></p>
 									</div>
 								</figcaption>
 							</figure>
-							<!--banner-->
-							<a href="#" class="banner_type_2 scheme_color m_xs_bottom_30 d_block">
-								<span class="bg_scheme_color inner color_white t_align_c d_block">
-									<span class="second_font tt_uppercase fw_light m_bottom_11 d_block fs_big_2 ba_title">Free Shipping</span>
-									<span class="fs_large fw_light m_bottom_15 d_block ba_title_2">We Deliver In All Cities</span>
-									<span class="second_font tt_uppercase color_white fs_medium button_type_7 d_inline_b bg_transparent tr_all">Learn More</span>
-								</span>
-							</a>
 						</div>
-						<div class="col-lg-4 col-md-4 col-sm-4">
+						<div class="col-lg-4 col-md-4 col-sm-6 m_sm_bottom_30 animated hidden" data-animation="fadeInDown" data-animation-delay="150">
 							<!--banner-->
-							<figure class="relative wrapper scale_image_container r_image_container m_xs_bottom_30">
-								<img src="images/category/banner/Side_board.jpg" alt="" class="tr_all scale_image">
+							<figure data-animation="fadeInLeft" class="relative wrapper scale_image_container r_image_container">
+								<img src="images/product/_MG_6281.jpg" alt="" class="tr_all scale_image">
 								<!--caption-->
-								<figcaption class="caption_type_1 tr_all">
+								<figcaption class="caption_type_1 pos_2 tr_all">
 									<div class="d_inline_b color_white fw_light caption_title tt_uppercase bg_lbrown_translucent">
 										Smart Ideas
 									</div>
 									<div class="caption_inner">
-										<h3 class="color_white second_font fw_light m_bottom_5 fs_sm_default">Relax &amp; Work</h3>
+										<h3 class="color_white second_font fw_light m_bottom_5 w_break">Color Your Office</h3>
 										<p class="color_light fw_light color_light_2">Mauris fermentum dictum magna. <a href="#" class="color_lbrown color_white_hover">More info</a></p>
 									</div>
 								</figcaption>
 							</figure>
 						</div>
-						<div class="col-lg-4 col-md-4 col-sm-4">
+						<div class="col-lg-4 col-md-4 col-sm-12 t_sm_align_c animated hidden" data-animation="fadeInDown" data-animation-delay="300">
 							<!--banner-->
-							<div class="banner_type_2 color_lbrown m_bottom_30">
-								<div class="bg_lbrown inner color_white t_align_c">
-									<h1 class="second_font fw_light m_bottom_10">Quality Assurance</h1>
-									<p class="fw_light m_bottom_15">Six Months Warranty Against Any Manufacturing Defect</p>
-								<!--	<span class="second_font tt_uppercase color_white fs_medium button_type_7 d_inline_b bg_transparent tr_all">Learn More</span> -->
-								</div>
-							</div>
-							<!--banner-->
-							<figure class="relative wrapper scale_image_container r_image_container">
-								<img src="images/category/banner/Chest_of_Drawers_2.jpg" alt="" class="tr_all scale_image">
+							<figure data-animation="fadeInLeft" class="relative wrapper scale_image_container r_image_container d_sm_inline_b t_sm_align_l d_xs_block">
+								<img src="images/product/CS_IYN1___Content.jpg" alt="" class="tr_all scale_image">
 								<!--caption-->
-								<figcaption class="caption_type_1 tr_all">
+								<figcaption class="caption_type_1 pos_2 tr_all">
 									<div class="d_inline_b color_white fw_light caption_title tt_uppercase bg_lbrown_translucent">
-										Stylish Space
+										Stylish Place
 									</div>
 									<div class="caption_inner">
-										<h3 class="color_white second_font fw_light m_bottom_5 fs_sm_default">Liven Up Your Room</h3>
+										<h3 class="color_white second_font fw_light m_bottom_5 w_break">Liven Up Your Room</h3>
 										<p class="color_light fw_light color_light_2">Mauris fermentum dictum magna. <a href="#" class="color_lbrown color_white_hover">Click Here</a></p>
 									</div>
 								</figcaption>
@@ -126,19 +110,65 @@ $this->load->view('site/templates/header_new');
 					</div>
 				</div>
 			</section>
+			<!-- Our Promise -->
+						<div class="section_offset p_bottom_0">
+				<div class="container">
+					<hr class="divider_lbrown m_bottom_25 animated hidden" data-animation="fadeInDown">
+					<div class="row sh_container">
+						<div class="col-lg-4 col-md-4 col-sm-4 same_height animated hidden" data-animation="fadeInDown">
+							<section class="item_represent relative m_bottom_25 m_xs_bottom_30 h_inherit t_sm_align_c">
+								<!--icon-->
+								<div class="d_inline_m m_sm_bottom_15 m_sm_right_0 bg_lbrown color_white m_right_17 icon_wrap_1 t_align_c vc_child"><i class="fa fa-lock d_inline_m"></i></div>
+								<!--description-->
+								<div class="d_inline_m description w_sm_full">
+									<h3 class="second_font color_dark m_bottom_10">Easy & Affordable</h3>
+									<p class="fw_light m_bottom_10">Suspendisse sollicitudin velit sed leo. Ut pharetra augue nec augue.</p>
+									<a href="#" class="sc_hover second_font">Click Here to Read More</a>
+								</div>
+							</section>
+						</div>
+						<div class="col-lg-4 col-md-4 col-sm-4 same_height animated hidden" data-animation="fadeInDown" data-animation-delay="150">
+							<section class="item_represent with_divider relative m_bottom_25 m_xs_bottom_30 h_inherit t_sm_align_c">
+								<!--icon-->
+								<div class="d_inline_m m_sm_bottom_15 m_sm_right_0 bg_lbrown color_white m_right_17 icon_wrap_1 t_align_c vc_child"><i class="fa fa-truck d_inline_m"></i></div>
+								<!--description-->
+								<div class="d_inline_m description">
+									<h3 class="second_font color_dark m_bottom_10">Free Delivery & Setup</h3>
+									<p class="fw_light m_bottom_10">We will deliver and Setup it for you without any additional charge.</p>
+									<a href="#" class="sc_hover second_font">Click Here to Read More</a>
+								</div>
+							</section>
+						</div>
+						<div class="col-lg-4 col-md-4 col-sm-4 same_height animated hidden" data-animation="fadeInDown" data-animation-delay="300">
+							<section class="item_represent with_divider relative m_bottom_25 m_xs_bottom_30 h_inherit t_sm_align_c">
+								<!--icon-->
+								<div class="d_inline_m m_sm_bottom_15 m_sm_right_0 bg_lbrown color_white m_right_17 icon_wrap_1 t_align_c vc_child"><i class="fa fa-certificate d_inline_m"></i></div>
+								<!--description-->
+								<div class="d_inline_m description">
+									<h3 class="second_font color_dark m_bottom_10">Money Back Guarantee</h3>
+									<p class="fw_light m_bottom_10">100% monryback guarantte if you dont like our products. </p>
+									<a href="#" class="sc_hover second_font">Click Here to Read More</a>
+								</div>
+							</section>
+						</div>
+					</div>
+					<hr class="divider_lbrown m_bottom_0 animated hidden" data-animation="fadeInDown">
+				</div>
+			</div>
+			
 			<!--tabs Featured-->
 			<?php
 			if (count($productDetails) > 0)
 			{
 				$productArr = $productDetails;
 			?>
-			<div class="section_offset p_bottom_0">
+			<div class="section_offset p_bottom_0 m_bottom_27">
 				<div class="container">
 					<div class="tabs m_bottom_10">
 						<!--tabs nav-->
 						<nav class="m_bottom_10">
 							<ul class="hr_list tabs_list second_font tt_uppercase fs_large fw_light">
-								<li data-animation="fadeInRight" class="m_right_40 m_xs_right_10 animated hidden"><a class="color_light color_dark_hover" href="#tab-1">Featured Products</a></li>
+								<li data-animation="fadeInRight" class="m_right_40 m_xs_right_10 animated hidden"><a class="color_light color_dark_hover" href="#tab-1">Featured Packages</a></li>
 							</ul>
 						</nav>
 						<hr data-animation="fadeInLeft" data-animation-delay="600" class="hidden animated divider_bg m_bottom_30">
@@ -221,97 +251,8 @@ $this->load->view('site/templates/header_new');
 				</div>
 			</div>
 			<?php }?> 
-			<!--tabs Best Selling-->
-			<div class="section_offset p_bottom_0">
-				<div class="container">
-					<div class="tabs m_bottom_10">
-						<!--tabs nav-->
-						<nav class="m_bottom_10">
-							<ul class="hr_list tabs_list second_font tt_uppercase fs_large fw_light">
-								<li data-animation="fadeInRight" class="m_right_40 m_xs_right_10 animated hidden"><a class="color_light color_dark_hover" href="#tab-1">Best Sellers</a></li>
-							</ul>
-						</nav>
-						<hr data-animation="fadeInLeft" data-animation-delay="600" class="hidden animated divider_bg m_bottom_30">
-						<!--tabs content-->
-						<div id="tab-1">
-							<div class="row">
-							<?php
-									for ($i = 4; $i < 8; $i = $i + 1)
-									{
-											if (isset($productArr[$i]->id))
-											{
-													$imgArr = explode(',', $productArr[$i]->image);
-													$img = 'dummyProductImage.jpg';
-													foreach($imgArr as $imgVal)
-													{
-															if ($imgVal != '')
-															{
-																	$img = $imgVal;
-																	break;
-															}
-													}
-
-													/*$fancyClass = 'fancy';
-													$fancyText = LIKE_BUTTON;
-													if (count($likedProducts) > 0 && $likedProducts->num_rows() > 0)
-													{
-															foreach($likedProducts->result() as $likeProRow)
-															{
-																	if ($likeProRow->product_id == $productArr[$i]->seller_product_id)
-																	{
-																			$fancyClass = 'fancyd';
-																			$fancyText = LIKED_BUTTON;
-																			break;
-																	}
-															}
-													} */
-
-													/*if (isset($productArr[$i]->web_link))
-													{
-
-															$prodLink = "user/" . $productArr[$i]->user_name . "/things/" . $productArr[$i]->seller_product_id . "/" . url_title($productArr[$i]->product_name, '-');
-													}
-													else
-													{
-
-															$prodLink = "things/" . $productArr[$i]->id . "/" . url_title($productArr[$i]->product_name, '-');
-													} */
-
-
-															$prodLink = "things/" . $productArr[$i]->id . "/" . url_title($productArr[$i]->product_name, '-');
-
-							?>
-								<div class="col-lg-3 col-md-3 col-sm-6">
-											<!--product-->
-											<figure class="product_item relative c_image_container frame_container t_sm_align_c r_image_container">
-												<!--image & buttons & label-->
-												<div class="relative">
-													<a href="<?php echo $prodLink;?>" class="d_block">
-														<img src="images/product/<?php echo $img; ?>" alt="" class="c_image_1 tr_all">
-														<img src="images/product/<?php echo $img; ?>" alt="" class="c_image_2 tr_all">
-													</a>
-												</div>
-												<figcaption class="bg_white relative">
-													<div class="row">
-														<div class="col-lg-6 col-md-6 m_bottom_7">
-															<a class="second_font sc_hover d_xs_block" href="<?php echo $prodLink; ?>"><?php echo $productArr[$i]->product_name; ?></a>
-															</div>
-														<div class="col-lg-6 col-md-6 color_light fs_large second_font t_align_r t_sm_align_c m_bottom_5">
-															<?php if ($productArr[$i]->price > $productArr[$i]->sale_price){?><s><?php echo $currencySymbol; echo $productArr[$i]->price; ?></s><?php }?>
-															<b class="scheme_color d_block"><?php echo $currencySymbol; echo $productArr[$i]->sale_price; ?></b>
-														</div>
-													</div>
-												</figcaption>
-											</figure>
-								</div>
-							<?php }} ?>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
 			<!--customers-->
-			<div class="section_offset bg_grey_light_2">
+			<div class="section_offset bg_grey_light_2 m_bottom_27">
 				<section class="container">
 					<div class="d_table m_bottom_5 w_full animated hidden" data-animation="fadeInLeft">
 						<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 v_align_m d_table_cell f_none">
@@ -404,170 +345,114 @@ $this->load->view('site/templates/header_new');
 					</div>
 				</section>
 			</div>
-			<!--blog-->
-			<div class="section_offset p_bottom_0 m_bottom_23">
-				<section class="container m_bottom_5">
+			<!--brands carousel-->
+			<div class="section_offset p_top_0 p_bottom_0 m_bottom_27">
+				<section class="container m_bottom_10">
 					<div class="d_table m_bottom_5 w_full animated hidden" data-animation="fadeInDown">
-						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-8 v_align_m d_table_cell f_none">
-							<h5 class="second_font color_dark tt_uppercase fw_light d_inline_m m_bottom_4">few of Our Custom Made Products</h5>	
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 v_align_m d_table_cell f_none">
+							<h5 class="second_font color_dark tt_uppercase fw_light d_inline_m m_bottom_4">Featured In</h5>	
 						</div>
-						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-4 t_align_r d_table_cell f_none">
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 t_align_r d_table_cell f_none">
 							<!--carousel navigation-->
 							<div class="clearfix d_inline_b">
-								<button class="blog_prev black_hover button_type_4 grey state_2 tr_all d_block f_left vc_child m_right_5"><i class="fa fa-angle-left d_inline_m"></i></button>
-								<button class="blog_next black_hover button_type_4 grey state_2 tr_all d_block f_left vc_child"><i class="fa fa-angle-right d_inline_m"></i></button>
+								<button class="brands_carousel_prev black_hover button_type_4 grey state_2 tr_all d_block f_left vc_child m_right_5"><i class="fa fa-angle-left d_inline_m"></i></button>
+								<button class="brands_carousel_next black_hover button_type_4 grey state_2 tr_all d_block f_left vc_child"><i class="fa fa-angle-right d_inline_m"></i></button>
 							</div>
 						</div>
 					</div>
 					<hr class="divider_bg m_bottom_15 animated hidden" data-animation="fadeInDown" data-animation-delay="100">
 					<!--carousel-->
 					<div class="row">
-						<div class="owl-carousel" data-nav="blog_" data-owl-carousel-options='{
-							"stagePadding" : 15,
-							"margin" : 30,
-							"responsive" : {
-									"0" : {
-										"items" : 1
-									},
-									"470" : {
-										"items" : 2
-									},
-									"992" : {
-										"items" : 3
+						<div class="owl-carousel" data-nav="brands_carousel_" 
+							data-owl-carousel-options='{
+								"stagePadding" : 15,
+								"margin" : 30,
+								"responsive" : {
+										"0" : {
+											"items" : 2
+										},
+										"320" : {
+											"items" : 3
+										},
+										"550" : {
+											"items" : 4
+										},
+										"768" : {
+											"items" : 4
+										},
+										"992" : {
+											"items" : 5
+										},
+										"1200" : {
+											"items" : 6
+										}
 									}
-								}
-							}'>
-							<!--post-->
+								}'>
 							<div class="animated hidden" data-animation="fadeInDown" data-animation-delay="200">
-								<article class="frame_container scale_image_container">
-									<figure class="relative">
-										<a href="#" class="d_block wrapper m_bottom_15"><img src="images/blog_img_1.jpg" alt="" class="tr_all scale_image"></a>
-										<figcaption>
-											<div class="clearfix">
-												<!--post excerpt-->
-												<div class="f_left post_excerpt m_bottom_15">
-													<h5 class="second_font m_bottom_13"><a href="#" class="sc_hover"><b>Sed ut perspiciatis unde omnis iste</b></a></h5>
-													<p class="fw_light">Donec porta diam eu massa. Quisque diam lorem, interdum vitae, dapibus ac, scelerisque vitae, pede. Donec eget tellus non erat lacinia fermentum.</p>
-												</div>
-											</div>
-										</figcaption>
-									</figure>
-								</article>
+								<a href="#" class="d_block frame_container">
+									<img src="images/client_img_1.jpg" alt="">
+								</a>
 							</div>
-							<!--post-->
 							<div class="animated hidden" data-animation="fadeInDown" data-animation-delay="350">
-							<article class="frame_container scale_image_container">
-								<figure class="relative">
-									<a href="#" class="d_block wrapper m_bottom_15"><img src="images/blog_img_2.jpg" alt="" class="tr_all scale_image"></a>
-									<figcaption>
-										<div class="clearfix">
-											<!--post excerpt-->
-											<div class="f_left post_excerpt m_bottom_15">
-												<h5 class="second_font m_bottom_13"><a href="#" class="sc_hover"><b>Donec sagittis euismod purus</b></a></h5>
-												<p class="fw_light">Donec porta diam eu massa. Quisque diam lorem, interdum vitae, dapibus ac, scelerisque vitae, pede. Donec eget tellus non erat lacinia fermentum.</p>
-											</div>
-										</div>
-									</figcaption>
-								</figure>
-							</article>
+								<a href="#" class="d_block frame_container">
+									<img src="images/client_img_2.jpg" alt="">
+								</a>
 							</div>
-							<!--post-->
 							<div class="animated hidden" data-animation="fadeInDown" data-animation-delay="500">
-							<article class="frame_container scale_image_container">
-								<figure class="relative">
-									<a href="#" class="d_block wrapper m_bottom_15"><img src="images/blog_img_3.jpg" alt="" class="tr_all scale_image"></a>
-									<figcaption>
-										<div class="clearfix">
-											<!--post excerpt-->
-											<div class="f_left post_excerpt m_bottom_15">
-												<h5 class="second_font m_bottom_13"><a href="#" class="sc_hover"><b>Natus error sit voluptatem</b></a></h5>
-												<p class="fw_light">Donec porta diam eu massa. Quisque diam lorem, interdum vitae, dapibus ac, scelerisque vitae, pede. Donec eget tellus non erat lacinia fermentum.</p>
-											</div>
-										</div>
-									</figcaption>
-								</figure>
-							</article>
+								<a href="#" class="d_block frame_container">
+									<img src="images/client_img_3.jpg" alt="">
+								</a>
 							</div>
-							<!--post-->
 							<div class="animated hidden" data-animation="fadeInDown" data-animation-delay="650">
-							<article class="frame_container scale_image_container">
-								<figure class="relative">
-									<a href="#" class="d_block wrapper m_bottom_15"><img src="images/blog_img_1.jpg" alt="" class="tr_all scale_image"></a>
-									<figcaption>
-										<div class="clearfix">
-											<!--post info (date & comments)-->
-											<div class="post_info f_left m_right_20 t_align_c lh_small m_sm_right_10">
-												<div class="date bg_scheme_color color_white second_font tt_uppercase m_bottom_15">
-													<b class="d_inline_b">22</b>
-													<p class="fs_ex_small">Jun</p>
-												</div>
-												<a href="#" class="sc_hover"><i class="fa fa-comments d_inline_m m_right_3"></i> <span class="fs_small d_inline_m">3</span></a>
-											</div>
-											<!--post excerpt-->
-											<div class="f_left post_excerpt m_bottom_15">
-												<h5 class="second_font m_bottom_13"><a href="#" class="sc_hover"><b>Sed ut perspiciatis unde omnis iste</b></a></h5>
-												<p class="fw_light">Donec porta diam eu massa. Quisque diam lorem, interdum vitae, dapibus ac, scelerisque vitae, pede. Donec eget tellus non erat lacinia fermentum.</p>
-											</div>
-										</div>
-									</figcaption>
-								</figure>
-							</article>
+								<a href="#" class="d_block frame_container">
+									<img src="images/client_img_4.jpg" alt="">
+								</a>
 							</div>
-							<!--post-->
 							<div class="animated hidden" data-animation="fadeInDown" data-animation-delay="800">
-							<article class="frame_container scale_image_container">
-								<figure class="relative">
-									<a href="#" class="d_block wrapper m_bottom_15"><img src="images/blog_img_2.jpg" alt="" class="tr_all scale_image"></a>
-									<figcaption>
-										<div class="clearfix">
-											<!--post info (date & comments)-->
-											<div class="post_info f_left m_right_20 t_align_c lh_small m_sm_right_10">
-												<div class="date bg_scheme_color color_white second_font tt_uppercase m_bottom_15">
-													<b class="d_inline_b">22</b>
-													<p class="fs_ex_small">Jun</p>
-												</div>
-												<a href="#" class="sc_hover"><i class="fa fa-comments d_inline_m m_right_3"></i> <span class="fs_small d_inline_m">77</span></a>
-											</div>
-											<!--post excerpt-->
-											<div class="f_left post_excerpt m_bottom_15">
-												<h5 class="second_font m_bottom_13"><a href="#" class="sc_hover"><b>Donec sagittis euismod purus</b></a></h5>
-												<p class="fw_light">Donec porta diam eu massa. Quisque diam lorem, interdum vitae, dapibus ac, scelerisque vitae, pede. Donec eget tellus non erat lacinia fermentum.</p>
-											</div>
-										</div>
-									</figcaption>
-								</figure>
-							</article>
+								<a href="#" class="d_block frame_container">
+									<img src="images/client_img_5.jpg" alt="">
+								</a>
 							</div>
-							<!--post-->
 							<div class="animated hidden" data-animation="fadeInDown" data-animation-delay="950">
-							<article class="frame_container scale_image_container">
-								<figure class="relative">
-									<a href="#" class="d_block wrapper m_bottom_15"><img src="images/blog_img_3.jpg" alt="" class="tr_all scale_image"></a>
-									<figcaption>
-										<div class="clearfix">
-											<!--post info (date & comments)-->
-											<div class="post_info f_left m_right_20 t_align_c lh_small m_sm_right_10">
-												<div class="date bg_scheme_color color_white second_font tt_uppercase m_bottom_15">
-													<b class="d_inline_b">22</b>
-													<p class="fs_ex_small">Jun</p>
-												</div>
-												<a href="#" class="sc_hover"><i class="fa fa-comments d_inline_m m_right_3"></i> <span class="fs_small d_inline_m">0</span></a>
-											</div>
-											<!--post excerpt-->
-											<div class="f_left post_excerpt m_bottom_15">
-												<h5 class="second_font m_bottom_13"><a href="#" class="sc_hover"><b>Natus error sit voluptatem</b></a></h5>
-												<p class="fw_light">Donec porta diam eu massa. Quisque diam lorem, interdum vitae, dapibus ac, scelerisque vitae, pede. Donec eget tellus non erat lacinia fermentum.</p>
-											</div>
-										</div>
-									</figcaption>
-								</figure>
-							</article>
+								<a href="#" class="d_block frame_container">
+									<img src="images/client_img_6.jpg" alt="">
+								</a>
+							</div>
+							<div class="animated hidden" data-animation="fadeInDown" data-animation-delay="1100">
+								<a href="#" class="d_block frame_container">
+									<img src="images/client_img_1.jpg" alt="">
+								</a>
+							</div>
+							<div class="animated hidden" data-animation="fadeInDown" data-animation-delay="1250">
+								<a href="#" class="d_block frame_container">
+									<img src="images/client_img_2.jpg" alt="">
+								</a>
+							</div>
+							<div class="animated hidden" data-animation="fadeInDown" data-animation-delay="1400">
+								<a href="#" class="d_block frame_container">
+									<img src="images/client_img_3.jpg" alt="">
+								</a>
+							</div>
+							<div class="animated hidden" data-animation="fadeInDown" data-animation-delay="1550">
+								<a href="#" class="d_block frame_container">
+									<img src="images/client_img_4.jpg" alt="">
+								</a>
+							</div>
+							<div class="animated hidden" data-animation="fadeInDown" data-animation-delay="1700">
+								<a href="#" class="d_block frame_container">
+									<img src="images/client_img_5.jpg" alt="">
+								</a>
+							</div>
+							<div class="animated hidden" data-animation="fadeInDown" data-animation-delay="1850">
+								<a href="#" class="d_block frame_container">
+									<img src="images/client_img_6.jpg" alt="">
+								</a>
 							</div>
 						</div>
 					</div>
 				</section>
 			</div>
-
+			
 		<!--footer-->
 	<?php
 			$this->load->view('site/templates/sub_footer');
