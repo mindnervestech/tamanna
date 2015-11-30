@@ -35,7 +35,7 @@ class Shop extends MY_Controller {
 	public function index(){
 		$this->data['heading'] = 'Shop';
 		$this->data['bannerList'] = $this->shop->get_all_details(BANNER_CATEGORY,array('status'=>'Publish'));
-		$this->data['recentProducts'] = $this->shop->view_product_details(" where p.status='Publish' and p.quantity > 0 and u.group='Seller' and u.status='Active' or p.status='Publish' and p.quantity > 0 and p.user_id=0 order by p.created desc limit 4");
+		$this->data['recentProducts'] = $this->shop->view_product_details(" where p.status='Publish' and p.quantity > 0 and u.group='Seller' and u.status='Active' or p.status='Publish' and p.quantity > 0 and p.user_id=0 order by p.created desc limit 12");
 $whereCond .= ' and FIND_IN_SET("120",p.category_id)';
 		$this->data['favoriteProducts'] = $this->shop->view_product_details(" where p.status='Publish' and u.status='Active' or p.status='Publish' and p.quantity > 0 order by p.likes desc limit 16");
 		$this->load->view('site/shop/display_shop_list',$this->data);

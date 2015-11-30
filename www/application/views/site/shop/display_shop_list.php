@@ -1,268 +1,262 @@
 <?php
-$this->load->view('site/templates/header');
+$this->load->view('site/templates/header_new');
 ?>
-
-<script type="text/javascript" src="js/site/jquery.mSimpleSlidebox.js"></script>
-<!-- slidebox function call -->
-<script type="text/javascript">
-$(document).ready(function(){
-	$(".mSlidebox").mSlidebox({
-		autoPlayTime:4000,
-		controlsPosition:{
-			buttonsPosition:"outside"
-		}
-	});
-	$("#mSlidebox_3").mSlidebox({
-		easeType:"easeInOutCirc",
-		numberedThumbnails:true,
-		pauseOnHover:false
-	});
-});
-</script>
-
- <!-- Section_start -->
-<div class="lang-en wider no-subnav thing signed-out winOS">
-<div id="container-wrapper">
-
-<div class="main1" style="max-width: 100%;margin:-1px 0;border-radius:0;margin-top: 25px;">
-      <div id="navigation-test">
-        <div class="left" style="padding-left: 0px;">
-     
-<ul class="gnb-wrap" style="width:100%;font-size:11px;text-align:center;text-transform: uppercase;">
-                      <?php 
-                      foreach ($mainCategories->result() as $row){
-                      	if ($row->cat_name != '' && $row->cat_name != 'Our Picks'){
-                      ?>
-            <li class="gnb" style="height:40px;text-align:left;">
-    <?php
-          if ($row->cat_name != 'Socktail Specials'){
-         ?>
-              <a class="mn-gifts"  style="line-height: 40px;color:#555555;" href="shopby/<?php echo $row->seourl;?>"><?php echo $row->cat_name;?></a>
-        <?php  }
-          Else
-         { ?>
-         <div class="mn-gifts"  style="line-height: 40px;color:#555555;" ><strong><?php echo $row->cat_name;?></strong></div>
-        <?php  } ?>
-
-
-
-              <div class="menu-contain-gift1" style="margin-top: -20px;">
-                <ul style="border-top:0;">
-<?php 
-	                      foreach ($all_categories->result() as $row1){
-	                      	if ($row1->cat_name != '' && $row->id==$row1->rootID){
-	                      ?>
-              <li><a  href="shopby/<?php echo $row->seourl;?>/<?php echo $row1->seourl;?>"><i class="arrow"></i><?php echo $row1->cat_name;?></a>
-<?php if (in_array($row1->id, $root_id_arr)){?>
-                    <div class="submenu-contain">
-                      <ul>
-			                      <?php 
-			                      foreach ($all_categories->result() as $row2){
-			                      	if ($row2->cat_name != '' && $row1->id==$row2->rootID){
-			                      ?>
-                        <li><a href="shopby/<?php echo $row->seourl;?>/<?php echo $row1->seourl;?>/<?php echo $row2->seourl;?>"><?php echo $row2->cat_name;?></a>
-                        </li>
-                      <?php 
-                      	}
-                      }
-                      ?>
-                      </ul>
-                    </div>
- 	<?php 
-			                      	}
-			                      	?>
-                  </li>
-			                      	<?php 
-			                      	}
-			                      }
-			                      	?>
-                </ul>
-              </div>
-            </li>
- <?php 
-}
-}
-?> 
-<!--<li  class="gnb"><a  class="mn-gifts" href="gift-cards"><?php if($this->lang->line('giftcard_cards') != '') { echo stripslashes($this->lang->line('giftcard_cards')); } else echo "Gift Cards"; ?></a></li>-->
-</ul>        
-</div>
-</div>
-</div>
-
-	<div class="container shoppage" style="padding-top: 78px;width:1250px;padding-bottom: 0;">
-	
-		<div class="shop_text">
-        <?php 
-        if($bannerList->num_rows()>0){
-        ?>
-        	<div class="shop_slider">
-            
-            	<div class="mSlidebox slidebox">
-                    <ul>
-                    <?php 
-                    foreach ($bannerList->result() as $bannerListRow){
-                    	$link = $bannerListRow->link;
-                    	if ($link != ''){
-                    		if (substr($link,0,4) != 'http'){
-								$link = 'http://'.$link;
-                    		}
-                    	}
-                    ?>
-                        <li>
-                            <div><?php if ($link!=''){?><a href="<?php echo $link;?>"><?php }?><img src="<?php echo base_url();?>images/category/banner/<?php echo $bannerListRow->image;?>" alt="<?php echo $bannerListRow->name;?>" /><?php if ($link!=''){?></a><?php }?></div>
-                        </li>
-                    <?php 
-                    }
-                    ?>    
-                    </ul>
-                </div>
-            	
-            
-            </div>
-        <?php 
-        }
-        if ($mainCategories->num_rows()>0){
-        ?>   
-            <div class="shop_browse" style="border-bottom: 1px solid #EBECEF;">
-            
-            	<div style="font-size:28px;text-align:center;padding-bottom:30px"><?php echo "BROWSE BY CATEGORIES"; ?></div>
-                
-                <ul class="shop_browse">
-                <?php 
-                foreach ($mainCategories->result() as $mainCategoriesRow){
-                	if($mainCategoriesRow->cat_name != 'Our Picks'&& $mainCategoriesRow->cat_name != 'SALE' && $mainCategoriesRow->cat_name != 'Xpress Ship'){
-//                	$cat_img = base_url().'images/no_image.gif';
-                	$cat_img = '';
-                	if ($mainCategoriesRow->image != ''){
-                		if (file_exists('images/category/'.$mainCategoriesRow->image)){
-	                		$cat_img = base_url().'images/category/'.$mainCategoriesRow->image;
-                		}	
-                	}
-                ?>
-                    <li>
-                    
-                    	<a href="shopby/<?php echo $mainCategoriesRow->seourl;?>" style="float:left;width:100%;height:100%;">
-                        <?php 
-                        if ($cat_img != ''){
-                        ?>
-                        	<img src="<?php echo $cat_img;?>" alt="<?php echo $mainCategoriesRow->cat_name;?>" title="<?php echo $mainCategoriesRow->cat_name;?>" />
-                        <?php 
-                        }
-                        ?>    
-                            <b><?php echo $mainCategoriesRow->cat_name;?></b>
-                        </a>    
-                    
-                    </li>
-                <?php 
-               } }
-                ?>    
-                
-                </ul>
-            
-            </div>
-       <?php 
-        }
-       ?> 
-
-
-
-
-<!-- Trending Products-->
-<?php 
-				if ($favoriteProducts->num_rows()>0){
-				?>
-				<div class="might-fancy" style="float: left;">
-					<div style="font-size:28px;text-align:center;padding-top:40px; padding-bottom:30px"><?php echo "BEST SELLERS"; ?></div>
-					<div style="height: 1260px;" class="figure-row fancy-suggestions anim">
-					<?php 
-					foreach ($favoriteProducts->result() as $relatedRow){
-						$img = 'dummyProductImage.jpg';
-						$imgArr = array_filter(explode(',', $relatedRow->image));
-						if (count($imgArr)>0){
-							foreach ($imgArr as $imgRow){
-								if ($imgRow != ''){
-									$img = $imgRow;
-									break;
-								}
+			<section class="section_offset">
+				<div class="container t_align_c">
+					<div class="row">
+						<h1 class="fw_light second_font color_dark tt_uppercase m_bottom_27">Browse By Categories</h1>
+					</div>
+				</div>
+			</section>
+<!--main content-->
+			<section class="section_offset">
+				<div class="container">
+					<div class="row">
+						<?php 					
+						foreach ($mainCategories->result() as $mainCategoriesRow){
+							if($mainCategoriesRow->cat_name != 'Our Picks'&& $mainCategoriesRow->cat_name != 'SALE' && $mainCategoriesRow->cat_name != 'Xpress Ship'){
+							$cat_img = '';
+							if ($mainCategoriesRow->image != ''){
+								if (file_exists('images/category/'.$mainCategoriesRow->image)){
+									$cat_img = base_url().'images/category/'.$mainCategoriesRow->image;
+								}	
 							}
-						}
-					?>
-							<div class="figure-product" style="width: 275px;height:320px;">
-								<a href="<?php echo base_url();?>things/<?php echo $relatedRow->id;?>/<?php echo url_title($relatedRow->product_name,'-');?>">
-								<figure>
-								<span class="wrapper-fig-image" style="width:275px;">
-									<span class="fig-image">
-										<img style="width: 275px; height: 275px;" src="<?php echo base_url();?>images/product/<?php echo $img;?>">
-									</span>
-								</span>
-								<figcaption><?php echo $relatedRow->product_name;?></figcaption>
+						?>
+							<div class="col-lg-4 col-md-4 col-sm-6 m_sm_bottom_30 animated hidden m_bottom_27" data-animation="fadeInDown">
+								<!--banner-->
+								<a href="shopby/<?php echo $mainCategoriesRow->seourl;?>">
+								<figure class="relative wrapper scale_image_container r_image_container">
+									<img src="<?php echo $cat_img;?>" alt="<?php echo $mainCategoriesRow->cat_name;?>"class="tr_all scale_image">
+									<!--caption-->
+									<figcaption class="caption_type_1 pos_2 tr_all t_align_c">
+										<div class="d_inline_b color_white fw_light caption_title tt_uppercase bg_lbrown_translucent w_full">
+											<h3 class="color_white second_font fw_light m_bottom_5 w_break"><?php echo $mainCategoriesRow->cat_name;?></h3>
+										</div>
+									</figcaption>
 								</figure>
 								</a>
 							</div>
-					<?php 
-					}
-					?>
-							</div>
+			           <?php 
+			             	}
+			           }
+			           ?>						
+					</div>
 				</div>
-				<?php }?>
-
-
-<!-- Trending Products End -->
-
-
-<?php 
-				if ($recentProducts->num_rows()>0){
-				?>
-				<div class="might-fancy" style="border-top: 1px solid #EBECEF;float: left;">
-					<div style="font-size:28px;text-align:center;margin-top:40px; padding-bottom:30px;"><?php echo "NEW ADDITIONS"; ?></div>
-					<div style="height: 300px;" class="figure-row fancy-suggestions anim">
-					<?php 
-					foreach ($recentProducts->result() as $relatedRow){
-						$img = 'dummyProductImage.jpg';
-						$imgArr = array_filter(explode(',', $relatedRow->image));
-						if (count($imgArr)>0){
-							foreach ($imgArr as $imgRow){
-								if ($imgRow != ''){
-									$img = $imgRow;
-									break;
+			</section>
+			<div class="section_offset p_bottom_0">
+				<div class="container">
+					<hr class="divider_lbrown m_bottom_25 animated hidden" data-animation="fadeInDown">
+					<div class="row sh_container">
+						<div class="col-lg-4 col-md-4 col-sm-4 same_height animated hidden" data-animation="fadeInDown">
+							<section class="item_represent relative m_bottom_25 m_xs_bottom_30 h_inherit t_sm_align_c">
+								<!--icon-->
+								<div class="d_inline_m m_sm_bottom_15 m_sm_right_0 bg_lbrown color_white m_right_17 icon_wrap_1 t_align_c vc_child"><i class="fa fa-lock d_inline_m"></i></div>
+								<!--description-->
+								<div class="d_inline_m description w_sm_full">
+									<h3 class="second_font color_dark m_bottom_10">Safe &amp; Secure</h3>
+									<p class="fw_light m_bottom_10">Suspendisse sollicitudin velit sed leo. Ut pharetra augue nec augue.</p>
+									<a href="#" class="sc_hover second_font">Click Here to Read More</a>
+								</div>
+							</section>
+						</div>
+						<div class="col-lg-4 col-md-4 col-sm-4 same_height animated hidden" data-animation="fadeInDown" data-animation-delay="150">
+							<section class="item_represent with_divider relative m_bottom_25 m_xs_bottom_30 h_inherit t_sm_align_c">
+								<!--icon-->
+								<div class="d_inline_m m_sm_bottom_15 m_sm_right_0 bg_lbrown color_white m_right_17 icon_wrap_1 t_align_c vc_child"><i class="fa fa-truck d_inline_m"></i></div>
+								<!--description-->
+								<div class="d_inline_m description">
+									<h3 class="second_font color_dark m_bottom_10">Free Delivery</h3>
+									<p class="fw_light m_bottom_10">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maurisfermentum dictum.</p>
+									<a href="#" class="sc_hover second_font">Click Here to Read More</a>
+								</div>
+							</section>
+						</div>
+						<div class="col-lg-4 col-md-4 col-sm-4 same_height animated hidden" data-animation="fadeInDown" data-animation-delay="300">
+							<section class="item_represent with_divider relative m_bottom_25 m_xs_bottom_30 h_inherit t_sm_align_c">
+								<!--icon-->
+								<div class="d_inline_m m_sm_bottom_15 m_sm_right_0 bg_lbrown color_white m_right_17 icon_wrap_1 t_align_c vc_child"><i class="fa fa-certificate d_inline_m"></i></div>
+								<!--description-->
+								<div class="d_inline_m description">
+									<h3 class="second_font color_dark m_bottom_10">Money Back Guarantee</h3>
+									<p class="fw_light m_bottom_10">Etiam cursus leo vel metus. Nulla facilisi aenean nac eros. Vestibulum ante ipsum.</p>
+									<a href="#" class="sc_hover second_font">Click Here to Read More</a>
+								</div>
+							</section>
+						</div>
+					</div>
+					<hr class="divider_lbrown m_bottom_0 animated hidden" data-animation="fadeInDown">
+				</div>
+			</div>
+			<!--new products-->
+			<div class="section_offset p_bottom_0 m_bottom_27">
+				<div class="container">
+					<div class="d_table m_bottom_5 w_full animated hidden" data-animation="fadeInDown">
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 v_align_m d_table_cell f_none">
+							<h5 class="second_font color_dark tt_uppercase fw_light d_inline_m m_bottom_4">Newly Added</h5>	
+						</div>
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 t_align_r d_table_cell f_none">
+							<!--carousel navigation-->
+							<div class="clearfix d_inline_b">
+								<button class="new_prev black_hover button_type_4 grey state_2 tr_all d_block f_left vc_child m_right_5"><i class="fa fa-angle-left d_inline_m"></i></button>
+								<button class="new_next black_hover button_type_4 grey state_2 tr_all d_block f_left vc_child"><i class="fa fa-angle-right d_inline_m"></i></button>
+							</div>
+						</div>
+					</div>
+					<hr class="divider_bg m_bottom_15 animated hidden" data-animation="fadeInDown" data-animation-delay="100">
+					<div class="row">
+						<div class="owl-carousel" data-nav="new_" data-owl-carousel-options='{
+									"stagePadding" : 15,
+									"margin" : 30,
+									"responsive" : {
+											"0" : {
+												"items" : 1
+											},
+											"320" : {
+												"items" : 2
+											},
+											"550" : {
+												"items" : 3
+											},
+											"992" : {
+												"items" : 4
+											}
+										}
+									}'>
+							<?php 
+							foreach ($recentProducts->result() as $relatedRow){
+								$img = 'dummyProductImage.jpg';
+								$imgArr = array_filter(explode(',', $relatedRow->image));
+								if (count($imgArr)>0){
+									foreach ($imgArr as $imgRow){
+										if ($imgRow != ''){
+											$img = $imgRow;
+											break;
+										}
+									}
 								}
-							}
-						}
-					?>
-							<div class="figure-product" style="width: 275px;">
-								<a href="<?php echo base_url();?>things/<?php echo $relatedRow->id;?>/<?php echo url_title($relatedRow->product_name,'-');?>">
-								<figure>
-								<span class="wrapper-fig-image" style="width:275px;">
-									<span class="fig-image">
-										<img style="width: 275px; height: 275px;" src="<?php echo base_url();?>images/product/<?php echo $img;?>">
-									</span>
-								</span>
-								<figcaption><?php echo $relatedRow->product_name;?></figcaption>
+							?>
+							<!--owl item-->
+							<div class="animated hidden" data-animation="fadeInDown" data-animation-delay="200">
+								<!--product-->
+								<figure class="relative r_image_container c_image_container qv_container">
+									<a href="<?php echo base_url();?>things/<?php echo $relatedRow->id;?>/<?php echo url_title($relatedRow->product_name,'-');?>">
+									<div class="d_block m_bottom_15 relative">
+										<img src="<?php echo base_url();?>images/product/<?php echo $img;?>" alt="<?php echo $relatedRow->product_name;?>" class="c_image_1 tr_all">
+										<img src="<?php echo base_url();?>images/product/<?php echo $img;?>" alt="<?php echo $relatedRow->product_name;?>" class="c_image_2 tr_all">
+									</div>
+									</a>
+									<figcaption class="t_align_c">
+										<ul>
+											<li><a href="<?php echo base_url();?>things/<?php echo $relatedRow->id;?>/<?php echo url_title($relatedRow->product_name,'-');?>" class="second_font sc_hover"><?php echo $relatedRow->product_name;?></a></li>
+										</ul>
+									</figcaption>
 								</figure>
-								</a>
 							</div>
-					<?php 
-					}
-					?>
-							</div>
+							<?php } ?>
+						</div>
+					</div>
 				</div>
-				<?php }?>
-
-
-	    </div>
-
-
-		<a href="#header" id="scroll-to-top"><span><?php if($this->lang->line('signup_jump_top') != '') { echo stripslashes($this->lang->line('signup_jump_top')); } else echo "Jump to top"; ?></span></a>
-
-	</div>
-	
-	<!-- / container -->
-		<?php 
-     $this->load->view('site/templates/footer_menu');
-     ?>
-</div>
-
-</div>
+			</div>
+			<!--bestsellers-->
+			<div class="section_offset p_bottom_0 p_top_0">
+				<div class="container">
+					<div class="d_table m_bottom_5 w_full animated hidden" data-animation="fadeInDown">
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 v_align_m d_table_cell f_none">
+							<h5 class="second_font color_dark tt_uppercase fw_light d_inline_m m_bottom_4">Bestsellers</h5>	
+						</div>
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 t_align_r d_table_cell f_none">
+							<!--carousel navigation-->
+							<div class="clearfix d_inline_b">
+								<button class="bestsellers_prev black_hover button_type_4 grey state_2 tr_all d_block f_left vc_child m_right_5"><i class="fa fa-angle-left d_inline_m"></i></button>
+								<button class="bestsellers_next black_hover button_type_4 grey state_2 tr_all d_block f_left vc_child"><i class="fa fa-angle-right d_inline_m"></i></button>
+							</div>
+						</div>
+					</div>
+					<hr class="divider_bg m_bottom_15 animated hidden" data-animation="fadeInDown" data-animation-delay="100">
+					<div class="row">
+						<div class="owl-carousel" data-nav="bestsellers_" data-owl-carousel-options='{
+									"stagePadding" : 15,
+									"margin" : 30,
+									"responsive" : {
+											"0" : {
+												"items" : 1
+											},
+											"320" : {
+												"items" : 2
+											},
+											"550" : {
+												"items" : 3
+											},
+											"992" : {
+												"items" : 4
+											}
+										}
+									}'>
+							<!--owl item-->
+							<?php 
+							foreach ($favoriteProducts->result() as $relatedRow){
+								$img = 'dummyProductImage.jpg';
+								$imgArr = array_filter(explode(',', $relatedRow->image));
+								if (count($imgArr)>0){
+									foreach ($imgArr as $imgRow){
+										if ($imgRow != ''){
+											$img = $imgRow;
+											break;
+										}
+									}
+								}
+							?>
+							<div class="animated hidden" data-animation="fadeInDown" data-animation-delay="200">
+								<!--product-->
+								<figure class="relative r_image_container c_image_container qv_container">
+									<a href="<?php echo base_url();?>things/<?php echo $relatedRow->id;?>/<?php echo url_title($relatedRow->product_name,'-');?>">
+									<div class="d_block m_bottom_15 relative">
+										<img src="<?php echo base_url();?>images/product/<?php echo $img;?>" alt="<?php echo $relatedRow->product_name;?>" class="c_image_1 tr_all">
+										<img src="<?php echo base_url();?>images/product/<?php echo $img;?>" alt="<?php echo $relatedRow->product_name;?>" class="c_image_2 tr_all">
+										<a data-popup="#quick_view" data-popup-transition-in="bounceInUp" data-popup-transition-out="bounceOutUp" class="tr_all color_white second_font qv_style_button quick_view tt_uppercase t_align_c d_block clickable d_xs_none"><i class="fa fa-eye d_inline_m m_right_10"></i><span class="fs_medium">Quick View</span></a>
+									</div>
+									</a>
+									<figcaption class="t_align_c">
+										<ul>
+											<li><a href="<?php echo base_url();?>things/<?php echo $relatedRow->id;?>/<?php echo url_title($relatedRow->product_name,'-');?>" class="second_font sc_hover"><?php echo $relatedRow->product_name;?></a></li>
+											<li class="m_bottom_16"><b class="fs_large second_font scheme_color">Rs <?php echo $relatedRow->sale_price;?></b></li>
+										</ul>
+									</figcaption>
+								</figure>
+							</div>
+							<?php 
+							}
+							?>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--footer-->
 <?php
 $this->load->view('site/templates/footer');
 ?>
+		</div>
+
+		<!--back to top-->
+		<button class="back_to_top animated button_type_6 grey state_2 d_block black_hover f_left vc_child tr_all"><i class="fa fa-angle-up d_inline_m"></i></button>
+
+		<!--libs include-->
+		<script src="plugins/royalslider/jquery.royalslider.min.js"></script>
+		<script src="plugins/countdown/jquery.plugin.min.js"></script>
+		<script src="plugins/countdown/jquery.countdown.min.js"></script>
+		<script src="plugins/royalslider/jquery.easing-1.3.js"></script>
+		<script src="plugins/jquery.appear.js"></script>
+		<script src="plugins/owl-carousel/owl.carousel.min.js"></script>
+		<script src="plugins/afterresize.min.js"></script>
+		<script src="plugins/jackbox/js/jackbox-packed.min.js"></script>
+		<script src="plugins/jquery.elevateZoom-3.0.8.min.js"></script>
+		<script src="plugins/fancybox/jquery.fancybox.pack.js"></script>
+		<script src="js/retina.min.js"></script>
+		<script src="plugins/colorpicker/colorpicker.js"></script>
+		 
+
+		<!--theme initializer-->
+		<script src="js/themeCore.js"></script>
+		<script src="js/theme.js"></script>
+	</body>
+</html>
