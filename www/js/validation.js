@@ -641,7 +641,7 @@ function profileUpdate(){
 	return false;
 }
 function updateUserPhoto(){
-	$('#save_profile_image').disable();
+	//$('#save_profile_image').disable();
 	if($('.uploadavatar').val()==''){
 		alert('Choose a image to upload');
 		$('#save_profile_image').removeAttr('disabled');
@@ -652,7 +652,7 @@ function updateUserPhoto(){
 	}
 }
 function deleteUserPhoto(){
-	$('#delete_profile_image').disable();
+	//$('#delete_profile_image').disable();
 	var res = window.confirm('Are you sure?');
 	if(res){
 		$.ajax({
@@ -894,13 +894,14 @@ function update_cart(val,cid,pid) {
 						$('#cart_ship_amount').val(arr[2]);
 						$('#cart_tax_amount').val(arr[3]);
 						$('#cart_total_amount').val(arr[4]);
-                                                $('#discount_Amt').val(arr[6]);			
+                        $('#discount_Amt').val(arr[6]);			
 						$('#IndTotalVal'+cid).html(arr[0]);				
 						$('#CartAmt').html(arr[1]);
 						$('#CartAmtDup').html(arr[1]);
 						$('#CartSAmt').html(arr[2]);
 						$('#CartTAmt').html(arr[3]);
-						$('#CartGAmt').html(arr[4]);			
+						$('#CartGAmt').html(arr[4]);
+						$('#MCartGAmt').html(arr[4]);						
 						$('#Shop_id_count').html(arr[5]);
 						$('#Shop_MiniId_count').html(arr[5]+' items');
                         $('#disAmtVal').html(arr[6]);

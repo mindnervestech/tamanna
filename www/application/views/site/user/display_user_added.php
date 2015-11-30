@@ -1,6 +1,12 @@
 <?php
 $this->load->view('site/templates/header_new_small');
 ?>
+        <?php 
+        $userImg = 'user-thumb1.png';
+        if ($userProfileDetails->row()->thumbnail != ''){
+	        $userImg = $userProfileDetails->row()->thumbnail;
+        } 
+		?>
 			<!--main content-->
 			<div class="page_section_offset">
 				<div class="container">
@@ -8,7 +14,7 @@ $this->load->view('site/templates/header_new_small');
 						<section class="col-lg-12 col-md-12 col-sm-12">
 							<h2 class="fw_light second_font color_dark m_bottom_27 tt_uppercase"><?php echo $userProfileDetails->row()->full_name;?></h2>
 							<div class="clearfix m_bottom_10">
-								<div class="t_xs_align_c f_left m_right_20 m_xs_bottom_15 f_xs_none"><img src="images/m_img_2.jpg" alt=""></div>
+								<div class="t_xs_align_c f_left m_right_20 m_xs_bottom_15 f_xs_none"><img src="<?php echo base_url();?>images/users/<?php echo $userImg;?>" alt="<?php echo $userProfileDetails->row()->full_name;?>"></div>
 								<p class="fw_light m_bottom_14 p_top_4"><?php if ($userProfileDetails->row()->about != '') {echo $userProfileDetails->row()->about;} else {echo $userProfileDetails->row()->brand_description;}?></p>
 							</div>
 							<hr class="divider_light m_bottom_15">

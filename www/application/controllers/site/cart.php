@@ -298,6 +298,7 @@ class Cart extends MY_Controller {
 	}
 
 	public function insert_shipping_address(){
+		echo "saurabh";
 		if ($this->checkLogin('U')==''){
 			redirect('login');
 		}else {

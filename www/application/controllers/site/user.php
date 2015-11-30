@@ -2181,7 +2181,7 @@ $message.='</td>
 			else
 			$lg_err_msg = 'Profile photo changed successfully';
 			$this->setErrorMessage('success',$lg_err_msg);
-			redirect('user/'.$this->data['userDetails']->row()->user_name);
+			redirect(base_url().'settings');
 			exit;
 		}
 	}

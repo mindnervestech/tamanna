@@ -353,7 +353,7 @@ class My_Model extends CI_Model {
 
 			$minCartValLast.=	'</ul>
 								<ul class="fs_medium second_font color_dark m_bottom_15 summary">
-												<li><span class="d_inline_b total_title">Total</span><span class="fw_light">'.$this->data['currencySymbol'].'<span id="CartGAmt">'.number_format($totalMiniCartAmt,2,'.','').'</span></span></li>
+												<li><span class="d_inline_b total_title">Total</span><span class="fw_light">'.$this->data['currencySymbol'].'<span id="MCartGAmt">'.number_format($totalMiniCartAmt,2,'.','').'</span></span></li>
 								</ul>
 								<a href="cart/" role="button" class="t_align_c tt_uppercase w_full second_font d_block fs_medium button_type_2 lbrown tr_all">'.$lg_proceed.'</a>
 								</div></li>';

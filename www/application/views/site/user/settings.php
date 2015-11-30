@@ -73,6 +73,8 @@ $this->load->view('site/templates/header_new_small');
 							</section>
 							<div class="section photo">
 								<section class="col-lg-12 col-md-12 col-sm-12 m_bottom_27">
+								  <div class="row">
+								  <fieldset class="frm">
 									<div class="col-lg-6 col-md-6 col-sm-6">
 										<p class="stit"><?php echo "Logo"; ?></p>
 										<?php 
@@ -81,10 +83,11 @@ $this->load->view('site/templates/header_new_small');
 											$userImg = $userDetails->row()->thumbnail;
 										}
 										?>
+									<div class="photo-preview"><img src="images/site/blank.gif" style="width:100%;height:100%;background-image:url(<?php echo base_url();?>images/users/<?php echo $userImg;?>);background-size:cover" alt="<?php echo $userDetails->row()->full_name;?>"></div>
+
 									</div>
 									<div class="col-lg-6 col-md-6 col-sm-6">
-										<fieldset class="frm">
-											<div class="photo-preview"><img src="images/site/blank.gif" style="width:100%;height:100%;background-image:url(<?php echo base_url();?>images/users/<?php echo $userImg;?>);background-size:cover" alt="<?php echo $userDetails->row()->full_name;?>"></div>
+										
 											<div class="photo-func">		
 												<?php if ($userDetails->row()->thumbnail == ''){?>		
 												<input type="button" style="cursor: pointer;" class="btn-change" onClick="$('.photo-func').hide();$('.upload-file').show();return false;" value="<?php if($this->lang->line('header_up_photo') != '') { echo stripslashes($this->lang->line('header_up_photo')); } else echo "Upload Photo"; ?>"/>
@@ -93,7 +96,7 @@ $this->load->view('site/templates/header_new_small');
 												<input type="button" style="cursor: pointer;" class="btn-delete" id="delete_profile_image" onClick="return deleteUserPhoto();" value="<?php if($this->lang->line('header_delete_photo') != '') { echo stripslashes($this->lang->line('header_delete_photo')); } else echo "Delete Photo"; ?>"/>
 												<?php }?>
 											</div>
-											<div class="upload-file">
+											<div class="upload-file" style="display:none">
 												<input id="uploadavatar" class="uploadavatar" name="upload-file" type="file">
 												<span class="uploading" style="display:none"><?php if($this->lang->line('settings_uploading') != '') { echo stripslashes($this->lang->line('settings_uploading')); } else echo "Uploading..."; ?></span>
 												<span class="description"><?php if($this->lang->line('settings_allowedimag') != '') { echo stripslashes($this->lang->line('settings_allowedimag')); } else echo "Allowed file types JPG, GIF or PNG.<br>Maximum width and height is 600px"; ?></span>
@@ -101,9 +104,11 @@ $this->load->view('site/templates/header_new_small');
 												<input type="button" style="cursor: pointer;" class="btn-cancel" onClick="$('.photo-func').show();$('.upload-file').hide();return false;" value="<?php if($this->lang->line('header_cancel') != '') { echo stripslashes($this->lang->line('header_cancel')); } else echo "Cancel"; ?>"/>
 											</div>
 											<small class="comment"><?php if($this->lang->line('settings_profile_identy') != '') { echo stripslashes($this->lang->line('settings_profile_identy')); } else echo "Your profile photo is your identity on"; ?> <?php echo $siteTitle;?>, <?php if($this->lang->line('settings_pickone') != '') { echo stripslashes($this->lang->line('settings_pickone')); } else echo "so pick a good one that expresses who you are."; ?></small>
-										</fieldset>
+										
 									</div>
+								  </div>
 								</section>
+								</fieldset>
 							</div>
 							<section class="col-lg-12 col-md-12 col-sm-12 m_bottom_27">
 												<ul>

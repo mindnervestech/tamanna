@@ -80,7 +80,7 @@ if ($meta_title != '' and $meta_title != $title){?>
 
                                         <?php if ($loginCheck != ''){ ?>
                                         <li><a class="sc_hover tr_delay" href="add">Add</a></li>
-                                        <li><a class="sc_hover tr_delay" href="settings/password">My Account</a></li>
+                                        <li><a class="sc_hover tr_delay" href="settings">My Account</a></li>
                                         <li><a class="sc_hover tr_delay" href="purchases">Purchase History</a></li>
 										<li><a class="sc_hover tr_delay" href="<?php echo 'user/'.$userDetails->row()->user_name;?>">Wishlist</a></li>
                                         <li><a class="sc_hover tr_delay" href="logout">Logout</a></li>

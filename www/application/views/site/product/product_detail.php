@@ -216,7 +216,7 @@ $this->load->view('site/templates/header_new');
 									<div>
 										<b class="second_font d_block m_bottom_10">Available Options</b>
 										<div class="relative m_bottom_15">
-											<select id="attr_name_id" name="attr_name_id" onchange="ajaxCartAttributeChange(this.value,'<?php echo $productDetails->row()->id; ?>');">
+											<select class="select-round select-shipping-addr select_title fs_medium fw_light color_light relative tr_all" id="attr_name_id" name="attr_name_id" onchange="ajaxCartAttributeChange(this.value,'<?php echo $productDetails->row()->id; ?>');">
 											<option value="0"><div class="select_title type_2 fs_medium fw_light color_light relative d_none tr_all">--------------- <?php echo "Select"; ?> ---------------</div></option>
 											    <?php foreach($PrdAttrVal->result_array() as $Prdattrvals ){ ?>
 													<option value="<?php echo $Prdattrvals['pid']; ?>"><?php echo $Prdattrvals['attr_type'].':  '.$Prdattrvals['attr_name']; ?></option>

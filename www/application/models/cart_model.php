@@ -545,7 +545,7 @@ class Cart_model extends My_Model
 															<span class="bg-cart-payment"></span>
 															<dl class="cart-payment-ship">
 																<dd>
-																			<select id="address-cart" class="select-round select-shipping-addr" onchange="CartChangeAddress(this.value);">
+																			<select id="address-cart" class="select-round select-shipping-addr select_title fs_medium fw_light color_light relative tr_all" onchange="CartChangeAddress(this.value);">
 																				<option value="" id="address-select">'.$choose_shipping_address.'</option>';
 																					foreach ($shipVal->result() as $Shiprow){
 																						if($Shiprow->primary == 'Yes'){ $optionsValues = 'selected="selected"'; $ChooseVal = $Shiprow->full_name.'<br>'.$Shiprow->address1.'<br>'.$Shiprow->city.' '.$Shiprow->state.' '.$Shiprow->postal_code.'<br>'.$Shiprow->country.'<br>'.$Shiprow->phone; $ship_id =$Shiprow->id;  }else{ $optionsValues ='';}
@@ -561,9 +561,10 @@ class Cart_model extends My_Model
 																			</p>
 																		<span style="color:#FF0000;" id="Ship_err"></span>
 
-																					<a href="javascript:void(0);" class="button_type_2 lbrown state_2 tr_all t_align_c tt_uppercase w_full second_font d_block fs_medium button_type_ lbrown tr_all sc_hover tr_delay add_addr add_" onclick="shipping_address_cart();">
+																					<a data-popup="#quick_view" data-popup-transition-in="bounceInUp" data-popup-transition-out="bounceOutUp" href="javascript:void(0);" class="button_type_2 lbrown state_2 tr_all t_align_c tt_uppercase w_full second_font d_block fs_medium button_type_ lbrown tr_all m_top_10 sc_hover tr_delay add_addr add_" onclick="shipping_address_cart();">
 																						'.$addnew_shipping_address.'
 																					</a>
+														
 																</dd>
 															</dl>
 														</div>
@@ -601,7 +602,7 @@ class Cart_model extends My_Model
 															}$CartValue.='
 															<tr class="scheme_color">
 																<td><b>Total</b></td>
-																<td><b class="fs_large"><span id="CartGAmt">'.number_format($grantAmt,2,'.','').'</span></b></td>
+																<td><b class="fs_large">'.$this->data['currencySymbol'].'<span id="CartGAmt">'.number_format($grantAmt,2,'.','').'</span></b></td>
 															</tr>
 														</tbody>
 														<input name="user_id" value="'.$userid.'" type="hidden">

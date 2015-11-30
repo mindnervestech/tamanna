@@ -1007,8 +1007,48 @@
 	z-index:2;
 
 }
+.add_address{
+
+	position:absolute;
+
+	bottom:10px;
+
+	left:10px;
+
+	right:10px;
+
+	-webkit-transform:scale(.6) rotate(-360deg);
+
+	-moz-transform:scale(.6) rotate(-360deg);
+
+	-o-transform:scale(.6) rotate(-360deg);
+
+	-ms-transform:scale(.6) rotate(-360deg);
+
+	transform:scale(.6) rotate(-360deg);
+
+	opacity:0;
+
+	z-index:2;
+
+}
 
 .qv_container:hover .quick_view{
+
+	-webkit-transform:scale(1) rotate(0deg);
+
+	-moz-transform:scale(1) rotate(0deg);
+
+	-o-transform:scale(1) rotate(0deg);
+
+	-ms-transform:scale(1) rotate(0deg);
+
+	transform:scale(1) rotate(0deg);
+
+	opacity:1;
+
+}
+.qv_container:hover .add_address{
 
 	-webkit-transform:scale(1) rotate(0deg);
 
@@ -2235,7 +2275,7 @@ table td{
 }
 
 #quick_view > .popup,
-
+#add_address> .popup,
 #add_to_cart_popup > .popup{
 
 	width:840px;
@@ -2255,6 +2295,7 @@ table td{
 }
 
 #quick_view .close_popup,
+#add_address .close_popup,
 
 #add_to_cart_popup .close_popup{
 
@@ -4161,6 +4202,11 @@ input[type="radio"] + label::after{
 		width:750px;
 
 	}
+	#add_address > .popup{
+
+		width:750px;
+
+	}
 
 }
 
@@ -4173,6 +4219,11 @@ input[type="radio"] + label::after{
 	}
 
 	#quick_view{
+
+		display: none !important;
+
+	}
+	#add_address{
 
 		display: none !important;
 
