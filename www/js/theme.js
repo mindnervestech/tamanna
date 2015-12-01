@@ -656,16 +656,22 @@
 				$(pluginsArray[7]).slider({
 					range : true,
 					min : 0,
-					max : 5400,
-					values : [0,5250],
+					max : 100000,
+					values : [1,100000],
 					slide : function(event, ui){
-						$(this).next().children('.range_min').val("$" + ui.values[0])
-								.next().val("$" + ui.values[1]);
+
+						$(this).next().children('.range_min').val("Rs." + ui.values[0])
+								.next().val("Rs." + ui.values[1]);
+					},
+					// Method added by swapnil
+					change: function( event, ui ) {
+						$("#sliderPriceMin").val(ui.values[0]);
+						$("#sort_By_Price_Range").click();
 					},
 					create : function(event, ui){
 						var $this = $(this);
-						$this.next().children('.range_min').val("$" + $this.slider("values",0))
-								.next().val("$" + $this.slider("values",1));
+						$this.next().children('.range_min').val("Rs." + $this.slider("values",0))
+								.next().val("Rs." + $this.slider("values",1));
 						$this.attr({
 							'data-first-value' : $this.slider("values",0),
 							'data-second-value' : $this.slider("values",1)

@@ -245,9 +245,9 @@ var Fancy = {
         Fancy.changePass();
         Fancy.filter();
         Fancy.rankPopup();
-		Fancy.reportPopup();
+		//Fancy.reportPopup();
         Fancy.fieldFocus();
-        Fancy.datePicker();
+        //Fancy.datePicker();
         Fancy.customize();
 		Fancy.selectAllFriends();
 
@@ -261,9 +261,9 @@ var Fancy = {
 			if($(this).val()=='') $(this).val(orginTxt).addClass('placeholder');
 		});
 	});
-	if ($.browser.msie && parseInt($.browser.version, 10) < 8) {
+	/*if ($.browser.msie && parseInt($.browser.version, 10) < 8) {
 		Fancy.fixStreamLinking();
-	}
+	}*/
 
     },
 
@@ -490,7 +490,7 @@ var Fancy = {
 		}
 
 		// Follow lists button, means no lists are followed yet so basically by clicking follow all lists
-		followlistsBtn.live('click', function() {
+		/*followlistsBtn.live('click', function() {
 			var login_require = $(this).attr('require_login');
 			if (typeof(login_require) != undefined && login_require != null && login_require=='true'){
 				return require_login();
@@ -567,7 +567,7 @@ var Fancy = {
 				btn.removeAttr('style');
 			}
 		});
-
+*/
 		// Follow lists links
 		var followuserLinks = $('.follow-list-link');
 		var followuserLinksFollowed = $('.follow-list-link.following');
@@ -586,7 +586,7 @@ var Fancy = {
 
 			}
 		}
-
+/*
 		followuserLinks.live('click', function() {
 			var login_require = $(this).attr('require_login');
 			if (typeof(login_require) != undefined && login_require != null && login_require=='true') return require_login();
@@ -637,7 +637,7 @@ var Fancy = {
 
 			return false;
 
-		});
+		});*/
 	},
 
     /**
@@ -813,7 +813,7 @@ var Fancy = {
 
 	},
 
-	reportPopup: function () {
+	/*reportPopup: function () {
 		var showPopup = $('#reportpopup').dialog(Fancy.Popup.options);
 		Fancy.Popup.setup(showPopup);
 
@@ -842,7 +842,7 @@ var Fancy = {
 		});
 
 	},
-
+*/
 	fieldFocus: function () {
 			var sfEls = document.getElementsByTagName("INPUT");
 			for (var i=0; i<sfEls.length; i++) {
@@ -1491,15 +1491,20 @@ jQuery(function($){
                     return;
                 }
 				var $sandbox = $('<div>'),
-				    $contentBox = $(options.itemSelector).parent(),
+				    $contentBox = $(options.itemSelector),
 					$next, $rows;
 //				$sandbox[0].innerHTML = data.replace(/^[\s\S]+<body.+?>|<((?:no)?script|header|nav)[\s\S]+?<\/\1>|<\/body>[\s\S]+$/ig, '');
 				$sandbox[0].innerHTML = data;
 				$next = $sandbox.find(options.nextSelector);
-//				$rows = $sandbox.find(options.itemSelector).parent().html();
-				$rows = $sandbox.find(options.itemSelector).parent().html();
 				
-				$contentBox.append($rows);
+				$rows = $sandbox.find(options.itemSelector)[0].children;
+				
+				while($rows.length != 0){
+						i = 0;
+						temp = $rows[i];
+						$contentBox.isotope( 'insert', temp);
+				}
+
 				if ($next.length) {
 					url = $next.attr('href');
 					$url.attr({
@@ -2514,9 +2519,9 @@ jQuery(function($){
 		});
 	})();
 	// }}}
-	if ($.browser.msie && parseInt($.browser.version, 10) < 9) {
+	/*if ($.browser.msie && parseInt($.browser.version, 10) < 9) {
 		$('body').addClass('ie');
-	}
+	}*/
 });
 
 // Share dialogs and buttons

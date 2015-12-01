@@ -1,11 +1,12 @@
 jQuery(function($) {
 	var code = null;
-   
+	$.infiniteshow({itemSelector:'#can_change_layout'});
+
 
 	function loadPage(url, skipSaveHistory){
 		var $win     = $(window),
-			$stream  = $('#content ol.stream'),
-			$lis     = $stream.find('>li'),
+			$stream  = $('#can_change_layout'),
+			$lis     = $stream.find('>div.category_isotope_item'),
 			scTop    = $win.scrollTop(),
 			stTop    = $stream.offset().top,
 			winH     = $win.innerHeight(),
@@ -14,22 +15,6 @@ jQuery(function($) {
 			firstTop = -1,
 			maxDelay = 0,
 			begin    = Date.now();
-
-		if(useCSS3){
-			$stream.addClass('use-css3').removeClass('fadein');
-
-			$lis.each(function(i,v){
-				if(!inViewport(v)) return;
-				if(firstTop < 0) firstTop = v.offsetTop;
-
-				var delay = Math.round(Math.sqrt(Math.pow(v.offsetTop - firstTop, 2)+Math.pow(v.offsetLeft, 2)));
-
-				v.className += ' anim';
-				setTimeout(function(){ v.className += ' fadeout'; }, delay+10);
-
-				if(delay > maxDelay) maxDelay = delay;
-			});
-		}
 
 		if(!skipSaveHistory && window.history && history.pushState){
 			history.pushState({url:url}, document.title, url);
@@ -41,7 +26,7 @@ jQuery(function($) {
 			url  : url,
 			dataType : 'html',
 			success  : function(html){
-				$('.price-range').selectBox('value', location.args.p || '-1');
+				/*$('.price-range').selectBox('value', location.args.p || '-1');
 				$('.relationship').selectBox('value', location.args.rel || '');
 				$('.color-filter').selectBox('value', location.args.c || '');
 				$('.sort-by-price').selectBox('value', location.args.sort_by_price || '');
@@ -49,22 +34,23 @@ jQuery(function($) {
 				$('.re-gender').selectBox('value', location.args.rg || '');
 				$('.filter-age').val(location.args.ra || '').keyup();
 				$('.search-string').val(location.args.q || '').keyup();
-                if(location.args.is){
+                
+				if(location.args.is){
                     $('#immediateShipping').closest('label').addClass('on')
                 }
                 else{
                     $('#immediateShipping').closest('label').removeClass('on')
                 }
-
+				*/
 
 				var $html = $($.trim(html)),
 				    $more = $('.pagination > a'),
-				    $new_more = $html.find('.pagination > a'),
-					$cate_sel = $('.shop-select.sub-category'),
-				    $new_cate_sel = $html.find('.shop-select.sub-category');
+				    $new_more = $html.find('.pagination > a');
+					//$cate_sel = $('.shop-select.sub-category'),
+				    //$new_cate_sel = $html.find('.shop-select.sub-category');
 
 				$('ul.breadcrumbs').html( $html.find('ul.breadcrumbs').html() );
-				$cate_sel.html( $new_cate_sel.html() ).selectBox('destroy').selectBox();
+				/*$cate_sel.html( $new_cate_sel.html() ).selectBox('destroy').selectBox();
 				
 				if($new_cate_sel.attr('edge')){
 					$cate_sel.attr('edge', 'true');
@@ -72,46 +58,28 @@ jQuery(function($) {
 				} else {
 					$cate_sel.removeAttr('edge', '');
 					$('ul.sub-category-selectBox-dropdown-menu > li:not(:first-child)').addClass('subcategory');
-				}
+				}*/
 
-				if($html.find('#content > ol.stream').text() == ''){
-					$stream.html('<ol class="stream"><li style="width: 100%;"><p class="noproducts">No more products available</p></li></ol>');
+				if($html.find('#can_change_layout')[0].children.length == 0){
+					$stream.html('<p class="noproducts">No more products available</p>');
 				}else {
-					$stream.html( $html.find('#content > ol.stream').html());
+					//$stream.html( $html.find('#can_change_layout').html());
+					debugger;
+					var $rows = $html.find('#can_change_layout')[0].children;
+					$stream.html("");
+					var temp,i;					
+					while($rows.length != 0){
+						i = 0;
+						temp = $rows[i];
+						$stream.isotope( 'insert', temp);
+					}
 				}
 				if($new_more.length) $('.pagination').append($new_more);
 				$more.remove();
 
 				(function(){
-					if(useCSS3 && (Date.now() - begin < maxDelay+300)){
-						return setTimeout(arguments.callee, 50);
-					}
-
-					$stream.addClass('fadein').html( $html.find('#content > ol.stream').html() );
-					
-					if(useCSS3){
-						$win.scrollTop(scTop);
-						scTop = $win.scrollTop();
-						stTop = $stream.offset().top;
-						
-						firstTop = -1;
-						$stream.find('>li').each(function(i,v){
-							if(!inViewport(v)) return;
-							if(firstTop < 0) firstTop = v.offsetTop;
-							
-							var delay = Math.round(Math.sqrt(Math.pow(v.offsetTop - firstTop, 2)+Math.pow(v.offsetLeft, 2)));
-							
-							v.className += ' anim';
-							setTimeout(function(){ v.className += ' fadein'; }, delay+10);
-							
-							if(delay > maxDelay) maxDelay = delay;
-						});
-
-						setTimeout(function(){ $stream.removeClass('use-css3 fadein').find('li.anim').removeClass('anim fadein'); }, maxDelay+300);
-					}
-
 					// reset infiniteshow
-					$.infiniteshow({itemSelector:'#content .stream > li'});
+					$.infiniteshow({itemSelector:'#can_change_layout'});
 					$win.trigger('scroll');
 				})();
 			}
@@ -122,30 +90,136 @@ jQuery(function($) {
 			return (stTop + el.offsetTop + el.offsetHeight > scTop + headerH) && (stTop + el.offsetTop < scTop + winH);
 		};
 	};
+;
+	$(window).on('popstate', function(event){
+		var e = event.originalEvent;
+		if(!e || !e.state) return;
+
+		loadPage(event.originalEvent.state.url, true);
+	});
+
+	if(window.history && history.pushState){
+		history.pushState({url:location.href}, document.title, location.href);
+	}
 	
+	//swapnil code 
+	
+	//category button click on page load
+	$(window).bind("load", function() {
+		var categary = window.location.pathname.split("/");
+		if(categary[2] != undefined){
+				for(i=2; i <= categary.length; i++){
+					if(categary[i] != undefined){
+						$("#" + categary[i]).click();
+					}
+				}
+		}
+	});	
+	
+	$('.color-filter').change(function(){
+		var color = $(this).attr("color"), 
+			url = location.pathname, 
+			args = $.extend({}, location.args), 
+			query;
 
-});
-    
-	window.addEventListener("DOMContentLoaded", function() {
-	var categary = window.location.pathname.split("/");
-	if(categary[2] != undefined){
-			for(i=2;i<=categary.lenght;i++){
-				$("#" + categary[i]).click();
+		if(color != ""){
+			args.c = color;
+		} else {
+			delete args.c;
+		}
+
+		if(query = $.param(args)) url += '?'+query;
+
+		loadPage(url);
+	});
+	
+	$('.sub-category').click(function(){
+		var $this = $(this), 
+			url = $(this).attr("link"); 
+			//text = $this.find('>option').eq(this.selectedIndex).text(),
+			//issibling = $this.find('>option').eq(this.selectedIndex).hasClass('sibling');
+		if(url) loadPage(url);
+		
+        /*if (issibling)
+		    $('ul.breadcrumbs').find('.last').remove();
+		$('ul.breadcrumbs').append('<li class="last">/ <a href="'+url+'">'+text+'</a></li>');*/
+		return false;
+	});
+	
+	$('.search-string').click(function(){
+			var q = $.trim($("#searchbox").val()), 
+				url = location.pathname, 
+				args = $.extend({}, location.args),
+				query;
+			event.preventDefault();
+			if(q) {
+				args.q = q;
+			} else {
+				delete args.q;
 			}
-	}
 
-    }, false);
-	 $(window).bind("load", function() {
-	var categary = window.location.pathname.split("/");
-	if(categary[2] != undefined){
-			for(i=2;i<=categary.lenght;i++){
-				$("#" + categary[i]).click();
-			}
-	}
+			if(query = $.param(args)) url += '?'+query;
 
+			loadPage(url);
+	});
+	
+	$('.sort-by-price').change(function(){
+		var sort_by_price = this.value, url = location.pathname, args = $.extend({}, location.args), query;
+
+		if(sort_by_price){
+			args.sort_by_price = sort_by_price;
+		} else {
+			delete args.sort_by_price;
+		}
+
+		if(query = $.param(args)) url += '?'+query;
+
+		loadPage(url);
+	});
+	
+	$('#sort_By_Price_Range').click(function(event){
+		debugger;
+		event.preventDefault();
+		var rang = $("#sliderPriceMin").val();
+		if(rang != ""){
+
+			var priceRange = "", 
+				url = location.pathname, 
+				args = $.extend({}, location.args), 
+				query;
+				
+				var range = parseInt(rang);
+				if(range<=1000 && range>=1){
+					priceRange ="1-1000";
+				}else if(range<=2000 && range>=1001){
+					priceRange ="1001-2000";
+				}else if(range<=5000 && range>=2001){
+					priceRange ="2001-5000";				
+				}else if(range<=10000 && range>=5001){
+					priceRange ="5001-10000";
+				}else if(range<=20000 && range>=10001){
+					priceRange ="10001-20000";
+				}else if(range<=30000 && range>=20001){
+					priceRange ="20001-30000";
+				}else if(range<=40000 && range>=30001){
+					priceRange ="30001-40000";
+				}else if(range<=50000 && range>=40001){
+					priceRange ="40001-50000";
+				}else if(range<=100000 && range>=50001){
+					priceRange ="50001-100000";
+				}
+				
+				if(priceRange != ""){
+					if(priceRange != '-1'){
+						args.p = priceRange;
+					} else {
+						delete args.p;
+					}
+					if(query = $.param(args)) url += '?'+query;
+					loadPage(url);
+				}	
+		}
 	});
 
 	
-	
-    
-    
+});

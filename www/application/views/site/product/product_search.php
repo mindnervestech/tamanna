@@ -21,9 +21,12 @@ $this->load->view('site/templates/header_new');
 								<hr class="divider_bg m_bottom_23">
 								<form>
 									<div class="relative">
+										<input id="sliderPriceMin" hidden/>
+										<button id="sort_By_Price_Range" hidden></button>
 										<fieldset>
 											<legend class="second_font m_bottom_15 w_full"><b>Price</b></legend>
 											<div class="range_slider relative bg_grey_light_2 m_bottom_10"></div>
+																
 											<div class="clearfix m_bottom_10">
 												<input type="text" class="f_left range_min half_column fw_light" readonly>
 												<input type="text" class="f_right range_max half_column t_align_r fw_light" readonly>
@@ -43,7 +46,7 @@ $this->load->view('site/templates/header_new');
                                         foreach ($mainCategories->result() as $row){
                       	                     if ($row->cat_name != '' && $row->cat_name != 'Our Picks'){
                                             ?>
-									<li class="relative"><a href="shopby/<?php echo $row->seourl;?>" class="fs_large_0 d_inline_b"><?php echo $row->cat_name;?></a>
+									<li class="relative"><a href="#" link="shopby/<?php echo $row->seourl;?>" class="fs_large_0 d_inline_b sub-category"><?php echo $row->cat_name;?></a>
 
 									            <?php 
 	                                               foreach ($all_categories->result() as $row1){
@@ -61,11 +64,11 @@ $this->load->view('site/templates/header_new');
                                                 ?>									
 
 										<ul class="d_none">
-											<li class="relative"><a href="shopby/<?php echo $row->seourl;?>/<?php echo $row1->seourl;?>" class="tr_delay d_inline_b"><?php echo $row1->cat_name;?></a>
+											<li class="relative"><a href="#" link="shopby/<?php echo $row->seourl;?>/<?php echo $row1->seourl;?>" class="tr_delay d_inline_b sub-category"><?php echo $row1->cat_name;?></a>
 													<?php 
 													   foreach ($all_categories->result() as $row2){
 														if ($row2->cat_name != '' && $row1->id==$row2->rootID){
-																$x = '<button id="'  .$row->seourl.'" class="open_sub_categories fs_medium"></button>';
+																$x = '<button id="'  .$row1->seourl.'" class="open_sub_categories fs_medium"></button>';
 																echo $x;
 																break;
 															}
@@ -76,7 +79,7 @@ $this->load->view('site/templates/header_new');
 			                      	                          if ($row2->cat_name != '' && $row1->id==$row2->rootID){
 			                                             ?>
 												<ul class="d_none fs_small categories_third_level_list">
-													<li><a href="shopby/<?php echo $row->seourl;?>/<?php echo $row1->seourl;?>/<?php echo $row2->seourl;?>" class="tr_delay sc_hover bg_grey_light_2_hover"><?php echo $row2->cat_name;?></a></li>
+													<li><a href="#" link="shopby/<?php echo $row->seourl;?>/<?php echo $row1->seourl;?>/<?php echo $row2->seourl;?>" class="tr_delay sc_hover bg_grey_light_2_hover sub-category"><?php echo $row2->cat_name;?></a></li>
 												</ul>
 													<?php  }} ?>
 											</li>
@@ -95,7 +98,7 @@ $this->load->view('site/templates/header_new');
 										<fieldset>
 											<ul>
 											<li class="m_bottom_9">
-													<input type="radio" name="material" id="<?php if($this->lang->line('product_any_color') != '') { echo stripslashes($this->lang->line('product_any_color')); } else echo "Any Color"; ?>">
+													<input type="radio" class="color-filter" name="material" id="<?php if($this->lang->line('product_any_color') != '') { echo stripslashes($this->lang->line('product_any_color')); } else echo "Any Color"; ?>" color = "any">
 													<label for="<?php if($this->lang->line('product_any_color') != '') { echo stripslashes($this->lang->line('product_any_color')); } else echo "Any Color"; ?>" class="fw_light fs_"><?php if($this->lang->line('product_any_color') != '') { echo stripslashes($this->lang->line('product_any_color')); } else echo "Any Color"; ?></label>
 											</li>
 											  <?php 
@@ -105,7 +108,7 @@ $this->load->view('site/templates/header_new');
 
 													  ?>
 												<li class="m_bottom_9">
-													<input type="radio" name="material" id="<?php echo strtolower($list_value_trimmed);?>">
+													<input type="radio" class="color-filter" name="material" id="<?php echo strtolower($list_value_trimmed);?>" color="<?php echo strtolower($list_value_trimmed);?>">
 													<label for="<?php echo strtolower($list_value_trimmed);?>" class="fw_light fs_" <?php if($_GET['c']==url_title($colorRow->list_value)){ echo 'selected="selected"'; } ?> value="<?php echo strtolower($list_value_trimmed);?>"><?php echo ucfirst($colorRow->list_value);?></label>	
 												</li>
 
@@ -144,7 +147,12 @@ $this->load->view('site/templates/header_new');
 							<div class="d_table w_full m_bottom_5">
 								<div class="col-lg-6 col-md-6 col-sm-6 d_xs_block v_align_m d_table_cell f_none fs_medium color_light fw_light m_xs_bottom_5">
 									<div class="d_inline_m m_right_5">Sort by:</div>
-									<div class="styled_select relative d_inline_m m_right_2">
+									<select class="shop-select sort-by-price selectBox">
+									  <option selected="selected" value=""><?php if($this->lang->line('product_newest') != '') { echo stripslashes($this->lang->line('product_newest')); } else echo "Newest"; ?></option>
+									  <option value="asc"><?php if($this->lang->line('product_low_high') != '') { echo stripslashes($this->lang->line('product_low_high')); } else echo "Price: Low to High"; ?></option>
+									  <option value="desc"><?php if($this->lang->line('product_high_low') != '') { echo stripslashes($this->lang->line('product_high_low')); } else echo "Price: High to Low"; ?></option>
+									</select>
+									<!--<div class="styled_select relative d_inline_m m_right_2">
 										<div class="select_title type_3 fs_medium fw_light color_light relative d_none tr_all">Product name</div>
 										<select>
 											<option value="Product name 9">Product name 9</option>
@@ -158,15 +166,15 @@ $this->load->view('site/templates/header_new');
 											<option value="Product name 1">Product name 1</option>
 										</select>
 										<ul class="options_list d_none tr_all hidden bg_grey_light_2"></ul>
-									</div>
-									<button class="button_type_4 grey state_2 tr_all second_font tt_uppercase vc_child black_hover"><i class="fa fa-sort-amount-asc d_inline_m m_top_0"></i></button>
+									</div> 
+									<button class="button_type_4 grey state_2 tr_all second_font tt_uppercase vc_child black_hover"><i class="fa fa-sort-amount-asc d_inline_m m_top_0"></i></button>-->
 								</div>
 									<!--searchform-->
 									<div class="col-lg-6 col-md-6 col-sm-6 d_xs_block v_align_m d_table_cell f_none fs_medium color_light fw_light m_xs_bottom_5">
-									<form role="search" class="relative f_right f_xs_none m_right_3 db_xs_centered button_in_input">
-										<input type="text" name="" tabindex="1" placeholder="Search" class="fs_medium color_light fw_light w_full tr_all">
-										<button class="color_dark tr_all color_lbrown_hover"><i class="fa fa-search d_inline_m"></i></button>
-									</form>
+									<div role="search" class="relative f_right f_xs_none m_right_3 db_xs_centered button_in_input">
+										<input type="text" name="" id="searchbox" tabindex="1" placeholder="Search" class="fs_medium color_light fw_light w_full tr_all">
+										<button class="search-string color_dark tr_all color_lbrown_hover"><i class="fa fa-search d_inline_m"></i></button>
+									</div>
 									</div>
 								
 							<!--	<div class="col-lg-2 col-md-2 col-sm-2 d_xs_block v_align_m d_table_cell f_none t_align_r t_xs_align_l p_xs_left_0">
@@ -276,15 +284,7 @@ $this->load->view('site/templates/header_new');
 									</figure>
 								</div>
 		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-      <?php } ?>
+     <?php } ?>
 		          <?php } ?>
 							
 							
@@ -301,10 +301,12 @@ $this->load->view('site/templates/header_new');
 							        <div class="pagination" style="display:none">
 										<?php echo $paginationDisplay; ?>
 									</div>
+							
 						</main>
 					</div>
 				</div>
 			</div>
+		
 		<!--footer-->
 		<?php
 		$this->load->view('site/templates/sub_footer_cat');
@@ -463,8 +465,9 @@ $this->load->view('site/templates/header_new');
 		
 	 
 		<!--Page Js-->
-		<script src="js/site/Socktail-shoplist_backup.js"></script>
+		<script src="js/site/Socktail-shoplist.js"></script>
 		<script src="js/site/main4.js" type="text/javascript"></script>
+		
 		
 		<!--theme initializer-->
 		<script src="js/themeCore.js"></script>
