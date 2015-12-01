@@ -336,9 +336,12 @@ class My_Model extends CI_Model {
 		}else{
 
 			$minCartVal.= '<li class="relative open_mini_shopping_cart" id="MiniCartViewDisp">
-										<button class="color_dark active_lbrown tr_all" data-open-dropdown="#shopping_cart">
-											<i class="fa fa-shopping-cart fs_large"></i><sup id="Shop_MiniId_count">'.$countMiniVal.' '.$lg_items.'</sup>
-										</button><div id="shopping_cart" data-show="fadeInUp" data-hide="fadeOutDown" class="bg_grey_light dropdown animated">
+											<button class="color_dark active_lbrown tr_all tooltip_container" data-open-dropdown="#shopping_cart">
+												<i class="fa fa-shopping-cart fs_large"></i>
+												<span class="tooltip top fs_small color_white hidden animated" data-show="fadeInDown" data-hide="fadeOutUp">Your Cartsss</span>
+											<sup id="Shop_MiniId_count">'.$countMiniVal.' '.$lg_items.'</sup>
+											</button>
+											<div id="shopping_cart" data-show="fadeInUp" data-hide="fadeOutDown" class="bg_grey_light dropdown animated">
 											<div class="sc_header fs_small fw_light">Recently added item(s)</div>
 											<hr class="divider_white">
 											<ul class="shopping_cart_list m_bottom_4">';

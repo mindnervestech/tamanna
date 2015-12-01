@@ -17,6 +17,7 @@
 		<meta name="author" content="">
 		<meta name="description" content="<?php echo $meta_description; ?>" />
 		<meta property="og:image" content="<?php echo base_url();?>images/product/<?php echo $this->data['meta_image'];?>" />
+	
 		<base href="<?php echo base_url(); ?>" />
 		<!--include favicon-->
 		<link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url();?>images/logo/<?php echo $fevicon;?>">
@@ -24,16 +25,15 @@
 		{
 			require_once 'google-login-mats/index.php';
 		}?>
-		<!--fonts include
+		<!--fonts include -->
 		<link href='css/Roboto.css' rel='stylesheet' type='text/css'>
-		<link href='css/Roboto_slab.css' rel='stylesheet' type='text/css'>-->
+		<!--<link href='css/Roboto_slab.css' rel='stylesheet' type='text/css'>-->
 		<!--stylesheet include-->
 		<link rel="stylesheet" type="text/css" media="all" href="plugins/owl-carousel/assets/owl.carousel.min.css">
 		<link rel="stylesheet" type="text/css" media="all" href="plugins/fancybox/jquery.fancybox.css">
 		<link rel="stylesheet" type="text/css" media="all" href="plugins/jackbox/css/jackbox.min.css">
 		<link rel="stylesheet" type="text/css" media="all" href="css/animate.css">
 		<link rel="stylesheet" type="text/css" media="all" href="css/bootstrap.min.css">
-		<link rel="stylesheet" media="screen" href="//fonts.googleapis.com/css?family=Raleway:400,500,700,300" />
 		<!--<link rel="stylesheet" type="text/css" media="all" href="css/bootstrap_new.min.css">-->
 		<link rel="stylesheet" type="text/css" media="all" href="css/style.css">
 		<!--[if lte IE 10]>
@@ -50,6 +50,9 @@
 		<script src="js/modernizr.js"></script>
 	</head>
 	<body class="sticky_menu">
+		<!-- External Links -->
+			<a href="https://plus.google.com/+Socktail" rel="publisher"></a>
+			<a href="https://plus.google.com/+Socktail?rel=author"></a>
 		<div id="preloader"></div>
 		<!--layout-->
 		<div class="wide_layout db_centered bg_white">
@@ -78,7 +81,6 @@
 									<li><a href="pages/contact-us" class="sc_hover tr_delay" href="faq">Contact Us</a></li>
 
                                         <?php if ($loginCheck != ''){ ?>
-                                        <li><a class="sc_hover tr_delay" href="add">Add</a></li>
                                         <li><a class="sc_hover tr_delay" href="settings">My Account</a></li>
                                         <li><a class="sc_hover tr_delay" href="purchases">Purchase History</a></li>
 										<li><a class="sc_hover tr_delay" href="<?php echo 'user/'.$userDetails->row()->user_name;?>">Wishlist</a></li>

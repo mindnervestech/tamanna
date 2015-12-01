@@ -28,15 +28,15 @@ $this->load->view('site/templates/header_new_small');
 													?>
 													<li class="m_bottom_20">
 														<label for="password" class="second_font m_bottom_4 d_inline_b fs_medium">Password</label>
-														<input type="password" id="user_password" class="password w_full tr_all" name="password" placeholder="<?php if($this->lang->line('signup_min_chars') != '') { echo stripslashes($this->lang->line('signup_min_chars')); } else echo "Minimum 6 characters"; ?>" value="" />
+														<input type="password" id="user_password" class="password w_full tr_all m_bottom_20" name="password" placeholder="<?php if($this->lang->line('signup_min_chars') != '') { echo stripslashes($this->lang->line('signup_min_chars')); } else echo "Minimum 6 characters"; ?>" value="" />
 														<?php if (validation_errors() != ''){?>
-														<div id="validationErr">
+														<div id="validationErr" class="alert_box warning m_bottom_10 relative fw_light">
 															<script>setTimeout("hideErrDiv('validationErr')", 3000);</script>
 															<span class="d_inline_m second_font fs_medium color_red d_md_block"><?php echo validation_errors();?></span>
 														</div>
 														<?php }?>
 														<?php if($flash_data != '') { ?>
-														<div class="errorContainer" id="<?php echo $flash_data_type;?>">
+														<div class="errorContainer alert_box warning m_bottom_10 relative fw_light" id="<?php echo $flash_data_type;?>">
 															<script>setTimeout("hideErrDiv('<?php echo $flash_data_type;?>')", 3000);</script>
 															<span class="d_inline_m second_font fs_medium color_red d_md_block"><?php echo $flash_data;?></span>
 														</div>
@@ -64,8 +64,8 @@ $this->load->view('site/templates/header_new_small');
 													</li>
 								</ul>
 								<div class="m_bottom_14 t_align_c">
-														<span class="d_inline_m second_font fs_medium color_red d_md_block">By creating an account, I accept Socktail's Terms of Service, 
-Seller's Policies and Privacy Policy.</span>
+														<span class="d_inline_m second_font fs_medium color_red d_md_block">By creating an account, I accept Socktail's <a href="<?php echo base_url();?>pages/terms-of-use"><?php if($this->lang->line('header_terms_service') != '') { echo stripslashes($this->lang->line('header_terms_service')); } else echo "Terms of Service"; ?></a>, 
+<a href="<?php echo base_url();?>pages/sellers-policies"><?php if($this->lang->line('header_seller_policies') != '') { echo stripslashes($this->lang->line('header_seller_policies')); } else echo "Seller's Policies"; ?></a> <?php if($this->lang->line('header_and') != '') { echo stripslashes($this->lang->line('header_and')); } else echo "and"; ?> <a href="<?php echo base_url();?>pages/privacy-policy"> <?php if($this->lang->line('header_privacy_policy') != '') { echo stripslashes($this->lang->line('header_privacy_policy')); } else echo "Privacy Policy"; ?></a>.</span>
 								</div>
 							</form>
 						</section>
@@ -80,18 +80,10 @@ Seller's Policies and Privacy Policy.</span>
 				?>
 		</div>
 
-		<!--back to top-->
-		<button class="back_to_top animated button_type_6 grey state_2 d_block black_hover f_left vc_child tr_all"><i class="fa fa-angle-up d_inline_m"></i></button>
-
 		<!--libs include-->
 		<script src="plugins/jquery.appear.js"></script>
-		<script src="plugins/owl-carousel/owl.carousel.min.js"></script>
-		<script src="plugins/twitter/jquery.tweet.min.js"></script><script src="plugins/flickr.js"></script>
 		<script src="plugins/afterresize.min.js"></script>
-		<script src="plugins/jackbox/js/jackbox-packed.min.js"></script>
-		<script src="js/retina.min.js"></script>
-		<script src="plugins/colorpicker/colorpicker.js"></script>
-		 
+ 
 
 		<!--theme initializer-->
 		<script src="js/themeCore.js"></script>

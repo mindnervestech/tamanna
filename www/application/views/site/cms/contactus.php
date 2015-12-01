@@ -70,7 +70,8 @@ $this->load->view('site/templates/footer');
 ?></div>
 
 		<!--libs include-->
-		 
+		<script src="plugins/jquery.appear.js"></script>
+		<script src="plugins/afterresize.min.js"></script>
 
 		<!--theme initializer-->
 		<script src="js/themeCore.js"></script>

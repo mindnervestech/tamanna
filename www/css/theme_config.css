@@ -4,7 +4,7 @@ html{
 	overflow-x:hidden;
 }
 body{
-	font:400 14px/1.5em "Raleway","sans-serif";
+	font:400 14px/1.5em "Roboto","sans-serif";
 	color:#595959;
 	background-attachment: fixed;
 }
@@ -19,7 +19,7 @@ body{
 }
 .second_font,
 table td[data-cell-title]::before{
-	font-family: 'Raleway', serif;
+	font-family: 'Roboto', serif;
 }
 ::selection{
 	background:#276658;
@@ -162,7 +162,7 @@ blockquote.type_2::after{
 	display: block;
 	text-align: center;
 	font-weight: 600;
-	font-family: 'Raleway', serif;
+	font-family: 'Roboto', serif;
 	margin: 10px 13px 0 0;
 }
 .first_letter_type_1 span{

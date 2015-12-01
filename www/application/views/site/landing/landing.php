@@ -695,7 +695,7 @@ $this->load->view('site/templates/header_new');
 		</div>
 
 		<!--popup-->
-		<div class="init_popup" id="add_to_cart_popup">
+<!--		<div class="init_popup" id="add_to_cart_popup">
 			<div class="popup init">
 				<div class="clearfix m_bottom_15">
 					<a href="#" class="f_left d_block m_right_20">
@@ -709,23 +709,17 @@ $this->load->view('site/templates/header_new');
 				</div>
 				<button class="close_popup fw_light fs_large tr_all">x</button>
 			</div>
-		</div>
+		</div> -->
 
 		<!--libs include-->
 		<script src="plugins/royalslider/jquery.royalslider.min.js"></script>
 		<script src="plugins/jquery.appear.js"></script>
 		<script src="plugins/royalslider/jquery.easing-1.3.js"></script>
 		<script src="plugins/jquery.elevateZoom-3.0.8.min.js"></script>
-		<script src="plugins/fancybox/jquery.fancybox.pack.js"></script>
 		<script src="plugins/jquery.easytabs.min.js"></script>
 		<script src="plugins/owl-carousel/owl.carousel.min.js"></script>
-		<script src="plugins/twitter/jquery.tweet.min.js"></script><script src="plugins/flickr.js"></script>
 		<script src="plugins/afterresize.min.js"></script>
-		<script src="plugins/jackbox/js/jackbox-packed.min.js"></script>
 		<script src="js/retina.min.js"></script>
-		<script src="plugins/colorpicker/colorpicker.js"></script>
-		 
-
 
 		<!--theme initializer-->
 		<script src="js/themeCore.js"></script>

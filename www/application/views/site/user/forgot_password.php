@@ -2,9 +2,9 @@
 $this->load->view('site/templates/header_new_small');
 ?>
 			<!--main content-->
-			<div class="page_section_offset">
+			<div class="page_section_offset m_bottom_50">
 				<div class="container">
-					<div class="row">
+					<div class="row m_bottom_50">
 						<aside class="col-lg-4 col-md-4 col-sm-4 p_top_4">
 						</aside>
 						<section class="col-lg-4 col-md-4 col-sm-4">
@@ -32,7 +32,7 @@ $this->load->view('site/templates/header_new_small');
 														<?php } ?>
 													</li>
 													<li>
-														<button type="submit" class="btns-blue-embo btn-signin t_align_c tt_uppercase w_full second_font d_block fs_medium button_type_2 lbrown tr_all">Rest Password</button>
+														<button type="submit" class="btns-blue-embo btn-signin t_align_c tt_uppercase w_full second_font d_block fs_medium button_type_2 lbrown tr_all">Reset Password</button>
 													</li>
 								</ul>
 							</form>
@@ -48,17 +48,9 @@ $this->load->view('site/templates/header_new_small');
 				?>
 		</div>
 
-		<!--back to top-->
-		<button class="back_to_top animated button_type_6 grey state_2 d_block black_hover f_left vc_child tr_all"><i class="fa fa-angle-up d_inline_m"></i></button>
-
 		<!--libs include-->
 		<script src="plugins/jquery.appear.js"></script>
-		<script src="plugins/owl-carousel/owl.carousel.min.js"></script>
 		<script src="plugins/afterresize.min.js"></script>
-		<script src="plugins/jackbox/js/jackbox-packed.min.js"></script>
-		<script src="js/retina.min.js"></script>
-		<script src="plugins/colorpicker/colorpicker.js"></script>
-		 
 
 		<!--theme initializer-->
 		<script src="js/themeCore.js"></script>

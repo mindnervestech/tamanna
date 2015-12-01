@@ -2,32 +2,32 @@
 <html lang="en">
 	<head>
 		<?php if($this->config->item('google_verification')){ echo stripslashes($this->config->item('google_verification')); }
-if ($meta_title != '' and $meta_title != $title){?>
-<title><?php echo $meta_title;?></title>
-<?php } elseif ($heading != ''){?>
-<title><?php echo $heading;?></title>
-<?php }else {?>
-<title><?php echo $title;?></title>
-<?php }?>
-<meta name="Title" content="<?php echo $meta_title;?>" />
+		if ($meta_title != '' and $meta_title != $title){?>
+		<title><?php echo $meta_title;?></title>
+		<?php } elseif ($heading != ''){?>
+		<title><?php echo $heading;?></title>
+		<?php }else {?>
+		<title><?php echo $title;?></title>
+		<?php }?>
+		<meta name="Title" content="<?php echo $meta_title;?>" />
 
 		<meta charset="utf-8">
 		<!--add responsive layout support-->
 		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 		<!--meta info-->
 		<meta name="author" content="">
-<meta name="description" content="<?php echo $meta_description; ?>" />
-<meta property="og:image" content="<?php echo base_url();?>images/product/<?php echo $this->data['meta_image'];?>" />
-<base href="<?php echo base_url(); ?>" />
+		<meta name="description" content="<?php echo $meta_description; ?>" />
+		<meta property="og:image" content="<?php echo base_url();?>images/product/<?php echo $this->data['meta_image'];?>" />
+		<base href="<?php echo base_url(); ?>" />
 		<!--include favicon-->
 		<link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url();?>images/logo/<?php echo $fevicon;?>">
         <?php if (is_file('google-login-mats/index.php'))
-{
-	require_once 'google-login-mats/index.php';
-}?>
-		<!--fonts include
+		{
+			require_once 'google-login-mats/index.php';
+		}?>
+		<!--fonts include -->
 		<link href='css/Roboto.css' rel='stylesheet' type='text/css'>
-		<link href='css/Roboto_slab.css' rel='stylesheet' type='text/css'>-->
+		<!--<link href='css/Roboto_slab.css' rel='stylesheet' type='text/css'>-->
 		<!--stylesheet include-->
 		<link rel="stylesheet" type="text/css" media="all" href="plugins/fancybox/jquery.fancybox.css">
 		<link rel="stylesheet" type="text/css" media="all" href="plugins/owl-carousel/assets/owl.carousel.min.css">
@@ -35,7 +35,6 @@ if ($meta_title != '' and $meta_title != $title){?>
 		<link rel="stylesheet" type="text/css" media="all" href="css/animate.css">
 		<link rel="stylesheet" type="text/css" media="all" href="css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" media="all" href="css/style.css">
-		<link rel="stylesheet" media="screen" href="//fonts.googleapis.com/css?family=Raleway:400,500,700,300" />
 		<!--[if lte IE 10]>
 			<link rel="stylesheet" type="text/css" media="screen" href="css/ie.css">
 			<link rel="stylesheet" type="text/css" media="screen" href="plugins/jackbox/css/jackbox-ie9.css">
@@ -50,6 +49,9 @@ if ($meta_title != '' and $meta_title != $title){?>
 		<script src="js/modernizr.js"></script>
 	</head>
 	<body class="sticky_menu">
+		<!-- External Links -->
+		<a href="https://plus.google.com/+Socktail" rel="publisher"></a>
+		<a href="https://plus.google.com/+Socktail?rel=author"></a>
 		<div id="preloader"></div>
 		 
 		<!--layout-->
@@ -79,7 +81,6 @@ if ($meta_title != '' and $meta_title != $title){?>
 									<li><a href="pages/contact-us" class="sc_hover tr_delay" href="faq">Contact Us</a></li>
 
                                         <?php if ($loginCheck != ''){ ?>
-                                        <li><a class="sc_hover tr_delay" href="add">Add</a></li>
                                         <li><a class="sc_hover tr_delay" href="settings">My Account</a></li>
                                         <li><a class="sc_hover tr_delay" href="purchases">Purchase History</a></li>
 										<li><a class="sc_hover tr_delay" href="<?php echo 'user/'.$userDetails->row()->user_name;?>">Wishlist</a></li>
