@@ -179,7 +179,7 @@ $this->load->view('site/templates/header_new');
 							</div>
 							<hr class="divider_light m_bottom_5">
 							<!--isotope-->
-							<div id="can_change_layout" class="category_isotope_container three_columns wrapper m_bottom_10 m_xs_bottom_0" data-isotope-options='{
+							<div id="can_change_layout" class="stream category_isotope_container three_columns wrapper m_bottom_10 m_xs_bottom_0" data-isotope-options='{
 								"itemSelector": ".category_isotope_item",
 					  			"layoutMode": "fitRows"
 							}'>
@@ -210,7 +210,7 @@ $this->load->view('site/templates/header_new');
 				}
 			}
 		?>
-          <div class="category_isotope_item stream">
+          <div class="category_isotope_item">
 									<figure class="product_item type_2 c_image_container relative frame_container t_sm_align_c r_image_container qv_container">
 										<!--image & buttons & label-->
 										<div class="relative">
@@ -284,60 +284,7 @@ $this->load->view('site/templates/header_new');
 		  
 		  
 		  
-<!--			<li>
-            <div class="figure-product-new mini" style="box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08), 0 0 2px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(0, 0, 0, 0.04), 0 -1px 0 0 rgba(0, 0, 0, 0.05);  border-radius: 3px;"> <a href="things/<?php echo $productListVal->id;?>/<?php echo url_title($productListVal->product_name,'-');?>">
-              <figure style="box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08), 0 0 2px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(0, 0, 0, 0.04), 0 -1px 0 0 rgba(0, 0, 0, 0.05);  border-top-left-radius: 3px;
-border-top-right-radius: 3px;"><img src="images/product/<?php echo $img; ?>"> </figure>
-              <figcaption><?php echo $productListVal->product_name;?></figcaption>
-			
-			<?php
-                    $prodID = $productListVal->id;
-                    $origPrice = $productListVal->sale_price;
-                    $userId = $productListVal->user_id;
-                    $catId = $productListVal->category_id;
-
-
-                        $couponCode = '';
-                        $discVal = 0.00;
-                        $discPrice = '';
-                        $discDesc = '';
-                        $resultArr = $this->product_model->getDiscountedDetails($prodID,$origPrice,$userId,$catId);
-                        $couponCode = $resultArr['coupon_code'];
-                        $discPrice = $resultArr['disc_price'];
-                        $discVal = $resultArr['disc_percent'];
-                        $discDesc = $resultArr['disc_desc'];    
-                        
-                    
-                    ?>
-              </a> <span class="username">
-
-
-<?php if($discPrice != ''){?>
-   <?php if ($productListVal->price>$productListVal->sale_price){ ?>
-      <div style="display:inline-block;">Retail Price: <?php echo $currencySymbol;?></div>
-      <div style="text-decoration: line-through;font-weight: normal;display:inline-block;"><?php echo number_format($productListVal->price);echo " ";?></div>
-   <?php } else {?>
-      <div style="display:inline-block;">Retail Price: <?php echo $currencySymbol;?></div>
-      <div style="text-decoration: line-through;font-weight: normal;display:inline-block;"><?php echo number_format($productListVal->sale_price);?></div>
-   <?php } ?>
-   </br>Today's Price: <b class="price"><?php echo $currencySymbol;?><?php echo $discPrice;?></b> ( Discount Coupon Inside )
- <?php } else { ?>
-   <?php if ($productListVal->price>$productListVal->sale_price){ ?>
-      <div style="display:inline-block;">Retail Price: <?php echo $currencySymbol;?></div>
-      <div style="text-decoration: line-through;font-weight: normal;display:inline-block;"><?php echo number_format($productListVal->price);echo " ";?></div>
-      </br>You Pay: <b class="price"><?php echo $currencySymbol;?><?php echo number_format($productListVal->sale_price);?></b>
-   <?php } else {?>
-      <b class="price"><?php echo $currencySymbol;?><?php echo number_format($productListVal->sale_price);?></b>
-   <?php } ?>
-<?php } ?>
-
-
-</span>
-
-
-
-       </div>
-          </li>    -->      <?php } ?>
+      <?php } ?>
 		          <?php } ?>
 							
 							
@@ -516,8 +463,8 @@ border-top-right-radius: 3px;"><img src="images/product/<?php echo $img; ?>"> </
 		
 	 
 		<!--Page Js-->
-		<script src="js/site/Socktail-shoplist.js"></script>
-	<!--	<script src="js/site/main4_new.js" type="text/javascript"></script> -->
+		<script src="js/site/Socktail-shoplist_backup.js"></script>
+		<script src="js/site/main4.js" type="text/javascript"></script>
 		
 		<!--theme initializer-->
 		<script src="js/themeCore.js"></script>

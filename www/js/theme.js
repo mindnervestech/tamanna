@@ -489,9 +489,9 @@
 		            autoScaleSlider : true,
 		            imageScaleMode : 'fill',
 		            slidesSpacing : 0,
-		            transitionSpeed : 500,
+		            transitionSpeed : 2000,
 		            fadeinLoadedSlide : false,
-		            loop : true
+		            loop : true,										autoPlay: {    		// autoplay options go gere    		enabled: true,    		pauseOnHover: true,			delay: 4000    	}
 		        });
 		        var slider = $(slidersArray[2]).data('royalSlider');
 

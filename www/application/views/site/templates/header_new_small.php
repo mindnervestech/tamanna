@@ -124,7 +124,7 @@ if ($meta_title != '' and $meta_title != $title){?>
                                 	<li>
 										<a href="<?php echo 'user/'.$userDetails->row()->user_name;?>" class="color_lbrown_hover vc_child">
 											<span class="d_inline_m">
-												<i class="fa fa-heart fs_large"></i>
+												<button class="tooltip_container"><i class="fa fa-heart fs_large"></i><span class="tooltip top fs_small color_white hidden animated" data-show="fadeInDown" data-hide="fadeOutUp">Check Your Wishlist</span></button>
 											</span>
 										</a>
 									</li>

@@ -3,12 +3,13 @@ $this->load->view('site/templates/header_new');
 ?>
 <!--<link rel="stylesheet" type="text/css" media="all" href="plugins/layerslider/css/layerslider.css">-->
 		<link rel="stylesheet" type="text/css" media="all" href="plugins/royalslider/royalslider.css">
+		<link rel="stylesheet" type="text/css" media="all" href="plugins/royalslider/skins/default/rs-default.css">
 			<div class="container">
 				<!--royalslider-->
 				<div class="royalslider rsDefault relative">
 					<!--slide-->
 					<div class="rsContent t_align_r">
-						<img class="rsImg" src="images/slide_03.jpg" alt="">
+						<img class="rsImg" src="images/product/camera-411.jpg" alt="">
 						<div class="rsABlock d_mxs_none" style="right:95px;top:22.17%;" data-move-effect="right" data-delay="300" data-speed="700" data-easing="easeOutBack">
 							<p class="color_white fw_light tt_uppercase slider_fs_3">Office Ideas</p>
 						</div>
@@ -21,7 +22,7 @@ $this->load->view('site/templates/header_new');
 					</div>
 					<!--slide-->
 					<div class="rsContent t_align_r">
-						<img class="rsImg" src="images/slide_05.jpg" alt="">
+						<img class="rsImg" src="images/product/slide_06.jpg" alt="">
 						<div class="rsABlock d_mxs_none" style="top:8.77%;left:21.754%;" data-move-effect="fade" data-delay="700" data-speed="700" data-easing="easeOutBack">
 							<div class="circle bg_scheme_color d_xs_none color_white slider_label vc_child t_align_c" style="left:207px; top:50px;" data-ls="scalexin:0.5;offsetxin:0;delayin:200;easingin:easeOutBack;durationin:700;">
 								<div class="d_inline_m second_font">
@@ -42,7 +43,7 @@ $this->load->view('site/templates/header_new');
 					</div>
 					<!--slide-->
 					<div class="rsContent">
-						<img class="rsImg" src="images/slide_06.jpg" alt="">
+						<img class="rsImg" src="images/product/image22.jpg" alt="">
 						<div class="rsABlock d_mxs_none" style="left:95px;top:26.17%;" data-move-effect="left" data-delay="300" data-speed="700" data-easing="easeOutBack">
 							<p class="color_white fw_light tt_uppercase slider_fs_3">Stylish Space</p>
 						</div>
@@ -201,16 +202,16 @@ $this->load->view('site/templates/header_new');
 														<img src="images/product/<?php echo $img; ?>" alt="" class="c_image_2 tr_all">
 													</a>
 												</div>
-												<figcaption class="bg_white relative">
-													<div class="row">
-														<div class="col-lg-6 col-md-6 m_bottom_7">
+												<figcaption class="bg_white relative t_align_c">
+													<ul>
+														<li>
 															<a class="second_font sc_hover d_xs_block" href="<?php echo $prodLink; ?>"><?php echo $productArr[$i]->product_name; ?></a>
-															</div>
-														<div class="col-lg-6 col-md-6 color_light fs_large second_font t_align_r t_sm_align_c m_bottom_5">
+														</li>
+														<li class=" color_light fs_large second_font t_sm_align_c m_bottom_5">
 															<?php if ($productArr[$i]->price > $productArr[$i]->sale_price){?><s><?php echo $currencySymbol; echo $productArr[$i]->price; ?></s><?php }?>
 															<b class="scheme_color d_block"><?php echo $currencySymbol; echo $productArr[$i]->sale_price; ?></b>
-														</div>
-													</div>
+														</li>
+													</ul>
 												</figcaption>
 											</figure>
 								</div>
@@ -222,7 +223,7 @@ $this->load->view('site/templates/header_new');
 			</div>
 			<?php }?> 
 			<!--tabs Best Selling-->
-			<div class="section_offset p_bottom_0">
+			<div class="section_offset p_bottom_0 m_bottom_37">
 				<div class="container">
 					<div class="tabs m_bottom_10">
 						<!--tabs nav-->
@@ -291,17 +292,17 @@ $this->load->view('site/templates/header_new');
 														<img src="images/product/<?php echo $img; ?>" alt="" class="c_image_2 tr_all">
 													</a>
 												</div>
-												<figcaption class="bg_white relative">
-													<div class="row">
-														<div class="col-lg-6 col-md-6 m_bottom_7">
+												<figcaption class="bg_white relative t_align_c">
+													<ul>
+														<li>
 															<a class="second_font sc_hover d_xs_block" href="<?php echo $prodLink; ?>"><?php echo $productArr[$i]->product_name; ?></a>
-															</div>
-														<div class="col-lg-6 col-md-6 color_light fs_large second_font t_align_r t_sm_align_c m_bottom_5">
+														</li>
+														<li class=" color_light fs_large second_font t_sm_align_c m_bottom_5">
 															<?php if ($productArr[$i]->price > $productArr[$i]->sale_price){?><s><?php echo $currencySymbol; echo $productArr[$i]->price; ?></s><?php }?>
 															<b class="scheme_color d_block"><?php echo $currencySymbol; echo $productArr[$i]->sale_price; ?></b>
-														</div>
-													</div>
-												</figcaption>
+														</li>
+													</ul>
+												</figcaption>												
 											</figure>
 								</div>
 							<?php }} ?>
@@ -413,10 +414,10 @@ $this->load->view('site/templates/header_new');
 						</div>
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-4 t_align_r d_table_cell f_none">
 							<!--carousel navigation-->
-							<div class="clearfix d_inline_b">
+						<!--	<div class="clearfix d_inline_b">
 								<button class="blog_prev black_hover button_type_4 grey state_2 tr_all d_block f_left vc_child m_right_5"><i class="fa fa-angle-left d_inline_m"></i></button>
 								<button class="blog_next black_hover button_type_4 grey state_2 tr_all d_block f_left vc_child"><i class="fa fa-angle-right d_inline_m"></i></button>
-							</div>
+							</div> -->
 						</div>
 					</div>
 					<hr class="divider_bg m_bottom_15 animated hidden" data-animation="fadeInDown" data-animation-delay="100">
@@ -713,6 +714,7 @@ $this->load->view('site/templates/header_new');
 		<!--libs include-->
 		<script src="plugins/royalslider/jquery.royalslider.min.js"></script>
 		<script src="plugins/jquery.appear.js"></script>
+		<script src="plugins/royalslider/jquery.easing-1.3.js"></script>
 		<script src="plugins/jquery.elevateZoom-3.0.8.min.js"></script>
 		<script src="plugins/fancybox/jquery.fancybox.pack.js"></script>
 		<script src="plugins/jquery.easytabs.min.js"></script>
@@ -723,6 +725,7 @@ $this->load->view('site/templates/header_new');
 		<script src="js/retina.min.js"></script>
 		<script src="plugins/colorpicker/colorpicker.js"></script>
 		 
+
 
 		<!--theme initializer-->
 		<script src="js/themeCore.js"></script>

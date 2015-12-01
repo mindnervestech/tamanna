@@ -112,12 +112,12 @@
 										<fieldset>
 											<input type="text" name="q" tabindex="1" class="text fs_medium color_light fw_light w_full tr_all" id="search-query" placeholder="<?php if($this->lang->line('header_search') != '') { echo stripslashes($this->lang->line('header_search')); } else echo "Search"; ?>" value="" autocomplete="off"/>
 											<button  type="submit" class="btn-submit color_dark tr_all color_lbrown_hover"><i class="fa fa-search d_inline_m"></i></button>
-											<div class="feed-search">
+										<!--	<div class="feed-search">
 												<h4><?php if($this->lang->line('header_suggestions') != '') { echo stripslashes($this->lang->line('header_suggestions')); } else echo "Suggestions"; ?></h4>
 												<div class="loading" style="display: block;"><i></i>
 												<img class="loader" src="images/site/loading.gif"/>
 												</div>
-											</div>
+											</div> -->
 										</fieldset>
 									</form>
 								</div>
@@ -199,14 +199,14 @@
                                 	<li>
 										<a href="<?php echo 'user/'.$userDetails->row()->user_name;?>" class="color_lbrown_hover vc_child">
 											<span class="d_inline_m">
-												<i class="fa fa-heart fs_large"></i>
+												<button class="tooltip_container"><i class="fa fa-heart fs_large"></i><span class="tooltip top fs_small color_white hidden animated" data-show="fadeInDown" data-hide="fadeOutUp">Your Wishlist</span></button>
 											</span>
 										</a>
 									</li>
 									<!--shopping cart-->
-									<div id="MiniCartViewDisp">
+								<!--	<div id="MiniCartViewDisp"> -->
 									<?php echo $MiniCartViewSet; ?>
-									</div>
+								<!--	</div> -->
 								<?php }?>
 								</ul>
 							</div>

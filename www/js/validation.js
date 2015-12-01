@@ -905,7 +905,7 @@ function update_cart(val,cid,pid) {
 						$('#Shop_id_count').html(arr[5]);
 						$('#Shop_MiniId_count').html(arr[5]+' items');
                         $('#disAmtVal').html(arr[6]);
-						$('#MiniCartViewDisp').html(arr[1]);
+					//	$('#MiniCartViewDisp').html(arr[1]);
 					}
 				});
 			}

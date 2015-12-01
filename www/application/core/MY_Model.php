@@ -332,10 +332,10 @@ class My_Model extends CI_Model {
 		$countMiniVal = $giftMiniRes -> num_rows() + $cartMiniQty + $SubcribeMiniRes-> num_rows() ;
 
 		if($countMiniVal == 0){
-			$cartMiniDisp= '<ul class="gnb-wrap"><li class="gnb" id="cart-new"><a href="cart" class="mn-cart"><span class="hide">cart</span> <em class="ic-cart"></em> <span>0 items</span></a></li></ul>';
+			$cartMiniDisp= '<ul class="gnb-wrap"><li class="gnb" id="MiniCartViewDisp"><a href="cart" class="mn-cart"><span class="hide">cart</span> <em class="ic-cart"></em> <span>0 items</span></a></li></ul>';
 		}else{
 
-			$minCartVal.= '<li class="relative open_mini_shopping_cart" id="cart-new">
+			$minCartVal.= '<li class="relative open_mini_shopping_cart" id="MiniCartViewDisp">
 										<button class="color_dark active_lbrown tr_all" data-open-dropdown="#shopping_cart">
 											<i class="fa fa-shopping-cart fs_large"></i><sup id="Shop_MiniId_count">'.$countMiniVal.' '.$lg_items.'</sup>
 										</button><div id="shopping_cart" data-show="fadeInUp" data-hide="fadeOutDown" class="bg_grey_light dropdown animated">

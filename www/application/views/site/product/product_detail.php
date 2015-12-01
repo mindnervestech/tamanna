@@ -681,12 +681,8 @@ $this->load->view('site/templates/footer');
 		<script src="plugins/jquery.appear.js"></script>
 		<script src="plugins/jquery.easytabs.min.js"></script>
 		<script src="plugins/owl-carousel/owl.carousel.min.js"></script>
-		<script src="plugins/twitter/jquery.tweet.min.js"></script><script src="plugins/flickr.js"></script>
 		<script src="plugins/afterresize.min.js"></script>
 		<script src="plugins/jackbox/js/jackbox-packed.min.js"></script>
-		<script src="plugins/colorpicker/colorpicker.js"></script>
-		 
-
 		<!--theme initializer-->
 		<script src="js/themeCore.js"></script>
 		<script src="js/theme.js"></script>

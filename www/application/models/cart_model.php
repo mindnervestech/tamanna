@@ -491,7 +491,7 @@ class Cart_model extends My_Model
 											<div class="row">
 												<section class="col-lg-3 col-md-3 col-sm-3 m_bottom_40 m_xs_bottom_30">
 													<div class="row">
-														<section class="col-lg-12 col-md-12 col-sm-12 m_bottom_40 m_xs_bottom_30">
+														<section class="col-lg-12 col-md-12 col-sm-12 m_bottom_40 m_xs_bottom_30 " style="padding-right:20px">
 															<h5 class="color_dark tt_uppercase second_font fw_light m_bottom_13">
 																Discount Codes
 															</h5>
@@ -516,7 +516,7 @@ class Cart_model extends My_Model
 														</section>
 													</div>
 													<div class="row">
-														<section class="col-lg-12 col-md-12 col-sm-12 m_bottom_40 m_xs_bottom_30">
+														<section class="col-lg-12 col-md-12 col-sm-12 m_bottom_40 m_xs_bottom_30" style="padding-right:20px">
 															<h5 class="color_dark tt_uppercase second_font fw_light m_bottom_13">
 																Note for Us
 															</h5>
@@ -554,7 +554,7 @@ class Cart_model extends My_Model
 																			</select>
 																			<input type="hidden" name="Ship_address_val" id="Ship_address_val" value="'.$ship_id.'" />
 
-																			<p class="default_addr">
+																			<p class="default_addr m_bottom_10 m_top_10 m_left_10">
 																				<span id="Chg_Add_Val">
 																					'.$ChooseVal.'
 																				</span>

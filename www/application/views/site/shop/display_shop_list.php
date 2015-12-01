@@ -213,7 +213,6 @@ $this->load->view('site/templates/header_new');
 									<div class="d_block m_bottom_15 relative">
 										<img src="<?php echo base_url();?>images/product/<?php echo $img;?>" alt="<?php echo $relatedRow->product_name;?>" class="c_image_1 tr_all">
 										<img src="<?php echo base_url();?>images/product/<?php echo $img;?>" alt="<?php echo $relatedRow->product_name;?>" class="c_image_2 tr_all">
-										<a data-popup="#quick_view" data-popup-transition-in="bounceInUp" data-popup-transition-out="bounceOutUp" class="tr_all color_white second_font qv_style_button quick_view tt_uppercase t_align_c d_block clickable d_xs_none"><i class="fa fa-eye d_inline_m m_right_10"></i><span class="fs_medium">Quick View</span></a>
 									</div>
 									</a>
 									<figcaption class="t_align_c">
