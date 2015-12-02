@@ -106,7 +106,7 @@
 								</a>
 							</div>
 							<div class="col-lg-8 col-md-8 col-sm-8 d_table_cell d_xs_block f_none v_align_m navigation-test">
-								<div class="clearfix">
+								<div class="clearfix" id="navigation-test">
 									<div class="clearfix f_right f_xs_none d_xs_inline_b m_xs_bottom_15 t_xs_align_l">
 									</div>
 									<!--searchform-->
@@ -114,12 +114,12 @@
 										<fieldset>
 											<input type="text" name="q" tabindex="1" class="text fs_medium color_light fw_light w_full tr_all" id="search-query" placeholder="<?php if($this->lang->line('header_search') != '') { echo stripslashes($this->lang->line('header_search')); } else echo "Search"; ?>" value="" autocomplete="off"/>
 											<button  type="submit" class="btn-submit color_dark tr_all color_lbrown_hover"><i class="fa fa-search d_inline_m"></i></button>
-										<!--	<div class="feed-search">
+											<div class="feed-search" style="display: none;">
 												<h4><?php if($this->lang->line('header_suggestions') != '') { echo stripslashes($this->lang->line('header_suggestions')); } else echo "Suggestions"; ?></h4>
 												<div class="loading" style="display: block;"><i></i>
 												<img class="loader" src="images/site/loading.gif"/>
 												</div>
-											</div> -->
+											</div>
 										</fieldset>
 									</form>
 								</div>

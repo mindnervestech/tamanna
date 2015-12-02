@@ -666,6 +666,7 @@
 					// Method added by swapnil
 					change: function( event, ui ) {
 						$("#sliderPriceMin").val(ui.values[0]);
+						$("#sliderPriceMax").val(ui.values[1]);
 						$("#sort_By_Price_Range").click();
 					},
 					create : function(event, ui){

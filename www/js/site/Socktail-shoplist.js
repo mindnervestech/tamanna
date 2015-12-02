@@ -146,7 +146,7 @@ jQuery(function($) {
 		return false;
 	});
 	
-	$('.search-string').click(function(){
+	$('.search-button-click').click(function(){
 			var q = $.trim($("#searchbox").val()), 
 				url = location.pathname, 
 				args = $.extend({}, location.args),
@@ -180,34 +180,14 @@ jQuery(function($) {
 	$('#sort_By_Price_Range').click(function(event){
 		debugger;
 		event.preventDefault();
-		var rang = $("#sliderPriceMin").val();
-		if(rang != ""){
+		var minRange = $("#sliderPriceMin").val();
+		var maxRange = $("#sliderPriceMax").val();
+		if(minRange != "" && maxRange!=""){
 
-			var priceRange = "", 
+			var priceRange = minRange + "-" + maxRange, 
 				url = location.pathname, 
 				args = $.extend({}, location.args), 
 				query;
-				
-				var range = parseInt(rang);
-				if(range<=1000 && range>=1){
-					priceRange ="1-1000";
-				}else if(range<=2000 && range>=1001){
-					priceRange ="1001-2000";
-				}else if(range<=5000 && range>=2001){
-					priceRange ="2001-5000";				
-				}else if(range<=10000 && range>=5001){
-					priceRange ="5001-10000";
-				}else if(range<=20000 && range>=10001){
-					priceRange ="10001-20000";
-				}else if(range<=30000 && range>=20001){
-					priceRange ="20001-30000";
-				}else if(range<=40000 && range>=30001){
-					priceRange ="30001-40000";
-				}else if(range<=50000 && range>=40001){
-					priceRange ="40001-50000";
-				}else if(range<=100000 && range>=50001){
-					priceRange ="50001-100000";
-				}
 				
 				if(priceRange != ""){
 					if(priceRange != '-1'){
@@ -221,5 +201,27 @@ jQuery(function($) {
 		}
 	});
 
+	$('.search-string')
+		.hotkey('ENTER', function(event){
+			var q = $.trim(this.value), url = location.pathname, args = $.extend({}, location.args), query;
+
+			event.preventDefault();
+
+			if(q) {
+				args.q = q;
+			} else {
+				delete args.q;
+			}
+
+			if(query = $.param(args)) url += '?'+query;
+
+			loadPage(url);
+		})
+		.keyup(function(){
+			var hasVal = !!$.trim(this.value);
+			$(this).parent()
+				.find('.del-val').css({opacity:hasVal?1:0}).end()
+				.find('.label').css({opacity:hasVal?0:1});
+	}).keyup();
 	
 });

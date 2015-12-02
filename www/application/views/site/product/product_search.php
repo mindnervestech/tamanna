@@ -11,7 +11,7 @@ $this->load->view('site/templates/header_new');
 				</div>
 			</div>
 			<!--main content-->
-			<div class="page_section_offset">
+			<div class="page_section_offset" style="padding:13px 0 25px">
 				<div class="container">
 					<div class="row">
 						<aside class="col-lg-3 col-md-3 col-sm-3 m_xs_bottom_30 p_top_4">
@@ -22,6 +22,7 @@ $this->load->view('site/templates/header_new');
 								<form>
 									<div class="relative">
 										<input id="sliderPriceMin" hidden/>
+										<input id="sliderPriceMax" hidden/>
 										<button id="sort_By_Price_Range" hidden></button>
 										<fieldset>
 											<legend class="second_font m_bottom_15 w_full"><b>Price</b></legend>
@@ -31,7 +32,6 @@ $this->load->view('site/templates/header_new');
 												<input type="text" class="f_left range_min half_column fw_light" readonly>
 												<input type="text" class="f_right range_max half_column t_align_r fw_light" readonly>
 											</div>
-											<span class="close fieldset_c hidden fs_small color_light tr_all color_dark_hover fw_light">x</span>
 											<hr class="divider_light m_bottom_10">
 										</fieldset>
 									</div>
@@ -172,8 +172,8 @@ $this->load->view('site/templates/header_new');
 									<!--searchform-->
 									<div class="col-lg-6 col-md-6 col-sm-6 d_xs_block v_align_m d_table_cell f_none fs_medium color_light fw_light m_xs_bottom_5">
 									<div role="search" class="relative f_right f_xs_none m_right_3 db_xs_centered button_in_input">
-										<input type="text" name="" id="searchbox" tabindex="1" placeholder="Search" class="fs_medium color_light fw_light w_full tr_all">
-										<button class="search-string color_dark tr_all color_lbrown_hover"><i class="fa fa-search d_inline_m"></i></button>
+										<input type="text" name="" id="searchbox" tabindex="1" placeholder="Search" class="search-string fs_medium color_light fw_light w_full tr_all">
+										<button class="search-button-click color_dark tr_all color_lbrown_hover"><i class="fa fa-search d_inline_m"></i></button>
 									</div>
 									</div>
 								
