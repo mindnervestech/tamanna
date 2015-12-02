@@ -51,12 +51,12 @@ $this->load->view('site/templates/header_new');
 
 							<hr class="m_bottom_14">
 							<ul class="m_bottom_14">
-									<li class="m_bottom_3"><span class="project_list_title second_font d_inline_b">Seller:</span> <span class="color_dark fw_light"><a href="user/<?php echo $productUserDetails->row()->user_name;?>"><?php echo $productDetails->row()->full_name;?></a></span></li>
+									<li class="m_bottom_3"><span class="project_list_title second_font d_inline_b">Seller:</span> <span class="color_dark fw_light"><a href="user/<?php echo $productUserDetails->row()->user_name;?>/added"><?php echo $productDetails->row()->full_name;?></a></span></li>
 									<li class="m_bottom_3"><span class="project_list_title second_font d_inline_b">City:</span> <span class="color_dark fw_light"><?php echo $productUserDetails->row()->s_city;?></span></li>
 									<li class="m_bottom_3"><span class="project_list_title second_font d_inline_b">Contact Number:</span> <span class="color_dark fw_light"><?php echo $productUserDetails->row()->phone_no;?></span></li>
 							</ul>
 							<hr class="m_bottom_14">
-							<p  class="fs_big second_font scheme_color">Check All Creations of <?php echo $productDetails->row()->full_name;?> <a href="user/<?php echo $productUserDetails->row()->user_name;?>">here</a></p>
+							<p  class="fs_big second_font scheme_color">Check All Creations of <?php echo $productDetails->row()->full_name;?> <a href="user/<?php echo $productUserDetails->row()->user_name;?>/added">here</a></p>
 						</aside>
 					</div>
 					<h5 class="color_dark tt_uppercase second_font fw_light m_bottom_13">More Creations of this seller</h5>
@@ -141,12 +141,7 @@ $this->load->view('site/templates/header_new');
 		
 		<!--libs include-->
 		<script src="plugins/jquery.appear.js"></script>
-		<script src="plugins/jackbox/js/jackbox-packed.min.js"></script>
-		<script src="plugins/owl-carousel/owl.carousel.min.js"></script>
-		<script src="plugins/twitter/jquery.tweet.min.js"></script><script src="plugins/flickr.js"></script>
 		<script src="plugins/afterresize.min.js"></script>
-		<script src="js/retina.min.js"></script>
-		<script src="plugins/colorpicker/colorpicker.js"></script>
 		<script type="text/javascript" src="js/site/thing_page.js"></script>
 
 		<!--theme initializer-->

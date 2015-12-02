@@ -76,10 +76,17 @@ class Cms extends MY_Controller {
     	}
     }
 	public function contactus(){
-    	    $this->load->view('site/cms/contactus');
+			$this->data['heading'] = 'Socktail Customer Support | Contact Us - Socktail.com';
+			$this->data['meta_title'] = 'Socktail Customer Support | Contact Us - Socktail.com';
+			$this->data['meta_description'] = 'Contact Socktail Customer Support at contact@socktail.com for your inquiries or suggestions. We will be happy to help you.';
+    	    $this->load->view('site/cms/contactus',$this->data);
 	}
 	public function whyus(){
-    	    $this->load->view('site/cms/whyus');
+			$this->data['heading'] = 'Why Buy on Socktail?';
+			$this->data['meta_title'] = 'Why Buy on Socktail?';
+			$this->data['meta_description'] = 'Socktail.com: Answers of Frequently Asked Quetions';
+  
+    	    $this->load->view('site/cms/whyus',$this->data);
 	}
 	
 }

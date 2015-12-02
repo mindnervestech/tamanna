@@ -38,7 +38,10 @@ class Shop extends MY_Controller {
 		$this->data['recentProducts'] = $this->shop->view_product_details(" where p.status='Publish' and p.quantity > 0 and u.group='Seller' and u.status='Active' or p.status='Publish' and p.quantity > 0 and p.user_id=0 order by p.created desc limit 12");
 $whereCond .= ' and FIND_IN_SET("120",p.category_id)';
 		$this->data['favoriteProducts'] = $this->shop->view_product_details(" where p.status='Publish' and u.status='Active' or p.status='Publish' and p.quantity > 0 order by p.likes desc limit 16");
-		$this->load->view('site/shop/display_shop_list',$this->data);
+			$this->data['heading'] = 'Custom made furniture online in India';
+			$this->data['meta_title'] = 'Custom made furniture online in India';
+			$this->data['meta_description'] = 'Buy Wooden Furniture Online in India @Socktail - Custom Made Furniture, The Way You Want';
+			$this->load->view('site/shop/display_shop_list',$this->data);
     }
 	
 }

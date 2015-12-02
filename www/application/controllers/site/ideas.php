@@ -233,6 +233,9 @@ class Ideas extends MY_Controller {
 			/*follow user list of that users which are not followed by current user and not a Category based*/
 			$this->data['LatestUser'] = $this->product_model->get_latest_five_users($followingList_string, $Cid);
 		}
+			$this->data['heading'] = 'Furniture and Home Decor Ideas';
+			$this->data['meta_title'] = 'Furniture and Home Decor Ideas';
+			$this->data['meta_description'] = 'Check home decor ideas and furniture designs shared by professionals';
 		$this->load->view('site/ideas/ideas',$this->data);
 	}
 

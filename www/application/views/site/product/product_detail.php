@@ -165,11 +165,11 @@ $this->load->view('site/templates/header_new');
 													<p class="fw_light m_top_5 m_bottom_7 m_xs_top_0 m_xs_bottom_0">Old Price:</p>
 													<b class="fs_big second_font d_block m_bottom_7 m_xs_bottom_0 fs_sm_default"><?php echo $currencySymbol;?><?php echo number_format($productDetails->row()->price); ?></b>
 												</td>
-                                                <?php }?>
 												<td class="color_blue">
 													<p class="fw_light m_top_5 m_bottom_7 m_xs_top_0 m_xs_bottom_0">You Save:</p>
 													<b class="fs_big second_font d_block m_bottom_7 m_xs_bottom_0 fs_sm_default"><?php echo $currencySymbol;?><?php echo number_format($productDetails->row()->price-$productDetails->row()->sale_price); ?></b>
 												</td>
+                                                <?php }?>												
 											</tr>
 											<!-- vinit code start -->
 			<?php
@@ -507,11 +507,12 @@ return false;
 							<div class="col-lg-3 col-md-3 col-sm-3 m_bottom_30">
 								<figure class="relative r_image_container c_image_container qv_container">
 									<div class="relative m_bottom_15">
+									<a href="<?php echo base_url();?>things/<?php echo $relatedRow->id;?>/<?php echo url_title($relatedRow->product_name,'-');?>" class="second_font sc_hover">
 										<div>
 											<img class="c_image_1 tr_all" alt="<?php echo $relatedRow->product_name;?>" src="<?php echo base_url();?>images/product/<?php echo $img;?>">
 											<img class="c_image_2 tr_all" alt="<?php echo $relatedRow->product_name;?>" src="<?php echo base_url();?>images/product/<?php echo $img;?>">
 										</div>
-										<a data-popup="#quick_view" data-popup-transition-in="bounceInUp" data-popup-transition-out="bounceOutUp" class="tr_all color_white second_font qv_style_button quick_view tt_uppercase t_align_c d_block clickable d_xs_none"><i class="fa fa-eye d_inline_m m_right_10"></i><span class="fs_medium">Quick View</span></a>
+									</a>
 									</div>
 									<figcaption class="t_align_c">
 										<ul>
@@ -674,15 +675,11 @@ $this->load->view('site/templates/footer');
 </div><!-- /.modal -->
 
 		<!--libs include-->
-		<script src="plugins/fancybox/jquery.fancybox.pack.js"></script>
 		<script src="plugins/jquery.elevateZoom-3.0.8.min.js"></script>
-		<script src="plugins/countdown/jquery.plugin.min.js"></script>
-		<script src="plugins/countdown/jquery.countdown.min.js"></script>
 		<script src="plugins/jquery.appear.js"></script>
 		<script src="plugins/jquery.easytabs.min.js"></script>
 		<script src="plugins/owl-carousel/owl.carousel.min.js"></script>
 		<script src="plugins/afterresize.min.js"></script>
-		<script src="plugins/jackbox/js/jackbox-packed.min.js"></script>
 		<!--theme initializer-->
 		<script src="js/themeCore.js"></script>
 		<script src="js/theme.js"></script>

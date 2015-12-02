@@ -1589,7 +1589,8 @@ exit();
 			//	redirect('create-brand');
 			//}else {
 				$dataArr = array(
-					'request_status'	=>	'Pending'
+					'request_status'	=>	'Approved',
+					'group'	=>	'Seller'
 					);
 					$this->user_model->commonInsertUpdate(USERS,'update',array(),$dataArr,array('id'=>$this->checkLogin('U')));
 					if($this->lang->line('sell_reg_succ_msg') != '')

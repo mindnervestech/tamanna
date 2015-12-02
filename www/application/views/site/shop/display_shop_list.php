@@ -240,18 +240,10 @@ $this->load->view('site/templates/footer');
 		<button class="back_to_top animated button_type_6 grey state_2 d_block black_hover f_left vc_child tr_all"><i class="fa fa-angle-up d_inline_m"></i></button>
 
 		<!--libs include-->
-		<script src="plugins/royalslider/jquery.royalslider.min.js"></script>
-		<script src="plugins/countdown/jquery.plugin.min.js"></script>
-		<script src="plugins/countdown/jquery.countdown.min.js"></script>
-		<script src="plugins/royalslider/jquery.easing-1.3.js"></script>
 		<script src="plugins/jquery.appear.js"></script>
 		<script src="plugins/owl-carousel/owl.carousel.min.js"></script>
 		<script src="plugins/afterresize.min.js"></script>
-		<script src="plugins/jackbox/js/jackbox-packed.min.js"></script>
-		<script src="plugins/jquery.elevateZoom-3.0.8.min.js"></script>
-		<script src="plugins/fancybox/jquery.fancybox.pack.js"></script>
 		<script src="js/retina.min.js"></script>
-		<script src="plugins/colorpicker/colorpicker.js"></script>
 		 
 
 		<!--theme initializer-->
