@@ -256,11 +256,12 @@ $this->load->view('site/templates/header_new');
 													<a class="second_font sc_hover d_xs_block m_bottom_5" href="things/<?php echo $productListVal->id;?>/<?php echo url_title($productListVal->product_name,'-');?>"><?php echo $productListVal->product_name;?></a>
 												</div>
 											<button data-popup="#add_to_cart_popup" data-popup-transition-in="bounceInUp" data-popup-transition-out="bounceOutUp" class="button_type_2 m_bottom_9 d_block w_full t_align_c lbrown state_2 tr_all second_font fs_medium tt_uppercase m_top_15"><i class="fa fa-shopping-cart d_inline_m m_right_9"></i>Add To Cart</button>
-											<button class="button_type_8 grey state_2 tr_delay color_dark t_align_c vc_child f_left m_right_3 tooltip_container relative d_none"><i class="fa fa-heart fs_large d_inline_m"></i><span class="tooltip top fs_small color_white hidden animated" data-show="fadeInDown" data-hide="fadeOutUp">Add to Wishlist</span></button>
 											<div class="clearfix t_sm_align_c t_xs_align_l">
 												<div class="row">
 													<div class="col-lg-6 col-md-6 m_bottom_9">
-													<a href="#" class="second_font f_sm_none d_sm_inline_b f_xs_left fs_medium sc_hover f_left">Add to Wishlist</a>												</div>
+<!--													<a href="#" class="second_font f_sm_none d_sm_inline_b f_xs_left fs_medium sc_hover f_left">Add to Wishlist</a>				-->								
+														<button id="like_product" item_img_url="images/product/<?php echo $img;?>" tid="<?php echo $productListVal->seller_product_id;?>" <?php if ($loginCheck==''){?>require_login="true"<?php }?> class="d_sm_inline_b button_type_8 grey state_2 tr_delay color_dark t_align_c vc_child f_left m_right_3 tooltip_container relative button <?php echo $fancyClass;?>"><i class="fa fa-heart fs_large d_inline_m"></i><span class="tooltip top fs_small color_white hidden animated" data-show="fadeInDown" data-hide="fadeOutUp">Add to Wishlist</span></button>
+													</div>
 													<div class="col-lg-6 col-md-6 color_light fs_large second_font t_align_r t_sm_align_c m_bottom_9">
 												<?php if($discPrice != ''){?>
 												   <?php if ($productListVal->price>$productListVal->sale_price){ ?>
@@ -366,8 +367,12 @@ $this->load->view('site/templates/header_new');
 																					  }
 										?>
 							</div>
-							<button class="thumbnails_product_prev black_hover button_type_4 grey state_2 tr_all d_block vc_child"><i class="fa fa-angle-left d_inline_m"></i></button>
-							<button class="thumbnails_product_next black_hover button_type_4 grey state_2 tr_all d_block vc_child"><i class="fa fa-angle-right d_inline_m"></i></button>
+							<?php 
+							if (count($imgArr)>2){ ?>
+								<button class="thumbnails_product_prev black_hover button_type_4 grey state_2 tr_all d_block vc_child"><i class="fa fa-angle-left d_inline_m"></i></button>
+								<button class="thumbnails_product_next black_hover button_type_4 grey state_2 tr_all d_block vc_child"><i class="fa fa-angle-right d_inline_m"></i></button>
+							<?php 				}
+							?>
 						</div>
 					</div>
 					<div class="product_description f_left f_xs_none">
@@ -408,8 +413,6 @@ $this->load->view('site/templates/header_new');
 										<li class="m_bottom_3"><span class="project_list_title second_font d_inline_b">Shipping Cost:</span><span class="fw_light"> <?php echo $currencySymbol;?> <?php echo $productListVal->shipping_cost;?></span></li>
 										<li class="m_bottom_3"><span class="project_list_title second_font d_inline_b">SKU Code:</span> <span class="fw_light"> <?php echo $productListVal->sku;?></span></li>
 						</ul>
-						<hr class="divider_light m_bottom_15">
-						<p class="fw_light m_bottom_14 color_grey"><?php echo $productListVal->description;?></p>
 						<table class="w_full">
 											<tbody>
 												<tr>
@@ -464,7 +467,9 @@ $this->load->view('site/templates/header_new');
 											<?php }?>
 											</tbody>
 						</table>
-                 					
+                
+						<hr class="divider_light m_bottom_15">
+						<p class="fw_light m_bottom_14 color_grey"><?php echo $productListVal->description;?></p>
 					</div>
 				</div>
 				<button class="close_popup fw_light fs_large tr_all">x</button>
