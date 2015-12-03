@@ -107,6 +107,7 @@ $route['pages/(:num)/(:any)'] = "site/cms/page_by_id";
 $route['pages/(:any)'] = "site/cms";
 
 $route['create-brand'] = "site/user/create_brand_form";
+$route['customization-request'] = "site/user/custom_request_form";
 $route['view-purchase/(:any)'] = "site/user/view_purchase";
 $route['view-order/(:any)'] = "site/user/view_order";
 $route['order-review/(:num)/(:num)/(:any)'] = "site/user/order_review";

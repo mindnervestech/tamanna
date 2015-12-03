@@ -528,6 +528,13 @@ class Product_model extends My_Model
 		return $productComment;
 			
 	}
+	
+	public function view_custom_request_details($condition = ''){
+		$select_qry = "select* from ".CUSTOM." " .$condition;
+		$customRequest = $this->ExecuteQuery($select_qry);
+		return $customRequest;
+			
+	}
 	public function Update_Product_Comment_Count($product_id){
 
 		$Query = "UPDATE ".PRODUCT." SET comment_count=(comment_count + 1) WHERE seller_product_id='".$product_id."'";
@@ -766,6 +773,11 @@ class Product_model extends My_Model
 			return $this->ExecuteQuery($query);			
 			// $query = "select c.id as cid, c.cat_name as cname, c.rootID as crootID, sbc.id as sbcid, sbc.cat_name as sbcname, sbc.rootID as sbcrootID from ".CATEGORY." c LEFT JOIN ".CATEGORY." sbc ON c.id = sbc.rootID where sbc.id =".$SubID;
 	}
+	
+	    public function get_custom_request(){
+   	 	$Query = "select * from ".CUSTOM." order by created desc";
+   	 	return $this->ExecuteQuery($Query);
+   }
 }
 
 ?>

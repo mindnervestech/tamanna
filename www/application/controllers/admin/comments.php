@@ -49,6 +49,22 @@ class Comments extends MY_Controller {
 			$this->load->view('admin/product/display_product_comments_list',$this->data);
 		}
 	}
+	
+	/**
+	 * 
+	 * This function loads the custom request list
+	 */
+	public function view_custom_request(){
+	
+		if ($this->checkLogin('A') == ''){
+			redirect('admin');
+		}else {
+			$this->data['heading'] = 'Customization Request List';
+			$condition = array();
+			$this->data['commentsList'] = $this->product_model->get_custom_request();
+			$this->load->view('admin/product/display_custom_requests',$this->data);
+		}
+	}
 	/**
 	 * 
 	 * This function loads the Tax list page
@@ -192,7 +208,7 @@ class Comments extends MY_Controller {
 	
 	/**
 	 * 
-	 * This function loads the Tax view page
+	 * This function loads the comment view page
 	 */
 	public function view_product_comment(){
 		if ($this->checkLogin('A') == ''){
@@ -205,6 +221,26 @@ class Comments extends MY_Controller {
 			$this->data['tax_details'] = $this->product_model->view_product_comments_details('where c.id ='.$tax_id.' order by p.created desc');
 			if ($this->data['tax_details']->num_rows() == 1){
 				$this->load->view('admin/product/view_comments',$this->data);
+			}else {
+				redirect('admin');
+			}
+		}
+	}
+	
+		/**
+	 * 
+	 * This function loads the customization request view page
+	 */
+	public function view_custom_request_detail(){
+		if ($this->checkLogin('A') == ''){
+			redirect('admin');
+		}else {
+			$this->data['heading'] = 'View Custom Request';
+			$request_id = $this->uri->segment(4,0);
+			$condition = array('id' => $request_id);
+			$this->data['custom_request_details'] = $this->product_model->view_custom_request_details('where id ='.$request_id.' order by created desc');
+			if ($this->data['custom_request_details']->num_rows() == 1){
+				$this->load->view('admin/product/view_custom_request',$this->data);
 			}else {
 				redirect('admin');
 			}
@@ -228,6 +264,22 @@ class Comments extends MY_Controller {
 			$this->product_model->commonDelete(PRODUCT_COMMENTS,$condition);
 			$this->setErrorMessage('success','Comment deleted successfully');
 			redirect('admin/comments/view_product_comments');
+		}
+	}
+	
+		/**
+	 * 
+	 * This function delete the customization request
+	 */
+	public function delete_custom_request(){
+		if ($this->checkLogin('A') == ''){
+			redirect('admin');
+		}else {
+			$tax_id = $this->uri->segment(4,0);
+			$condition = array('id' => $tax_id);
+			$this->product_model->commonDelete(PRODUCT_COMMENTS,$condition);
+			$this->setErrorMessage('success','Custom Request deleted successfully');
+			redirect('admin/comments/view_custom_request');
 		}
 	}
 	

@@ -95,6 +95,7 @@ class User_model extends My_Model
    	 	return $this->ExecuteQuery($Query);
    }
    
+ 
    public function get_like_details_fully($uid='0'){
    		$Query = 'select p.*,u.full_name,u.user_name from '.PRODUCT_LIKES.' pl
    					JOIN '.PRODUCT.' p on pl.product_id=p.seller_product_id

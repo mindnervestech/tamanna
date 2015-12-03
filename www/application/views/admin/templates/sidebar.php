@@ -68,6 +68,7 @@ if($currentUrl==''){$currentUrl = 'dashboard';} if($currentPage==''){$currentPag
 					<li><a href="admin/product/display_product_list" <?php if($currentPage=='display_product_list'){ echo 'class="active"';} ?>><span class="list-icon">&nbsp;</span>Selling Product List</a></li>
 					<li><a href="admin/product/display_user_product_list" <?php if($currentPage=='display_user_product_list'){ echo 'class="active"';} ?>><span class="list-icon">&nbsp;</span>Affiliate Product List</a></li>
                     <li><a href="admin/comments/view_product_comments" <?php if($currentPage=='view_product_comments'){ echo 'class="active"';} ?>><span class="list-icon">&nbsp;</span>Product Comments List</a></li>
+                    <li><a href="admin/comments/view_custom_request" <?php if($currentPage=='view_product_comments'){ echo 'class="active"';} ?>><span class="list-icon">&nbsp;</span>Customization Requests</a></li>
 					<?php if ($allPrev == '1' || in_array('1', $product)){?>
 					<li><a href="admin/product/add_product_form" <?php if($currentPage=='add_product_form'){ echo 'class="active"';} ?>><span class="list-icon">&nbsp;</span>Add New Product</a></li>
 					<?php }?>

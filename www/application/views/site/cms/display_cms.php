@@ -1,6 +1,11 @@
 <?php
 $this->load->view('site/templates/header_new_small');
 ?>
+<style type="text/css" media="screen">
+h1 {
+margin-bottom: 50px;
+}
+</style>
 			<!--main content-->
 			<div class="page_section_offset" style="padding: 0 0 25px;">
 				<div class="container">

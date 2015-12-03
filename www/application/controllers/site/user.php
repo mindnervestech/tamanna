@@ -1573,6 +1573,61 @@ exit();
 		}
 	}
 
+		public function custom_request_form(){
+			$this->data['heading'] = 'Custom Made Furniture Online in India';
+			$this->data['meta_title'] = 'Custom Made Furniture Online in India';
+			$this->data['meta_description'] = 'Provide us your customization request, we will make it for you';
+			$this->data['heading'] = 'Submit Customization Request';
+            $this->data['ProfCatList'] = $this->user_model->getCategoriesMain();
+			$this->load->view('site/user/custom',$this->data);
+	}
+	public function custom_request_submit(){
+					$datestring = "%Y-%m-%d %h:%i:%s";
+					$time = time();
+					$createdTime = mdate($datestring,$time);
+				$customArr = array(
+					'status'	=>	'Pending',
+                                         'project_name' => $this->input->post('project_name'),
+                                         'email' => $this->input->post('email'),
+                                         'phone_no' => $this->input->post('phone_no'),
+                                         'project_description' => $this->input->post('project_description'),
+                                         'size' => $this->input->post('size'),
+                                         'color' => $this->input->post('color'),
+                                         'material' => $this->input->post('material'),
+										 'city' => $this->input->post('city'),
+                                         'created' => $createdTime
+					);
+					$this->user_model->simple_insert(CUSTOM,$customArr);					
+                    $this->send_custom_request_noty_mail();
+					$this->load->view('site/user/request_received',$this->data);
+
+	}
+	/* Send notification mail for customization request */
+		public function send_custom_request_noty_mail(){
+							$subject = 'Customization Request';
+							$message .= '<!DOCTYPE HTML>
+											<html>
+												<head>
+													<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+													<meta name="viewport" content="width=device-width"/>
+													<title>Customization Request</title>
+												</head>
+												<body>';
+							$message .= 			'You have got a new customization request
+												</body>
+											</html>';
+								$sender_email=$this->data['siteContactMail'];
+								$sender_name=$this->data['siteTitle'];
+
+							$email_values = array('mail_type'=>'html',
+												'from_mail_id'=>$sender_email,
+												'mail_name'=>$sender_name,
+												'to_mail_id'=>$sender_email,
+												'subject_message'=>$subject,
+												'body_messages'=>$message
+							);
+							$email_send_to_common = $this->product_model->common_email_send($email_values);
+		}
 
 
 	public function seller_signup(){

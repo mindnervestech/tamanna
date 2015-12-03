@@ -38,7 +38,7 @@ $this->load->view('site/templates/header_new_small');
 											</div>
 										</td>
                         <td>
-                        <select onchange="javascript:changeShipStatus(this.value,'<?php echo $row->dealCodeNumber;?>','<?php echo $row->sell_id;?>')">
+                        <select class="select-round select-shipping-addr select_title fs_medium fw_light color_light relative tr_all" onchange="javascript:changeShipStatus(this.value,'<?php echo $row->dealCodeNumber;?>','<?php echo $row->sell_id;?>')">
                         	<option <?php if ($row->shipping_status == 'Pending'){echo 'selected="selected"';}?> value="Pending"><?php if($this->lang->line('order_pending') != '') { echo stripslashes($this->lang->line('order_pending')); } else echo "Pending"; ?></option>
                         	<option <?php if ($row->shipping_status == 'Processed'){echo 'selected="selected"';}?> value="Processed"><?php if($this->lang->line('order_processed') != '') { echo stripslashes($this->lang->line('order_processed')); } else echo "Processed"; ?></option>
                                 <option <?php if ($row->shipping_status == 'Shipped'){echo 'selected="selected"';}?> value="Shipped"><?php if($this->lang->line('order_shipped') != '') { echo stripslashes($this->lang->line('order_shipped')); } else echo "Shipped"; ?></option>
