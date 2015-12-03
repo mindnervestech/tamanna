@@ -9,6 +9,14 @@ $this->load->view('site/templates/header_new_small');
 
 	location.reload();
 	}
+	$(function(){
+		var param = window.location.search;
+		if(param != ""){
+			var newUrl = "/signup" + param;
+			$("a.createNewUser").attr("href",newUrl);
+		}
+		console.log("in login");
+	});
 </script>
 			<!--main content-->
 			<div class="page_section_offset">
@@ -47,7 +55,7 @@ $this->load->view('site/templates/header_new_small');
 								</ul>
 								<div class="m_bottom_14 t_align_c">
 												<a href="forgot-password" class="second_font sc_hover fs_small">Forgot your password?</a><br>
-												<a href="/signup" class="second_font sc_hover fs_small">New Customer?</a><br>
+												<a href="/signup" class="second_font sc_hover fs_small createNewUser">New Customer?</a><br>
 								</div>
 							</form>
 						</section>

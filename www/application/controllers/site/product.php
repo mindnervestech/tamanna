@@ -58,7 +58,15 @@ $nextlimit = $this->data['productDetails'][$cat->cat_name]->num_rows();
 							$usercondition = " where FIND_IN_SET('".$cat->id."',p.category_id) and p.status='Publish' and p.global_visible=1 and u.status='Active' or p.status='Publish' and FIND_IN_SET('".$cat->id."',p.category_id) and p.global_visible=1 order by p.created desc limit $nextlimit";*/
 							$usercondition = " where FIND_IN_SET('".$cat->id."',p.category_id) and p.status='Publish' and p.global_visible=1 and u.status='Active'limit 4";
 							$this->data['userproductDetails'][$cat->cat_name] = $this->product_model->view_product_details_user($usercondition);
-
+														
+							$param = htmlspecialchars($_GET["next"]);
+							$next = '';
+							if ($param != ''){
+									$next = $param;
+							}else{
+									$next = base_url();
+							}
+							$this->data['next'] = $next;
 						//}
 					}
 				}

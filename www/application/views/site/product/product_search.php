@@ -64,7 +64,7 @@ $this->load->view('site/templates/header_new');
                                                 ?>									
 
 										<ul class="d_none">
-											<li class="relative"><a href="#" link="shopby/<?php echo $row->seourl;?>/<?php echo $row1->seourl;?>" class="tr_delay d_inline_b sub-category"><?php echo $row1->cat_name;?></a>
+											<li class="relative"><a href="#" id="<?php echo '__'.$row1->seourl.'_';?>" link="shopby/<?php echo $row->seourl;?>/<?php echo $row1->seourl;?>" class="tr_delay d_inline_b sub-category second_sub_category"><?php echo $row1->cat_name;?></a>
 													<?php 
 													   foreach ($all_categories->result() as $row2){
 														if ($row2->cat_name != '' && $row1->id==$row2->rootID){
@@ -79,7 +79,7 @@ $this->load->view('site/templates/header_new');
 			                      	                          if ($row2->cat_name != '' && $row1->id==$row2->rootID){
 			                                             ?>
 												<ul class="d_none fs_small categories_third_level_list">
-													<li><a href="#" link="shopby/<?php echo $row->seourl;?>/<?php echo $row1->seourl;?>/<?php echo $row2->seourl;?>" class="tr_delay sc_hover bg_grey_light_2_hover sub-category"><?php echo $row2->cat_name;?></a></li>
+													<li><a href="#" id="<?php echo '_'.$row2->seourl.'_';?>" link="shopby/<?php echo $row->seourl;?>/<?php echo $row1->seourl;?>/<?php echo $row2->seourl;?>" class="tr_delay sc_hover bg_grey_light_2_hover sub-category third_sub_category"><?php echo $row2->cat_name;?></a></li>
 												</ul>
 													<?php  }} ?>
 											</li>
@@ -138,8 +138,8 @@ $this->load->view('site/templates/header_new');
 						</aside>
 						<main class="col-lg-9 col-md-9 col-sm-9 m_bottom_30 m_xs_bottom_10">
 						<div id="content">
-							<h2 class="fw_light second_font color_dark tt_uppercase m_bottom_27">Queen Beds</h2>
-				<!--			<figure class="m_bottom_45 m_xs_bottom_30">
+				<!--			<h2 class="fw_light second_font color_dark tt_uppercase m_bottom_27">Queen Beds</h2>
+							<figure class="m_bottom_45 m_xs_bottom_30">
 								<figcaption>
 									<p class="fw_light">Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Suspendisse sollicitudin velit sed leo. Ut pharetra augue nec erat volutpat. Duis ac turpis. Donec sit amet eros. Lorem ipsum dolor sit amet.</p>
 								</figcaption>

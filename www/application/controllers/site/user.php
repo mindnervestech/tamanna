@@ -113,6 +113,11 @@ class User extends MY_Controller {
 	}
 
 	public function send_quick_register_mail(){
+		$param = htmlspecialchars($_GET["next"]);
+		$next = '';
+		if ($param != ''){
+			$next = '?next='.urlencode($param);
+		}
 		if ($this->checkLogin('U') != ''){
 			redirect(base_url());
 		}else {
@@ -127,9 +132,9 @@ class User extends MY_Controller {
 					$this->login_after_signup($userDetails);
 					$this->session->set_userdata('quick_user_name','');
 					if ($userDetails->row()->is_brand == 'yes'){
-						redirect(base_url().'create-brand');
+						redirect(base_url().'create-brand'.$next);
 					}else {
-						redirect(base_url().'onboarding');
+						redirect(base_url().'onboarding'.$next);
 					}
 				}else {
 					redirect(base_url());

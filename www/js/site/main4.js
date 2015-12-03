@@ -1592,7 +1592,7 @@ jQuery(function($){
 		if (name == 'disabled' && !value) onScroll();
 	};
 })(jQuery);
-
+/*
 // top menu bar
 jQuery(function($){
 	var $nav = $('#navigation-test'), $cur = null, cur_len = 0;
@@ -1738,7 +1738,7 @@ jQuery(function($){
 		$(document).click(function(){ if($suggest.is(':visible')) $suggest.hide() });
 	})();
 });
-
+*/
 // support tap interface
 (function($){
 	var $links = $('a.mn-browse,a.mn-you,a.mn-help,a.mn-gifts');

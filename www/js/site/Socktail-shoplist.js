@@ -111,6 +111,12 @@ jQuery(function($) {
 				for(i=2; i <= categary.length; i++){
 					if(categary[i] != undefined){
 						$("#" + categary[i]).click();
+						if($("#_" + categary[i] + "_")){
+							$("#_" + categary[i] + "_").addClass("d_inline_b fw_bold scheme_color bg_grey_light_2 new_removeClass");
+						}
+						if($("#__" + categary[i] + "_")){
+							$("#__" + categary[i] + "_").addClass("d_inline_b fw_bold scheme_color bg_grey_light_2 new_removeClass");
+						}
 					}
 				}
 		}

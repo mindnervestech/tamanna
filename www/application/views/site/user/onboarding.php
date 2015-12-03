@@ -19,7 +19,7 @@ $this->load->view('site/templates/header_new_small');
 								<img src="images/site/onboarding1.png">
 							</li>
 							<li class="m_bottom_15">
-								<button class="btn-signin t_align_c tt_uppercase w_full second_font d_block fs_medium button_type_2 lbrown tr_all">Get Started</button>
+								<button  onclick="window.location='<?php echo $next;?>'" class="btn-signin t_align_c tt_uppercase w_full second_font d_block fs_medium button_type_2 lbrown tr_all" >Get Started</button>
 							</li>
 						</section>
 						<aside class="col-lg-3 col-md-3 col-sm-3 p_top_4">

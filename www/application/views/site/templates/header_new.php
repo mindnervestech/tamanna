@@ -217,3 +217,6 @@
 					</div>
 				</div>
 			</header>
+			
+		<!--Page Js-->
+		<script src="js/site/header_new_searchbox.js"></script>

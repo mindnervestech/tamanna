@@ -551,6 +551,7 @@ function register_user(){
 	
 	var api_id = $('#api_id').val();
 	var thumbnail = $('#thumbnail').val();
+	var param = window.location.search;
 	
 	
 	if(fullname==''){
@@ -579,7 +580,12 @@ function register_user(){
 					alert(response.msg);
 					return false;
 				 } else {
-					 location.href = baseURL+'send-confirm-mail';
+					 if(param != ""){
+					 	location.href = baseURL+'send-confirm-mail' + param;
+					}else{
+						location.href = baseURL+'send-confirm-mail';
+					}
+
 				 }
 	        }
 	    });
