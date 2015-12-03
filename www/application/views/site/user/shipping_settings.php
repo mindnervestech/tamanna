@@ -54,7 +54,7 @@ $this->load->view('site/templates/header_new_small');
 										</td>
 										<td data-cell-title="Product Name and Category">
 											<div class="lh_small m_bottom_7">
-											<a data-popup="#quick_view" data-popup-transition-in="bounceInUp" data-popup-transition-out="bounceOutUp" href="javascript:void(0);" class="button_type_1 black state_2 tr_all second_font fs_medium" onclick="shipping_address_cart();">Modify</a> / <a class="remove_"><?php if($this->lang->line('shipping_delete') != '') { echo stripslashes($this->lang->line('shipping_delete')); } else echo "Delete"; ?></a>
+											<a data-popup="#quick_view" data-popup-transition-in="bounceInUp" data-popup-transition-out="bounceOutUp" href="javascript:void(0);" class="button_type_1 black state_2 tr_all second_font fs_medium" onclick="shipping_address_cart(<?php echo $row->id;?>);">Modify</a> / <a class="remove_"><?php if($this->lang->line('shipping_delete') != '') { echo stripslashes($this->lang->line('shipping_delete')); } else echo "Delete"; ?></a>
 											</div>
 										</td>
 									</tr>
@@ -201,7 +201,7 @@ if($this->uri->segment(1) == 'cart'){
 													</li>
 													<li class="m_bottom_2">
 														<label for="username" class="second_font m_bottom_4 d_inline_b fs_medium">Address Type</label>
-														<input name="nick_name" class="w_full tr_all full required" placeholder="<?php if($this->lang->line('header_home_work') != '') { echo stripslashes($this->lang->line('header_home_work')); } else echo "E.g. Home Address, Work Address"; ?>" type="text">
+														<input name="nick_name" class="w_full tr_all full required nick_name" placeholder="<?php if($this->lang->line('header_home_work') != '') { echo stripslashes($this->lang->line('header_home_work')); } else echo "E.g. Home Address, Work Address"; ?>" type="text">
 													</li>
 													<li class="m_bottom_2">
 														<label class="second_font m_bottom_4 d_inline_b fs_medium"><?php if($this->lang->line('header_country') != '') { echo stripslashes($this->lang->line('header_country')); } else echo "Country"; ?></label>
@@ -219,11 +219,11 @@ if($this->uri->segment(1) == 'cart'){
 													</li>
 													<li class="m_bottom_2">
 														<label for="username" class="second_font m_bottom_4 d_inline_b fs_medium">State</label>
-														<input class="w_full tr_all state required" name="state" type="text">
+														<input class="w_full tr_all state required state" name="state" type="text">
 													</li>
 													<li class="m_bottom_2">
 														<label for="password" class="second_font m_bottom_4 d_inline_b fs_medium">Postal Code</label>
-														<input name="postal_code" class="w_full tr_all zip required" type="text">
+														<input name="postal_code" class="w_full tr_all zip required postal_code" type="text">
 													</li>
 
 								</ul>
@@ -232,22 +232,22 @@ if($this->uri->segment(1) == 'cart'){
 								<ul class="m_bottom_14">
 													<li class="m_bottom_2">
 														<label for="password" class="second_font m_bottom_4 d_inline_b fs_medium">Address Line 1</label>
-														<input name="address1" class="w_full tr_all full required" type="text">
+														<input name="address1" class="w_full tr_all full required address1" type="text">
 													</li>
 													<li class="m_bottom_2">
 														<label for="password" class="second_font m_bottom_4 d_inline_b fs_medium">Address Line 2</label>
-														<input name="address2" class="w_full tr_all full" type="text">
+														<input name="address2" class="w_full tr_all full address2" type="text">
 													</li>
 													<li class="m_bottom_2">
 														<label for="password" class="second_font m_bottom_4 d_inline_b fs_medium">City</label>
-														<input name="city" class="w_full tr_all full required" type="text"></p>
+														<input name="city" class="w_full tr_all full required city" type="text"></p>
 													</li>
 													<li class="m_bottom_30">
 														<label for="password" class="second_font m_bottom_4 d_inline_b fs_medium">Phone</label>													
-														<input name="phone" class="w_full tr_all full required digits" placeholder="<?php if($this->lang->line('header_ten_only') != '') { echo stripslashes($this->lang->line('header_ten_only')); } else echo "10 digits only, no dashes"; ?>" type="text">
+														<input name="phone" class="w_full tr_all full required digits phone" placeholder="<?php if($this->lang->line('header_ten_only') != '') { echo stripslashes($this->lang->line('header_ten_only')); } else echo "10 digits only, no dashes"; ?>" type="text">
 													</li>
 													<li class="m_bottom_2">
-														<input name="set_default" id="make_this_primary_addr" value="true" type="checkbox">
+														<input name="set_default" id="make_this_primary_addr_modify" type="checkbox">
 														<label class="check second_font m_bottom_4 d_inline_b fs_medium" for="make_this_primary_addr"><?php if($this->lang->line('header_make_primary') != '') { echo stripslashes($this->lang->line('header_make_primary')); } else echo "Make this my primary shipping address"; ?></label>
 													</li>
 													<input type="hidden" name="user_id" value="<?php echo $loginCheck;?>"/>													

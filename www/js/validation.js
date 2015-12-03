@@ -1212,12 +1212,37 @@ function change_user_password(){
 	}
 }
 
-function shipping_address_cart(){
-	var dlg_address = $.dialog('newadds-frm'), dlg_address1 = $.dialog('editadds-frm'), $tpl = $('#address_tmpl').remove();
+function shipping_address_cart(id){
+	console.log(id);
+	var shipID = id;
+	$.ajax({
+			type:'POST',
+			url:baseURL+'site/user_settings/get_shipping',
+			data:{'shipID':shipID},
+			dataType:'json',
+			success:function(response){
+			if(response.primary == 'Yes'){
+				$('#make_this_primary_addr_modify').attr('checked','checked');
+			}
+			$('.full_name').val(response.full_name);
+			$('.nick_name').val(response.nick_name);
+			$('.address1').val(response.address1);
+			$('.address2').val(response.address2);
+			$('.city').val(response.city);
+			$('.state').val(response.state);
+			$('.country').val(response.country);
+			$('.postal_code').val(response.postal_code);
+			$('.phone').val(response.phone);
+			$('.ship_id').val(shipID);
+		}
+	});
+	//var dlg_address = $.dialog('newadds-frm'), 
+	//	dlg_address1 = $.dialog('editadds-frm'), 
+		$tpl = $('#address_tmpl').remove();
 //	dlg_address.$obj.trigger('reset').find('.ltit').text(gettext('Add Shipping Address')).end().find('.ltxt dt').html('<b>'+gettext('New Shipping Address')+'</b><small>'+gettext('We ships worldwide with global delivery services.')+'</small>');
-			dlg_address.open();
+		//	dlg_address.open();
 
-			setTimeout(function(){dlg_address.$obj.find(':text:first').focus()},10);
+			//setTimeout(function(){dlg_address.$obj.find(':text:first').focus()},10);
 }
 
 
