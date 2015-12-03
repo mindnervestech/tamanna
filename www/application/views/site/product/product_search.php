@@ -44,55 +44,55 @@ $this->load->view('site/templates/header_new');
 								<ul class="categories_list second_font w_break">
 									<?php 
                                         foreach ($mainCategories->result() as $row){
-                      	                     if ($row->cat_name != '' && $row->cat_name != 'Our Picks'){
+                      	                    if ($row->cat_name != '' && $row->cat_name != 'Our Picks'){
                                             ?>
-									<li class="relative"><a href="#" link="shopby/<?php echo $row->seourl;?>" class="fs_large_0 d_inline_b sub-category"><?php echo $row->cat_name;?></a>
-
-									            <?php 
-	                                               foreach ($all_categories->result() as $row1){
-													if ($row1->cat_name != '' && $row->id==$row1->rootID){
-														$x = '<button id="'  .$row->seourl.'" class="open_sub_categories fs_medium"></button>';
-														echo $x;
-														break;
-														}
-													}
-                                                ?>
-									
-                                                <?php 
-	                                               foreach ($all_categories->result() as $row1){
-	                      	                            if ($row1->cat_name != '' && $row->id==$row1->rootID){
-                                                ?>									
-
-										<ul class="d_none">
-											<li class="relative"><a href="#" id="<?php echo '__'.$row1->seourl.'_';?>" link="shopby/<?php echo $row->seourl;?>/<?php echo $row1->seourl;?>" class="tr_delay d_inline_b sub-category second_sub_category"><?php echo $row1->cat_name;?></a>
+												<li class="relative"><a href="#" link="shopby/<?php echo $row->seourl;?>" class="fs_large_0 d_inline_b sub-category"><?php echo $row->cat_name;?></a>
 													<?php 
-													   foreach ($all_categories->result() as $row2){
-														if ($row2->cat_name != '' && $row1->id==$row2->rootID){
-																$x = '<button id="'  .$row1->seourl.'" class="open_sub_categories fs_medium"></button>';
-																echo $x;
-																break;
+													   foreach ($all_categories->result() as $row1){
+														if ($row1->cat_name != '' && $row->id==$row1->rootID){
+															$x = '<button id="'  .$row->seourl.'" class="open_sub_categories fs_medium"></button>';
+															echo $x;
+															break;
 															}
 														}
 													?>
-													<?php 
-			                                             foreach ($all_categories->result() as $row2){
-			                      	                          if ($row2->cat_name != '' && $row1->id==$row2->rootID){
-			                                             ?>
-												<ul class="d_none fs_small categories_third_level_list">
-													<li><a href="#" id="<?php echo '_'.$row2->seourl.'_';?>" link="shopby/<?php echo $row->seourl;?>/<?php echo $row1->seourl;?>/<?php echo $row2->seourl;?>" class="tr_delay sc_hover bg_grey_light_2_hover sub-category third_sub_category"><?php echo $row2->cat_name;?></a></li>
-												</ul>
-													<?php  }} ?>
-											</li>
-										</ul>
-									    <?php  }} ?>	
-									</li>
-                                        <?php  }} ?>									
+														<?php 
+														   foreach ($all_categories->result() as $row1){
+																if ($row1->cat_name != '' && $row->id==$row1->rootID){
+														?>									
+
+																	<ul class="d_none">
+																		<li class="relative"><a href="#" id="<?php echo '__'.$row1->seourl.'_';?>" link="shopby/<?php echo $row->seourl;?>/<?php echo $row1->seourl;?>" class="tr_delay d_inline_b sub-category second_sub_category"><?php echo $row1->cat_name;?></a>
+																				<?php 
+																				   foreach ($all_categories->result() as $row2){
+																					if ($row2->cat_name != '' && $row1->id==$row2->rootID){
+																							$x = '<button id="'  .$row1->seourl.'" class="open_sub_categories fs_medium"></button>';
+																							echo $x;
+																							break;
+																						}
+																					}
+																				?>
+																				<?php 
+																					 foreach ($all_categories->result() as $row2){
+																						  if ($row2->cat_name != '' && $row1->id==$row2->rootID){
+																					 ?>
+																							<ul class="d_none fs_small categories_third_level_list">
+																								<li><a href="#" id="<?php echo '_'.$row2->seourl.'_';?>" link="shopby/<?php echo $row->seourl;?>/<?php echo $row1->seourl;?>/<?php echo $row2->seourl;?>" class="tr_delay sc_hover bg_grey_light_2_hover sub-category third_sub_category"><?php echo $row2->cat_name;?></a></li>
+																							</ul>
+																				<?php  	  }
+																					 } 
+																				?>
+																		</li>
+																	</ul>
+														<?php  														}
+														   } 
+														?>	
+												</li>
+                                     <?php  }
+										} ?>									
 								</ul>
 							</section>	
-		
-
-							<h5 class="color_dark tt_uppercase second_font fw_light m_bottom_13">Material</h5>
-																					
+								<h5 class="color_dark tt_uppercase second_font fw_light m_bottom_13">Material</h5>
 								<hr class="divider_bg m_bottom_23">
 									<div class="relative">
 										<fieldset>
@@ -130,11 +130,11 @@ $this->load->view('site/templates/header_new');
 											<hr class="divider_light m_bottom_10">
 										</fieldset>
 									</div>
-							<section class="m_bottom_40 m_xs_bottom_30">
+					<!--		<section class="m_bottom_40 m_xs_bottom_30">
 								<h5 class="color_dark tt_uppercase second_font fw_light m_bottom_13">Wishlist</h5>
 								<hr class="divider_bg m_bottom_25">
 								<p class="fw_light color_light">You have no product in your wishlist.</p>
-							</section>
+							</section> -->
 						</aside>
 						<main class="col-lg-9 col-md-9 col-sm-9 m_bottom_30 m_xs_bottom_10">
 						<div id="content">
@@ -146,8 +146,8 @@ $this->load->view('site/templates/header_new');
 							</figure> -->
 							<div class="d_table w_full m_bottom_5">
 								<div class="col-lg-6 col-md-6 col-sm-6 d_xs_block v_align_m d_table_cell f_none fs_medium color_light fw_light m_xs_bottom_5">
-									<div class="d_inline_m m_right_5">Sort by:</div>
-									<select class="shop-select sort-by-price selectBox">
+									<h5 class="d_inline_m m_right_5">SORT BY:</h5>
+									<select class="shop-select sort-by-price selectBox select-round select-shipping-addr select_title fs_medium fw_light color_light relative tr_all">
 									  <option selected="selected" value=""><?php if($this->lang->line('product_newest') != '') { echo stripslashes($this->lang->line('product_newest')); } else echo "Newest"; ?></option>
 									  <option value="asc"><?php if($this->lang->line('product_low_high') != '') { echo stripslashes($this->lang->line('product_low_high')); } else echo "Price: Low to High"; ?></option>
 									  <option value="desc"><?php if($this->lang->line('product_high_low') != '') { echo stripslashes($this->lang->line('product_high_low')); } else echo "Price: High to Low"; ?></option>
@@ -284,7 +284,8 @@ $this->load->view('site/templates/header_new');
 									</figure>
 								</div>
 		  
-     <?php } ?>
+     <?php 
+} ?>
 		          <?php } ?>
 							
 							
@@ -318,29 +319,12 @@ $this->load->view('site/templates/header_new');
 		<button class="back_to_top animated button_type_6 grey state_2 d_block black_hover f_left vc_child tr_all"><i class="fa fa-angle-up d_inline_m"></i></button>
 
 		<!--popup-->
-		<div class="init_popup" id="add_to_cart_popup">
-			<div class="popup init">
-				<div class="clearfix m_bottom_15">
-					<a href="#" class="f_left d_block m_right_20">
-						<img src="images/bestsellers_img_1.jpg" alt="">
-					</a>
-					<p class="second_font fs_large color_dark">1 x Eget elementum vel<br> was added to your cart</p>
-				</div>
-				<div class="clearfix">
-					<a href="#" class="button_type_2 d_block f_left t_align_c grey state_2 tr_all second_font fs_medium tt_uppercase m_top_15">Continue Shopping</a>
-					<a href="pages_shopping_cart.html" class="button_type_2 d_block f_right t_align_c grey state_2 tr_all second_font fs_medium tt_uppercase m_top_15">Show Cart</a>
-				</div>
-				<button class="close_popup fw_light fs_large tr_all">x</button>
-			</div>
-		</div>
-
-		<!--popup-->
 		<div class="init_popup" id="quick_view">
 			<div class="popup init">
 				<div class="clearfix">
 					<div class="product_preview f_left f_xs_none wrapper m_xs_bottom_15">
 						<div class="d_block relative r_image_container">
-							<img id="zoom" src="images/product_img_0.jpg" alt="" data-zoom-image="images/p_image1.jpg">
+							<img id="zoom" src="images/product/<?php echo $img; ?>" alt="<?php echo $productListVal->product_name;?>" data-zoom-image="images/product/<?php echo $img; ?>">
 							<div class="product_label fs_ex_small circle color_white bg_lbrown t_align_c vc_child tt_uppercase"><i class="d_inline_m">Sale!</i></div>
 						</div>
 						<!--thumbnails-->
@@ -364,86 +348,123 @@ $this->load->view('site/templates/header_new');
 								"margin" : 10,
 								"URLhashListener" : false
 							}'>	
-								<a href="#" data-image="images/product_img_0.jpg" data-zoom-image="images/p_image1.jpg" class="d_block">
-									<img src="images/product_thumb_1.jpg" alt="">
-								</a>
-								<a href="#" data-image="images/product_img_1.jpg" data-zoom-image="images/p_image2.jpg" class="d_block">
-									<img src="images/product_thumb_2.jpg" alt="">
-								</a>
-								<a href="#" data-image="images/product_img_2.jpg" data-zoom-image="images/p_image3.jpg" class="d_block">
-									<img src="images/product_thumb_3.jpg" alt="">
-								</a>
-								<a href="#" data-image="images/product_img_3.jpg" data-zoom-image="images/p_image4.jpg" class="d_block">
-									<img src="images/product_thumb_4.jpg" alt="">
-								</a>
-								<a href="#" data-image="images/product_img_6.jpg" data-zoom-image="images/p_image7.jpg" class="d_block">
-									<img src="images/product_thumb_5.jpg" alt="">
-								</a>
-								<a href="#" data-image="images/product_img_9.jpg" data-zoom-image="images/p_image10.jpg" class="d_block">
-									<img src="images/product_thumb_6.jpg" alt="">
-								</a>
-								<a href="#" data-image="images/product_img_4.jpg" data-zoom-image="images/p_image5.jpg" class="d_block">
-									<img src="images/product_thumb_7.jpg" alt="">
-								</a>
-								<a href="#" data-image="images/product_img_7.jpg" data-zoom-image="images/p_image8.jpg" class="d_block">
-									<img src="images/product_thumb_8.jpg" alt="">
-								</a>
-								<a href="#" data-image="images/product_img_5.jpg" data-zoom-image="images/p_image6.jpg" class="d_block">
-									<img src="images/product_thumb_9.jpg" alt="">
-								</a>
-								<a href="#" data-image="images/product_img_8.jpg" data-zoom-image="images/p_image9.jpg" class="d_block">
-									<img src="images/product_thumb_10.jpg" alt="">
-								</a>
+										<?php 
+										$limitCount = 0;
+										$imgArr = explode(',', $productListVal->image);
+										if (count($imgArr)>0){
+											foreach ($imgArr as $imgRow){
+												if ($limitCount>5)break;
+												if ($imgRow != '' && $imgRow != $pimg){
+													$limitCount++;
+										?>
+											<a href="<?php echo base_url().PRODUCTPATH.$imgRow;?>" data-image="<?php echo base_url().PRODUCTPATH.$imgRow;?>" data-zoom-image="<?php echo base_url().PRODUCTPATH.$imgRow;?>" class="d_block">
+												<img src="<?php echo base_url().PRODUCTPATH.$imgRow;?>" alt="">
+											</a>
+										<?php 
+															}
+																		}
+																					  }
+										?>
 							</div>
 							<button class="thumbnails_product_prev black_hover button_type_4 grey state_2 tr_all d_block vc_child"><i class="fa fa-angle-left d_inline_m"></i></button>
 							<button class="thumbnails_product_next black_hover button_type_4 grey state_2 tr_all d_block vc_child"><i class="fa fa-angle-right d_inline_m"></i></button>
 						</div>
 					</div>
 					<div class="product_description f_left f_xs_none">
-						<h3 class="second_font m_bottom_3 product_title"><a href="#" class="sc_hover">Sed in lacus ut enim</a></h3>
+						<h3 class="second_font m_bottom_3 product_title"><a href="things/<?php echo $productListVal->id;?>/<?php echo url_title($productListVal->product_name,'-');?>" class="sc_hover"><?php echo $productListVal->product_name;?></a></h3>
 						<ul class="m_bottom_14">
-										<li class="m_bottom_3"><span class="project_list_title second_font d_inline_b">Dispatched in:</span> <span class="color_dark fw_light">Chanel</span></li>
-										<li class="m_bottom_3"><span class="project_list_title second_font d_inline_b">Shipping Cost:</span> <span class="scheme_color fw_light">in stock</span> <span class="fw_light">20 items(s)</span></li>
-										<li class="m_bottom_3"><span class="project_list_title second_font d_inline_b">SKU Code:</span> <span class="fw_light">PS06</span></li>
+										<li class="m_bottom_3"><span class="project_list_title second_font d_inline_b">Dispatched in:</span> <span class="color_dark fw_light"><?php $shipping = $productListVal->shipping;?>
+										 <?php	
+											switch($shipping)
+										   {
+
+											case '1': 
+												echo stripslashes($this->lang->line('shipping_in_option_first')); 
+											break;
+
+											case '2':
+												echo stripslashes($this->lang->line('shipping_in_option_second')); 
+											break;
+
+											case '3':
+												echo stripslashes($this->lang->line('shipping_in_option_third')); 
+											break;
+
+											case '4':
+												echo stripslashes($this->lang->line('shipping_in_option_fourth')); 
+											break;
+
+
+											case '5':
+												echo stripslashes($this->lang->line('shipping_in_option_fifth')); 
+											break;
+
+
+											case '6':
+												echo stripslashes($this->lang->line('shipping_in_option_sixth')); 
+											break;
+										   }
+										   ?></span></li>
+										<li class="m_bottom_3"><span class="project_list_title second_font d_inline_b">Shipping Cost:</span><span class="fw_light"> <?php echo $currencySymbol;?> <?php echo $productListVal->shipping_cost;?></span></li>
+										<li class="m_bottom_3"><span class="project_list_title second_font d_inline_b">SKU Code:</span> <span class="fw_light"> <?php echo $productListVal->sku;?></span></li>
 						</ul>
 						<hr class="divider_light m_bottom_15">
-						<p class="fw_light m_bottom_14 color_grey">Mauris fermentum dictum magna. Sed laoreet aliquam leo. Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis.</p>
-						<div class="product_options">
-							<b class="second_font d_block m_bottom_10">Available Options</b>
-							<p class="second_font m_bottom_3">Size:</p>
-							<div class="styled_select size_select relative m_bottom_15">
-								<div class="select_title type_2 fs_medium fw_light color_light relative d_none tr_all">Queen</div>
-								<select>
-									<option value="Queen">Queen</option>
-									<option value="King">King</option>
-									<option value="Grand">Grand</option>
-								</select>
-								<ul class="options_list d_none tr_all hidden bg_grey_light_2"></ul>
-							</div>
-							<p class="second_font">Color:</p>
-							<ul class="hr_list m_bottom_17">
-								<li class="m_right_5 m_bottom_3"><button class="color_button bg_light_red tr_all"></button></li>
-								<li class="m_right_5 m_bottom_3"><button class="color_button bg_light_blue tr_all"></button></li>
-								<li class="m_right_5 m_bottom_3"><button class="color_button bg_light_green tr_all"></button></li>
-								<li class="m_right_5 m_bottom_3"><button class="color_button bg_grey tr_all"></button></li>
-								<li class="m_right_5 m_bottom_3"><button class="color_button bg_light_yellow tr_all"></button></li>
-							</ul>
-							<hr class="divider_light">
-							<footer class="bg_grey_light_2">
-								<div class="fs_big second_font m_bottom_17"><s class="color_light">$1 302.00</s> <b class="scheme_color">$1 102.00</b></div>
-								<div class="clearfix">
-									<div class="quantity clearfix t_align_c f_left f_md_none m_right_10 m_md_bottom_3">
-										<button class="f_left d_block minus black_hover tr_all bg_white">-</button>
-										<input type="text" value="1" name="" readonly="" class="f_left color_light">
-										<button class="f_left d_block black_hover tr_all bg_white">+</button>
-									</div>
-									<br class="d_md_block d_none">
-									<button class="button_type_2 d_block f_sm_none m_sm_bottom_3 t_align_c lbrown state_2 tr_all second_font fs_medium tt_uppercase f_left m_right_3 product_button"><i class="fa fa-shopping-cart d_inline_m m_right_9"></i>Add To Cart</button>
-									<br class="d_sm_block d_none">
-									<button class="button_type_8 grey state_2 tr_delay color_dark t_align_c vc_child f_left m_right_3 tooltip_container relative"><i class="fa fa-heart fs_large d_inline_m"></i><span class="tooltip top fs_small color_white hidden animated" data-show="fadeInDown" data-hide="fadeOutUp">Add to Wishlist</span></button>
-								</div>
-							</footer>
-						</div>
+						<p class="fw_light m_bottom_14 color_grey"><?php echo $productListVal->description;?></p>
+						<table class="w_full">
+											<tbody>
+												<tr>
+													<td class="scheme_color">
+														<p class="fw_light m_top_5 m_bottom_7 m_xs_top_0 m_xs_bottom_0">Our Price:</p>
+														<b><div><span class="fs_big second_font d_block m_bottom_7 m_xs_bottom_0 fs_sm_default" style="float:left;"><?php echo $currencySymbol;?>&nbsp; </span><span id="SalePrice" class="fs_big second_font d_block m_bottom_7 m_xs_bottom_0 fs_sm_default"> <?php echo number_format($productListVal->sale_price);?></span></div></b>
+													</td>
+													<?php if ($productListVal->price>$productListVal->sale_price){ ?>
+													<td class="color_light">
+														<p class="fw_light m_top_5 m_bottom_7 m_xs_top_0 m_xs_bottom_0">Old Price:</p>
+														<b class="fs_big second_font d_block m_bottom_7 m_xs_bottom_0 fs_sm_default"><?php echo $currencySymbol;?><?php echo number_format($productListVal->price); ?></b>
+													</td>
+													<td class="color_blue">
+														<p class="fw_light m_top_5 m_bottom_7 m_xs_top_0 m_xs_bottom_0">You Save:</p>
+														<b class="fs_big second_font d_block m_bottom_7 m_xs_bottom_0 fs_sm_default"><?php echo $currencySymbol;?><?php echo number_format($productListVal->price-$productListVal->sale_price); ?></b>
+													</td>
+													<?php }?>												
+												</tr>
+												<!-- vinit code start -->
+												<?php
+														$prodID = $productListVal->id;
+														$origPrice = $productListVal->sale_price;
+														$userId = $productListVal->user_id;
+														$catId = $productListVal->category_id;
+
+															$couponCode = '';
+															$discVal = 0.00;
+															$discPrice = '';
+															$discDesc = '';
+															$resultArr = $this->product_model->getDiscountedDetails($prodID,$origPrice,$userId,$catId);
+															$couponCode = $resultArr['coupon_code'];
+															$discPrice = $resultArr['disc_price'];
+															$discVal = $resultArr['disc_percent'];
+															$discDesc = $resultArr['disc_desc'];    
+															
+														
+														?>
+												<!-- vinit code end -->
+												<input type="hidden" class="option number" name="product_id" id="product_id" value="<?php echo $productListVal->id;?>">
+												<input type="hidden" class="option number" name="cateory_id" id="cateory_id" value="<?php echo $productListVal->category_id;?>">                
+												<input type="hidden" class="option number" name="sell_id" id="sell_id" value="<?php echo $productListVal->user_id;?>">
+												<input type="hidden" class="option number" name="price" id="price" value="<?php echo $productListVal->sale_price;?>">
+												<input type="hidden" class="option number" name="product_shipping_cost" id="product_shipping_cost" value="<?php echo $productListVal->shipping_cost;?>"> 
+												<input type="hidden" class="option number" name="product_tax_cost" id="product_tax_cost" value="<?php echo $productListVal->tax_cost;?>">
+												<input type="hidden" class="option number" name="attribute_values" id="attribute_values" value="<?php echo $attrValsSetLoad; ?>">
+											<?php if($discPrice != ''){?>
+												<tr>
+													<td colspan="3" class="bg_blue border_blue color_white">
+														<div class="m_top_2 m_bottom_6"><span class="fw_light d_inline_m m_right_5">Use Coupon Code <div style="color: #ec1e20;font-size:13px;display:inline-block;">"<?php echo $couponCode;?>"</div> to Get Additional <?php echo number_format($discVal);?>% DIscount</span></div>
+													</td>
+												</tr>
+											<?php }?>
+											</tbody>
+						</table>
+                 					
 					</div>
 				</div>
 				<button class="close_popup fw_light fs_large tr_all">x</button>
@@ -455,13 +476,8 @@ $this->load->view('site/templates/header_new');
 		<script src="plugins/isotope.pkgd.min.js"></script>
 		<script src="plugins/jquery.appear.js"></script>
 		<script src="plugins/owl-carousel/owl.carousel.min.js"></script>
-		<script src="plugins/twitter/jquery.tweet.min.js"></script><script src="plugins/flickr.js"></script>
 		<script src="plugins/afterresize.min.js"></script>
-		<script src="plugins/jackbox/js/jackbox-packed.min.js"></script>
 		<script src="plugins/jquery.elevateZoom-3.0.8.min.js"></script>
-		<script src="plugins/fancybox/jquery.fancybox.pack.js"></script>
-		<script src="js/retina.min.js"></script>
-		<script src="plugins/colorpicker/colorpicker.js"></script>
 		
 	 
 		<!--Page Js-->

@@ -17,29 +17,29 @@ $this->load->view('site/templates/header_new');
 						<section class="col-lg-9 col-md-9 col-sm-9 m_xs_bottom_30">
 							<main class="clearfix m_bottom_40 m_xs_bottom_30">
                             	<?php 
-	if ($productDetails->num_rows()==1){
-		$img = 'dummyProductImage.jpg';
-		$imgArr = explode(',', $productDetails->row()->image);
-		if (count($imgArr)>0){
-			foreach ($imgArr as $imgRow){
-				if ($imgRow != ''){
-					$img = $pimg = $imgRow;
-					break;
-				}
-			}
-		}
-        }
-		
-		$fancyClass = 'fancy';
-		$fancyText = LIKE_BUTTON;
-		if (count($likedProducts)>0 && $likedProducts->num_rows()>0){
-			foreach ($likedProducts->result() as $likeProRow){
-				if ($likeProRow->product_id == $productDetails->row()->seller_product_id){
-					$fancyClass = 'fancyd';$fancyText = LIKED_BUTTON;break;
-				}
-			}
-		}
-	?>	
+								if ($productDetails->num_rows()==1){
+									$img = 'dummyProductImage.jpg';
+									$imgArr = explode(',', $productDetails->row()->image);
+									if (count($imgArr)>0){
+										foreach ($imgArr as $imgRow){
+											if ($imgRow != ''){
+												$img = $pimg = $imgRow;
+												break;
+											}
+										}
+									}
+									}
+									
+									$fancyClass = 'fancy';
+									$fancyText = LIKE_BUTTON;
+									if (count($likedProducts)>0 && $likedProducts->num_rows()>0){
+										foreach ($likedProducts->result() as $likeProRow){
+											if ($likeProRow->product_id == $productDetails->row()->seller_product_id){
+												$fancyClass = 'fancyd';$fancyText = LIKED_BUTTON;break;
+											}
+										}
+									}
+								?>	
 								<div class="product_preview f_left f_xs_none wrapper m_xs_bottom_15">
 									<div class="d_block relative r_image_container">
 										<img id="zoom" src="<?php echo base_url();?>images/product/<?php echo $img;?>" alt="<?php echo $productDetails->row()->product_name;?>" data-zoom-image="<?php echo base_url();?>images/product/<?php echo $img;?>">
