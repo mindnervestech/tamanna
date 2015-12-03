@@ -132,7 +132,7 @@ class User extends MY_Controller {
 					$this->login_after_signup($userDetails);
 					$this->session->set_userdata('quick_user_name','');
 					if ($userDetails->row()->is_brand == 'yes'){
-						redirect(base_url().'create-brand'.$next);
+						redirect(base_url().'create-brand');
 					}else {
 						redirect(base_url().'onboarding'.$next);
 					}
@@ -1660,7 +1660,7 @@ exit();
                                         //vinitj: send pending notification
                                         $this->send_sellerpending_mail($this->data['userDetails']);
 				        $this->setErrorMessage('success',$lg_err_msg);
-					redirect(base_url().'onboarding');
+					redirect(base_url().'settings');
 			//}
 		}
 	}

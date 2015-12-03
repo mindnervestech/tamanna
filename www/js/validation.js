@@ -615,7 +615,8 @@ function resendConfirmation(mail){
 	}
 }
 function profileUpdate(){
-	$('#save_account').disable();
+	//$('#save_account').disable();
+	$('#save_account').attr("disabled","disabled");
 	var full_name=$('.setting_fullname').val();
 	var web_url=$('.setting_website').val();
 	var location=$('.setting_location').val();
