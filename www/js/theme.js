@@ -893,7 +893,7 @@
 				login_require = $this.attr('require_login'),
 				checkbox_url  = '/_get_list_checkbox.html?t='+(new Date).getTime();
 			if (login_require && login_require=='true') return require_login();
-			
+
 			var fancyy_url = baseURL+'site/user/add_fancy_item';
 			if($this.hasClass('fancyd')){
 				fancyy_url = baseURL+'site/user/remove_fancy_item';
@@ -906,6 +906,38 @@
 				dataType:'json',
 				success:function(response){
 					if(response.status_code == 1){
+						$this.children(".fa-heart").css("color", "darkred")
+						if(response.wanted == 1){
+							$('.btn-want').addClass('wanted').find('b').text('Wanted');
+						}
+					}
+				}
+			});
+	});
+	
+		$(".like_search_product").click(function(){
+			debugger;
+			var $this = $(this),
+				tid  = $this.attr('tid') || null,
+				rtid = $this.attr('rtid') || null,
+				sl   = $this.attr('show_add_to_list') || null,
+				login_require = $this.attr('require_login'),
+				checkbox_url  = '/_get_list_checkbox.html?t='+(new Date).getTime();
+			if (login_require && login_require=='true') return require_login();
+
+			var fancyy_url = baseURL+'site/user/add_fancy_item';
+			if($this.hasClass('fancyd')){
+				fancyy_url = baseURL+'site/user/remove_fancy_item';
+			}
+			
+			$.ajax({
+				type:'POST',
+				url:fancyy_url,
+				data:{tid:tid},
+				dataType:'json',
+				success:function(response){
+					if(response.status_code == 1){
+						$this.children(".fa-heart").css("color", "darkred")
 						if(response.wanted == 1){
 							$('.btn-want').addClass('wanted').find('b').text('Wanted');
 						}
