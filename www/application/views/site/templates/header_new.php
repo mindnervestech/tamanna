@@ -202,8 +202,11 @@
                                 	<li>
 										<a href="<?php echo 'user/'.$userDetails->row()->user_name;?>" class="color_lbrown_hover vc_child">
 											<span class="d_inline_m">
-												<button class="tooltip_container"><i class="fa fa-heart fs_large"></i><span class="tooltip top fs_small color_white hidden animated" data-show="fadeInDown" data-hide="fadeOutUp">Your Wishlist</span></button>
+												<button class="tooltip_container"><i class="fa fa-heart fs_large"></i>
+												<sup id="likes_count"><?php echo $userDetails->row()->likes;?></sup>
+												<span class="tooltip top fs_small color_white hidden animated" data-show="fadeInDown" data-hide="fadeOutUp">Your Wishlist</span></button>
 											</span>
+											
 										</a>
 									</li>
 									<!--shopping cart-->

@@ -27,11 +27,7 @@
 			$.oldBrowsersPlaceholder();
 			$.fullWidthMasonry();
 			$.scrollSidebar();
-			this.events.categories();
-			
-			this.events.thirdSubCategoirs();
-			
-			this.events.secondSubCategoirs();
+			this.events.categories();						this.events.thirdSubCategoirs();						this.events.secondSubCategoirs();
 			this.sliders();
 			this.events.openDropdown();
 			this.events.ratingList();
@@ -154,43 +150,7 @@
 					$this.toggleClass('active').prev("a").toggleClass("fw_bold").siblings("ul").stop().slideToggle();
 					$this.prev('a').toggleClass('scheme_color bg_grey_light_2');
 				});
-			},
-			
-			thirdSubCategoirs : function(){
-			
-				var list = $('.third_sub_category');
-			
-				list.on('click',function(){
-				
-					var $this = $(this);
-					
-					$('.new_removeClass').each(function(){
-						$( this ).removeClass("d_inline_b fw_bold scheme_color bg_grey_light_2 new_removeClass");
-					});
-					
-					$this.addClass("d_inline_b fw_bold scheme_color bg_grey_light_2 new_removeClass");
-				
-				});
-
-			},
-			
-			secondSubCategoirs : function(){
-			
-				var list = $('.second_sub_category');
-			
-				list.on('click',function(){
-				
-					var $this = $(this);
-					
-					$('.new_removeClass').each(function(){
-						$( this ).removeClass("d_inline_b fw_bold scheme_color bg_grey_light_2 new_removeClass");
-					});
-					
-					$this.addClass("d_inline_b fw_bold scheme_color bg_grey_light_2 new_removeClass");
-				
-				});
-
-			},
+			},						thirdSubCategoirs : function(){							var list = $('.third_sub_category');							list.on('click',function(){									var $this = $(this);										$('.new_removeClass').each(function(){						$( this ).removeClass("d_inline_b fw_bold scheme_color bg_grey_light_2 new_removeClass");					});										$this.addClass("d_inline_b fw_bold scheme_color bg_grey_light_2 new_removeClass");								});			},						secondSubCategoirs : function(){							var list = $('.second_sub_category');							list.on('click',function(){									var $this = $(this);										$('.new_removeClass').each(function(){						$( this ).removeClass("d_inline_b fw_bold scheme_color bg_grey_light_2 new_removeClass");					});										$this.addClass("d_inline_b fw_bold scheme_color bg_grey_light_2 new_removeClass");								});			},
 
 			sortIsotope : function(container){
 				$('.sort').on('click','[data-filter]',function(e){
@@ -338,46 +298,10 @@
 						input = $this.children('input[type="text"]'),
 						val = +input.val();
 
-					button.on('click',function(){
-						if($(this).hasClass('minus')){
-							debugger;
-							//if(val === 1) return false;
-							var mqty = $('.orderQuantity').data('mqty');
-							var oldQty = parseInt($('.orderQuantity').val());
-							if(oldQty-oldQty != 0){
-								oldQty = 1;
-							}
-							if(oldQty<0){
-								oldQty = 1;
-							}
-							if(oldQty>1){
-								oldQty--;
-							}
-							if(oldQty<1){
-								oldQty = 1;
-							}
-							if(oldQty>mqty){
-								alert('Maximum Stock is '+mqty);
-								oldQty = mqty;
-							}
-							$('.orderQuantity').val(oldQty);
-							input.val(oldQty);
+					button.on('click',function(){						if($(this).hasClass('minus')){							debugger;
+							//if(val === 1) return false;							var mqty = $('.orderQuantity').data('mqty');							var oldQty = parseInt($('.orderQuantity').val());							if(oldQty-oldQty != 0){								oldQty = 1;							}							if(oldQty<0){								oldQty = 1;							}							if(oldQty>1){								oldQty--;							}							if(oldQty<1){								oldQty = 1;							}							if(oldQty>mqty){								alert('Maximum Stock is '+mqty);								oldQty = mqty;							}							$('.orderQuantity').val(oldQty);							input.val(oldQty);
 						}
-						else{
-							var mqty = $('.orderQuantity').data('mqty');
-							var oldQty = parseInt($('.orderQuantity').val());
-							if(oldQty-oldQty != 0){
-								oldQty = 0;
-							}
-							if(oldQty<0){
-								oldQty = 0;
-							}
-							oldQty++;
-							if(oldQty>mqty){
-								alert('Maximum Stock is '+mqty);
-								oldQty = mqty;
-							}												
-							$('.orderQuantity').val(oldQty);
+						else{							var mqty = $('.orderQuantity').data('mqty');							var oldQty = parseInt($('.orderQuantity').val());							if(oldQty-oldQty != 0){								oldQty = 0;							}							if(oldQty<0){								oldQty = 0;							}							oldQty++;							if(oldQty>mqty){								alert('Maximum Stock is '+mqty);								oldQty = mqty;							}																			$('.orderQuantity').val(oldQty);
 							input.val(oldQty);
 						}
 					});
@@ -531,7 +455,14 @@
 		            slidesSpacing : 0,
 		            transitionSpeed : 2000,
 		            fadeinLoadedSlide : false,
-		            loop : true,										autoPlay: {    		// autoplay options go gere    		enabled: true,    		pauseOnHover: true,			delay: 4000    	}
+		            loop : true,
+					
+					autoPlay: {
+    		// autoplay options go gere
+    		enabled: true,
+    		pauseOnHover: true,
+			delay: 4000
+    	}
 		        });
 		        var slider = $(slidersArray[2]).data('royalSlider');
 
@@ -698,19 +629,10 @@
 					min : 0,
 					max : 100000,
 					values : [1,100000],
-					slide : function(event, ui){
-
-						$(this).next().children('.range_min').val("Rs." + ui.values[0])
+					slide : function(event, ui){						$(this).next().children('.range_min').val("Rs." + ui.values[0])
 								.next().val("Rs." + ui.values[1]);
-					},
-					// Method added by swapnil
-					change: function( event, ui ) {
-						$("#sliderPriceMin").val(ui.values[0]);
-						$("#sliderPriceMax").val(ui.values[1]);
-						$("#sort_By_Price_Range").click();
-					},
-					create : function(event, ui){
-						var $this = $(this);
+					},					// Method added by swapnil					change: function( event, ui ) {						$("#sliderPriceMin").val(ui.values[0]);						$("#sliderPriceMax").val(ui.values[1]);						$("#sort_By_Price_Range").click();					},
+					create : function(event, ui){						var $this = $(this);
 						$this.next().children('.range_min').val("Rs." + $this.slider("values",0))
 								.next().val("Rs." + $this.slider("values",1));
 						$this.attr({
@@ -885,95 +807,5 @@
 			$('[data-popup="#subscribe_popup"]').trigger('click');
 		});
 	});
-	$("#like_product").click(function(){
-			var $this = $(this),
-				tid  = $this.attr('tid') || null,
-				rtid = $this.attr('rtid') || null,
-				sl   = $this.attr('show_add_to_list') || null,
-				login_require = $this.attr('require_login'),
-				checkbox_url  = '/_get_list_checkbox.html?t='+(new Date).getTime();
-			if (login_require && login_require=='true') return require_login();
-
-			var fancyy_url = baseURL+'site/user/add_fancy_item';
-			if($this.hasClass('addedToFavourite')){
-				fancyy_url = baseURL+'site/user/remove_fancy_item';
-			}
-			
-			$.ajax({
-				type:'POST',
-				url:fancyy_url,
-				data:{tid:tid},
-				dataType:'json',
-				success:function(response){
-					if(response.status_code == 1){
-						if($this.hasClass("addedToFavourite")){
-							$this.removeClass("addedToFavourite");
-							$this.addClass("addToFavourite");
-							$this.children(".fa-heart").removeAttr("style");
-							$this.children(".tooltip").text("Add to Wishlist");
-
-						}else{
-							$this.removeClass("addToFavourite");
-							$this.addClass("addedToFavourite");
-							$this.children(".fa-heart").css("color", "darkred");
-							$this.children(".tooltip").text("Remove from Wishlist");
-						}
-
-						if(response.wanted == 1){
-							$('.btn-want').addClass('wanted').find('b').text('Wanted');
-						}
-					}
-				}
-			});
-	});
-	
-		$(document).on("click",".like_search_product",function(){
-			debugger;
-			var $this = $(this),
-				tid  = $this.attr('tid') || null,
-				rtid = $this.attr('rtid') || null,
-				sl   = $this.attr('show_add_to_list') || null,
-				login_require = $this.attr('require_login'),
-				checkbox_url  = '/_get_list_checkbox.html?t='+(new Date).getTime();
-				
-			if (login_require && login_require=='true') return require_login();
-
-			var fancyy_url = baseURL+'site/user/add_fancy_item';
-			if($this.hasClass('addedToFavourite')){
-				fancyy_url = baseURL+'site/user/remove_fancy_item';
-			}
-			
-			$.ajax({
-				type:'POST',
-				url:fancyy_url,
-				data:{tid:tid},
-				dataType:'json',
-				success:function(response){
-					if(response.status_code == 1){
-					if($this.hasClass("addedToFavourite")){
-							$this.removeClass("addedToFavourite");
-							$this.addClass("addToFavourite");
-							$this.children(".fa-heart").css("color", "");//removeAttr("style");
-							$this.children(".tooltip").text("Add to Wishlist");
-
-						}else{
-							$this.removeClass("addToFavourite");
-							$this.addClass("addedToFavourite");
-							$this.children(".fa-heart").css("color", "darkred");
-							$this.children(".tooltip").text("Remove from Wishlist");
-						}
-						if(response.wanted == 1){
-							$('.btn-want').addClass('wanted').find('b').text('Wanted');
-						}
-					}
-				}
-			});
-	});
-	
-	function require_login(next){
-		next = $(location).attr('href');
-		next = next.replace(baseURL,'');
-		location.href = baseURL+'login'+(next?'?next='+encodeURIComponent(next):'');
-		return false;
-	}
+	$("#like_product").click(function(){			var $this = $(this),				tid  = $this.attr('tid') || null,				rtid = $this.attr('rtid') || null,				sl   = $this.attr('show_add_to_list') || null,				login_require = $this.attr('require_login'),				checkbox_url  = '/_get_list_checkbox.html?t='+(new Date).getTime();			if (login_require && login_require=='true') return require_login();			var fancyy_url = baseURL+'site/user/add_fancy_item';			if($this.hasClass('addedToFavourite')){				fancyy_url = baseURL+'site/user/remove_fancy_item';			}						$.ajax({				type:'POST',				url:fancyy_url,				data:{tid:tid},				dataType:'json',				success:function(response){					var likecount = parseInt($("#likes_count").text());					if(response.status_code == 1){						if($this.hasClass("addedToFavourite")){							$this.removeClass("addedToFavourite");							$this.addClass("addToFavourite");							$this.children(".fa-heart").removeAttr("style");							$this.children(".tooltip").text("Add to Wishlist");							$("#likes_count").text(likecount - 1);						}else{							$this.removeClass("addToFavourite");							$this.addClass("addedToFavourite");							$this.children(".fa-heart").css("color", "darkred");							$this.children(".tooltip").text("Remove from Wishlist");							$("#likes_count").text(likecount + 1);						}						if(response.wanted == 1){							$('.btn-want').addClass('wanted').find('b').text('Wanted');						}					}				}			});	});			$(document).on("click",".like_search_product",function(){			debugger;			var $this = $(this),				tid  = $this.attr('tid') || null,				rtid = $this.attr('rtid') || null,				sl   = $this.attr('show_add_to_list') || null,				login_require = $this.attr('require_login'),				checkbox_url  = '/_get_list_checkbox.html?t='+(new Date).getTime();							if (login_require && login_require=='true') return require_login();			var fancyy_url = baseURL+'site/user/add_fancy_item';			if($this.hasClass('addedToFavourite')){				fancyy_url = baseURL+'site/user/remove_fancy_item';			}						$.ajax({				type:'POST',				url:fancyy_url,				data:{tid:tid},				dataType:'json',				success:function(response){					if(response.status_code == 1){					var likecount = parseInt($("#likes_count").text());					if($this.hasClass("addedToFavourite")){							$this.removeClass("addedToFavourite");							$this.addClass("addToFavourite");							$this.children(".fa-heart").css("color", "");//removeAttr("style");							$this.children(".tooltip").text("Add to Wishlist");							$("#likes_count").text(likecount - 1);						}else{							$this.removeClass("addToFavourite");							$this.addClass("addedToFavourite");							$this.children(".fa-heart").css("color", "darkred");							$this.children(".tooltip").text("Remove from Wishlist");							$("#likes_count").text(likecount + 1);						}						if(response.wanted == 1){							$('.btn-want').addClass('wanted').find('b').text('Wanted');						}					}				}			});	});		function require_login(next){		next = $(location).attr('href');		next = next.replace(baseURL,'');		location.href = baseURL+'login'+(next?'?next='+encodeURIComponent(next):'');		return false;	}
 })(jQuery);
