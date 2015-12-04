@@ -23,7 +23,7 @@ $this->load->view('site/templates/header_new');
 		}
 	}
 	?>	
-			<div class="page_section_offset">
+			<div class="page_section_offset" style="padding: 13px 0 25px;">
 				<div class="container">
 					<div class="row">
 						<div class="col-lg-9 col-md-9 col-sm-9 m_xs_bottom_10 m_bottom_25">
@@ -51,9 +51,13 @@ $this->load->view('site/templates/header_new');
 
 							<hr class="m_bottom_14">
 							<ul class="m_bottom_14">
-									<li class="m_bottom_3"><span class="project_list_title second_font d_inline_b">Seller:</span> <span class="color_dark fw_light"><a href="user/<?php echo $productUserDetails->row()->user_name;?>/added"><?php echo $productDetails->row()->full_name;?></a></span></li>
-									<li class="m_bottom_3"><span class="project_list_title second_font d_inline_b">City:</span> <span class="color_dark fw_light"><?php echo $productUserDetails->row()->s_city;?></span></li>
-									<li class="m_bottom_3"><span class="project_list_title second_font d_inline_b">Contact Number:</span> <span class="color_dark fw_light"><?php echo $productUserDetails->row()->phone_no;?></span></li>
+<!--														<p class="fw_light m_top_5 m_bottom_7 m_xs_top_0 m_xs_bottom_0">Our Price:</p>
+														<b><div><span class="fs_big second_font d_block m_bottom_7 m_xs_bottom_0 fs_sm_default" style="float:left;"><?php echo $currencySymbol;?>&nbsp; </span><span id="SalePrice" class="fs_big second_font d_block m_bottom_7 m_xs_bottom_0 fs_sm_default"> <?php echo number_format($productListVal->sale_price);?></span></div></b>-->
+							
+									<li class="m_bottom_3"><span style="width: 150px;" class="project_list_title second_font d_inline_b">Approx Price: </span><span class="fs_big second_font m_bottom_7 m_xs_bottom_0 fs_sm_default"> Rs <?php echo $productDetails->row()->sale_price;?></span></li>
+									<li class="m_bottom_3"><span style="width: 150px;"  class="project_list_title second_font d_inline_b">Seller:</span> <span class="color_dark fw_light"><a href="user/<?php echo $productUserDetails->row()->user_name;?>/added"><?php echo $productDetails->row()->full_name;?></a></span></li>
+									<li class="m_bottom_3"><span style="width: 150px;"  class="project_list_title second_font d_inline_b">City:</span> <span class="color_dark fw_light"><?php echo $productUserDetails->row()->s_city;?></span></li>
+									<li class="m_bottom_3"><span style="width: 150px;"  class="project_list_title second_font d_inline_b">Contact Number:</span> <span class="color_dark fw_light"><?php echo $productUserDetails->row()->phone_no;?></span></li>
 							</ul>
 							<hr class="m_bottom_14">
 							<p  class="fs_big second_font scheme_color">Check All Creations of <?php echo $productDetails->row()->full_name;?> <a href="user/<?php echo $productUserDetails->row()->user_name;?>/added">here</a></p>
@@ -142,7 +146,7 @@ $this->load->view('site/templates/header_new');
 		<!--libs include-->
 		<script src="plugins/jquery.appear.js"></script>
 		<script src="plugins/afterresize.min.js"></script>
-		<script type="text/javascript" src="js/site/thing_page.js"></script>
+		<script type="text/javascript" src="js/site/thing_page.js"></script> 
 
 		<!--theme initializer-->
 		<script src="js/themeCore.js"></script>

@@ -430,6 +430,7 @@ class Product_model extends My_Model
 		 		'.$whereCond.' ';
 		return $this->ExecuteQuery($sel);
 	}
+
 	public function searchShopyByCategoryuser($userWherCond) {
 		$sel = 'select p.*, u.user_name, u.full_name, u.email, u.thumbnail,u.s_city, u.s_state, u.brand_name, u.brand_description,u.followers_count,u.about,u.s_phone_no from '.USER_PRODUCTS.' p
 		 		LEFT JOIN '.USERS.' u on u.id=p.user_id 
@@ -498,6 +499,7 @@ class Product_model extends My_Model
 			'image'			=>	$image_name,
 			'user_id'		=>	$uid,
 			'seller_product_id' => $seller_product_id,
+			'sale_price' => $fancy_add-price,
 			'short_url_id'	=>	$urlid
 		);
 		$this->simple_insert(USER_PRODUCTS,$dataArr);

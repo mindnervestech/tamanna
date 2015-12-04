@@ -1019,24 +1019,24 @@ echo curl_error($ch) . '<br/>';*/
 			}
 			$this->data['relatedProductsArr'] = $this->product_model->get_products_by_category($catID);
 			$this->data['affiliaterelatedProductsArr'] = $this->product_model->get_affiliate_products_by_category($catID);
-$this->data['seller_affiliate_products'] = $this->product_model->get_all_details(USER_PRODUCTS,array('user_id'=>$this->data['productDetails']->row()->user_id));
+			$this->data['seller_affiliate_products'] = $this->product_model->get_all_details(USER_PRODUCTS,array('user_id'=>$this->data['productDetails']->row()->user_id));
 
-		$recentLikeArr = $this->product_model->get_recent_like_users_things($this->data['productDetails']->row()->seller_product_id);
-		$recentUserLikes = array();
-		if ($recentLikeArr->num_rows()>0){
-			foreach ($recentLikeArr->result() as $recentLikeRow){
-				if ($recentLikeRow->user_id != ''){
-					$recentUserLikes[$recentLikeRow->user_id] = $this->product_model->get_recent_user_likes_things($recentLikeRow->user_id,$this->data['productDetails']->row()->seller_product_id);
+			$recentLikeArr = $this->product_model->get_recent_like_users_things($this->data['productDetails']->row()->seller_product_id);
+			$recentUserLikes = array();
+			if ($recentLikeArr->num_rows()>0){
+				foreach ($recentLikeArr->result() as $recentLikeRow){
+					if ($recentLikeRow->user_id != ''){
+						$recentUserLikes[$recentLikeRow->user_id] = $this->product_model->get_recent_user_likes_things($recentLikeRow->user_id,$this->data['productDetails']->row()->seller_product_id);
+					}
 				}
 			}
-		}
-		$this->data['recentLikeArr'] = $recentLikeArr;
+			$this->data['recentLikeArr'] = $recentLikeArr;
 			if ($this->data['productDetails']->row()->meta_title != ''){
 				$this->data['meta_title'] = $this->data['productDetails']->row()->meta_title;
 			}
-else if ($this->data['productDetails']->row()->sale_price > 0){
-$this->data['meta_title'] =  'Buy Online '. $this->data['productDetails']->row()->product_name .' in India on ' .$this->data['siteTitle'];
-}
+			else if ($this->data['productDetails']->row()->sale_price > 0){
+			$this->data['meta_title'] =  'Buy Online '. $this->data['productDetails']->row()->product_name .' in India on ' .$this->data['siteTitle'];
+			}
                        else {
 				$this->data['meta_title'] =$this->data['productDetails']->row()->product_name;
 			}
@@ -1048,26 +1048,27 @@ $this->data['meta_title'] =  'Buy Online '. $this->data['productDetails']->row()
 			if ($this->data['productDetails']->row()->meta_description != ''){
 				$this->data['meta_description'] = $this->data['productDetails']->row()->meta_description;
 			}
-else if ($this->data['productDetails']->row()->sale_price > 0){
-$this->data['meta_description'] = 'Shop for '. $this->data['productDetails']->row()->product_name .' in India from '. $this->data['productDetails']->row()->user_name .'. Read '. $this->data['productDetails']->row()->user_name.'\'s Review, Check Latest Collection and Price of Products Offered by '. $this->data['productDetails']->row()->user_name;
-}
-else {
-				/*$this->data['meta_description'] = $this->data['productDetails']->row()->product_name;
-		$PRODUCTNAME = $this->data['productDetails']->row()->product_name;
-				if($PRODUCTNAME != '' && $uname != ''){
-					$this->data['meta_description'] = $PRODUCTNAME;*/
-if($this->data['productDetails']->row()->excerpt != ''){
-$EXCERPT= substr($this->data['productDetails']->row()->excerpt,0,155);
-$this->data['meta_description'] =$EXCERPT;
-}
-else
-{
-$this->data['meta_description'] = 'Check '.$this->data['productDetails']->row()->product_name .' from '.$this->data['productDetails']->row()->user_name;
-}
+			else if ($this->data['productDetails']->row()->sale_price > 0){
+			$this->data['meta_description'] = 'Shop for '. $this->data['productDetails']->row()->product_name .' in India from '. $this->data['productDetails']->row()->user_name .'. Read '. $this->data['productDetails']->row()->user_name.'\'s Review, Check Latest Collection and Price of Products Offered by '. $this->data['productDetails']->row()->user_name;
+			}
+		else{
+					/*$this->data['meta_description'] = $this->data['productDetails']->row()->product_name;
+					$PRODUCTNAME = $this->data['productDetails']->row()->product_name;
+					if($PRODUCTNAME != '' && $uname != ''){
+						$this->data['meta_description'] = $PRODUCTNAME;*/
+						if($this->data['productDetails']->row()->excerpt != ''){
+						$EXCERPT= substr($this->data['productDetails']->row()->excerpt,0,155);
+						$this->data['meta_description'] =$EXCERPT;
+						}
+						else
+						{
+						$this->data['meta_description'] = 'Check '.$this->data['productDetails']->row()->product_name .' from '.$this->data['productDetails']->row()->user_name;
+						}
 
 			
 		
-			} $this->data['meta_image'] = $this->data['productDetails']->row()->image;
+			} 
+			$this->data['meta_image'] = $this->data['productDetails']->row()->image;
 			$this->load->view('site/product/display_user_product',$this->data);
 		}else {
 			$this->load->view('site/product/product_detail',$this->data);

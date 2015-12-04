@@ -77,7 +77,7 @@
 									<ul class="hr_list second_font si_list fs_small">
                                     <li><a class="sc_hover tr_delay" href="shop">Shop</a></li>
 									<li><a class="sc_hover tr_delay" href="customization-request">Customization Request</a></li>
-                                    <li><a class="sc_hover tr_delay" href="design-ideas">Explore</a></li>
+                                    <li><a class="sc_hover tr_delay" href="design-ideas/all">Explore</a></li>
                                     <li><a class="sc_hover tr_delay" href="pages/faq">Why Socktail</a></li>
 									<li><a href="pages/contact-us" class="sc_hover tr_delay" href="faq">Contact Us</a></li>
 

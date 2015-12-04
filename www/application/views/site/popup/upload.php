@@ -87,8 +87,8 @@ if($mainCat->id !=107){
 						}
 						?>
 						</select>
-					<!--	<label><?php if($this->lang->line('header_price') != '') { echo stripslashes($this->lang->line('header_price')); } else echo "Price"; ?></label>
-          <input type="text" placeholder="Price" class="input-text" id="fancy_add-price"> -->
+						<label><?php if($this->lang->line('header_price') != '') { echo stripslashes($this->lang->line('header_price')); } else echo "Price"; ?></label>
+          <input type="text" placeholder="Price" class="input-text" id="fancy_add-price"> 
 				</div>
 				<textarea placeholder="<?php if($this->lang->line('header_sam_somethng') != '') { echo stripslashes($this->lang->line('header_sam_somethng')); } else echo "Say something about this"; ?>" maxlength="2000" id="fancy_add-note"></textarea>
 			</dd>
