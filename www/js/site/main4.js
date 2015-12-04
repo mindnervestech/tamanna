@@ -1505,6 +1505,11 @@ jQuery(function($){
 						$contentBox.isotope( 'insert', temp);
 				}
 
+				setTimeout(function() {  
+					$("#can_change_layout").find('.tooltip_container').tooltip('.tooltip');
+				}, 2000);
+
+				
 				if ($next.length) {
 					url = $next.attr('href');
 					$url.attr({

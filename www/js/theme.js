@@ -895,7 +895,7 @@
 			if (login_require && login_require=='true') return require_login();
 
 			var fancyy_url = baseURL+'site/user/add_fancy_item';
-			if($this.hasClass('fancyd')){
+			if($this.hasClass('addedToFavourite')){
 				fancyy_url = baseURL+'site/user/remove_fancy_item';
 			}
 			
@@ -906,7 +906,19 @@
 				dataType:'json',
 				success:function(response){
 					if(response.status_code == 1){
-						$this.children(".fa-heart").css("color", "darkred")
+						if($this.hasClass("addedToFavourite")){
+							$this.removeClass("addedToFavourite");
+							$this.addClass("addToFavourite");
+							$this.children(".fa-heart").removeAttr("style");
+							$this.children(".tooltip").text("Add to Wishlist");
+
+						}else{
+							$this.removeClass("addToFavourite");
+							$this.addClass("addedToFavourite");
+							$this.children(".fa-heart").css("color", "darkred");
+							$this.children(".tooltip").text("Remove from Wishlist");
+						}
+
 						if(response.wanted == 1){
 							$('.btn-want').addClass('wanted').find('b').text('Wanted');
 						}
@@ -915,7 +927,7 @@
 			});
 	});
 	
-		$(".like_search_product").click(function(){
+		$(document).on("click",".like_search_product",function(){
 			debugger;
 			var $this = $(this),
 				tid  = $this.attr('tid') || null,
@@ -923,10 +935,11 @@
 				sl   = $this.attr('show_add_to_list') || null,
 				login_require = $this.attr('require_login'),
 				checkbox_url  = '/_get_list_checkbox.html?t='+(new Date).getTime();
+				
 			if (login_require && login_require=='true') return require_login();
 
 			var fancyy_url = baseURL+'site/user/add_fancy_item';
-			if($this.hasClass('fancyd')){
+			if($this.hasClass('addedToFavourite')){
 				fancyy_url = baseURL+'site/user/remove_fancy_item';
 			}
 			
@@ -937,7 +950,18 @@
 				dataType:'json',
 				success:function(response){
 					if(response.status_code == 1){
-						$this.children(".fa-heart").css("color", "darkred")
+					if($this.hasClass("addedToFavourite")){
+							$this.removeClass("addedToFavourite");
+							$this.addClass("addToFavourite");
+							$this.children(".fa-heart").css("color", "");//removeAttr("style");
+							$this.children(".tooltip").text("Add to Wishlist");
+
+						}else{
+							$this.removeClass("addToFavourite");
+							$this.addClass("addedToFavourite");
+							$this.children(".fa-heart").css("color", "darkred");
+							$this.children(".tooltip").text("Remove from Wishlist");
+						}
 						if(response.wanted == 1){
 							$('.btn-want').addClass('wanted').find('b').text('Wanted');
 						}

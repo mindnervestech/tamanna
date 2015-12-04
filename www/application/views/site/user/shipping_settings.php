@@ -26,7 +26,7 @@ $this->load->view('site/templates/header_new_small');
 								</thead>
 								<tbody>
 								<?php foreach ($shippingList->result() as $row){?>
-									<tr aid="<?php echo $row->id;?>" isdefault="<?php if($row->primary == 'Yes'){echo TRUE; }else {echo FALSE;}?>">
+									<tr id="<?php echo $row->id;?>" aid="<?php echo $row->id;?>" isdefault="<?php if($row->primary == 'Yes'){echo TRUE; }else {echo FALSE;}?>">
 										<td data-cell-title="Product Name and Category">
 											<div class="lh_small m_bottom_7">
 											<?php if($row->primary == 'Yes'){?>Yes<?php }?>
@@ -54,7 +54,16 @@ $this->load->view('site/templates/header_new_small');
 										</td>
 										<td data-cell-title="Product Name and Category">
 											<div class="lh_small m_bottom_7">
-											<a data-popup="#quick_view" data-popup-transition-in="bounceInUp" data-popup-transition-out="bounceOutUp" href="javascript:void(0);" class="button_type_1 black state_2 tr_all second_font fs_medium" onclick="shipping_address_cart(<?php echo $row->id;?>);">Modify</a> / <a class="remove_"><?php if($this->lang->line('shipping_delete') != '') { echo stripslashes($this->lang->line('shipping_delete')); } else echo "Delete"; ?></a>
+											<div>
+												<a data-popup="#quick_view" data-popup-transition-in="bounceInUp" data-popup-transition-out="bounceOutUp" href="javascript:void(0);" class="button_type_1 black state_2 tr_all second_font fs_medium" onclick="shipping_address_cart(<?php echo $row->id;?>);">Modify</a> 
+											</div>
+											<div style="margin-top: 10px;">							
+												<a href="javascript:void(0);" class="button_type_1 black state_2 tr_all second_font fs_medium" onclick="delete_shipping_address_cart(<?php echo $row->id;?>, <?php if($row->primary == 'Yes'){echo TRUE; }else {echo 0;}?>);">
+												<?php if($this->lang->line('shipping_delete') != '') { echo stripslashes($this->lang->line('shipping_delete')); } else echo "Delete"; ?>
+												</a>
+											</div>
+											
+											<!-- <a class="remove_"><?php if($this->lang->line('shipping_delete') != '') { echo stripslashes($this->lang->line('shipping_delete')); } else echo "Delete"; ?></a> -->
 											</div>
 										</td>
 									</tr>
@@ -247,8 +256,9 @@ if($this->uri->segment(1) == 'cart'){
 														<input name="phone" class="w_full tr_all full required digits phone" placeholder="<?php if($this->lang->line('header_ten_only') != '') { echo stripslashes($this->lang->line('header_ten_only')); } else echo "10 digits only, no dashes"; ?>" type="text">
 													</li>
 													<li class="m_bottom_2">
-														<input name="set_default" id="make_this_primary_addr_modify" type="checkbox">
-														<label class="check second_font m_bottom_4 d_inline_b fs_medium" for="make_this_primary_addr"><?php if($this->lang->line('header_make_primary') != '') { echo stripslashes($this->lang->line('header_make_primary')); } else echo "Make this my primary shipping address"; ?></label>
+														<input name="set_default" id="make_primary_modify" value="true" type="checkbox"> 
+														 <label class="check second_font m_bottom_4 d_inline_b fs_medium" for="make_primary_modify"><?php if($this->lang->line('header_make_primary') != '') { echo stripslashes($this->lang->line('header_make_primary')); } else echo "Make this my primary shipping address"; ?></label>
+														 														 
 													</li>
 													<input type="hidden" name="user_id" value="<?php echo $loginCheck;?>"/>													
 

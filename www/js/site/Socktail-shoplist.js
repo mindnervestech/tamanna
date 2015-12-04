@@ -49,7 +49,8 @@ jQuery(function($) {
 					//$cate_sel = $('.shop-select.sub-category'),
 				    //$new_cate_sel = $html.find('.shop-select.sub-category');
 
-				$('ul.breadcrumbs').html( $html.find('ul.breadcrumbs').html() );
+				//$('ul.breadcrumbs').html( $html.find('ul.breadcrumbs').html() );
+				$('div.breadcrumbs').html( $html.find('div.breadcrumbs').html() );
 				/*$cate_sel.html( $new_cate_sel.html() ).selectBox('destroy').selectBox();
 				
 				if($new_cate_sel.attr('edge')){
@@ -74,8 +75,15 @@ jQuery(function($) {
 						$stream.isotope( 'insert', temp);
 					}
 				}
+				setTimeout(function() {  
+					$("#can_change_layout").find('.tooltip_container').tooltip('.tooltip');
+				}, 2000);
+				
 				if($new_more.length) $('.pagination').append($new_more);
 				$more.remove();
+				
+				//dynamially added tooltip initilization
+
 
 				(function(){
 					// reset infiniteshow

@@ -30,12 +30,12 @@ $this->load->view('site/templates/header_new');
 									}
 									}
 									
-									$fancyClass = 'fancy';
+									$fancyClass = 'addToFavourite';
 									$fancyText = LIKE_BUTTON;
 									if (count($likedProducts)>0 && $likedProducts->num_rows()>0){
 										foreach ($likedProducts->result() as $likeProRow){
 											if ($likeProRow->product_id == $productDetails->row()->seller_product_id){
-												$fancyClass = 'fancyd';$fancyText = LIKED_BUTTON;break;
+												$fancyClass = 'addedToFavourite';$fancyText = LIKED_BUTTON;break;
 											}
 										}
 									}
@@ -241,7 +241,9 @@ $this->load->view('site/templates/header_new');
 												<?php if ($loginCheck==''){echo 'require_login="true"';}?> name="addtocart" value="<?php if($this->lang->line('header_add_cart') != '') { echo stripslashes($this->lang->line('header_add_cart')); } else echo "Add to Cart"; ?>" onclick="ajax_add_cart('<?php echo $PrdAttrVal->num_rows; ?>');"
 												><i class="fa fa-shopping-cart d_inline_m m_right_9"></i>Add To Cart</button>
 												
-												<button id="like_product" item_img_url="images/product/<?php echo $img;?>" tid="<?php echo $productDetails->row()->seller_product_id;?>" <?php if ($loginCheck==''){?>require_login="true"<?php }?> class="button_type_8 grey state_2 tr_delay color_dark t_align_c vc_child f_right m_right_3 tooltip_container relative button <?php echo $fancyClass;?>"><i class="fa fa-heart fs_large d_inline_m"></i><span class="tooltip top fs_small color_white hidden animated" data-show="fadeInDown" data-hide="fadeOutUp">Add to Wishlist</span></button>
+												<button id="like_product" item_img_url="images/product/<?php echo $img;?>" tid="<?php echo $productDetails->row()->seller_product_id;?>" <?php if ($loginCheck==''){?>require_login="true"<?php }?> style="<?php if($fancyClass == "addedToFavourite"){echo "color:darkred !important"; };?>" class="<?php echo $fancyClass?> button_type_8 grey state_2 tr_delay color_dark t_align_c vc_child f_right m_right_3 tooltip_container relative button "><i class="fa fa-heart fs_large d_inline_m"></i><span class="tooltip top fs_small color_white hidden animated" data-show="fadeInDown" data-hide="fadeOutUp">
+												<?php if($fancyClass == "addedToFavourite"){echo "Remove from Wishlist"; }else echo "Add to Wishlist";?>
+												</span></button>
 											</div>
 										</footer>
 									</div>

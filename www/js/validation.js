@@ -1222,7 +1222,7 @@ function shipping_address_cart(id){
 			dataType:'json',
 			success:function(response){
 			if(response.primary == 'Yes'){
-				$('#make_this_primary_addr_modify').attr('checked','checked');
+				$('#make_primary_modify').attr('checked','checked');
 			}
 			$('.full_name').val(response.full_name);
 			$('.nick_name').val(response.nick_name);
@@ -1238,13 +1238,34 @@ function shipping_address_cart(id){
 	});
 	//var dlg_address = $.dialog('newadds-frm'), 
 	//	dlg_address1 = $.dialog('editadds-frm'), 
-		$tpl = $('#address_tmpl').remove();
+		//$tpl = $('#address_tmpl').remove();
 //	dlg_address.$obj.trigger('reset').find('.ltit').text(gettext('Add Shipping Address')).end().find('.ltxt dt').html('<b>'+gettext('New Shipping Address')+'</b><small>'+gettext('We ships worldwide with global delivery services.')+'</small>');
 		//	dlg_address.open();
 
 			//setTimeout(function(){dlg_address.$obj.find(':text:first').focus()},10);
 }
 
+function delete_shipping_address_cart(id, isdefault){
+			debugger;
+			var $id = id;
+			event.preventDefault();
+
+			if(isdefault) return alert('You cannot remove your default address.');
+			if(!confirm('Do you really want to remove this shipping address?')) return;
+			$.ajax({
+				type : 'post',
+				url  : baseURL+'site/user_settings/remove_shipping_addr',
+				data : {id:$id},
+				dataType : 'json',
+				success  : function(json){
+					if(json.status_code === 1){
+						$("#" + id).fadeOut('fast', function(){$("#" + id).remove()});
+					} else if (json.status_code === 0){
+						if(json.message) alert(json.message);
+					}
+				}
+			})
+}
 
 //Coupon code Used
 
