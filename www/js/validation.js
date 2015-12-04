@@ -658,6 +658,42 @@ function updateUserPhoto(){
 		$('#profile_settings_form').submit();
 	}
 }
+function updateUserDoc1(){
+	//$('#save_profile_image').disable();
+	if($('#uploadavatar-doc1').val()==''){
+		alert('Choose a image to upload');
+		$('#save_profile_image').removeAttr('disabled');
+		return false;
+	}else{
+		$('#profile_settings_form').removeAttr('onSubmit');
+		$('#profile_settings_form').submit();
+	}
+}
+
+function updateUserDoc2(){
+	//$('#save_profile_image').disable();
+	if($('#uploadavatar-doc2').val()==''){
+		alert('Choose a image to upload');
+		$('#save_profile_image').removeAttr('disabled');
+		return false;
+	}else{
+		$('#profile_settings_form').removeAttr('onSubmit');
+		$('#profile_settings_form').submit();
+	}
+}
+
+function updateUserDoc3(){
+	//$('#save_profile_image').disable();
+	if($('#uploadavatar-doc3').val()==''){
+		alert('Choose a image to upload');
+		$('#save_profile_image').removeAttr('disabled');
+		return false;
+	}else{
+		$('#profile_settings_form').removeAttr('onSubmit');
+		$('#profile_settings_form').submit();
+	}
+}
+
 function deleteUserPhoto(){
 	//$('#delete_profile_image').disable();
 	var res = window.confirm('Are you sure?');

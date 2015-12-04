@@ -98,6 +98,24 @@ class User_settings extends MY_Controller {
 				$condition = array('id'=>$this->checkLogin('U'));
 				$this->user_model->update_details(USERS,$dataArr,$condition);
 				redirect('image-crop/'.$this->checkLogin('U'));
+			}else if ( $this->upload->do_upload('docone-file')){
+				$imgDetails = $this->upload->data();
+				$dataArr['doc1'] = $imgDetails['file_name'];
+				$condition = array('id'=>$this->checkLogin('U'));
+				$this->user_model->update_details(USERS,$dataArr,$condition);
+				redirect(base_url().'settings');
+			}else if ( $this->upload->do_upload('docsecond-file')){
+				$imgDetails = $this->upload->data();
+				$dataArr['doc2'] = $imgDetails['file_name'];
+				$condition = array('id'=>$this->checkLogin('U'));
+				$this->user_model->update_details(USERS,$dataArr,$condition);
+				redirect(base_url().'settings');
+			}else if ( $this->upload->do_upload('docthird-file')){
+				$imgDetails = $this->upload->data();
+				$dataArr['doc3'] = $imgDetails['file_name'];
+				$condition = array('id'=>$this->checkLogin('U'));
+				$this->user_model->update_details(USERS,$dataArr,$condition);
+				redirect(base_url().'settings');
 			}else {
 				$this->setErrorMessage('error',strip_tags($this->upload->display_errors()));
 			}
