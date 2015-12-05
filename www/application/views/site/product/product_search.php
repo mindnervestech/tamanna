@@ -243,8 +243,8 @@ $this->load->view('site/templates/header_new');
 											?>
 											<div class="d_block">
 											<a href="things/<?php echo $productListVal->id;?>/<?php echo url_title($productListVal->product_name,'-');?>">
-												<img src="images/product/<?php echo $img; ?>" alt="" class="c_image_1 tr_all">
-												<img src="images/product/<?php echo $img; ?>" alt="" class="c_image_2 tr_all">
+												<img src="images/product/<?php echo $img; ?>" alt="<?php echo $productListVal->product_name;?>" class="c_image_1 tr_all">
+												<img src="images/product/<?php echo $img; ?>" alt="<?php echo $productListVal->product_name;?>" class="c_image_2 tr_all">
 											</div>
 											<?php if($discPrice != ''){?>
 											<div class="product_label fs_ex_small circle color_white bg_lbrown t_align_c vc_child tt_uppercase"><i class="d_inline_m">Sale!</i></div>

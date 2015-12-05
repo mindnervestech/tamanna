@@ -114,7 +114,7 @@ $this->load->view('site/templates/header_new');
 							<article class="frame_container scale_image_container relative r_image_container">
 								<figure class="relative">
 									<div class="d_block wrapper m_bottom_16 scale_image_container popup_container relative">
-										<img src="<?php echo base_url();?>images/product/<?php echo $img;?>" alt="" class="tr_all scale_image">
+										<img src="<?php echo base_url();?>images/product/<?php echo $img;?>" alt="<?php echo $productDetails->row()->product_name;?>" class="tr_all scale_image">
 										<ul class="open_buttons_container relative hr_list">
 											<li class="m_right_5 tr_all"><a href="<?php echo base_url();?>images/product/<?php echo $img;?>" class="button_type_6 vc_child d_block t_align_c border_white tr_delay jackbox" data-group="related_projects" data-title="<?php echo $productDetails->row()->product_name;?>"><i class="fa fa-plus d_inline_m"></i></a></li>
 											<li class="m_right_5 tr_all"><a href="user/<?php echo $productDetails->row()->user_name;?>/things/<?php echo $seller_affiliate_products_row->seller_product_id;?>/<?php echo url_title($seller_affiliate_products_row->product_name,'-');?>" class="button_type_6 vc_child d_block t_align_c border_white tr_delay"><i class="fa fa-link d_inline_m"></i></a></li>
