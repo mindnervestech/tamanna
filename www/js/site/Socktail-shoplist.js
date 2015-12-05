@@ -76,6 +76,7 @@ jQuery(function($) {
 					}
 				}
 				setTimeout(function() {  
+					initializeQuickViewPopUps()
 					$("#can_change_layout").find('.tooltip_container').tooltip('.tooltip');
 				}, 2000);
 				
@@ -94,6 +95,30 @@ jQuery(function($) {
 			
 		});
 
+		function initializeQuickViewPopUps(){
+			$("[data-popup]").popup({
+
+						afterOpen : function(){
+
+							if($(this).find('.tooltip_container').length){
+
+								$(this).find('.tooltip_container').tooltip('.tooltip').tooltip('.tooltip');
+
+							}
+
+							$('.addthis_button_compact').off('mouseenter.top').off('mousemove.top').on('mouseenter.top mousemove.top',function(){
+
+								var $this = $(this);
+
+								setTimeout(function(){$('#at15s').css('top',$this.offset().top + 34)},4);
+
+							});
+
+						}
+
+					});
+		}
+		
 		function inViewport(el){
 			return (stTop + el.offsetTop + el.offsetHeight > scTop + headerH) && (stTop + el.offsetTop < scTop + winH);
 		};

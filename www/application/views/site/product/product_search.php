@@ -249,7 +249,115 @@ $this->load->view('site/templates/header_new');
 											<?php if($discPrice != ''){?>
 											<div class="product_label fs_ex_small circle color_white bg_lbrown t_align_c vc_child tt_uppercase"><i class="d_inline_m">Sale!</i></div>
 											<?php } ?>
-											<a data-popup="#quick_view" data-popup-transition-in="bounceInUp" data-popup-transition-out="bounceOutUp" class="tr_all color_white second_font qv_style_button quick_view tt_uppercase t_align_c d_block clickable d_xs_none"><i class="fa fa-eye d_inline_m m_right_10"></i><span class="fs_medium">Quick View</span></a>
+											<a data-popup="#quick_view" data-popup-transition-in="bounceInUp" data-popup-transition-out="bounceOutUp" class="productquickview tr_all color_white second_font qv_style_button quick_view tt_uppercase t_align_c d_block clickable d_xs_none"><i class="fa fa-eye d_inline_m m_right_10"></i><span class="fs_medium">Quick View</span>
+											</a>
+											<div class="popupHiddenInfo" style="display:none">
+												<span class="imgUrl">images/product/<?php echo $img; ?></span>
+												<span class="productName"><?php echo $productListVal->product_name;?></span>
+												<span class="dispatched"> 
+													<?php $shipping = $productListVal->shipping;?>
+													 <?php	
+														switch($shipping)
+													   {
+
+														case '1': 
+															echo stripslashes($this->lang->line('shipping_in_option_first')); 
+														break;
+
+														case '2':
+															echo stripslashes($this->lang->line('shipping_in_option_second')); 
+														break;
+
+														case '3':
+															echo stripslashes($this->lang->line('shipping_in_option_third')); 
+														break;
+
+														case '4':
+															echo stripslashes($this->lang->line('shipping_in_option_fourth')); 
+														break;
+
+
+														case '5':
+															echo stripslashes($this->lang->line('shipping_in_option_fifth')); 
+														break;
+
+
+														case '6':
+															echo stripslashes($this->lang->line('shipping_in_option_sixth')); 
+														break;
+													   }
+													   ?>
+												
+												</span>
+												<span class="shippingCost"><?php echo $currencySymbol;?> <?php echo $productListVal->shipping_cost;?></span>
+												<span class="skuCode"><?php echo $productListVal->sku;?></span>
+												<span class="saleprice"><?php echo number_format($productListVal->sale_price);?></span>
+												
+												<?php if ($productListVal->price>$productListVal->sale_price){ ?>
+													<span class="oldPrice"><?php echo $currencySymbol;?><?php echo number_format($productListVal->price); ?></span>
+
+													<span class="youSave"><?php echo $currencySymbol;?><?php echo number_format($productListVal->price-$productListVal->sale_price); ?></span>
+												<?php }?>
+												
+												<span class="discountCoupen">
+													<?php
+														$prodID = $productListVal->id;
+														$origPrice = $productListVal->sale_price;
+														$userId = $productListVal->user_id;
+														$catId = $productListVal->category_id;
+
+															$couponCode = '';
+															$discVal = 0.00;
+															$discPrice = '';
+															$discDesc = '';
+															$resultArr = $this->product_model->getDiscountedDetails($prodID,$origPrice,$userId,$catId);
+															$couponCode = $resultArr['coupon_code'];
+															$discPrice = $resultArr['disc_price'];
+															$discVal = $resultArr['disc_percent'];
+															$discDesc = $resultArr['disc_desc'];    
+															
+														
+														?>
+												<!-- vinit code end -->
+												<input type="hidden" class="option number" name="product_id" id="product_id" value="<?php echo $productListVal->id;?>">
+												<input type="hidden" class="option number" name="cateory_id" id="cateory_id" value="<?php echo $productListVal->category_id;?>">                
+												<input type="hidden" class="option number" name="sell_id" id="sell_id" value="<?php echo $productListVal->user_id;?>">
+												<input type="hidden" class="option number" name="price" id="price" value="<?php echo $productListVal->sale_price;?>">
+												<input type="hidden" class="option number" name="product_shipping_cost" id="product_shipping_cost" value="<?php echo $productListVal->shipping_cost;?>"> 
+												<input type="hidden" class="option number" name="product_tax_cost" id="product_tax_cost" value="<?php echo $productListVal->tax_cost;?>">
+												<input type="hidden" class="option number" name="attribute_values" id="attribute_values" value="<?php echo $attrValsSetLoad; ?>">
+											<?php if($discPrice != ''){?>
+
+														<div class="m_top_2 m_bottom_6"><span class="fw_light d_inline_m m_right_5">Use Coupon Code <div style="color: #ec1e20;font-size:13px;display:inline-block;">"<?php echo $couponCode;?>"</div> to Get Additional <?php echo number_format($discVal);?>% DIscount</span></div>
+
+											<?php }?>
+												</span>
+												
+												<span class="productDescription"><?php echo $productListVal->description;?></span>
+												
+												<span class="smallImages">
+													<?php 
+														$limitCount = 0;
+														$imgArr = explode(',', $productListVal->image);
+														if (count($imgArr)>0){
+															foreach ($imgArr as $imgRow){
+																if ($limitCount>3)break;
+																if ($imgRow != '' && $imgRow != $pimg){
+																	$limitCount++;
+														?>
+															<div class="owl-item" style="width: 93.333px; margin-right: 10px;">
+															<a href="<?php echo base_url().PRODUCTPATH.$imgRow;?>" data-image="<?php echo base_url().PRODUCTPATH.$imgRow;?>" data-zoom-image="<?php echo base_url().PRODUCTPATH.$imgRow;?>" class="d_block">
+																<img src="<?php echo base_url().PRODUCTPATH.$imgRow;?>" alt="">
+															</a></div>
+														<?php 
+																			}
+																						}
+																									  }
+													?>
+											</span>
+	
+											</div>
+
 										</div>
 										<figcaption class="bg_white relative p_bottom_0">
 												<div class="t_align_c">
@@ -319,14 +427,14 @@ $this->load->view('site/templates/header_new');
 		<!--back to top-->
 		<button class="back_to_top animated button_type_6 grey state_2 d_block black_hover f_left vc_child tr_all"><i class="fa fa-angle-up d_inline_m"></i></button>
 
+		
 		<!--popup-->
 		<div class="init_popup" id="quick_view">
 			<div class="popup init">
 				<div class="clearfix">
 					<div class="product_preview f_left f_xs_none wrapper m_xs_bottom_15">
 						<div class="d_block relative r_image_container">
-							<img id="zoom" src="images/product/<?php echo $img; ?>" alt="<?php echo $productListVal->product_name;?>" data-zoom-image="images/product/<?php echo $img; ?>">
-							<div class="product_label fs_ex_small circle color_white bg_lbrown t_align_c vc_child tt_uppercase"><i class="d_inline_m">Sale!</i></div>
+							<img id="zoom" src="images/product_img_0.jpg" alt="" data-zoom-image="images/p_image1.jpg">
 						</div>
 						<!--thumbnails-->
 						<div class="product_thumbnails_wrap relative m_bottom_3">
@@ -349,133 +457,53 @@ $this->load->view('site/templates/header_new');
 								"margin" : 10,
 								"URLhashListener" : false
 							}'>	
-										<?php 
-										$limitCount = 0;
-										$imgArr = explode(',', $productListVal->image);
-										if (count($imgArr)>0){
-											foreach ($imgArr as $imgRow){
-												if ($limitCount>5)break;
-												if ($imgRow != '' && $imgRow != $pimg){
-													$limitCount++;
-										?>
-											<a href="<?php echo base_url().PRODUCTPATH.$imgRow;?>" data-image="<?php echo base_url().PRODUCTPATH.$imgRow;?>" data-zoom-image="<?php echo base_url().PRODUCTPATH.$imgRow;?>" class="d_block">
-												<img src="<?php echo base_url().PRODUCTPATH.$imgRow;?>" alt="">
-											</a>
-										<?php 
-															}
-																		}
-																					  }
-										?>
+
+
 							</div>
-							<?php 
-							if (count($imgArr)>2){ ?>
-								<button class="thumbnails_product_prev black_hover button_type_4 grey state_2 tr_all d_block vc_child"><i class="fa fa-angle-left d_inline_m"></i></button>
-								<button class="thumbnails_product_next black_hover button_type_4 grey state_2 tr_all d_block vc_child"><i class="fa fa-angle-right d_inline_m"></i></button>
-							<?php 				}
-							?>
+							<button class="thumbnails_product_prev black_hover button_type_4 grey state_2 tr_all d_block vc_child"style="display:none"><i class="fa fa-angle-left d_inline_m"></i></button>
+							<button class="thumbnails_product_next black_hover button_type_4 grey state_2 tr_all d_block vc_child"style="display:none"><i class="fa fa-angle-right d_inline_m"></i></button>
 						</div>
 					</div>
 					<div class="product_description f_left f_xs_none">
-						<h3 class="second_font m_bottom_3 product_title"><a href="things/<?php echo $productListVal->id;?>/<?php echo url_title($productListVal->product_name,'-');?>" class="sc_hover"><?php echo $productListVal->product_name;?></a></h3>
+						<h3 class="second_font m_bottom_3 product_title"><a href="#" class="sc_hover" id="product_name"></a></h3>
 						<ul class="m_bottom_14">
-										<li class="m_bottom_3"><span class="project_list_title second_font d_inline_b">Dispatched in:</span> <span class="color_dark fw_light"><?php $shipping = $productListVal->shipping;?>
-										 <?php	
-											switch($shipping)
-										   {
-
-											case '1': 
-												echo stripslashes($this->lang->line('shipping_in_option_first')); 
-											break;
-
-											case '2':
-												echo stripslashes($this->lang->line('shipping_in_option_second')); 
-											break;
-
-											case '3':
-												echo stripslashes($this->lang->line('shipping_in_option_third')); 
-											break;
-
-											case '4':
-												echo stripslashes($this->lang->line('shipping_in_option_fourth')); 
-											break;
-
-
-											case '5':
-												echo stripslashes($this->lang->line('shipping_in_option_fifth')); 
-											break;
-
-
-											case '6':
-												echo stripslashes($this->lang->line('shipping_in_option_sixth')); 
-											break;
-										   }
-										   ?></span></li>
-										<li class="m_bottom_3"><span class="project_list_title second_font d_inline_b">Shipping Cost:</span><span class="fw_light"> <?php echo $currencySymbol;?> <?php echo $productListVal->shipping_cost;?></span></li>
-										<li class="m_bottom_3"><span class="project_list_title second_font d_inline_b">SKU Code:</span> <span class="fw_light"> <?php echo $productListVal->sku;?></span></li>
+										<li class="m_bottom_3"><span class="project_list_title second_font d_inline_b">Dispatched in:</span> <span class="color_dark fw_light" id="dispatch_in"></span></li>
+										<li class="m_bottom_3"><span class="project_list_title second_font d_inline_b">Shipping Cost:</span> <span class="scheme_color fw_light" id="shipping_cost"></span> </li>
+										<li class="m_bottom_3"><span class="project_list_title second_font d_inline_b">SKU Code:</span> <span class="fw_light" id="sku_Code"></span></li>
 						</ul>
+						
 						<table class="w_full">
-											<tbody>
-												<tr>
-													<td class="scheme_color">
-														<p class="fw_light m_top_5 m_bottom_7 m_xs_top_0 m_xs_bottom_0">Our Price:</p>
-														<b><div><span class="fs_big second_font d_block m_bottom_7 m_xs_bottom_0 fs_sm_default" style="float:left;"><?php echo $currencySymbol;?>&nbsp; </span><span id="SalePrice" class="fs_big second_font d_block m_bottom_7 m_xs_bottom_0 fs_sm_default"> <?php echo number_format($productListVal->sale_price);?></span></div></b>
+							<tbody>
+								<tr>
+									<td class="scheme_color">
+										<p class="fw_light m_top_5 m_bottom_7 m_xs_top_0 m_xs_bottom_0">Our Price:</p>
+										<b><div><span class="fs_big second_font d_block m_bottom_7 m_xs_bottom_0 fs_sm_default" style="float:left;"><?php echo $currencySymbol;?>&nbsp; </span><span id="sale_Price" class="fs_big second_font d_block m_bottom_7 m_xs_bottom_0 fs_sm_default"> </span></div></b>
 													</td>
-													<?php if ($productListVal->price>$productListVal->sale_price){ ?>
-													<td class="color_light">
+													<td class="color_light" id="old_Price_td">
 														<p class="fw_light m_top_5 m_bottom_7 m_xs_top_0 m_xs_bottom_0">Old Price:</p>
-														<b class="fs_big second_font d_block m_bottom_7 m_xs_bottom_0 fs_sm_default"><?php echo $currencySymbol;?><?php echo number_format($productListVal->price); ?></b>
+														<b class="fs_big second_font d_block m_bottom_7 m_xs_bottom_0 fs_sm_default" id="old_Price"></b>
 													</td>
-													<td class="color_blue">
+													<td class="color_blue" id="you_Save_td">
 														<p class="fw_light m_top_5 m_bottom_7 m_xs_top_0 m_xs_bottom_0">You Save:</p>
-														<b class="fs_big second_font d_block m_bottom_7 m_xs_bottom_0 fs_sm_default"><?php echo $currencySymbol;?><?php echo number_format($productListVal->price-$productListVal->sale_price); ?></b>
+														<b class="fs_big second_font d_block m_bottom_7 m_xs_bottom_0 fs_sm_default" id="you_Save"></b>
 													</td>
-													<?php }?>												
 												</tr>
-												<!-- vinit code start -->
-												<?php
-														$prodID = $productListVal->id;
-														$origPrice = $productListVal->sale_price;
-														$userId = $productListVal->user_id;
-														$catId = $productListVal->category_id;
-
-															$couponCode = '';
-															$discVal = 0.00;
-															$discPrice = '';
-															$discDesc = '';
-															$resultArr = $this->product_model->getDiscountedDetails($prodID,$origPrice,$userId,$catId);
-															$couponCode = $resultArr['coupon_code'];
-															$discPrice = $resultArr['disc_price'];
-															$discVal = $resultArr['disc_percent'];
-															$discDesc = $resultArr['disc_desc'];    
-															
-														
-														?>
-												<!-- vinit code end -->
-												<input type="hidden" class="option number" name="product_id" id="product_id" value="<?php echo $productListVal->id;?>">
-												<input type="hidden" class="option number" name="cateory_id" id="cateory_id" value="<?php echo $productListVal->category_id;?>">                
-												<input type="hidden" class="option number" name="sell_id" id="sell_id" value="<?php echo $productListVal->user_id;?>">
-												<input type="hidden" class="option number" name="price" id="price" value="<?php echo $productListVal->sale_price;?>">
-												<input type="hidden" class="option number" name="product_shipping_cost" id="product_shipping_cost" value="<?php echo $productListVal->shipping_cost;?>"> 
-												<input type="hidden" class="option number" name="product_tax_cost" id="product_tax_cost" value="<?php echo $productListVal->tax_cost;?>">
-												<input type="hidden" class="option number" name="attribute_values" id="attribute_values" value="<?php echo $attrValsSetLoad; ?>">
-											<?php if($discPrice != ''){?>
 												<tr>
-													<td colspan="3" class="bg_blue border_blue color_white">
-														<div class="m_top_2 m_bottom_6"><span class="fw_light d_inline_m m_right_5">Use Coupon Code <div style="color: #ec1e20;font-size:13px;display:inline-block;">"<?php echo $couponCode;?>"</div> to Get Additional <?php echo number_format($discVal);?>% DIscount</span></div>
+													<td colspan="3" class="bg_blue border_blue color_white" id="discount_Coupen">		
 													</td>
 												</tr>
-											<?php }?>
+												
 											</tbody>
 						</table>
-                
+						
 						<hr class="divider_light m_bottom_15">
-						<p class="fw_light m_bottom_14 color_grey"><?php echo $productListVal->description;?></p>
-					</div>
-				</div>
+						<span class="fw_light m_bottom_14 color_grey" id="product_Description"></span>
 				<button class="close_popup fw_light fs_large tr_all">x</button>
 			</div>
 		</div>
-
+		
+		
+		
 		<!--libs include-->
 		<script src="plugins/jquery-ui.min.js"></script>
 		<script src="plugins/isotope.pkgd.min.js"></script>

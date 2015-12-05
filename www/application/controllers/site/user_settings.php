@@ -87,9 +87,9 @@ class User_settings extends MY_Controller {
 			$config['overwrite'] = FALSE;
 			$config['remove_spaces'] = TRUE;
 			$config['allowed_types'] = 'jpg|jpeg|gif|png';
-			$config['max_size'] = 2000;
-			$config['max_width']  = '600';
-			$config['max_height']  = '600';
+			$config['max_size'] = 20000;
+			$config['max_width']  = '1200';
+			$config['max_height']  = '1200';
 			$config['upload_path'] = './images/users';
 			$this->load->library('upload', $config);
 			if ( $this->upload->do_upload('upload-file')){

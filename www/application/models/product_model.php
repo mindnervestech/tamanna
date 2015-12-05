@@ -432,7 +432,7 @@ class Product_model extends My_Model
 	}
 
 	public function searchShopyByCategoryuser($userWherCond) {
-		$sel = 'select p.*, u.user_name, u.full_name, u.email, u.thumbnail,u.s_city, u.s_state, u.brand_name, u.brand_description,u.followers_count,u.about,u.s_phone_no from '.USER_PRODUCTS.' p
+		$sel = 'select p.*, u.user_name, u.full_name, u.email, u.thumbnail,u.s_city, u.s_state,u.s_address, u.brand_name, u.brand_description,u.followers_count,u.about,u.s_phone_no from '.USER_PRODUCTS.' p
 		 		LEFT JOIN '.USERS.' u on u.id=p.user_id 
 		 		'.$userWherCond.' ';
 		return $this->ExecuteQuery($sel);
