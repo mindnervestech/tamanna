@@ -198,8 +198,8 @@ $this->load->view('site/templates/header_new');
 												<!--image & buttons & label-->
 												<div class="relative">
 													<a href="<?php echo $prodLink;?>" class="d_block">
-														<img src="images/product/<?php echo $img; ?>" alt="" class="c_image_1 tr_all">
-														<img src="images/product/<?php echo $img; ?>" alt="" class="c_image_2 tr_all">
+														<img src="images/product/<?php echo $img; ?>" alt="<?php echo $productArr[$i]->product_name; ?>" class="c_image_1 tr_all">
+														<img src="images/product/<?php echo $img; ?>" alt="<?php echo $productArr[$i]->product_name; ?>" class="c_image_2 tr_all">
 													</a>
 												</div>
 												<figcaption class="bg_white relative t_align_c">
@@ -288,8 +288,8 @@ $this->load->view('site/templates/header_new');
 												<!--image & buttons & label-->
 												<div class="relative">
 													<a href="<?php echo $prodLink;?>" class="d_block">
-														<img src="images/product/<?php echo $img; ?>" alt="" class="c_image_1 tr_all">
-														<img src="images/product/<?php echo $img; ?>" alt="" class="c_image_2 tr_all">
+														<img src="images/product/<?php echo $img; ?>" alt="<?php echo $productArr[$i]->product_name; ?>" class="c_image_1 tr_all">
+														<img src="images/product/<?php echo $img; ?>" alt="<?php echo $productArr[$i]->product_name; ?>" class="c_image_2 tr_all">
 													</a>
 												</div>
 												<figcaption class="bg_white relative t_align_c">
