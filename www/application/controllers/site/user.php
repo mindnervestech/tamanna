@@ -1590,8 +1590,64 @@ exit();
 					$datestring = "%Y-%m-%d %h:%i:%s";
 					$time = time();
 					$createdTime = mdate($datestring,$time);
+					$img1 = "";
+					$img2 = "";
+					$img3 = "";
+					$img4 = "";
+					$img5 = "";
+					
+					
+					$config['overwrite'] = FALSE;
+					$config['remove_spaces'] = TRUE;
+					$config['allowed_types'] = 'jpg|jpeg|gif|png';
+					$config['max_size'] = 20000;
+					$config['max_width']  = '1200';
+					$config['max_height']  = '1200';
+					$config['upload_path'] = './images/users/custom';
+					$this->load->library('upload', $config);
+					if ( $this->upload->do_upload('customImage_one')){
+						$imgDetails = $this->upload->data();
+						$img1 = $imgDetails['file_name'];
+					}else {
+						$this->setErrorMessage('error',strip_tags($this->upload->display_errors()));
+						redirect(base_url().'customization-request');
+					}
+					
+					if ( $this->upload->do_upload('customImage_two')){
+						$imgDetails2 = $this->upload->data();
+						$img2 = $imgDetails2['file_name'];
+					}else {
+						$this->setErrorMessage('error',strip_tags($this->upload->display_errors()));
+						redirect(base_url().'customization-request');
+					}
+					
+					if ( $this->upload->do_upload('customImage_three')){
+						$imgDetails3 = $this->upload->data();
+						$img3 = $imgDetails3['file_name'];
+					}else {
+						$this->setErrorMessage('error',strip_tags($this->upload->display_errors()));
+						redirect(base_url().'customization-request');
+					}
+					
+					if ( $this->upload->do_upload('customImage_four')){
+						$imgDetails4 = $this->upload->data();
+						$img4 = $imgDetails4['file_name'];
+					}else {
+						$this->setErrorMessage('error',strip_tags($this->upload->display_errors()));
+						redirect(base_url().'customization-request');
+					}
+					
+					if ( $this->upload->do_upload('customImage_five')){
+						$imgDetails5 = $this->upload->data();
+						$img5 = $imgDetails5['file_name'];
+					}else {
+						$this->setErrorMessage('error',strip_tags($this->upload->display_errors()));
+						redirect(base_url().'customization-request');
+					}
+
+					
 				$customArr = array(
-					'status'	=>	'Pending',
+										 'status'	=>	'Pending',
                                          'project_name' => $this->input->post('project_name'),
                                          'email' => $this->input->post('email'),
                                          'phone_no' => $this->input->post('phone_no'),
@@ -1600,13 +1656,20 @@ exit();
                                          'color' => $this->input->post('color'),
                                          'material' => $this->input->post('material'),
 										 'city' => $this->input->post('city'),
-                                         'created' => $createdTime
+                                         'created' => $createdTime,
+										 'pic1' => $img1,
+										 'pic2' => $img2,
+										 'pic3' => $img3,
+ 										 'pic4' => $img4,
+ 										 'pic5' => $img5
 					);
 					$this->user_model->simple_insert(CUSTOM,$customArr);					
                     $this->send_custom_request_noty_mail();
 					$this->load->view('site/user/request_received',$this->data);
 
 	}
+	
+	
 	/* Send notification mail for customization request */
 		public function send_custom_request_noty_mail(){
 							$subject = 'Customization Request';
@@ -1991,7 +2054,16 @@ $message.='</td>
 			}
 		}
 	}
-
+	//store User location in session
+	public function add_user_locationtosession(){
+		$returnStr['status_code'] = 1;
+		$userlocation = array(
+								'long' => $this->input->post('lng'),
+								'lat' => $this->input->post('lat')
+				);
+		$this->session->set_userdata("location",$userlocation);
+		echo json_encode($this->session->userdata('location'));
+	}
 	public function display_user_lists_followers(){
 		$lid = $this->uri->segment('4','0');
 		$uname = $this->uri->segment('2','0');

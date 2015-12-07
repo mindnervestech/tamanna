@@ -27,6 +27,10 @@ class User_model extends My_Model
    
     $api_id = $this->input->post('api_id');
 	$thumbnail = $this->input->post('thumbnail');
+	$doc1 = $this->input->post('doc1');
+	$doc2 = $this->input->post('doc2');
+	$doc3 = $this->input->post('doc3');
+
 	
 	if($thumbnail != '')
 		$thumbnail = $thumbnail;

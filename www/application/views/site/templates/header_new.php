@@ -223,3 +223,4 @@
 			
 		<!--Page Js-->
 		<script src="js/site/header_new_searchbox.js"></script>
+		<script src="js/site/capture_user_location.js"></script>
