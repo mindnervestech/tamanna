@@ -10,26 +10,31 @@ margin-bottom: 50px;
 			<div class="page_section_offset m_bottom_50" style="padding: 0 0 25px;">
 				<div class="container">
 					<div class="row">
-						<aside class="col-lg-4 col-md-4 col-sm-4 p_top_4">
+						<aside class="col-lg-2 col-md-2 col-sm-2 p_top_4">
 						</aside>
-						<section class="col-lg-4 col-md-4 col-sm-4">
+						<section class="col-lg-8 col-md-8 col-sm-8">
 							<div id="container-wrapper">
 									<div id="content">
+										<h2 class="fw_light second_font color_dark m_bottom_27 tt_uppercase t_align_c"><?php echo "Customization Request"; ?></h2>
+										<h5 class="fw_light second_font color_dark m_bottom_27 tt_uppercase t_align_c"><?php echo "Tell Us Your Customization Requirements "; ?></h5>
+
+										
 										<?php if($flash_data != '') { ?>
 											<div class="errorContainer" id="<?php echo $flash_data_type;?>">
 												<script>setTimeout("hideErrDiv('<?php echo $flash_data_type;?>')", 3000);</script>
 												<p><span><?php echo $flash_data;?></span></p>
 											</div>
 										<?php } ?>
+									 
 										<section class="merchant">
-											<h2 class="fw_light second_font color_dark m_bottom_27 tt_uppercase t_align_c"><?php echo "Customization Request"; ?></h2>
-											<h5 class="fw_light second_font color_dark m_bottom_27 tt_uppercase t_align_c"><?php echo "Tell Us Your Customization Requirements "; ?></h5>
 											<form action="site/user/custom_request_submit" method="post" id="custom_request" onsubmit="return validateForm();">
 												<div class="error-box" style="display:none;">
 													<p><?php if($this->lang->line('seller_some_requi') != '') { echo stripslashes($this->lang->line('seller_some_requi')); } else echo "Some required information is missing or incomplete. Please correct your entries and try again"; ?>.</p>
 													<ul></ul>
 												</div>
-												<ul class="m_bottom_14">
+												<div class="row">
+												<section class="col-lg-6 col-md-6 col-sm-6">
+												 <ul class="m_bottom_14">
 													<li class="m_bottom_15">
 														<label for="" class="label second_font m_bottom_4 d_inline_b fs_medium"><?php echo "Project Name"; ?><sup style="color: red;">*</sup></label>
 														<input type="text" name="project_name" id="project_name" class="w_full tr_all" />
@@ -53,29 +58,40 @@ margin-bottom: 50px;
 														</div>
 												<!--		<input type="text" name="project_description" id="project_description" style="height:100px;" class="w_full tr_all"/> -->
 													</li>
-													<li class="m_bottom_15">
-														<label for="" class="label second_font m_bottom_4 d_inline_b fs_medium"><?php echo "City"; ?></label>
-														<input type="text" name="city" id="city" class="w_full tr_all"/>
-													</li>
-													<li class="m_bottom_15">
-														<label for="" class="label second_font m_bottom_4 d_inline_b fs_medium"><?php echo "Your Phone Number"; ?><sup style="color: red;">*</sup></label>
-														<input type="text" name="phone_no" id="phone_no"  class="w_full tr_all"/>
-													</li>
-													<li class="m_bottom_15">
-														<label for="" class="label second_font m_bottom_4 d_inline_b fs_medium"><?php echo "Your Email ID"; ?><sup style="color: red;">*</sup></label>
-														<input type="text" name="email" id="email"  class="w_full tr_all"/>
-													</li>
+														<li class="m_bottom_15">
+															<label for="" class="label second_font m_bottom_4 d_inline_b fs_medium"><?php echo "City"; ?></label>
+															<input type="text" name="city" id="city" class="w_full tr_all"/>
+														</li>
+														<li class="m_bottom_15">
+															<label for="" class="label second_font m_bottom_4 d_inline_b fs_medium"><?php echo "Your Phone Number"; ?><sup style="color: red;">*</sup></label>
+															<input type="text" name="phone_no" id="phone_no"  class="w_full tr_all"/>
+														</li>
+														<li class="m_bottom_15">
+															<label for="" class="label second_font m_bottom_4 d_inline_b fs_medium"><?php echo "Your Email ID"; ?><sup style="color: red;">*</sup></label>
+															<input type="text" name="email" id="email"  class="w_full tr_all"/>
+														</li>													
 												</ul>
-												<div class="btn-area">
-													<button class="btn-green t_align_c tt_uppercase w_full second_font d_block fs_medium button_type_2 lbrown tr_all" id="sign-up" re-url="/sales/create?ntid=7220865&amp;ntoid=15301425" ><?php echo "Submit Request"; ?></button>
-												</div>
+												 </section>
+												 <section class="col-lg-6 col-md-6 col-sm-6">
+													<ul class="m_bottom_14">
+
+													</ul>													
+												 </section>
+												 <section class="col-lg-12 col-md-12 col-sm-12">
+													<div class="btn-area">
+														<button class="btn-green t_align_c tt_uppercase w_full second_font d_block fs_medium button_type_2 lbrown tr_all" id="sign-up" re-url="/sales/create?ntid=7220865&amp;ntoid=15301425" ><?php echo "Submit Request"; ?></button>
+													</div>												 
+												 </section>
+
+											 </div>
 											</form>
 										</section>
 										<hr />
+
 									</div>
 							</div>
 						</section>
-						<aside class="col-lg-4 col-md-4 col-sm-4 p_top_4">
+						<aside class="col-lg-2 col-md-2 col-sm-2 p_top_4">
 						</aside>
 					</div>
 				</div>
