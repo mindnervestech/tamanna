@@ -186,7 +186,18 @@ $this->load->view('site/templates/header_new_small');
 													</li>
 													<li class="m_bottom_15">
 														<label for="username" class="second_font m_bottom_4 d_inline_b fs_medium">Location</label>
-														<input id="loc" class="setting_location w_full tr_all" name="setting-location" value="<?php echo $userDetails->row()->location;?>"" class="text" placeholder="<?php if($this->lang->line('settings_eg_new') != '') { echo stripslashes($this->lang->line('settings_eg_new')); } else echo "e.g. Mumbai"; ?>" type="text">
+														<!--<input id="loc" class="setting_location w_full tr_all" name="setting-location" value="<?php echo $userDetails->row()->location;?>"" class="text" placeholder="<?php if($this->lang->line('settings_eg_new') != '') { echo stripslashes($this->lang->line('settings_eg_new')); } else echo "e.g. Mumbai"; ?>" type="text"> -->
+														
+													<br>				
+													 <select class="setting_location  selectBox select-round select-shipping-addr select_title fs_medium fw_light color_light relative tr_all">
+
+														<option value=""><?php echo "Select Location"; ?></option>									 
+													   <?php foreach ($locations->result() as $location){ ?>
+								 
+														<option <?php if($userDetails->row()->location==$location->id){ echo 'selected="selected"'; } ?> value="<?php echo $location->id; ?>"><?php echo $location->cityname; ?></option>
+													   <?php } ?>
+													</select>
+														
 													</li>
 													<li class="clearfix m_bottom_5">
 														<label for="username" class="second_font m_bottom_4 d_inline_b fs_medium">About</label>

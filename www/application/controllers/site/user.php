@@ -15,6 +15,8 @@ class User extends MY_Controller {
 		$this->load->library(array('encrypt','form_validation'));
 		$this->load->library('twconnect');
 		$this->load->model(array('user_model','product_model'));
+		$this->load->model('seller_location_model');
+		
 		if($_SESSION['sMainCategories'] == ''){
 			$sortArr1 = array('field'=>'cat_position','type'=>'asc');
 			$sortArr = array($sortArr1);
@@ -1573,7 +1575,8 @@ exit();
 			redirect(base_url());
 		}else {
 			$this->data['heading'] = 'Seller Signup';
-                        $this->data['ProfCatList'] = $this->user_model->getCategoriesMain();
+			$this->data['locations'] = $this->seller_location_model->get_sellerlocation_details();
+            $this->data['ProfCatList'] = $this->user_model->getCategoriesMain();
 			$this->load->view('site/user/seller_register',$this->data);
 		}
 	}

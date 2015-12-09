@@ -13,6 +13,7 @@ class User_settings extends MY_Controller {
 		$this->load->helper(array('cookie','date','form','email'));
 		$this->load->library(array('encrypt','form_validation','pagination'));
 		$this->load->model('user_model');
+		$this->load->model('seller_location_model');
 		$this->load->model('commission_model','commission');
 
 		if($_SESSION['sMainCategories'] == ''){
@@ -35,6 +36,7 @@ class User_settings extends MY_Controller {
 			redirect(base_url().'login');
 		}else {
 			$this->data['heading'] = 'Settings';
+			$this->data['locations'] = $this->seller_location_model->get_sellerlocation_details();
 			$this->load->view('site/user/settings',$this->data);
 		}
 	}

@@ -50,7 +50,16 @@ $this->load->view('site/templates/header_new_small');
 													</li>
 													<li class="m_bottom_15">
 														<label for="username" class="second_font m_bottom_4 d_inline_b fs_medium">City *</label>
-														<input type="text" name="s_city" id="s_city" class="w_full tr_all">
+														<input type="text" name="s_city" id="s_city" class="w_full tr_all" style="display:none">
+														<br>
+														<select id="s_city_dropdown" class="selectBox select-round select-shipping-addr select_title fs_medium fw_light color_light relative tr_all">
+
+														<option value=""><?php echo "Select Location"; ?></option>									 
+													   <?php foreach ($locations->result() as $location){ ?>
+								 
+														<option  value="<?php echo $location->id; ?>"><?php echo $location->cityname; ?></option>
+													   <?php } ?>
+													</select>
 													</li>
 													<li class="m_bottom_15">
 														<label for="username" class="second_font m_bottom_4 d_inline_b fs_medium">State *</label>
@@ -155,6 +164,7 @@ function validateSellerSignup(){
 	//var bank_name = $('#bank_name').val();
 	//var bank_no = $('#bank_no').val();
 	//var bank_code = $('#bank_code').val();
+	
 	if(brand == ''){
 		alert('Brand name required');
 		$('#brand_name').focus();
@@ -167,9 +177,9 @@ function validateSellerSignup(){
 		alert('Adrress required');
 		$('#s_address').focus();
 		return false;
-	}else if(city == ''){
+	}else if($("#s_city_dropdown").val() == ''){
 		alert('City name required');
-		$('#s_city').focus();
+		$('#s_city_dropdown').focus();
 		return false;
 	}else if(state == ''){
 		alert('State name required');
@@ -200,6 +210,9 @@ function validateSellerSignup(){
 		$('#bank_code').focus();
 		return false;
 	}*/
+	if($("#s_city_dropdown").val() != ''){
+		$('#s_city').val($("#s_city_dropdown").val());
+	}
 }
 
 </script>

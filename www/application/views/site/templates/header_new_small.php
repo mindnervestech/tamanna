@@ -140,3 +140,5 @@
 					</div>
 				</div>
 			</header>
+		<!--Page Js-->
+		<script src="js/site/capture_user_location.js"></script>
