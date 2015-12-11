@@ -95,6 +95,8 @@ define('UPLOAD_REQ',	 				TBL_PREF.'upload_requests');
 define('CONTACTSELLER', 				TBL_PREF.'contact_seller');
 define('CUSTOM', 						TBL_PREF.'custom_request');
 define('SELLER_LOCATION', 						TBL_PREF.'seller_location');
+define('DEFAULT_LAT', 						'28.613939');
+define('DEFAULT_LONG', 						'77.209021');
 
 /*
 |--------------------------------------------------------------------------

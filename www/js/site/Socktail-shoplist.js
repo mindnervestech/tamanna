@@ -204,16 +204,36 @@ jQuery(function($) {
 	
 	$('.sort-by-price').change(function(){
 		var sort_by_price = this.value, url = location.pathname, args = $.extend({}, location.args), query;
+		if(sort_by_price == 'location'){
+			$("#exploreLocation").show();
+		}else{
+			$("#exploreLocation").hide();
+			delete args.sort_by_location;
+			if(sort_by_price){
+				args.sort_by_price = sort_by_price;
+			} else {
+				delete args.sort_by_price;
+			}
 
-		if(sort_by_price){
-			args.sort_by_price = sort_by_price;
-		} else {
-			delete args.sort_by_price;
+			if(query = $.param(args)) url += '?'+query;
+
+			loadPage(url);
 		}
 
-		if(query = $.param(args)) url += '?'+query;
+	});
+	
+	$('.sort-by-location').change(function(){
+		var sort_by_location = this.value, url = location.pathname, args = $.extend({}, location.args), query;
+			
+			if(sort_by_location){
+				args.sort_by_location = sort_by_location;
+			} else {
+				delete args.sort_by_location;
+			}
 
-		loadPage(url);
+			if(query = $.param(args)) url += '?'+query;
+
+			loadPage(url);
 	});
 	
 	$('#sort_By_Price_Range').click(function(event){

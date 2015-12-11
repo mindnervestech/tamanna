@@ -2395,7 +2395,7 @@ jQuery(function($){
 						$this
 							.data('req_url', baseURL+'site/product/add_new_thing')
 							.data('img_name', image_info.name)
-							.data('fields', 'name link category list_ids note')
+							.data('fields', 'name link category list_ids note price')
 							.find('.ltit').text(title).end()
 							.find('.controls').hide().end()
 							//.find('#fancy_add-photo_url').val(image_info.name).end()

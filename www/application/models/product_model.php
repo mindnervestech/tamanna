@@ -432,10 +432,34 @@ class Product_model extends My_Model
 	}
 
 	public function searchShopyByCategoryuser($userWherCond) {
-		$sel = 'select p.*, u.user_name, u.full_name, u.email, u.thumbnail,u.s_city, u.s_state,u.s_address, u.brand_name, u.brand_description,u.followers_count,u.about,u.s_phone_no from '.USER_PRODUCTS.' p
+		/*$sel = 'select p.*, u.user_name, u.full_name, u.email, u.thumbnail,u.s_city, u.s_state,u.s_address, u.brand_name, u.brand_description,u.followers_count,u.about,u.s_phone_no from '.USER_PRODUCTS.' p
 		 		LEFT JOIN '.USERS.' u on u.id=p.user_id 
-		 		'.$userWherCond.' ';
+		 		'.$userWherCond.' ';*/
+				
+		$startlat = DEFAULT_LAT;
+		$startlng = DEFAULT_LONG;
+		if($this->session->userdata('location') != 'nolocation'){
+			$startlat = $this->session->userdata('location')['lat'];
+			$startlng = $this->session->userdata('location')['long'];
+		}
+		
+		$sel = 'select p.*, u.user_name, u.full_name, u.email, u.thumbnail,u.s_city, u.s_state,u.s_address, u.brand_name, u.brand_description,u.followers_count,u.about,u.s_phone_no, s.cityname, FLOOR(SQRT(
+				POW(69.1 * (s.latitude - '.$startlat.'), 2) +
+				POW(69.1 * ('.$startlng.' - s.longitude) * COS(s.latitude / 57.3), 2))) AS distance from '.USER_PRODUCTS.' p
+		 		LEFT JOIN '.USERS.' u on u.id=p.user_id 
+				LEFT JOIN '.SELLER_LOCATION.' s on s.id = u.location
+		 		'.$userWherCond.'';
 		/* 
+		
+		// query to set default 1000
+				$sel = 'select p.*, u.user_name, u.full_name, u.email, u.thumbnail,u.s_city, u.s_state,u.s_address, u.brand_name, u.brand_description,u.followers_count,u.about,u.s_phone_no, s.cityname, COALESCE(FLOOR(SQRT(
+				POW(69.1 * (s.latitude - '.$startlat.'), 2) +
+				POW(69.1 * ('.$startlng.' - s.longitude) * COS(s.latitude / 57.3), 2))),1000) AS distance from '.USER_PRODUCTS.' p
+		 		LEFT JOIN '.USERS.' u on u.id=p.user_id 
+				LEFT JOIN '.SELLER_LOCATION.' s on s.id = u.location
+		 		'.$userWherCond.'';
+		//
+		
 		$startlat = $this->session->userdata('location')['lat'];
 		$startlng = $this->session->userdata('location')['long'];
 		
@@ -517,7 +541,8 @@ class Product_model extends My_Model
 			'image'			=>	$image_name,
 			'user_id'		=>	$uid,
 			'seller_product_id' => $seller_product_id,
-			'sale_price' => $fancy_add-price,
+			//'sale_price' => $fancy_add-price,
+			'sale_price' => $this->input->post('price'),
 			'short_url_id'	=>	$urlid
 		);
 		$this->simple_insert(USER_PRODUCTS,$dataArr);

@@ -34,6 +34,8 @@ class User extends MY_Controller {
 		if ($this->data['loginCheck'] != ''){
 			$this->data['likedProducts'] = $this->user_model->get_all_details(PRODUCT_LIKES,array('user_id'=>$this->checkLogin('U')));
 		}
+		//set default initially
+		$this->session->set_userdata("location","nolocation");
 	}
 
 	/**

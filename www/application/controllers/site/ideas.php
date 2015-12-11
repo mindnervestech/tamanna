@@ -13,6 +13,7 @@ class Ideas extends MY_Controller {
 		$this->load->library(array('encrypt','form_validation'));		
 		$this->load->model('product_model');
 		$this->load->model('category_model');
+		$this->load->model('seller_location_model');
 		if($_SESSION['sMainCategories'] == ''){
 			$sortArr1 = array('field'=>'cat_position','type'=>'asc');
 			$sortArr = array($sortArr1);
@@ -155,12 +156,25 @@ $listSubCatSelBox.= '</select>';
 				$listID = $this->category_model->getAttrubteValues($condition);
 				$userWherCond .= ' and FIND_IN_SET("'.$listID->row()->id.'",p.list_value)';
 			}
+			$sortbylocation = '';
+			if($this->input->get('sort_by_location')){
+				$sortbylocation = ' and u.s_city='.$this->input->get('sort_by_location');
+			}
 			
 			if($this->input->get('sort_by_price')){
 				($this->input->get('sort_by_price') == 'desc') ? $orderbyVal = $this->input->get('sort_by_price') : $orderbyVal ='';
-				$orderBy = ' order by p.sale_price '.$orderbyVal.'';
+				if($sortbylocation == ''){
+					$orderBy = ' order by distance asc,p.sale_price '.$orderbyVal.'';
+				}else{
+					$orderBy = $sortbylocation.' order by p.sale_price';
+				}
 			}else {
-				$orderBy = ' order by p.created desc ';
+				if($sortbylocation == ''){				
+					$orderBy = ' order by distance asc,p.created desc';
+				}else{
+					$orderBy = $sortbylocation.' order by p.created desc';
+				}
+
 			}
 			if($searchCriteria != 'all') {
 				$userWherCond .= ' where FIND_IN_SET("'.$catID->row()->id.'",p.category_id) '.$userWherCond.' and p.status="Publish" and p.sale_price>0 and u.status="Active" and p.status="Publish" and p.global_visible=1';
@@ -191,6 +205,7 @@ $listSubCatSelBox.= '</select>';
 			    	$this->data['meta_description'] = $catID->row()->seo_description;
 				}
 			}
+			$this->data['locations'] = $this->seller_location_model->get_sellerlocation_details();
 			$this->load->view('site/ideas/ideas',$this->data);
 	}
 	

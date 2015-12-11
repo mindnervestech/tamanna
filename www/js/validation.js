@@ -633,7 +633,7 @@ function profileUpdate(){
 	$.ajax({
 		type: 'POST',
 		url: baseURL+'site/user_settings/update_profile',
-		data: {"full_name":full_name,"web_url":web_url,"location":location,"twitter":twitter,"facebook":facebook,"google":google,"b_year":b_year,"b_month":b_month,"b_day":b_day,"about":setting_bio,"email":email,"age":age,"gender":gender},
+		data: {"full_name":full_name,"web_url":web_url,"location":location,"s_city":location,"twitter":twitter,"facebook":facebook,"google":google,"b_year":b_year,"b_month":b_month,"b_day":b_day,"about":setting_bio,"email":email,"age":age,"gender":gender},
 		dataType: 'json',
 		success: function(response){
 			if(response.success == '0'){

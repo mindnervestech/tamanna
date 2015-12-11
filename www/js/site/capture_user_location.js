@@ -12,7 +12,7 @@ $(function() {
 	  }
      
       function successCallback(position) {
-		alert(position.coords.latitude + ',' + position.coords.longitude);
+		//alert(position.coords.latitude + ',' + position.coords.longitude);
 		var url  = baseURL + 'site/user/add_user_locationtosession';
 		if(position.coords.latitude!='' && position.coords.longitude!=""){
 			var data = {
