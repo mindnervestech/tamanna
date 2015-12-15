@@ -82,11 +82,11 @@
 								<!--shop nav-->
 								<nav class="d_inline_b">
 									<ul class="hr_list second_font si_list fs_small">
-                                    <li><a class="sc_hover tr_delay" href="shop">Shop</a></li>
+                            <!--        <li><a class="sc_hover tr_delay" href="shop">Shop</a></li>
                                     <li><a class="sc_hover tr_delay" href="customization-request">Customization Request</a></li>									
-                                    <li><a class="sc_hover tr_delay" href="design-ideas/all">Explore</a></li>
+                                    <li><a class="sc_hover tr_delay" href="design-ideas/all">Explore</a></li> 
                                     <li><a class="sc_hover tr_delay" href="pages/faq">Why Socktail</a></li>
-									<li><a href="pages/contact-us" class="sc_hover tr_delay" href="faq">Contact Us</a></li>
+									<li><a href="pages/contact-us" class="sc_hover tr_delay" href="faq">Contact Us</a></li> -->
 
                                         <?php if ($loginCheck != ''){ ?>
                                         <li><a class="sc_hover tr_delay" href="settings">My Account</a></li>
@@ -107,13 +107,20 @@
 				<div class="header_middle_part t_xs_align_c">
 					<div class="container">
 						<div class="d_table w_full d_xs_block">
-							<div class="col-lg-4 col-md-4 col-sm-4 d_table_cell d_xs_block f_none v_align_m m_xs_bottom_15">
+							<div class="col-lg-4 col-md-4 col-sm-4 d_table_cell d_xs_block f_none v_align_m m_xs_bottom_15 d_xs_align_c t_align_c">
+									<ul class="hr_list second_font si_list fs_medium scheme_color tt_uppercase">
+                                    <li><a class="sc_hover tr_delay" href="customization-request">Customize</a></li>									
+                                    <li><a class="sc_hover tr_delay" href="design-ideas/all">Buy Locally</a></li>
+                                    <li><a class="sc_hover tr_delay" href="shop">Shop Online</a></li>
+									</ul>
+							</div>
+							<div class="col-lg-4 col-md-4 col-sm-4 d_table_cell d_xs_block f_none v_align_m m_xs_bottom_15 d_xs_align_c t_align_c">
 								<!--logo-->
 								<a href="<?php echo base_url();?>" class="d_inline_b" alt="<?php echo $siteTitle;?>" title="<?php echo $siteTitle;?>">
 									<img src="images/logo/<?php echo $logo;?>" alt="socktail logo"">
 								</a>
 							</div>
-							<div class="col-lg-8 col-md-8 col-sm-8 d_table_cell d_xs_block f_none v_align_m navigation-test">
+							<div class="col-lg-4 col-md-4 col-sm-4 d_table_cell d_xs_block f_none v_align_m navigation-test">
 								<div class="clearfix" id="navigation-test">
 									<div class="clearfix f_right f_xs_none d_xs_inline_b m_xs_bottom_15 t_xs_align_l">
 									</div>
@@ -149,7 +156,7 @@
                       	                     if ($row->cat_name != '' && $row->cat_name != 'Our Picks'){
                                             ?>
 										<li>
-											<a class="tt_uppercase tr_delay" href="shopby/<?php echo $row->seourl;?>"><?php echo $row->cat_name;?> <i class="fa fa-caret-down tr_inherit d_inline_m m_left_5"></i></a>
+											<a class="tr_delay" href="shopby/<?php echo $row->seourl;?>"><?php echo $row->cat_name;?> <i class="fa fa-caret-down tr_inherit d_inline_m m_left_5"></i></a>
 
 
 											<!--sub menu (second level)-->

@@ -4,7 +4,9 @@ $this->load->view('site/templates/header_new');
 			<section class="section_offset">
 				<div class="container t_align_c">
 					<div class="row">
-						<h1 class="fw_light second_font color_dark tt_uppercase m_bottom_27">Browse By Categories</h1>
+						<h1 class="fw_light second_font color_dark tt_uppercase m_bottom_13">Browse By Categories</h1>
+						<h4 class="fw_light second_font color_dark tt_uppercase m_bottom_13">Shop by Heart</h4>
+							<hr class="m_bottom_14">
 					</div>
 				</div>
 			</section>
@@ -43,50 +45,60 @@ $this->load->view('site/templates/header_new');
 					</div>
 				</div>
 			</section>
+				<!-- Our Promise -->
 			<div class="section_offset p_bottom_0">
-				<div class="container">
+				<div class="container bg_grey_light_2">
 					<hr class="divider_lbrown m_bottom_25 animated hidden" data-animation="fadeInDown">
 					<div class="row sh_container">
-						<div class="col-lg-4 col-md-4 col-sm-4 same_height animated hidden" data-animation="fadeInDown">
-							<section class="item_represent relative m_bottom_25 m_xs_bottom_30 h_inherit t_sm_align_c">
-								<!--icon-->
-								<div class="d_inline_m m_sm_bottom_15 m_sm_right_0 bg_lbrown color_white m_right_17 icon_wrap_1 t_align_c vc_child"><i class="fa fa-lock d_inline_m"></i></div>
+						<div class="col-lg-2 col-md-2 col-sm-2 same_height animated hidden" data-animation="fadeInDown">
+							<section class="item_represent relative m_bottom_25 m_xs_bottom_30 h_inherit t_sm_align_c t_align_c">
+								<i class="fa fa-gift fa-3x"></i>
 								<!--description-->
-								<div class="d_inline_m description w_sm_full">
-									<h3 class="second_font color_dark m_bottom_10">Safe &amp; Secure</h3>
-									<p class="fw_light m_bottom_10">Suspendisse sollicitudin velit sed leo. Ut pharetra augue nec augue.</p>
-									<a href="#" class="sc_hover second_font">Click Here to Read More</a>
-								</div>
+									<p class="fw_light m_bottom_10 m_top_15">Carefully Curated</p>
 							</section>
 						</div>
-						<div class="col-lg-4 col-md-4 col-sm-4 same_height animated hidden" data-animation="fadeInDown" data-animation-delay="150">
-							<section class="item_represent with_divider relative m_bottom_25 m_xs_bottom_30 h_inherit t_sm_align_c">
-								<!--icon-->
-								<div class="d_inline_m m_sm_bottom_15 m_sm_right_0 bg_lbrown color_white m_right_17 icon_wrap_1 t_align_c vc_child"><i class="fa fa-truck d_inline_m"></i></div>
+						<div class="col-lg-2 col-md-2 col-sm-2 same_height animated hidden" data-animation="fadeInDown">
+							<section class="item_represent relative m_bottom_25 m_xs_bottom_30 h_inherit t_sm_align_c t_align_c">
+								<i class="fa fa-thumbs-up fa-3x"></i>
 								<!--description-->
-								<div class="d_inline_m description">
-									<h3 class="second_font color_dark m_bottom_10">Free Delivery</h3>
-									<p class="fw_light m_bottom_10">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maurisfermentum dictum.</p>
-									<a href="#" class="sc_hover second_font">Click Here to Read More</a>
-								</div>
+									<p class="fw_light m_bottom_10 m_top_15">Quality Products</p>
+							</section>
+						</div>	
+						<div class="col-lg-2 col-md-2 col-sm-2 same_height animated hidden" data-animation="fadeInDown">
+							<section class="item_represent relative m_bottom_25 m_xs_bottom_30 h_inherit t_sm_align_c t_align_c">
+								<!--icon-->
+								<i class="fa fa-money fa-3x"></i>
+								<!--description-->
+									<p class="fw_light m_bottom_10 m_top_15">No Fake Discounts</p>
 							</section>
 						</div>
-						<div class="col-lg-4 col-md-4 col-sm-4 same_height animated hidden" data-animation="fadeInDown" data-animation-delay="300">
-							<section class="item_represent with_divider relative m_bottom_25 m_xs_bottom_30 h_inherit t_sm_align_c">
-								<!--icon-->
-								<div class="d_inline_m m_sm_bottom_15 m_sm_right_0 bg_lbrown color_white m_right_17 icon_wrap_1 t_align_c vc_child"><i class="fa fa-certificate d_inline_m"></i></div>
+						<div class="col-lg-2 col-md-2 col-sm-2 same_height animated hidden" data-animation="fadeInDown">
+							<section class="item_represent relative m_bottom_25 m_xs_bottom_30 h_inherit t_sm_align_c t_align_c">
+								<i class="fa fa-credit-card fa-3x"></i>
 								<!--description-->
-								<div class="d_inline_m description">
-									<h3 class="second_font color_dark m_bottom_10">Money Back Guarantee</h3>
-									<p class="fw_light m_bottom_10">Etiam cursus leo vel metus. Nulla facilisi aenean nac eros. Vestibulum ante ipsum.</p>
-									<a href="#" class="sc_hover second_font">Click Here to Read More</a>
-								</div>
+									<p class="fw_light m_bottom_10 m_top_15">Easy Payment Terms</p>
+							</section>
+						</div>						
+						<div class="col-lg-2 col-md-2 col-sm-2 same_height animated hidden" data-animation="fadeInDown">
+							<section class="item_represent relative m_bottom_25 m_xs_bottom_30 h_inherit t_sm_align_c t_align_c">
+								<!--icon-->
+								<i class="fa fa-truck fa-3x"></i>
+								<!--description-->
+									<p class="fw_light m_bottom_10 m_top_15">Free Home Delivery</p>
+							</section>
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-2 same_height animated hidden" data-animation="fadeInDown">
+							<section class="item_represent relative m_bottom_25 m_xs_bottom_30 h_inherit t_sm_align_c t_align_c">
+								<i class="fa fa-wrench fa-3x"></i>
+								<!--description-->
+									<p class="fw_light m_bottom_10 m_top_15">Free Installation</p>
 							</section>
 						</div>
 					</div>
 					<hr class="divider_lbrown m_bottom_0 animated hidden" data-animation="fadeInDown">
 				</div>
 			</div>
+			
 			<!--new products-->
 			<div class="section_offset p_bottom_0 m_bottom_27">
 				<div class="container">

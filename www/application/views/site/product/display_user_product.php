@@ -54,10 +54,11 @@ $this->load->view('site/templates/header_new');
 <!--														<p class="fw_light m_top_5 m_bottom_7 m_xs_top_0 m_xs_bottom_0">Our Price:</p>
 														<b><div><span class="fs_big second_font d_block m_bottom_7 m_xs_bottom_0 fs_sm_default" style="float:left;"><?php echo $currencySymbol;?>&nbsp; </span><span id="SalePrice" class="fs_big second_font d_block m_bottom_7 m_xs_bottom_0 fs_sm_default"> <?php echo number_format($productListVal->sale_price);?></span></div></b>-->
 							
-									<li class="m_bottom_3"><span style="width: 150px;" class="project_list_title second_font d_inline_b">Approx Price: </span><span class="fs_big second_font m_bottom_7 m_xs_bottom_0 fs_sm_default"> Rs <?php echo $productDetails->row()->sale_price;?></span></li>
+									<li class="m_bottom_3"><span style="width: 150px;" class="project_list_title second_font d_inline_b">Approx Price: </span><span class="fs_big second_font m_bottom_25 m_xs_bottom_10 fs_sm_default"> Rs <?php echo $productDetails->row()->sale_price;?></span></li>
 									<li class="m_bottom_3"><span style="width: 150px;"  class="project_list_title second_font d_inline_b">Seller:</span> <span class="color_dark fw_light"><a href="user/<?php echo $productUserDetails->row()->user_name;?>/added"><?php echo $productDetails->row()->full_name;?></a></span></li>
 									<li class="m_bottom_3"><span style="width: 150px;"  class="project_list_title second_font d_inline_b">City:</span> <span class="color_dark fw_light"><?php echo $productUserDetails->row()->s_city;?></span></li>
 									<li class="m_bottom_3"><span style="width: 150px;"  class="project_list_title second_font d_inline_b">Contact Number:</span> <span class="color_dark fw_light"><?php echo $productUserDetails->row()->phone_no;?></span></li>
+									<li class="m_bottom_3"><span style="width: 150px;"  class="project_list_title second_font d_inline_b">Address:</span> <span class="color_dark fw_light"><?php echo $productUserDetails->row()->s_address;?></span></li>
 							</ul>
 							<hr class="m_bottom_14">
 							<p  class="fs_big second_font scheme_color">Check All Creations of <?php echo $productDetails->row()->full_name;?> <a href="user/<?php echo $productUserDetails->row()->user_name;?>/added">here</a></p>
