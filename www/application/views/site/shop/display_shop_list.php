@@ -26,7 +26,7 @@ $this->load->view('site/templates/header_new');
 								<!--banner-->
 								<a href="shopby/<?php echo $mainCategoriesRow->seourl;?>">
 								<figure class="relative wrapper scale_image_container r_image_container">
-									<img src="<?php echo $cat_img;?>" alt="<?php echo $mainCategoriesRow->cat_name;?>"class="tr_all scale_image">
+									<img src="<?php echo $cat_img;?>" alt="<?php echo $mainCategoriesRow->cat_name;?>"class="tr_all scale_image" style="width:400px; height:241px;">
 									<!--caption-->
 									<figcaption class="caption_type_1 pos_2 tr_all t_align_c">
 										<div class="d_inline_b color_white fw_light caption_title tt_uppercase bg_lbrown_translucent w_full">

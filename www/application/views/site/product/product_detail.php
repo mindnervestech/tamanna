@@ -688,18 +688,6 @@ $this->load->view('site/templates/footer');
 			</div>
 		</div>
 
-<div id="custmConfirmation" class="modal fade" role="dialog" aria-labelledby="gridSystemModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close" class="margin: 0px 31px 0px 0px !important;"><span aria-hidden="true">&times;</span></button>
-		<h4 class="modal-title" id="gridSystemModalLabel">Confirmation</h4>
-      </div>
-      <div class="modal-body">
-          We have got your requirements, our team will be in touch with you shortly..
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
 
 		<!--libs include-->
 		<script src="plugins/jquery.elevateZoom-3.0.8.min.js"></script>

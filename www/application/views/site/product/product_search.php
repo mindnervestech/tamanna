@@ -249,8 +249,120 @@ $this->load->view('site/templates/header_new');
 											<?php if($discPrice != ''){?>
 											<div class="product_label fs_ex_small circle color_white bg_lbrown t_align_c vc_child tt_uppercase"><i class="d_inline_m">Sale!</i></div>
 											<?php } ?>
-											<a data-popup="#quick_view" data-popup-transition-in="bounceInUp" data-popup-transition-out="bounceOutUp" class="productquickview tr_all color_white second_font qv_style_button quick_view tt_uppercase t_align_c d_block clickable d_xs_none"><i class="fa fa-eye d_inline_m m_right_10"></i><span class="fs_medium">Quick View</span>
+									<!--		<a data-popup="#quick_view" data-popup-transition-in="bounceInUp" data-popup-transition-out="bounceOutUp" class="productquickview tr_all color_white second_font qv_style_button quick_view tt_uppercase t_align_c d_block clickable d_xs_none"><i class="fa fa-eye d_inline_m m_right_10"></i><span class="fs_medium">Quick View</span>
 											</a>
+											<div class="popupHiddenInfo" style="display:none">
+												<span class="imgUrl">images/product/<?php echo $img; ?></span>
+												<span class="productName"><?php echo $productListVal->product_name;?></span>
+												<span class="dispatched"> 
+													<?php $shipping = $productListVal->shipping;?>
+													 <?php	
+														switch($shipping)
+													   {
+
+														case '1': 
+															echo stripslashes($this->lang->line('shipping_in_option_first')); 
+														break;
+
+														case '2':
+															echo stripslashes($this->lang->line('shipping_in_option_second')); 
+														break;
+
+														case '3':
+															echo stripslashes($this->lang->line('shipping_in_option_third')); 
+														break;
+
+														case '4':
+															echo stripslashes($this->lang->line('shipping_in_option_fourth')); 
+														break;
+
+
+														case '5':
+															echo stripslashes($this->lang->line('shipping_in_option_fifth')); 
+														break;
+
+
+														case '6':
+															echo stripslashes($this->lang->line('shipping_in_option_sixth')); 
+														break;
+													   }
+													   ?>
+												
+												</span>
+												<span class="shippingCost"><?php echo $currencySymbol;?> <?php echo $productListVal->shipping_cost;?></span>
+												<span class="skuCode"><?php echo $productListVal->sku;?></span>
+												<span class="saleprice"><?php echo number_format($productListVal->sale_price);?></span>
+												
+												<?php if ($productListVal->price>$productListVal->sale_price){ ?>
+													<span class="oldPrice"><?php echo $currencySymbol;?><?php echo number_format($productListVal->price); ?></span>
+
+													<span class="youSave"><?php echo $currencySymbol;?><?php echo number_format($productListVal->price-$productListVal->sale_price); ?></span>
+												<?php }?>
+												
+												<span class="discountCoupen">
+													<?php
+														$prodID = $productListVal->id;
+														$origPrice = $productListVal->sale_price;
+														$userId = $productListVal->user_id;
+														$catId = $productListVal->category_id;
+
+															$couponCode = '';
+															$discVal = 0.00;
+															$discPrice = '';
+															$discDesc = '';
+															$resultArr = $this->product_model->getDiscountedDetails($prodID,$origPrice,$userId,$catId);
+															$couponCode = $resultArr['coupon_code'];
+															$discPrice = $resultArr['disc_price'];
+															$discVal = $resultArr['disc_percent'];
+															$discDesc = $resultArr['disc_desc'];    
+															
+														
+														?>
+												<input type="hidden" class="option number" name="product_id" id="product_id" value="<?php echo $productListVal->id;?>">
+												<input type="hidden" class="option number" name="cateory_id" id="cateory_id" value="<?php echo $productListVal->category_id;?>">                
+												<input type="hidden" class="option number" name="sell_id" id="sell_id" value="<?php echo $productListVal->user_id;?>">
+												<input type="hidden" class="option number" name="price" id="price" value="<?php echo $productListVal->sale_price;?>">
+												<input type="hidden" class="option number" name="product_shipping_cost" id="product_shipping_cost" value="<?php echo $productListVal->shipping_cost;?>"> 
+												<input type="hidden" class="option number" name="product_tax_cost" id="product_tax_cost" value="<?php echo $productListVal->tax_cost;?>">
+												<input type="hidden" class="option number" name="attribute_values" id="attribute_values" value="<?php echo $attrValsSetLoad; ?>">
+											<?php if($discPrice != ''){?>
+
+														<div class="m_top_2 m_bottom_6"><span class="fw_light d_inline_m m_right_5">Use Coupon Code <div style="color: #ec1e20;font-size:13px;display:inline-block;">"<?php echo $couponCode;?>"</div> to Get Additional <?php echo number_format($discVal);?>% DIscount</span></div>
+
+											<?php }?>
+												</span>
+												
+												<span class="productDescription"><?php echo $productListVal->description;?></span>
+												
+												<span class="smallImages">
+													<?php 
+														$limitCount = 0;
+														$imgArr = explode(',', $productListVal->image);
+														if (count($imgArr)>0){
+															foreach ($imgArr as $imgRow){
+																if ($limitCount>3)break;
+																if ($imgRow != '' && $imgRow != $pimg){
+																	$limitCount++;
+														?>
+															<div class="owl-item" style="width: 93.333px; margin-right: 10px;">
+															<a href="<?php echo base_url().PRODUCTPATH.$imgRow;?>" data-image="<?php echo base_url().PRODUCTPATH.$imgRow;?>" data-zoom-image="<?php echo base_url().PRODUCTPATH.$imgRow;?>" class="d_block">
+																<img src="<?php echo base_url().PRODUCTPATH.$imgRow;?>" alt="">
+															</a></div>
+														<?php 
+																			}
+																						}
+																									  }
+													?>
+											</span>
+	
+											</div>
+										-->
+										</div>
+										<figcaption class="bg_white relative p_bottom_0">
+												<div class="t_align_c">
+													<a class="second_font sc_hover d_xs_block m_bottom_5" href="things/<?php echo $productListVal->id;?>/<?php echo url_title($productListVal->product_name,'-');?>"><?php echo $productListVal->product_name;?></a>
+												</div>
+												<a data-popup="#quick_view" data-popup-transition-in="bounceInUp" data-popup-transition-out="bounceOutUp" class="productquickview button_type_2 m_bottom_9 d_block w_full t_align_c lbrown state_2 tr_all second_font fs_medium tt_uppercase m_top_15"><i class="fa fa-eye d_inline_m m_right_10"></i>Quick View</a>
 											<div class="popupHiddenInfo" style="display:none">
 												<span class="imgUrl">images/product/<?php echo $img; ?></span>
 												<span class="productName"><?php echo $productListVal->product_name;?></span>
@@ -358,13 +470,8 @@ $this->load->view('site/templates/header_new');
 	
 											</div>
 
-										</div>
-										<figcaption class="bg_white relative p_bottom_0">
-												<div class="t_align_c">
-													<a class="second_font sc_hover d_xs_block m_bottom_5" href="things/<?php echo $productListVal->id;?>/<?php echo url_title($productListVal->product_name,'-');?>"><?php echo $productListVal->product_name;?></a>
-												</div>
-											<button data-popup="#add_to_cart_popup" data-popup-transition-in="bounceInUp" data-popup-transition-out="bounceOutUp" class="button_type_2 m_bottom_9 d_block w_full t_align_c lbrown state_2 tr_all second_font fs_medium tt_uppercase m_top_15"><i class="fa fa-shopping-cart d_inline_m m_right_9"></i>Add To Cart</button>
-											<div class="clearfix t_sm_align_c t_xs_align_l">
+
+												<div class="clearfix t_sm_align_c t_xs_align_l">
 												<div class="row">
 													<div class="col-lg-6 col-md-6 m_bottom_9">
 <!--													<a href="#" class="second_font f_sm_none d_sm_inline_b f_xs_left fs_medium sc_hover f_left">Add to Wishlist</a>				-->								

@@ -77,15 +77,6 @@ $this->load->view('site/templates/header_new_small');
 											}
 										}
 									}
-									$fancyClass = 'fancy';
-									$fancyText = LIKE_BUTTON;
-									if (count($likedProducts)>0 && $likedProducts->num_rows()>0){
-										foreach ($likedProducts->result() as $likeProRow){
-											if ($likeProRow->product_id == $productLikeDetailsRow->seller_product_id){
-												$fancyClass = 'fancyd';$fancyText = LIKED_BUTTON;break;
-											}
-										}
-									}
 							  ?>						
 								<!--isotope item-->
 								<div class="category_isotope_item">

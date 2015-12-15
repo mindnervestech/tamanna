@@ -17,7 +17,7 @@ margin-bottom: 50px;
 									<div id="content">
 										<h2 class="fw_light second_font color_dark m_bottom_27 tt_uppercase t_align_c"><?php echo "Customization Request"; ?></h2>
 										<h5 class="fw_light second_font color_dark m_bottom_27 tt_uppercase t_align_c"><?php echo "Tell Us Your Customization Requirements "; ?></h5>
-
+										<hr class="divider_light m_bottom_5">
 										
 										<?php if($flash_data != '') { ?>
 											<div class="errorContainer" id="<?php echo $flash_data_type;?>">
@@ -58,152 +58,7 @@ margin-bottom: 50px;
 														</div>
 												<!--		<input type="text" name="project_description" id="project_description" style="height:100px;" class="w_full tr_all"/> -->
 													</li>
-													
-													<!-- custom Image 1 -->
-													<li class="m_bottom_15">						
-														<div class="section photo">
-															<section class="col-lg-12 col-md-12 col-sm-12 m_bottom_27">
-																<div class="row">
-																  <fieldset class="frm">
-																	<div class="col-lg-6 col-md-6 col-sm-6">
-																		<p class="stit"><?php echo "Custom Image 1"; ?></p>
-																		<?php 
-																		$doc2Img = 'noProduct.png';
-																		?>
-																	<div class="photo-preview"><img id="customImage1" src="images/site/blank.gif" style="width:100%;height:100%;background-image:url(<?php echo base_url();?>images/users/custom/<?php echo $doc2Img?>);background-size:cover" alt="<?php echo $userDetails->row()->full_name;?>"></div>
 
-																	</div>
-																	<div class="col-lg-6 col-md-6 col-sm-6">
-																		
-																			<div class="doc2-upload-file">
-																				<input id="customImage_1" img_id="customImage1" class="customImageUpload" name="customImage_one" type="file">
-																				<span class="uploading" style="display:none"><?php if($this->lang->line('settings_uploading') != '') { echo stripslashes($this->lang->line('settings_uploading')); } else echo "Uploading..."; ?></span>
-																				<span class="description"><?php echo "Allowed file types JPG, GIF or PNG.Maximum width and height is 600px<br>"; ?></span>
-																			</div>
-																		
-																	</div>
-																  </div>
-																</section>
-																</fieldset>
-															</div>
-														</li>
-													<!-- custom Image 1 end -->
-													<!-- custom Image 2 -->
-													<li class="m_bottom_15">						
-														<div class="section photo">
-															<section class="col-lg-12 col-md-12 col-sm-12 m_bottom_27">
-																<div class="row">
-																  <fieldset class="frm">
-																	<div class="col-lg-6 col-md-6 col-sm-6">
-																		<p class="stit"><?php echo "Custom Image 2"; ?></p>
-																		<?php 
-																		$doc2Img = 'noProduct.png';
-																		?>
-																	<div class="photo-preview"><img id="customImage2" src="images/site/blank.gif" style="width:100%;height:100%;background-image:url(<?php echo base_url();?>images/users/custom/<?php echo $doc2Img?>);background-size:cover" alt="<?php echo $userDetails->row()->full_name;?>"></div>
-
-																	</div>
-																	<div class="col-lg-6 col-md-6 col-sm-6">
-																		
-																			<div class="doc2-upload-file">
-																				<input id="customImage_2" img_id="customImage2" class="customImageUpload" name="customImage_two" type="file">
-																				<span class="uploading" style="display:none"><?php if($this->lang->line('settings_uploading') != '') { echo stripslashes($this->lang->line('settings_uploading')); } else echo "Uploading..."; ?></span>
-																				<span class="description"><?php echo "Allowed file types JPG, GIF or PNG.Maximum width and height is 600px<br>"; ?></span>
-																			</div>
-																		
-																	</div>
-																  </div>
-																</section>
-																</fieldset>
-															</div>
-														</li>
-													<!-- custom Image 2 end -->
-													<!-- custom Image 3 -->
-													<li class="m_bottom_15">						
-														<div class="section photo">
-															<section class="col-lg-12 col-md-12 col-sm-12 m_bottom_27">
-																<div class="row">
-																  <fieldset class="frm">
-																	<div class="col-lg-6 col-md-6 col-sm-6">
-																		<p class="stit"><?php echo "Custom Image 3"; ?></p>
-																		<?php 
-																		$doc2Img = 'noProduct.png';
-																		?>
-																	<div class="photo-preview"><img id="customImage3" src="images/site/blank.gif" style="width:100%;height:100%;background-image:url(<?php echo base_url();?>images/users/custom/<?php echo $doc2Img?>);background-size:cover" alt="<?php echo $userDetails->row()->full_name;?>"></div>
-
-																	</div>
-																	<div class="col-lg-6 col-md-6 col-sm-6">
-																		
-																			<div class="doc2-upload-file">
-																				<input id="customImage_3" img_id="customImage3" class="customImageUpload" name="customImage_three" type="file">
-																				<span class="uploading" style="display:none"><?php if($this->lang->line('settings_uploading') != '') { echo stripslashes($this->lang->line('settings_uploading')); } else echo "Uploading..."; ?></span>
-																				<span class="description"><?php echo "Allowed file types JPG, GIF or PNG.Maximum width and height is 600px<br>"; ?></span>
-																			</div>
-																		
-																	</div>
-																  </div>
-																</section>
-																</fieldset>
-														</div>
-													</li>														
-													<!-- custom Image 3 end -->
-													<!-- custom Image 4 -->
-													<li class="m_bottom_15">						
-														<div class="section photo">
-															<section class="col-lg-12 col-md-12 col-sm-12 m_bottom_27">
-																<div class="row">
-																  <fieldset class="frm">
-																	<div class="col-lg-6 col-md-6 col-sm-6">
-																		<p class="stit"><?php echo "Custom Image 4"; ?></p>
-																		<?php 
-																		$doc2Img = 'noProduct.png';
-																		?>
-																	<div class="photo-preview"><img id="customImage4" src="images/site/blank.gif" style="width:100%;height:100%;background-image:url(<?php echo base_url();?>images/users/custom/<?php echo $doc2Img?>);background-size:cover" alt="<?php echo $userDetails->row()->full_name;?>"></div>
-
-																	</div>
-																	<div class="col-lg-6 col-md-6 col-sm-6">
-																		
-																			<div class="doc2-upload-file">
-																				<input id="customImage_4" img_id="customImage4" class="customImageUpload" name="customImage_four" type="file">
-																				<span class="uploading" style="display:none"><?php if($this->lang->line('settings_uploading') != '') { echo stripslashes($this->lang->line('settings_uploading')); } else echo "Uploading..."; ?></span>
-																				<span class="description"><?php echo "Allowed file types JPG, GIF or PNG.Maximum width and height is 600px<br>"; ?></span>
-																			</div>
-																		
-																	</div>
-																  </div>
-																</section>
-																</fieldset>
-															</div>
-														</li>
-													<!-- custom Image 4 end -->
-													<!-- custom Image 5 -->
-													<li class="m_bottom_15">						
-														<div class="section photo">
-															<section class="col-lg-12 col-md-12 col-sm-12 m_bottom_27">
-																<div class="row">
-																  <fieldset class="frm">
-																	<div class="col-lg-6 col-md-6 col-sm-6">
-																		<p class="stit"><?php echo "Custom Image 5"; ?></p>
-																		<?php 
-																		$doc2Img = 'noProduct.png';
-																		?>
-																	<div class="photo-preview"><img id="customImage5" src="images/site/blank.gif" style="width:100%;height:100%;background-image:url(<?php echo base_url();?>images/users/custom/<?php echo $doc2Img?>);background-size:cover" alt="<?php echo $userDetails->row()->full_name;?>"></div>
-
-																	</div>
-																	<div class="col-lg-6 col-md-6 col-sm-6">
-																		
-																			<div class="doc2-upload-file">
-																				<input id="customImage_5" img_id="customImage5" class="customImageUpload" name="customImage_five" type="file">
-																				<span class="uploading" style="display:none"><?php if($this->lang->line('settings_uploading') != '') { echo stripslashes($this->lang->line('settings_uploading')); } else echo "Uploading..."; ?></span>
-																				<span class="description"><?php echo "Allowed file types JPG, GIF or PNG.Maximum width and height is 600px<br>"; ?></span>
-																			</div>
-																		
-																	</div>
-																  </div>
-																</section>
-																</fieldset>
-															</div>
-														</li>
-														
 														<li class="m_bottom_15">
 															<label for="" class="label second_font m_bottom_4 d_inline_b fs_medium"><?php echo "City"; ?></label>
 															<input type="text" name="city" id="city" class="w_full tr_all"/>
@@ -220,7 +75,159 @@ margin-bottom: 50px;
 												 </section>
 												 <section class="col-lg-6 col-md-6 col-sm-6">
 													<ul class="m_bottom_14">
+													
+													<!-- custom Image 1 -->
+													<li class="m_bottom_15">
+														<label for="" class="label second_font m_bottom_4 d_inline_b fs_medium"><?php echo "Upload Reference Pictures/sketches"; ?></label>
+														<div class="section photo">
+															<section class="col-lg-12 col-md-12 col-sm-12 m_bottom_27">
+																<div class="row">
+																  <fieldset class="frm">
+																	<div class="col-lg-6 col-md-6 col-sm-6">
+																		<?php 
+																		$doc2Img = 'noProduct.png';
+																		?>
+																	<div class="photo-preview"><img id="customImage1" src="images/site/blank.gif" style="width:80px;height:80px;background-image:url(<?php echo base_url();?>images/users/custom/<?php echo $doc2Img?>);background-size:cover" alt=""></div>
 
+																	</div>
+																	<div class="col-lg-6 col-md-6 col-sm-6">
+																			<div class="photo-func">		
+																				<input type="button" style="cursor: pointer;" class="btn-change" onClick="$('.photo-func').hide();$('.doc2-upload-file').show();return false;" value="<?php if($this->lang->line('header_up_photo') != '') { echo stripslashes($this->lang->line('header_up_photo')); } else echo "Upload Photo"; ?>"/>
+																			</div>
+																		
+																			<div class="doc2-upload-file"  style="display:none">
+																				<input id="customImage_1" img_id="customImage1" class="customImageUpload" name="customImage_one" type="file">
+																				<span class="uploading" style="display:none"><?php if($this->lang->line('settings_uploading') != '') { echo stripslashes($this->lang->line('settings_uploading')); } else echo "Uploading..."; ?></span>
+																				<span class="description"><?php echo "Allowed file types JPG, GIF or PNG.<br>"; ?></span>
+																			</div>
+																		
+																	</div>
+																  </div>
+																</section>
+																</fieldset>
+															</div>
+														</li>
+													<!-- custom Image 1 end -->
+													<!-- custom Image 2 -->
+													<li class="m_bottom_15">						
+														<div class="section photo">
+															<section class="col-lg-12 col-md-12 col-sm-12 m_bottom_27">
+																<div class="row">
+																  <fieldset class="frm">
+																	<div class="col-lg-6 col-md-6 col-sm-6">
+																		<?php 
+																		$doc2Img = 'noProduct.png';
+																		?>
+																	<div class="photo-preview"><img id="customImage2" src="images/site/blank.gif" style="width:80px;height:80px;background-image:url(<?php echo base_url();?>images/users/custom/<?php echo $doc2Img?>);background-size:cover" alt=""></div>
+
+																	</div>
+																	<div class="col-lg-6 col-md-6 col-sm-6">
+																			<div class="photo-func">		
+																				<input type="button" style="cursor: pointer;" class="btn-change" onClick="$('.photo-func').hide();$('.doc2-upload-file').show();return false;" value="<?php if($this->lang->line('header_up_photo') != '') { echo stripslashes($this->lang->line('header_up_photo')); } else echo "Upload Photo"; ?>"/>
+																			</div>																		
+																			<div class="doc2-upload-file"  style="display:none">
+																				<input id="customImage_2" img_id="customImage2" class="customImageUpload" name="customImage_two" type="file">
+																				<span class="uploading" style="display:none"><?php if($this->lang->line('settings_uploading') != '') { echo stripslashes($this->lang->line('settings_uploading')); } else echo "Uploading..."; ?></span>
+																				<span class="description"><?php echo "Allowed file types JPG, GIF or PNG.<br>"; ?></span>
+																			</div>
+																		
+																	</div>
+																  </div>
+																</section>
+																</fieldset>
+															</div>
+														</li>
+													<!-- custom Image 2 end -->
+													<!-- custom Image 3 -->
+													<li class="m_bottom_15">						
+														<div class="section photo">
+															<section class="col-lg-12 col-md-12 col-sm-12 m_bottom_27">
+																<div class="row">
+																  <fieldset class="frm">
+																	<div class="col-lg-6 col-md-6 col-sm-6">
+																		<?php 
+																		$doc2Img = 'noProduct.png';
+																		?>
+																	<div class="photo-preview"><img id="customImage3" src="images/site/blank.gif" style="width:80px;height:80px;background-image:url(<?php echo base_url();?>images/users/custom/<?php echo $doc2Img?>);background-size:cover" alt=""></div>
+
+																	</div>
+																	<div class="col-lg-6 col-md-6 col-sm-6">
+																			<div class="photo-func">		
+																				<input type="button" style="cursor: pointer;" class="btn-change" onClick="$('.photo-func').hide();$('.doc2-upload-file').show();return false;" value="<?php if($this->lang->line('header_up_photo') != '') { echo stripslashes($this->lang->line('header_up_photo')); } else echo "Upload Photo"; ?>"/>
+																			</div>																		
+																			<div class="doc2-upload-file"  style="display:none">
+																				<input id="customImage_3" img_id="customImage3" class="customImageUpload" name="customImage_three" type="file">
+																				<span class="uploading" style="display:none"><?php if($this->lang->line('settings_uploading') != '') { echo stripslashes($this->lang->line('settings_uploading')); } else echo "Uploading..."; ?></span>
+																				<span class="description"><?php echo "Allowed file types JPG, GIF or PNG.<br>"; ?></span>
+																			</div>
+																		
+																	</div>
+																  </div>
+																</section>
+																</fieldset>
+														</div>
+													</li>														
+													<!-- custom Image 3 end -->
+													<!-- custom Image 4 -->
+													<li class="m_bottom_15">						
+														<div class="section photo">
+															<section class="col-lg-12 col-md-12 col-sm-12 m_bottom_27">
+																<div class="row">
+																  <fieldset class="frm">
+																	<div class="col-lg-6 col-md-6 col-sm-6">
+																		<?php 
+																		$doc2Img = 'noProduct.png';
+																		?>
+																	<div class="photo-preview"><img id="customImage4" src="images/site/blank.gif" style="width:80px;height:80px;background-image:url(<?php echo base_url();?>images/users/custom/<?php echo $doc2Img?>);background-size:cover" alt=""></div>
+
+																	</div>
+																	<div class="col-lg-6 col-md-6 col-sm-6">
+																			<div class="photo-func">		
+																				<input type="button" style="cursor: pointer;" class="btn-change" onClick="$('.photo-func').hide();$('.doc2-upload-file').show();return false;" value="<?php if($this->lang->line('header_up_photo') != '') { echo stripslashes($this->lang->line('header_up_photo')); } else echo "Upload Photo"; ?>"/>
+																			</div>																		
+																			<div class="doc2-upload-file"  style="display:none">
+																				<input id="customImage_4" img_id="customImage4" class="customImageUpload" name="customImage_four" type="file">
+																				<span class="uploading" style="display:none"><?php if($this->lang->line('settings_uploading') != '') { echo stripslashes($this->lang->line('settings_uploading')); } else echo "Uploading..."; ?></span>
+																				<span class="description"><?php echo "Allowed file types JPG, GIF or PNG.<br>"; ?></span>
+																			</div>
+																		
+																	</div>
+																  </div>
+																</section>
+																</fieldset>
+															</div>
+														</li>
+													<!-- custom Image 4 end -->
+													<!-- custom Image 5 -->
+													<li class="m_bottom_15">						
+														<div class="section photo">
+															<section class="col-lg-12 col-md-12 col-sm-12 m_bottom_27">
+																<div class="row">
+																  <fieldset class="frm">
+																	<div class="col-lg-6 col-md-6 col-sm-6">
+																		<?php 
+																		$doc2Img = 'noProduct.png';
+																		?>
+																	<div class="photo-preview"><img id="customImage5" src="images/site/blank.gif" style="width:80px;height:80px;background-image:url(<?php echo base_url();?>images/users/custom/<?php echo $doc2Img?>);background-size:cover" alt=""></div>
+
+																	</div>
+																	<div class="col-lg-6 col-md-6 col-sm-6">
+																				<div class="photo-func">		
+																				<input type="button" style="cursor: pointer;" class="btn-change" onClick="$('.photo-func').hide();$('.doc2-upload-file').show();return false;" value="<?php if($this->lang->line('header_up_photo') != '') { echo stripslashes($this->lang->line('header_up_photo')); } else echo "Upload Photo"; ?>"/>
+																			</div>																	
+																			<div class="doc2-upload-file"  style="display:none">
+																				<input id="customImage_5" img_id="customImage5" class="customImageUpload" name="customImage_five" type="file">
+																				<span class="uploading" style="display:none"><?php if($this->lang->line('settings_uploading') != '') { echo stripslashes($this->lang->line('settings_uploading')); } else echo "Uploading..."; ?></span>
+																				<span class="description"><?php echo "Allowed file types JPG, GIF or PNG.<br>"; ?></span>
+																			</div>
+																		
+																	</div>
+																  </div>
+																</section>
+																</fieldset>
+															</div>
+														</li>
+													
 													</ul>													
 												 </section>
 												 <section class="col-lg-12 col-md-12 col-sm-12">

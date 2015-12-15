@@ -40,7 +40,7 @@ $this->load->view('site/templates/header_new_small');
 											<tr>
 												<td data-cell-title="Product Image">
 													<a href="<?php echo 'things/'.$productLikeDetailsRow->id.'/'.url_title($productLikeDetailsRow->product_name);?>" class="vcard">
-														<img src="images/product/<?php echo $imgName;?>" alt="<?php echo $productLikeDetailsRow->product_name ?>">
+														<img src="images/product/<?php echo $imgName;?>" alt="<?php echo $productLikeDetailsRow->product_name ?>" style="width:300px;">
 													</a>
 												</td>
 												<td data-cell-title="Product Name and Category">

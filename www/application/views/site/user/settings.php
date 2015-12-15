@@ -56,8 +56,7 @@ $this->load->view('site/templates/header_new_small');
 														<label for="password" class="second_font m_bottom_4 d_inline_b fs_medium">Email</label>
 														<input id="email" class="setting_email w_full tr_all" name="setting-email" data-email="<?php echo $userDetails->row()->email;?>" value="<?php echo $userDetails->row()->email;?>" type="text">
 													</li>
-					<?php if ($userDetails->row()->group == 'User'){?>								
-						<!-- Doc1 -->
+					<!--<?php if ($userDetails->row()->group == 'User'){?>								
 							<div class="section photo">
 								<section class="col-lg-12 col-md-12 col-sm-12 m_bottom_27">
 								  <div class="row">
@@ -96,9 +95,7 @@ $this->load->view('site/templates/header_new_small');
 								</section>
 								</fieldset>
 							</div>
-						<!-- Doc1 finish -->
-						
-						<!-- Doc2 -->
+
 						<div class="section photo">
 								<section class="col-lg-12 col-md-12 col-sm-12 m_bottom_27">
 								  <div class="row">
@@ -137,9 +134,6 @@ $this->load->view('site/templates/header_new_small');
 								</section>
 								</fieldset>
 							</div>
-						<!-- Doc2 finish -->							
-
-						<!-- Doc3 -->
 						<div class="section photo">
 								<section class="col-lg-12 col-md-12 col-sm-12 m_bottom_27">
 								  <div class="row">
@@ -177,7 +171,7 @@ $this->load->view('site/templates/header_new_small');
 								  </div>
 								</section>
 								</fieldset>
-							</div>
+							</div> -->
 						<?php } ?>
 										<?php if ($userDetails->row()->group == 'Seller'){?>			
 													<li class="m_bottom_15">

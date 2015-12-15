@@ -6,7 +6,7 @@
 <base href="<?php echo base_url(); ?>">
 <title><?php echo $heading.' - '.$title;?></title>
 <link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url();?>images/logo/<?php echo $fevicon;?>">
-<link href="css/reset.css" rel="stylesheet" type="text/css" media="screen">
+<link href="css/resetadmin.css" rel="stylesheet" type="text/css" media="screen">
 <link href="css/layout.css" rel="stylesheet" type="text/css" media="screen">
 <link href="css/themes.css" rel="stylesheet" type="text/css" media="screen">
 <link href="css/typography.css" rel="stylesheet" type="text/css" media="screen">
