@@ -436,9 +436,11 @@ class Product_model extends My_Model
 		 		LEFT JOIN '.USERS.' u on u.id=p.user_id 
 		 		'.$userWherCond.' ';*/
 				
-		$startlat = DEFAULT_LAT;
-		$startlng = DEFAULT_LONG;
-		if($this->session->userdata('location') != 'nolocation'){
+
+		if($this->session->userdata('location') == ''){
+			$startlat = DEFAULT_LAT;
+			$startlng = DEFAULT_LONG;
+		}else{
 			$startlat = $this->session->userdata('location')['lat'];
 			$startlng = $this->session->userdata('location')['long'];
 		}

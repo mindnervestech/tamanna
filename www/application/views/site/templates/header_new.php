@@ -50,6 +50,8 @@
 		<script src="js/modernizr.js"></script>
 	</head>
 	<body class="sticky_menu">
+		<input id="user_location" <?php if($this->session->userdata('location') == ''){
+		echo "value=1";}else{echo "value=0";} ?> hidden></input>
 		<!-- External Links -->
 			<a href="https://plus.google.com/+Socktail" rel="publisher"></a>
 			<a href="https://plus.google.com/+Socktail?rel=author"></a>

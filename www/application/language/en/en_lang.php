@@ -715,4 +715,6 @@ $lang['shipping_in_option_third']='2-3 weeks';
 $lang['shipping_in_option_fourth']='3-4 weeks';
 $lang['shipping_in_option_fifth']='4-6 weeks';
 $lang['shipping_in_option_sixth']='6-8 weeks';
+$lang['custom_photo_upload']='Upload Photo/Sketch';
+$lang['custom_another_photo_upload']='Upload Another Photo/Sketch';
 ?>

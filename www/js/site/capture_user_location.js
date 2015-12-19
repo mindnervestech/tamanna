@@ -1,5 +1,7 @@
 $(function() {
-	debugger;
+	//debugger;
+	//console.log($("#user_location").val())
+	if($("#user_location").val() == "1"){
 	    if (navigator && navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(successCallback, errorCallback, {timeout:100000});
         } else {
@@ -37,4 +39,5 @@ $(function() {
             });
 		}
       }
+	}  
 });
