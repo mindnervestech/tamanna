@@ -69,6 +69,15 @@ class Add extends MY_Controller {
 			
 	}
 
+	public function getSubCategories(){
+			$sortArr1 = array('field'=>'cat_position','type'=>'asc');
+			$sortArr = array($sortArr1);
+	
+			$subCategories = $this->product_model->get_all_details(CATEGORY,array('rootID'=>$this->input->post('cat_id'),'status'=>'Active'),$sortArr);
+			
+			echo json_encode($subCategories->result());
+	}
+	
 	/**
 	 *
 	 *

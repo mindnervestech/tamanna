@@ -74,7 +74,7 @@
 					<label><?php if($this->lang->line('header_weblink') != '') { echo stripslashes($this->lang->line('header_weblink')); } else echo "Web Link"; ?></label>
 					<input type="text" placeholder="http://" class="input-text" id="fancy_add-link">
 					<label><?php if($this->lang->line('header_category') != '') { echo stripslashes($this->lang->line('header_category')); } else echo "Category"; ?><span style="color:red"> *</span></label>
-						<select class="select-round selectBox categories_" id="fancy_add-category">
+						<select onchange="getSubCategories(value,'subCategory','sub-category');" class="select-round selectBox categories_" id="fancy_add-category">
 						<option value=""><?php if($this->lang->line('header_choose_categry') != '') { echo stripslashes($this->lang->line('header_choose_categry')); } else echo "Choose a category"; ?></option>
 						<?php 
 						if ($mainCategories->num_rows()>0){
@@ -87,6 +87,20 @@ if($mainCat->id !=107){
 						}
 						?>
 						</select>
+						
+						<div class="subCategory" style="display:none">
+							<label><?php echo "Sub Category"; ?></label>
+							<select onchange="getSubCategories(value,'sub-subCategory','sub-sub-category');" class="select-round selectBox categories_" id="sub-category">
+							</select>
+						</div>
+						
+						<div class="sub-subCategory" style="display:none">
+							<label><?php echo "Sub Category"; ?></label>
+							<select class="select-round selectBox categories_" id="sub-sub-category">
+							</select>
+						</div>
+						
+						
 						<label><?php if($this->lang->line('header_price') != '') { echo stripslashes($this->lang->line('header_price')); } else echo "Price"; ?></label>
           <input type="text" placeholder="Price" class="input-text" id="fancy_add-price"> 
 				</div>
@@ -115,3 +129,38 @@ if($mainCat->id !=107){
 	</div>
 	<button title="Close" class="ly-close"><i class="ic-del-black"></i></button>
 <iframe frameborder="0" name="iframe_img_upload"></iframe></div>
+
+<script>
+function getSubCategories(val,subCat,subcategory) {
+	if(val != ""){
+		var url  = baseURL + 'site/add/getSubCategories';
+			var data = {
+			cat_id:val
+			};
+			var selectBox = $("#"+subcategory);
+			$.ajax({
+                type : 'post',
+                url  : url,
+                data : data,
+                dataType : 'json',
+                success : function(json){
+					if(json.length != 0){
+						selectBox.empty();
+						selectBox.append('<option value="">Choose sub category</option>');
+						$.each(json, function (i, item) {
+							selectBox.append($('<option>', { 
+								value: item.id,
+								text : item.cat_name 
+							}));
+						});
+						$("."+subCat).show();
+					}
+                },
+                error:function (){
+                },
+                complete : function(){
+                }
+            });
+		}	
+      }
+</script>

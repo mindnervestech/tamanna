@@ -2467,6 +2467,13 @@ jQuery(function($){
 						if(!params['category']) return alert(gettext('Please select category'));
 						if(params['photo_url'] && params['link']) params['tag_url'] = params['link'];
 						params['image'] = $step.data('img_name');
+						if($("#sub-category").val() != ""){
+							params['category'] = params['category'] + "," + $("#sub-category").val();
+						}
+						if($("#sub-sub-category").val() != ""){
+							params['category'] = params['category'] + "," + $("#sub-sub-category").val();
+						}
+						
 						$btn.disable().addClass('loading');
 
 						function json_handler(json){
