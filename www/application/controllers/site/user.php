@@ -1605,34 +1605,35 @@ exit();
 					$config['overwrite'] = FALSE;
 					$config['remove_spaces'] = TRUE;
 					$config['allowed_types'] = 'jpg|jpeg|gif|png';
-					$config['max_size'] = 20000;
-					$config['max_width']  = '1200';
-					$config['max_height']  = '1200';
+					$config['max_size'] = 30000;
+					$config['max_width']  = '1400';
+					$config['max_height']  = '1400';
 					$config['upload_path'] = './images/users/custom';
 					$this->load->library('upload', $config);
 					if ( $this->upload->do_upload('customImage_one')){
 						$imgDetails = $this->upload->data();
 						$img1 = $imgDetails['file_name'];
-					}
+					}else
 					if ( $this->upload->do_upload('customImage_two')){
 						$imgDetails2 = $this->upload->data();
 						$img2 = $imgDetails2['file_name'];
-					}
-					
+					}else
 					if ( $this->upload->do_upload('customImage_three')){
 						$imgDetails3 = $this->upload->data();
 						$img3 = $imgDetails3['file_name'];
-					}
-					
+					}else 
 					if ( $this->upload->do_upload('customImage_four')){
 						$imgDetails4 = $this->upload->data();
 						$img4 = $imgDetails4['file_name'];
-					}
-					
+					}else
 					if ( $this->upload->do_upload('customImage_five')){
 						$imgDetails5 = $this->upload->data();
 						$img5 = $imgDetails5['file_name'];
+					}else {
+						$this->setErrorMessage('error',strip_tags($this->upload->display_errors()));
+						redirect(base_url().'customization-request');
 					}
+
 
 					
 				$customArr = array(

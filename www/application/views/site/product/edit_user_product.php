@@ -98,7 +98,7 @@ a.selectBox.option .selectBox-label {
 							<li>
 								<label for="fancy-category"><?php if($this->lang->line('header_category') != '') { echo stripslashes($this->lang->line('header_category')); } else echo "Category"; ?><!-- <em><?php if($this->lang->line('product_how_should') != '') { echo stripslashes($this->lang->line('product_how_should')); } else echo "How should it be filed?"; ?></em>--></label>
 								<br class="hidden">
-								<select name="category_id" class="required" id="fancy-category" style="font-size:13px;">
+								<select name="category_id" onchange="getSubCategories(value,'subCategory_edit','sub-category_edit');" class="required" id="fancy-category" style="font-size:13px;">
 									<option selected="" value=""><?php if($this->lang->line('product_put_cate') != '') { echo stripslashes($this->lang->line('product_put_cate')); } else echo "Put in category"; ?>...</option>
 									<?php 
 									$prodCatArr = explode(',', $productDetails->row()->category_id);
@@ -117,6 +117,22 @@ a.selectBox.option .selectBox-label {
 									
 								</select>
 							</li>
+							
+							<li>
+								<div class="subCategory_edit" style="display:none">
+									<label><?php echo "Sub Category"; ?><span style="color:red"> *</span></label>
+									<select onchange="getSubCategories(value,'sub-subCategory_edit','sub-sub-category_edit');" class="required" id="sub-category_edit">
+									</select>
+								</div>
+							</li>
+							<li>
+								<div class="sub-subCategory_edit" style="display:none">
+									<label><?php echo "Sub Category"; ?><span style="color:red"> *</span></label>
+									<select class="required" id="sub-sub-category_edit">
+									</select>
+								</div>
+							</li>
+							
 						<li><label><?php if($this->lang->line('header_price') != '') { echo stripslashes($this->lang->line('header_price')); } else echo "Price"; ?> <em><?echo "Add price if this is a product"; ?></em></label>
 
 								

@@ -2465,6 +2465,11 @@ jQuery(function($){
 
 						if(!params['name']) return alert(gettext('Please enter title'));
 						if(!params['category']) return alert(gettext('Please select category'));
+						
+						if($("select#sub-category option").length != 0 && $("#sub-category").val() == "") return alert(gettext('Please select sub-category'));
+						
+						if($("select#sub-sub-category option").length != 0 && $("#sub-sub-category").val() == "") return alert(gettext('Please select sub-category'));
+						
 						if(params['photo_url'] && params['link']) params['tag_url'] = params['link'];
 						params['image'] = $step.data('img_name');
 						if($("#sub-category").val() != ""){

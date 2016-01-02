@@ -295,19 +295,41 @@ margin-bottom: 50px;
 			}
 
 			$(".customImageUpload").change(function(event){
-			 var selectedFile = event.target.files[0];
-			  var reader = new FileReader();
+			  var selectedFile = event.target.files[0];
+				var inputFile = $(this);	
+				var _URL = window.URL || window.webkitURL;
+				var file, img;
 
-			  var imgtag = document.getElementById($(this).attr("img_id"));
-			  var img_upload = $(this).attr("img_upload");
-			  $("#"+img_upload).removeClass("imageuploaddisplay");
-			  imgtag.title = selectedFile.name;
+				var imgtag = document.getElementById($(this).attr("img_id"));
+				if ((file = selectedFile)) {
+					img = new Image();
+					img.onload = function() {
+						//alert(this.width + " " + this.height);
+						if((selectedFile.size/1024/1024) < 3 && this.width < 1400 && this.height < 1400){
+							  var reader = new FileReader();
+						  var img_upload = $(this).attr("img_upload");
+							  $("#"+img_upload).removeClass("imageuploaddisplay");
+							  imgtag.title = selectedFile.name;
 
-			  reader.onload = function(event) {
-				imgtag.src = event.target.result;
-			  };
+							  reader.onload = function(event) {
+								imgtag.src = event.target.result;
+							  };
 
-			  reader.readAsDataURL(selectedFile);
+							  reader.readAsDataURL(selectedFile);
+						}else{
+							inputFile.val("");
+							alert("Choose image size below 3 MB and height and width 1400");
+						}
+								
+					};
+					img.onerror = function() {
+						alert( "not a valid file: " + file.type);
+					};
+					img.src = _URL.createObjectURL(file);
+				}
+ 
+				 
+
 			})
 			</script>
 <!--theme initializer-->

@@ -89,13 +89,13 @@ if($mainCat->id !=107){
 						</select>
 						
 						<div class="subCategory" style="display:none">
-							<label><?php echo "Sub Category"; ?></label>
+							<label><?php echo "Sub Category"; ?><span style="color:red"> *</span></label>
 							<select onchange="getSubCategories(value,'sub-subCategory','sub-sub-category');" class="select-round selectBox categories_" id="sub-category">
 							</select>
 						</div>
 						
 						<div class="sub-subCategory" style="display:none">
-							<label><?php echo "Sub Category"; ?></label>
+							<label><?php echo "Sub Category"; ?><span style="color:red"> *</span></label>
 							<select class="select-round selectBox categories_" id="sub-sub-category">
 							</select>
 						</div>
@@ -145,6 +145,7 @@ function getSubCategories(val,subCat,subcategory) {
                 dataType : 'json',
                 success : function(json){
 					if(json.length != 0){
+						selectBox.show();
 						selectBox.empty();
 						selectBox.append('<option value="">Choose sub category</option>');
 						$.each(json, function (i, item) {
@@ -153,7 +154,12 @@ function getSubCategories(val,subCat,subcategory) {
 								text : item.cat_name 
 							}));
 						});
+						console.log(selectBox);
 						$("."+subCat).show();
+					}else{
+						$("."+subCat).hide();
+						selectBox.empty();
+						selectBox.hide();
 					}
                 },
                 error:function (){

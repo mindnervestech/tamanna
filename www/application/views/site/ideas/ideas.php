@@ -82,7 +82,7 @@ $this->load->view('site/templates/header_new_small');
 									  <option <?php if($this->session->userdata('location') == 'nolocation'){ echo 'selected="selected"'; } ?> value=""><?php if($this->lang->line('product_newest') != '') { echo stripslashes($this->lang->line('product_newest')); } else echo "Newest"; ?></option>
 									  <option value="asc"><?php if($this->lang->line('product_low_high') != '') { echo stripslashes($this->lang->line('product_low_high')); } else echo "Price: Low to High"; ?></option>
 									  <option value="desc"><?php if($this->lang->line('product_high_low') != '') { echo stripslashes($this->lang->line('product_high_low')); } else echo "Price: High to Low"; ?></option>
-									  <option <?php if($this->session->userdata('location') != 'nolocation'){ echo 'selected="selected"'; } ?> value="location"><?php echo "Location"; ?></option>
+									 <!-- <option <?php if($this->session->userdata('location') != 'nolocation'){ echo 'selected="selected"'; } ?> value="location"><?php echo "Location"; ?></option> -->
 									</select>
 									<!--<div class="styled_select relative d_inline_m m_right_2">
 										<div class="select_title type_3 fs_medium fw_light color_light relative d_none tr_all">Product name</div>
@@ -101,7 +101,7 @@ $this->load->view('site/templates/header_new_small');
 									</div> 
 									<button class="button_type_4 grey state_2 tr_all second_font tt_uppercase vc_child black_hover"><i class="fa fa-sort-amount-asc d_inline_m m_top_0"></i></button>-->
 								</div>
-								<div id="exploreLocation" style="<?php if($this->session->userdata('location') == 'nolocation'){ echo 'display:none'; }?>" class="col-lg-4 col-md-4 col-sm-4 d_xs_block v_align_m d_table_cell f_none fs_medium color_light fw_light m_xs_bottom_5">
+								<div id="exploreLocation" style="" class="col-lg-4 col-md-4 col-sm-4 d_xs_block v_align_m d_table_cell f_none fs_medium color_light fw_light m_xs_bottom_5">
 									<h5 class="d_inline_m m_right_5">LOCATION:</h5>
 										<select class="sort-by-location selectBox select-round select-shipping-addr select_title fs_medium fw_light color_light relative tr_all">
 											<option value=""><?php echo "Select Location"; ?></option>
