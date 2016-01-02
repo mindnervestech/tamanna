@@ -56,132 +56,14 @@ $this->load->view('site/templates/header_new_small');
 														<label for="password" class="second_font m_bottom_4 d_inline_b fs_medium">Email</label>
 														<input id="email" class="setting_email w_full tr_all" name="setting-email" data-email="<?php echo $userDetails->row()->email;?>" value="<?php echo $userDetails->row()->email;?>" type="text">
 													</li>
-					<!--<?php if ($userDetails->row()->group == 'User'){?>								
-							<div class="section photo">
-								<section class="col-lg-12 col-md-12 col-sm-12 m_bottom_27">
-								  <div class="row">
-								  <fieldset class="frm">
-									<div class="col-lg-6 col-md-6 col-sm-6">
-										<p class="stit"><?php echo "Doc 1"; ?></p>
-										<?php 
-										$doc1Img = 'user-thumb1.png';
-										if ($userDetails->row()->doc1 != ''){
-											$doc1Img = $userDetails->row()->doc1;
-										}
-										?>
-									<div class="photo-preview"><img src="images/site/blank.gif" style="width:100%;height:100%;background-image:url(<?php echo base_url();?>images/users/<?php echo $doc1Img;?>);background-size:cover" alt="<?php echo $userDetails->row()->full_name;?>"></div>
-
-									</div>
-									<div class="col-lg-6 col-md-6 col-sm-6">
-										
-											<div class="doc1-photo-func">		
-												<?php if ($userDetails->row()->thumbnail == ''){?>		
-												<input type="button" style="cursor: pointer;" class="btn-change" onClick="$('.doc1-photo-func').hide();$('.doc1-upload-file').show();return false;" value="<?php echo "Upload"; ?>"/>
-												<?php }else {?>
-												<input type="button" style="cursor: pointer;" class="btn-change" onClick="$('.doc1-photo-func').hide();$('.doc1-upload-file').show();return false;" value="<?php if($this->lang->line('change_photo') != '') { echo stripslashes($this->lang->line('change_photo')); } else echo "Change"; ?>"/>
-
-												<?php }?>
-											</div>
-											<div class="doc1-upload-file" style="display:none">
-												<input id="uploadavatar-doc1" class="uploadavatar-doc1" name="docone-file" type="file">
-												<span class="uploading" style="display:none"><?php if($this->lang->line('settings_uploading') != '') { echo stripslashes($this->lang->line('settings_uploading')); } else echo "Uploading..."; ?></span>
-												<span class="description"><?php if($this->lang->line('settings_allowedimag') != '') { echo stripslashes($this->lang->line('settings_allowedimag')); } else echo "Allowed file types JPG, GIF or PNG.<br>Maximum width and height is 600px"; ?></span>
-												<input type="button" style="cursor: pointer;" class="btn-upload" id="save_profile_image" onclick="return updateUserDoc1();" value="<?php echo "Upload"; ?>"/>
-												<input type="button" style="cursor: pointer;" class="btn-cancel" onClick="$('.doc1-photo-func').show();$('.doc1-upload-file').hide();return false;" value="<?php if($this->lang->line('header_cancel') != '') { echo stripslashes($this->lang->line('header_cancel')); } else echo "Cancel"; ?>"/>
-											</div>
-										
-									</div>
-								  </div>
-								</section>
-								</fieldset>
-							</div>
-
-						<div class="section photo">
-								<section class="col-lg-12 col-md-12 col-sm-12 m_bottom_27">
-								  <div class="row">
-								  <fieldset class="frm">
-									<div class="col-lg-6 col-md-6 col-sm-6">
-										<p class="stit"><?php echo "Doc 2"; ?></p>
-										<?php 
-										$doc2Img = 'user-thumb1.png';
-										if ($userDetails->row()->doc2 != ''){
-											$doc2Img = $userDetails->row()->doc2;
-										}
-										?>
-									<div class="photo-preview"><img src="images/site/blank.gif" style="width:100%;height:100%;background-image:url(<?php echo base_url();?>images/users/<?php echo $doc2Img?>);background-size:cover" alt="<?php echo $userDetails->row()->full_name;?>"></div>
-
-									</div>
-									<div class="col-lg-6 col-md-6 col-sm-6">
-										
-											<div class="doc2-photo-func">		
-												<?php if ($userDetails->row()->thumbnail == ''){?>		
-												<input type="button" style="cursor: pointer;" class="btn-change" onClick="$('.doc2-photo-func').hide();$('.doc2-upload-file').show();return false;" value="<?php echo "Upload"; ?>"/>
-												<?php }else {?>
-												<input type="button" style="cursor: pointer;" class="btn-change" onClick="$('.doc2-photo-func').hide();$('.doc2-upload-file').show();return false;" value="<?php if($this->lang->line('change_photo') != '') { echo stripslashes($this->lang->line('change_photo')); } else echo "Change"; ?>"/>
-												
-												<?php }?>
-											</div>
-											<div class="doc2-upload-file" style="display:none">
-												<input id="uploadavatar-doc2" class="uploadavatar-doc2" name="docsecond-file" type="file">
-												<span class="uploading" style="display:none"><?php if($this->lang->line('settings_uploading') != '') { echo stripslashes($this->lang->line('settings_uploading')); } else echo "Uploading..."; ?></span>
-												<span class="description"><?php if($this->lang->line('settings_allowedimag') != '') { echo stripslashes($this->lang->line('settings_allowedimag')); } else echo "Allowed file types JPG, GIF or PNG.<br>Maximum width and height is 600px"; ?></span>
-												<input type="button" style="cursor: pointer;" class="btn-upload" id="save_profile_image" onclick="return updateUserDoc2();" value="<?php echo "Upload"; ?>"/>
-												<input type="button" style="cursor: pointer;" class="btn-cancel" onClick="$('.doc2-photo-func').show();$('.doc2-upload-file').hide();return false;" value="<?php if($this->lang->line('header_cancel') != '') { echo stripslashes($this->lang->line('header_cancel')); } else echo "Cancel"; ?>"/>
-											</div>
-										
-									</div>
-								  </div>
-								</section>
-								</fieldset>
-							</div>
-						<div class="section photo">
-								<section class="col-lg-12 col-md-12 col-sm-12 m_bottom_27">
-								  <div class="row">
-								  <fieldset class="frm">
-									<div class="col-lg-6 col-md-6 col-sm-6">
-										<p class="stit"><?php echo "Doc 3"; ?></p>
-										<?php 
-										$doc2Img = 'user-thumb1.png';
-										if ($userDetails->row()->doc3 != ''){
-											$doc3Img = $userDetails->row()->doc3;
-										}
-										?>
-									<div class="photo-preview"><img src="images/site/blank.gif" style="width:100%;height:100%;background-image:url(<?php echo base_url();?>images/users/<?php echo $doc3Img?>);background-size:cover" alt="<?php echo $userDetails->row()->full_name;?>"></div>
-
-									</div>
-									<div class="col-lg-6 col-md-6 col-sm-6">
-										
-											<div class="doc3-photo-func">		
-												<?php if ($userDetails->row()->thumbnail == ''){?>		
-												<input type="button" style="cursor: pointer;" class="btn-change" onClick="$('.doc3-photo-func').hide();$('.doc3-upload-file').show();return false;" value="<?php echo "Upload"; ?>"/>
-												<?php }else {?>
-												<input type="button" style="cursor: pointer;" class="btn-change" onClick="$('.doc3-photo-func').hide();$('.doc3-upload-file').show();return false;" value="<?php if($this->lang->line('change_photo') != '') { echo stripslashes($this->lang->line('change_photo')); } else echo "Change"; ?>"/>
-												
-												<?php }?>
-											</div>
-											<div class="doc3-upload-file" style="display:none">
-												<input id="uploadavatar-doc3" class="uploadavatar-doc3" name="docthird-file" type="file">
-												<span class="uploading" style="display:none"><?php if($this->lang->line('settings_uploading') != '') { echo stripslashes($this->lang->line('settings_uploading')); } else echo "Uploading..."; ?></span>
-												<span class="description"><?php if($this->lang->line('settings_allowedimag') != '') { echo stripslashes($this->lang->line('settings_allowedimag')); } else echo "Allowed file types JPG, GIF or PNG.<br>Maximum width and height is 600px"; ?></span>
-												<input type="button" style="cursor: pointer;" class="btn-upload" id="save_profile_image" onclick="return updateUserDoc3();" value="<?php echo "Upload"; ?>"/>
-												<input type="button" style="cursor: pointer;" class="btn-cancel" onClick="$('.doc3-photo-func').show();$('.doc3-upload-file').hide();return false;" value="<?php if($this->lang->line('header_cancel') != '') { echo stripslashes($this->lang->line('header_cancel')); } else echo "Cancel"; ?>"/>
-											</div>
-										
-									</div>
-								  </div>
-								</section>
-								</fieldset>
-							</div> -->
-						<?php } ?>
 										<?php if ($userDetails->row()->group == 'Seller'){?>			
 													<li class="m_bottom_15">
 														<label for="username" class="second_font m_bottom_4 d_inline_b fs_medium">Website Link</label>
 														<input id="site" class="setting_website w_full tr_all" name="setting-website" value="<?php echo $userDetails->row()->web_url;?>" type="text">
 													</li>
+
 													<li class="m_bottom_15">
 														<label for="username" class="second_font m_bottom_4 d_inline_b fs_medium">Location</label>
-														<!--<input id="loc" class="setting_location w_full tr_all" name="setting-location" value="<?php echo $userDetails->row()->location;?>"" class="text" placeholder="<?php if($this->lang->line('settings_eg_new') != '') { echo stripslashes($this->lang->line('settings_eg_new')); } else echo "e.g. Mumbai"; ?>" type="text"> -->
-														
 													<br>				
 													 <select class="setting_location  selectBox select-round select-shipping-addr select_title fs_medium fw_light color_light relative tr_all">
 

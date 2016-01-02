@@ -111,9 +111,9 @@
 						<div class="d_table w_full d_xs_block">
 							<div class="col-lg-4 col-md-4 col-sm-4 d_table_cell d_xs_block f_none v_align_m m_xs_bottom_15 d_xs_align_c t_align_c">
 									<ul class="hr_list second_font si_list fs_medium scheme_color tt_uppercase">
-                                    <li><a class="sc_hover tr_delay" href="customization-request">Customize</a></li>									
-                                    <li><a class="sc_hover tr_delay" href="design-ideas/all">Buy Locally</a></li>
-                                    <li><a class="sc_hover tr_delay" href="shop">Shop Online</a></li>
+                                    <li><a class="sc_hover tr_delay scheme_color" href="customization-request">Customize</a></li>									
+                                    <li><a class="sc_hover tr_delay scheme_color" href="design-ideas/all">Buy Locally</a></li>
+                                    <li><a class="sc_hover tr_delay scheme_color" href="shop">Shop Online</a></li>
 									</ul>
 							</div>
 							<div class="col-lg-4 col-md-4 col-sm-4 d_table_cell d_xs_block f_none v_align_m m_xs_bottom_15 d_xs_align_c t_align_c">

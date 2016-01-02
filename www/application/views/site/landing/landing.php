@@ -17,7 +17,7 @@ $this->load->view('site/templates/header_new');
 							<h1 class="color_white  second_font tt_uppercase fw_thin slider_fs_1"><b>Tell us what you need<br>we will make it<br> for you</b></h1>
 						</div>
 						<div class="rsABlock d_mxs_none" style="right:95px;top:67.56%;" data-move-effect="right" data-delay="600" data-speed="700" data-easing="easeOutBack">
-							<a href="customization-request" class="d_inline_b d_xs_none button_type_5 bg_transparent slider_button color_white tt_uppercase fw_light slider_fs_2">Tell Us Now!</a>
+							<a href="customization-request" class="button_type_3 lbrown tr_all second_font tt_uppercase slider_fs_2">Tell Us Now!</a>
 						</div>
 					</div>
 					<!--slide-->
@@ -30,7 +30,7 @@ $this->load->view('site/templates/header_new');
 							<h1 class="color_white second_font tt_uppercase fw_thin slider_fs_1" style="background-color:grey;"><b>Find Products Available<br>Near You</b></h1>
 						</div> -->
 						<div class="rsABlock d_mxs_none" style="right:95px;top:61%;" data-move-effect="right" data-delay="600" data-speed="700" data-easing="easeOutBack">
-							<a href="#" class="d_inline_b d_xs_none button_type_5 bg_transparent slider_button color_white tt_uppercase fw_light slider_fs_2">Explore Now!</a>
+							<br><a href="design-ideas/all" class="button_type_3 lbrown tr_all second_font tt_uppercase slider_fs_2">Explore Now!</a>
 						</div>
 					</div>
 					<!--slide-->
@@ -40,7 +40,7 @@ $this->load->view('site/templates/header_new');
 							<h1 class="color_lbrown d_mxs_none second_font tt_uppercase fw_thin slider_fs_1"><b>Contemporary<br>Furniture</b></h1>
 						</div>
 						<div class="rsABlock d_mxs_none color_lbrown" style="left:95px;top:61%;" data-move-effect="left" data-delay="600" data-speed="700" data-easing="easeOutBack">
-							<a href="#" class="d_inline_b d_xs_none button_type_5 bg_transparent slider_button color_lbrown tt_uppercase fw_light slider_fs_2">Buy Now!</a>
+							<a href="shop" class="button_type_3 lbrown tr_all second_font tt_uppercase slider_fs_2">Buy Now!</a>
 						</div>	
 					</div>
 				</div>
@@ -53,7 +53,7 @@ $this->load->view('site/templates/header_new');
 						<div class="col-lg-4 col-md-4 col-sm-4 same_height animated hidden" data-animation="fadeInDown" data-animation-delay="300">
 							<section class="item_represent relative m_bottom_25 m_xs_bottom_30 h_inherit t_sm_align_c">
 								<!--icon-->
-								<div class="d_inline_m m_sm_bottom_15 m_sm_right_0 bg_lbrown color_white m_right_17 icon_wrap_1 t_align_c vc_child"><i class="fa fa-certificate d_inline_m"></i></div>
+								<div class="d_inline_m m_sm_bottom_15 m_sm_right_0 bg_lbrown color_white m_right_17 icon_wrap_1 t_align_c vc_child"><i class="fa fa-pencil d_inline_m"></i></div>
 								<!--description-->
 								<div class="d_inline_m description">
 									<h3 class="second_font color_dark m_bottom_10">Get Custom Made</h3>
@@ -65,7 +65,7 @@ $this->load->view('site/templates/header_new');
 						<div class="col-lg-4 col-md-4 col-sm-4 same_height animated hidden" data-animation="fadeInDown" data-animation-delay="150">
 							<section class="item_represent with_divider relative m_bottom_25 m_xs_bottom_30 h_inherit t_sm_align_c">
 								<!--icon-->
-								<div class="d_inline_m m_sm_bottom_15 m_sm_right_0 bg_lbrown color_white m_right_17 icon_wrap_1 t_align_c vc_child"><i class="fa fa-truck d_inline_m"></i></div>
+								<div class="d_inline_m m_sm_bottom_15 m_sm_right_0 bg_lbrown color_white m_right_17 icon_wrap_1 t_align_c vc_child"><i class="fa fa-map-marker d_inline_m"></i></div>
 								<!--description-->
 								<div class="d_inline_m description">
 									<h3 class="second_font color_dark m_bottom_10">Search Products Locally</h3>
@@ -77,7 +77,7 @@ $this->load->view('site/templates/header_new');
 						<div class="col-lg-4 col-md-4 col-sm-4 same_height animated hidden" data-animation="fadeInDown">
 							<section class="item_represent with_divider relative m_bottom_25 m_xs_bottom_30 h_inherit t_sm_align_c">
 								<!--icon-->
-								<div class="d_inline_m m_sm_bottom_15 m_sm_right_0 bg_lbrown color_white m_right_17 icon_wrap_1 t_align_c vc_child"><i class="fa fa-lock d_inline_m"></i></div>
+								<div class="d_inline_m m_sm_bottom_15 m_sm_right_0 bg_lbrown color_white m_right_17 icon_wrap_1 t_align_c vc_child"><i class="fa fa-shopping-cart d_inline_m"></i></div>
 								<!--description-->
 								<div class="d_inline_m description w_sm_full">
 									<h3 class="second_font color_dark m_bottom_10">Shop with Confidence</h3>
@@ -187,14 +187,14 @@ $this->load->view('site/templates/header_new');
 						<div class="col-lg-2 col-md-2 col-sm-2 same_height animated hidden" data-animation="fadeInDown">
 							<section class="item_represent relative m_bottom_25 m_xs_bottom_30 h_inherit t_sm_align_c t_align_c">
 								<!--icon-->
-								<i class="fa fa-money fa-3x"></i>
+								<i class="fa fa-credit-card fa-3x"></i>
 								<!--description-->
 									<p class="fw_light m_bottom_10 m_top_15">No Fake Discounts</p>
 							</section>
 						</div>
 						<div class="col-lg-2 col-md-2 col-sm-2 same_height animated hidden" data-animation="fadeInDown">
 							<section class="item_represent relative m_bottom_25 m_xs_bottom_30 h_inherit t_sm_align_c t_align_c">
-								<i class="fa fa-credit-card fa-3x"></i>
+								<i class="fa fa-money fa-3x"></i>
 								<!--description-->
 									<p class="fw_light m_bottom_10 m_top_15">Cash on Delivery</p>
 							</section>
@@ -435,64 +435,38 @@ $this->load->view('site/templates/header_new');
 						}'>
 						<!--item-->
 						<figure class="animated hidden" data-animation="fadeInLeft" data-animation-delay="200">
-							<a href="#" class="d_block scale_image_container f_left m_right_20 photoframe wrapper color_white">
+					<!--		<a href="#" class="d_block scale_image_container f_left m_right_20 photoframe wrapper color_white">
 								<img src="images/customer_img_1.jpg" alt="" class="tr_all scale_image">
-							</a>
+							</a> -->
 							<figcaption>
 								<blockquote class="fw_light fs_large color_dark lh_medium m_bottom_15">
-									<i>Vestibulum sed ante. Donec sagittis euismod purus. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantim doloremque laudantim.</i>
+									<i>I wanted a rustic look for my studio and knew what exactly I want. Would like to thank Socktail for making those products for me.</i>
 								</blockquote>
-								<p class="second_font color_light m_bottom_3"><a href="#" class="sc_hover">Brenda Grosh</a>, New York</p>
+								<p class="second_font color_light m_bottom_3"><a href="#" class="sc_hover">Brinda Ghosh</a>, Mumbai</p>
 							</figcaption>
 						</figure>
 						<!--item-->
 						<figure class="animated hidden" data-animation="fadeInLeft" data-animation-delay="350">
-							<a href="#" class="d_block scale_image_container f_left m_right_20 photoframe wrapper color_white">
+				<!--			<a href="#" class="d_block scale_image_container f_left m_right_20 photoframe wrapper color_white">
 								<img src="images/customer_img_2.jpg" alt="" class="tr_all scale_image">
-							</a>
+							</a> -->
 							<figcaption>
 								<blockquote class="fw_light fs_large color_dark lh_medium m_bottom_15">
-									<i>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos. Ut tellus dolor, dapibus eget, elementum vel.</i>
+									<i>I bought Nomad Bar console from Socktail and I was really happy with the quality of material and rustic finish. Though it came liitle late, but it was worth waiting.</i>
 								</blockquote>
-								<p class="second_font color_light m_bottom_3"><a href="#" class="sc_hover">John McCoist</a>, Los Angeles</p>
+								<p class="second_font color_light m_bottom_3"><a href="#" class="sc_hover">Nitesh Karia</a>, Pune</p>
 							</figcaption>
 						</figure>
 						<!--item-->
 						<figure class="animated hidden" data-animation="fadeInLeft" data-animation-delay="500">
-							<a href="#" class="d_block scale_image_container f_left m_right_20 photoframe wrapper color_white">
+				<!--			<a href="#" class="d_block scale_image_container f_left m_right_20 photoframe wrapper color_white">
 								<img src="images/customer_img_1.jpg" alt="" class="tr_all scale_image">
-							</a>
+							</a> -->
 							<figcaption>
 								<blockquote class="fw_light fs_large color_dark lh_medium m_bottom_15">
-									<i>Vestibulum sed ante. Donec sagittis euismod purus. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantim doloremque laudantim.</i>
+									<i>Impressed by their (Socktail's) collection of products. My experience with Socktail was quite pleasent. Earlier I never heared about them, so would suggest them to make more visibility.</i>
 								</blockquote>
-								<p class="second_font color_light m_bottom_3"><a href="#" class="sc_hover">Brenda Grosh</a>, New York</p>
-								<ul class="rating_list hr_list">
-									<li class="color_lbrown"><i class="fa fa-star tr_all"></i></li>
-									<li class="color_lbrown"><i class="fa fa-star tr_all"></i></li>
-									<li class="color_lbrown"><i class="fa fa-star tr_all"></i></li>
-									<li class="color_lbrown"><i class="fa fa-star tr_all"></i></li>
-									<li><i class="fa fa-star tr_all"></i></li>
-								</ul>
-							</figcaption>
-						</figure>
-						<!--item-->
-						<figure class="animated hidden" data-animation="fadeInLeft" data-animation-delay="750">
-							<a href="#" class="d_block scale_image_container f_left m_right_20 photoframe wrapper color_white">
-								<img src="images/customer_img_2.jpg" alt="" class="tr_all scale_image">
-							</a>
-							<figcaption>
-								<blockquote class="fw_light fs_large color_dark lh_medium m_bottom_15">
-									<i>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos. Ut tellus dolor, dapibus eget, elementum vel.</i>
-								</blockquote>
-								<p class="second_font color_light m_bottom_3"><a href="#" class="sc_hover">John McCoist</a>, Los Angeles</p>
-								<ul class="rating_list hr_list">
-									<li class="color_lbrown"><i class="fa fa-star tr_all"></i></li>
-									<li class="color_lbrown"><i class="fa fa-star tr_all"></i></li>
-									<li class="color_lbrown"><i class="fa fa-star tr_all"></i></li>
-									<li class="color_lbrown"><i class="fa fa-star tr_all"></i></li>
-									<li><i class="fa fa-star tr_all"></i></li>
-								</ul>
+								<p class="second_font color_light m_bottom_3"><a href="#" class="sc_hover">Indrani Kaul</a>, Panjim</p>
 							</figcaption>
 						</figure>
 					</div>

@@ -2,6 +2,7 @@
 $this->load->view('site/templates/header_new');
 ?>
 
+
 			<!--breadcrumbs-->
 			<div class="breadcrumbs bg_grey_light_2 fs_medium fw_light">
 				<div class="container">
@@ -246,9 +247,6 @@ $this->load->view('site/templates/header_new');
 												<img src="images/product/<?php echo $img; ?>" alt="<?php echo $productListVal->product_name;?>" class="c_image_1 tr_all">
 												<img src="images/product/<?php echo $img; ?>" alt="<?php echo $productListVal->product_name;?>" class="c_image_2 tr_all">
 											</div>
-											<?php if($discPrice != ''){?>
-											<div class="product_label fs_ex_small circle color_white bg_lbrown t_align_c vc_child tt_uppercase"><i class="d_inline_m">Sale!</i></div>
-											<?php } ?>
 									<!--		<a data-popup="#quick_view" data-popup-transition-in="bounceInUp" data-popup-transition-out="bounceOutUp" class="productquickview tr_all color_white second_font qv_style_button quick_view tt_uppercase t_align_c d_block clickable d_xs_none"><i class="fa fa-eye d_inline_m m_right_10"></i><span class="fs_medium">Quick View</span>
 											</a>
 											<div class="popupHiddenInfo" style="display:none">

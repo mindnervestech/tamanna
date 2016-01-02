@@ -1,7 +1,21 @@
 <?php
 $this->load->view('site/templates/header_new_small');
 ?>
+<style type="text/css">
 
+.category_isotope_item {
+    position: relative !important;
+    top: 0px !important;
+    left: 0px !important;
+    float: left;
+}
+ 
+#can_change_layout{ height: auto;}
+</style>
+			<div class="container t_align_c">
+					<h1 class="fw_light second_font color_dark tt_uppercase m_bottom_27">Discover Great Products to Buy at local stores near you</h1>
+					<h6 class="fw_light second_font color_dark tt_uppercase m_bottom_27">Check products, price and contact seller directly</h6>
+			</div>
 			<!--breadcrumbs-->
 			<div class="breadcrumbs bg_grey_light_2 fs_medium fw_light">
 				<div class="container">
@@ -54,7 +68,6 @@ $this->load->view('site/templates/header_new_small');
 							</section>	
 						</aside>
 						<main class="col-lg-9 col-md-9 col-sm-9 m_bottom_30 m_xs_bottom_10">
-							<h2 class="fw_light second_font color_dark tt_uppercase m_bottom_27">Discover Great Products to Buy at local stores</h2>
 						<div id="content">
 				<!--			<h2 class="fw_light second_font color_dark tt_uppercase m_bottom_27">Queen Beds</h2>
 							<figure class="m_bottom_45 m_xs_bottom_30">
@@ -323,7 +336,7 @@ $this->load->view('site/templates/header_new_small');
 											<tbody>
 												<tr>
 													<td class="scheme_color">
-														<p class="fw_light m_top_5 m_bottom_7 m_xs_top_0 m_xs_bottom_0">Sell Price:</p>
+														<p class="fw_light m_top_5 m_bottom_7 m_xs_top_0 m_xs_bottom_0">Approx Price:</p>
 														<b><div><span class="fs_big second_font d_block m_bottom_7 m_xs_bottom_0 fs_sm_default" style="float:left;"><?php echo $currencySymbol;?>&nbsp; </span><span  class="fs_big second_font d_block m_bottom_7 m_xs_bottom_0 fs_sm_default" id="sell_Price"> </span></div></b>
 													</td>
 												

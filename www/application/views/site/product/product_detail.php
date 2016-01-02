@@ -201,7 +201,7 @@ $this->load->view('site/templates/header_new');
 										<?php if($discPrice != ''){?>
 											<tr>
 												<td colspan="3" class="bg_blue border_blue color_white">
-													<div class="m_top_2 m_bottom_6"><span class="fw_light d_inline_m m_right_5">Use Coupon Code <div style="color: #ec1e20;font-size:13px;display:inline-block;">"<?php echo $couponCode;?>"</div> to Get Additional <?php echo number_format($discVal);?>% DIscount</span></div>
+													<div class="m_top_2 m_bottom_6"><span class="fw_light d_inline_m m_right_5">Use Coupon Code <div style="color: #d6a916;font-weight:bold;font-size:13px;display:inline-block;">"<?php echo $couponCode;?>"</div> to Get Additional <?php echo number_format($discVal);?>% DIscount</span></div>
 												</td>
 											</tr>
 										<?php }?>
@@ -460,8 +460,7 @@ return false;
 										<input type="hidden" name="user_id" id="user_id" value="<?php echo $loginCheck ;?>"/>
 											<ul>
 												<li class="m_bottom_9">
-													<label for="review" class="second_font required clickable d_inline_b m_bottom_5">Customization Requirements</label><br>
-													<textarea class="tr_all w_full fw_light fs_medium color_light" id="comments" name="comments" placeholder="Tell us size, finish and more.." rows="5"></textarea>
+													<textarea class="tr_all w_full fw_light fs_medium color_light" id="comments" name="comments" placeholder="Tell us size, finish and more.." rows="3"></textarea>
 												</li>
 												<li class="m_bottom_15">
 													<label for="reviewer_name" class="second_font required clickable d_inline_b m_bottom_5">Your Contact Number</label><br>
@@ -472,7 +471,7 @@ return false;
 													<input type="text" class="tr_all w_full fw_light fs_medium color_light" id="reviewer_email" name="">
 												</li>
 												<li class="clearfix">
-													<button type="submit" class="button_type_2 d_block t_align_c black state_2 tr_all second_font fs_medium tt_uppercase f_left submit button"><span class="d_inline_b m_left_10 m_right_10">Send Custom Request</span></button>
+													<button type="submit" class="button_type_2 d_block f_sm_none m_sm_bottom_3 t_align_c lbrown state_2 tr_all second_font fs_medium tt_uppercase f_left m_right_3 submit button"><span class="d_inline_b m_left_10 m_right_10">Send Customization Request</span></button>
 												</li>
 												<div class="alert_box error relative m_bottom_10 fw_light" id= "customMessageAlert" style="margin-top:10px;display:none">
 													Please Fill All the Fields.
@@ -485,24 +484,31 @@ return false;
 									</div>
 									<div class="represent_wrap widget clearfix m_bottom_30">
 										<section class="item_represent m_bottom_3 type_2 h_inherit t_sm_align_c bg_grey_light_2 tr_delay">
-											<div class="d_inline_m m_xs_bottom_0 color_lbrown icon_wrap_1 t_align_c vc_child"><i class="fa fa-lock d_inline_m"></i></div>
+											<div class="d_inline_m m_xs_bottom_0 color_lbrown icon_wrap_1 t_align_c vc_child"><i class="fa fa-money d_inline_m"></i></div>
 											<div class="description d_inline_m lh_medium">
-												<p class="color_dark second_font m_bottom_2 fs_large"><b>Safe &amp; Secure</b></p>
-												<small class="fw_light">Suspendisse sollicitudin velit sed leo.<a class="sc_hover second_font fw_default" href="#">Read More</a></small>
+												<p class="color_dark second_font m_bottom_2 fs_large"><b>Cash on Delivery</b></p>
+												<small class="fw_light">Cash on delivery upto order of 20K<a class="sc_hover second_font fw_default" href="pages/faq"><br>Read More</a></small>
 											</div>
 										</section>
 										<section class="item_represent m_bottom_3 type_2 h_inherit t_sm_align_c bg_grey_light_2 tr_delay">
 											<div class="d_inline_m m_xs_bottom_0 color_lbrown icon_wrap_1 t_align_c vc_child"><i class="fa fa-truck d_inline_m"></i></div>
 											<div class="description d_inline_m lh_medium">
 												<p class="color_dark second_font m_bottom_2 fs_large"><b>Free Delivery</b></p>
-												<small class="fw_light">Lorem ipsum dolor sit amet, consectetuer. <a class="sc_hover second_font fw_default" href="#">Read More</a></small>
+												<small class="fw_light">Free door step delivery across India<a class="sc_hover second_font fw_default" href="pages/faq"><br>Read More</a></small>
+											</div>
+										</section>
+										<section class="item_represent m_bottom_3 type_2 h_inherit t_sm_align_c bg_grey_light_2 tr_delay">
+											<div class="d_inline_m m_xs_bottom_0 color_lbrown icon_wrap_1 t_align_c vc_child"><i class="fa fa-wrench d_inline_m"></i></div>
+											<div class="description d_inline_m lh_medium">
+												<p class="color_dark second_font m_bottom_2 fs_large"><b>Free Installation</b></p>
+												<small class="fw_light">Free installation of all products <a class="sc_hover second_font fw_default" href="pages/faq"><br>Read More</a></small>
 											</div>
 										</section>
 										<section class="item_represent m_bottom_3 type_2 h_inherit t_sm_align_c bg_grey_light_2 tr_delay">
 											<div class="d_inline_m m_xs_bottom_0 color_lbrown icon_wrap_1 t_align_c vc_child"><i class="fa fa-certificate d_inline_m"></i></div>
 											<div class="description d_inline_m lh_medium">
-												<p class="color_dark second_font m_bottom_2 fs_large"><b>Money Back Guarantee</b></p>
-												<small class="fw_light">Etiam cursus leo vel metus. Nulla facilisi aenean. <a class="sc_hover second_font fw_default" href="#">Read More</a></small>
+												<p class="color_dark second_font m_bottom_2 fs_large"><b>Quality Assurance</b></p>
+												<small class="fw_light">Six months warranty <a class="sc_hover second_font fw_default" href="pages/faq"><br>Read More</a></small>
 											</div>
 										</section>
 									</div>

@@ -72,14 +72,14 @@
 					<hr class="divider_black m_bottom_13">
 					<div class="d_table w_full d_xs_block t_xs_align_c">
 						<div class="col-lg-6 col-md-6 col-sm-6 color_light fw_light f_none d_table_cell v_align_m d_xs_block m_xs_bottom_10">
-							&copy; 2015 - 2016<a href="index.html" class="sc_hover"> Socktail</a>
+							&copy; 2015 - 2016<a href="index.html" class="sc_hover"> Socktail</a> | PAN India delivery including Bangalore, Mumbai, Delhi, Gurgaon, Noida, Goa, Hyderabad, Chennai, Kolkata, Pune, Chandigarh, Surat, Ahmadabad, Kochi, Nagpur
 						</div>
 					</div>
 				</div>
 				<?php
 				$this->load->view('site/templates/script_files_new');
 				?>
-				<!-- Start of StatCounter Code for Default Guide
+				<!-- Start of StatCounter Code for Default Guide -->
 					<script type="text/javascript">
 					var sc_project=9953057; 
 					var sc_invisible=1; 
@@ -95,5 +95,5 @@
 					target="_blank"><img class="statcounter"
 					src="http://c.statcounter.com/9953057/0/79201053/1/"
 					alt="site stats"></a></div></noscript>
-					End of StatCounter Code for Default Guide -->
+				<!--	End of StatCounter Code for Default Guide -->
 			</footer>

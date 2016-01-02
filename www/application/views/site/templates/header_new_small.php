@@ -84,12 +84,6 @@
 								<!--shop nav-->
 								<nav class="d_inline_b">
 									<ul class="hr_list second_font si_list fs_small">
-                                    <li><a class="sc_hover tr_delay" href="shop">Shop</a></li>
-									<li><a class="sc_hover tr_delay" href="customization-request">Customization Request</a></li>
-                                    <li><a class="sc_hover tr_delay" href="design-ideas/all">Explore</a></li>
-                                    <li><a class="sc_hover tr_delay" href="pages/faq">Why Socktail</a></li>
-									<li><a href="pages/contact-us" class="sc_hover tr_delay" href="faq">Contact Us</a></li>
-
                                         <?php if ($loginCheck != ''){ ?>
                                         <li><a class="sc_hover tr_delay" href="settings">My Account</a></li>
                                         <li><a class="sc_hover tr_delay" href="purchases">Purchase History</a></li>
@@ -109,11 +103,18 @@
 				<div class="header_middle_part t_xs_align_c">
 					<div class="container">
 						<div class="d_table w_full d_xs_block">
-							<div class="col-lg-12 col-md-12 col-sm-12 d_table_cell d_xs_block f_none v_align_m m_xs_bottom_15">
+							<div class="col-lg-9 col-md-9 col-sm-9 d_table_cell d_xs_block f_none v_align_m m_xs_bottom_15">
 								<!--logo-->
 								<a href="<?php echo base_url();?>" class="d_inline_b" alt="<?php echo $siteTitle;?>" title="<?php echo $siteTitle;?>">
 									<img src="images/logo/<?php echo $logo;?>" alt="socktail logo"">
 								</a>
+							</div>
+							<div class="col-lg-3 col-md-3 col-sm-3 d_table_cell d_xs_block f_none v_align_m m_xs_bottom_15">
+									<ul class="hr_list second_font si_list fs_medium scheme_color tt_uppercase t_align_r">
+                                    <li><a class="sc_hover tr_delay" href="customization-request">Customize</a></li>									
+                                    <li><a class="sc_hover tr_delay" href="design-ideas/all">Buy Locally</a></li>
+                                    <li><a class="sc_hover tr_delay" href="shop">Shop Online</a></li>
+									</ul>
 							</div>
 						</div>
 					</div>
