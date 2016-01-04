@@ -228,7 +228,7 @@ $this->load->view('site/templates/header_new_small');
 													</div>
 											<!--		<a class="button_type_2 m_bottom_9 d_block w_full t_align_c lbrown state_2 tr_all second_font fs_medium tt_uppercase m_top_15" href="user/<?php echo $productListVal->user_name;?>/things/<?php echo $productListVal->seller_product_id;?>/<?php echo url_title($productListVal->product_name,'-');?>">Check Details</a> -->
 													<div class="clearfix t_align_c t_sm_align_c t_xs_align_l">
-													   <span class="d_block">by <?php echo $productListVal->full_name;?> - <?php echo $productListVal->s_city;?></span>
+													   <span class="d_block">by <?php echo $productListVal->full_name;?> - <?php echo $productListVal->cityname;?></span>
 													</div>
 													<hr class="divider m_bottom_5 m_top_5">
 													<div class="clearfix t_sm_align_c t_xs_align_l">

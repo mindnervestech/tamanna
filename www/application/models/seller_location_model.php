@@ -16,9 +16,8 @@ class seller_location_model extends My_Model
 		$Query = " select * from ".SELLER_LOCATION;
    		return $this->ExecuteQuery($Query);
 	}
-	function get_sellerlocation_byId($id){
-		$Query = " select * from ".SELLER_LOCATION.' where id='.$id;
-   		return $this->ExecuteQuery($Query);
+	function get_sellerlocation_byId($condition = ''){
+		return $this->db->get_where(SELLER_LOCATION,$condition);
 	}
 
 }

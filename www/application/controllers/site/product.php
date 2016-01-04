@@ -12,7 +12,7 @@ class Product extends MY_Controller {
 		parent::__construct();
 		$this->load->helper(array('cookie','date','form','email','text'));
 		$this->load->library(array('encrypt','form_validation'));
-		$this->load->model(array('product_model','user_model'));
+		$this->load->model(array('product_model','user_model','seller_location_model'));
 
 		if($_SESSION['sMainCategories'] == ''){
 			$sortArr1 = array('field'=>'cat_position','type'=>'asc');
@@ -956,6 +956,7 @@ echo curl_error($ch) . '<br/>';*/
 		$uname = $this->uri->segment(2,0);
 		$pid = $this->uri->segment(4,0);
 		$this->data['productUserDetails'] = $this->product_model->get_all_details(USERS,array('user_name'=>$uname));
+		$this->data['cityname'] = $this->seller_location_model->get_sellerlocation_byId(array('id'=>$this->data['productUserDetails']->row()->s_city));
 		$this->data['productDetails'] = $this->product_model->view_notsell_product_details(' where p.seller_product_id="'.$pid.'" and p.status="Publish"');
 		if ($this->data['productDetails']->num_rows() == 1){
 			$this->data['heading'] = $this->data['productDetails']->row()->product_name;

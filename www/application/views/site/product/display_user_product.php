@@ -56,7 +56,7 @@ $this->load->view('site/templates/header_new');
 							
 									<li class="m_bottom_3"><span style="width: 150px;" class="project_list_title second_font d_inline_b">Approx Price: </span><span class="fs_big second_font m_bottom_25 m_xs_bottom_10 fs_sm_default"> <?php echo $currencySymbol;?><?php echo $productDetails->row()->sale_price;?></span></li>
 									<li class="m_bottom_3"><span style="width: 150px;"  class="project_list_title second_font d_inline_b">Seller:</span> <span class="color_dark fw_light"><a href="user/<?php echo $productUserDetails->row()->user_name;?>/added"><?php echo $productDetails->row()->full_name;?></a></span></li>
-									<li class="m_bottom_3"><span style="width: 150px;"  class="project_list_title second_font d_inline_b">City:</span> <span class="color_dark fw_light"><?php echo $productUserDetails->row()->s_city;?></span></li>
+									<li class="m_bottom_3"><span style="width: 150px;"  class="project_list_title second_font d_inline_b">City:</span> <span class="color_dark fw_light"> <?php echo $cityname->row()->cityname;?></span></li>
 									<li class="m_bottom_3"><span style="width: 150px;"  class="project_list_title second_font d_inline_b">Contact Number:</span> <span class="color_dark fw_light"><?php echo $productUserDetails->row()->s_phone_no;?></span></li>
 									<li class="m_bottom_3"><span style="width: 150px;"  class="project_list_title second_font d_inline_b">Address:</span> <span class="color_dark fw_light"><?php echo $productUserDetails->row()->s_address;?></span></li>
 							</ul>

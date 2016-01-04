@@ -205,9 +205,9 @@ jQuery(function($) {
 	$('.sort-by-price').change(function(){
 		var sort_by_price = this.value, url = location.pathname, args = $.extend({}, location.args), query;
 		if(sort_by_price == 'location'){
-			$("#exploreLocation").show();
+			//$("#exploreLocation").show();
 		}else{
-			$("#exploreLocation").hide();
+			//$("#exploreLocation").hide();
 			delete args.sort_by_location;
 			if(sort_by_price){
 				args.sort_by_price = sort_by_price;
