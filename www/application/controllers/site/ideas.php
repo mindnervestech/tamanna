@@ -188,9 +188,9 @@ $listSubCatSelBox.= '</select>';
 			$userproductList = $this->product_model->searchShopyByCategoryuser($userWherCond);
 			
 			$this->data['userproductList'] = $userproductList;
-			$this->data['heading'] = 'Explore Products Available In Your City with Local Vendors';
-			$this->data['meta_title'] = 'Buy Furniture from Local Vendors in Your City';
-			$this->data['meta_description'] = 'Local Discovery of Furniture: Check What Products Are Available in Your City';
+			$this->data['heading'] = 'Explore Products Available In Your City with Local Creators and Artisans';
+			$this->data['meta_title'] = 'Buy Furniture and Decor from Local Creators in Your City';
+			$this->data['meta_description'] = 'Local Discovery of Furniture and Home Improvement Products: Check What Products Are Available in Your City';
 			if($searchCriteria != 'all') {
 				if ($catID->row()->cat_name != ''){
 					$this->data['heading'] = $catID->row()->cat_name;

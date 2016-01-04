@@ -119,6 +119,7 @@ $this->load->view('site/templates/header_new');
                        
                        switch($shipping)
                        {
+
                        	case '1': 
                        		echo stripslashes($this->lang->line('shipping_in_option_first')); 
                        	break;
@@ -305,7 +306,7 @@ $this->load->view('site/templates/header_new');
 										<li>* Keep furniture away from direct sunlight as it could cause fading.</li>
 										<li>* Keep furniture away from heaters, dehumidifiers and air conditioners.</li>
 										<li>* Use table clothes, runners, coasters and table pads on heavily used coffee and dining tables.</li>
-										<li>* Mop away any spills immediately. Don?t wipe. </li>
+										<li>* Mop away any spills immediately. Don’t wipe. </li>
 										<li>* Use a damp, soft cloth to clean away dust. </li>
 										<li>* Clean when needed with a good quality wax or polish. </li>
 										<li>* Don't allow perfumes, nail polish or remover etc to come in contact with the wood. </li>
@@ -349,7 +350,7 @@ $this->load->view('site/templates/header_new');
 										<li>* Vacuum wicker furniture routinely with the soft brush attachment.</li>
 										<li>* Maintain even humidity in your home to keep antique wicker happy. </li>
 										<li>* To add life to the seats of your wicker furniture, use padded chair seat cushions. </li>
-										<li>* Use tweezers to pick out lint and trapped pet hair that the vacuum and soft brush can?t remove.</li>
+										<li>* Use tweezers to pick out lint and trapped pet hair that the vacuum and soft brush can’t remove.</li>
 										<li>* If you do notice mold or mildew growing on your wicker furniture, clean immediately with a solution of bleach in water. </li>
 										</ul>
 										<br>
@@ -411,8 +412,8 @@ $.ajax({
   dataType:'json',
   success: function(json){
 		if(json.status_code == 1){
-				$('#custmConfirmation').modal('show');
-				//alert('<?php echo "We have got your requirements, our team will be in touch with you shortly.."; ?>');
+				//$('#custmConfirmation').modal('show');
+				alert('<?php echo "We have got your requirements, our team will be in touch with you shortly.."; ?>');
 				$("#New_Comment").append( '<li><a class="milestone" id="comment-1866615"></a><p class="c-text">'+ comments +'</p><p style="float:left;width:100%;text-align:left;font-size: 11px; color: #188A0E;"><a style="font-size: 11px; color: #f33;margin-left:10px" onclick="javascript:deleteCmt(this);" data-tid="<?php echo $productDetails->row()->seller_product_id;?>" data-cid="'+ json.comment_ID +'"><?php if($this->lang->line('shipping_delete') != '') { echo stripslashes($this->lang->line('shipping_delete')); } else echo "Delete"; ?></a></p></li>' );
 				//window.location.reload();
 			}
@@ -452,9 +453,6 @@ return false;
 												<div class="alert_box error relative m_bottom_10 fw_light" id= "customMessageAlert" style="margin-top:10px;display:none">
 													Please Fill All the Fields.
 												</div>
-	<!--											                <?php if($loginCheck==''){ ?>
-						<p><?php if($this->lang->line('product_please') != '') { echo stripslashes($this->lang->line('product_please')); } else echo "Please"; ?> <a href="login?next=things/<?php echo $productDetails->row()->id;?>/<?php echo url_title($productDetails->row()->product_name,'-');?>"><?php if($this->lang->line('product_login') != '') { echo stripslashes($this->lang->line('product_login')); } else echo "login"; ?></a> <?php if($this->lang->line('credit_or') != '') { echo stripslashes($this->lang->line('credit_or')); } else echo "or"; ?> <a href="signup?next=things/<?php echo $productDetails->row()->id;?>/<?php echo url_title($productDetails->row()->product_name,'-');?>"><?php if($this->lang->line('product_signup') != '') { echo stripslashes($this->lang->line('product_signup')); } else echo "signup"; ?></a> <?php echo "to send custom request"; ?></p>
-					<?php }?> -->
 											</ul>
 										</form>
 									</div>

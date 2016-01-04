@@ -1036,7 +1036,7 @@ echo curl_error($ch) . '<br/>';*/
 				$this->data['meta_title'] = $this->data['productDetails']->row()->meta_title;
 			}
 			else if ($this->data['productDetails']->row()->sale_price > 0){
-			$this->data['meta_title'] =  'Buy '. $this->data['productDetails']->row()->product_name .' in ' . $this->data['productUserDetails']->row()->s_city . ' from ' .$this->data['productUserDetails']->row()->full_name;
+			$this->data['meta_title'] =  'Buy '. $this->data['productDetails']->row()->product_name .' in ' . $this->data['cityname']->row()->cityname . ' from ' .$this->data['productUserDetails']->row()->full_name;
 			}
             else {
 				$this->data['meta_title'] =$this->data['productDetails']->row()->product_name;
@@ -1050,7 +1050,7 @@ echo curl_error($ch) . '<br/>';*/
 				$this->data['meta_description'] = $this->data['productDetails']->row()->meta_description;
 			}
 			else if ($this->data['productDetails']->row()->sale_price > 0){
-			$this->data['meta_description'] = 'Shop for '. $this->data['productDetails']->row()->product_name .' in '. $this->data['productUserDetails']->row()->s_city . ' from '. $this->data['productUserDetails']->row()->full_name .'. Read '. $this->data['productUserDetails']->row()->full_name.'\'s Review, Check Latest Collection and Price of Products Offered by '. $this->data['productUserDetails']->row()->full_name;
+			$this->data['meta_description'] = 'Shop for '. $this->data['productDetails']->row()->product_name .' in '. $this->data['cityname']->row()->cityname . ' from '. $this->data['productUserDetails']->row()->full_name .'. Read '. $this->data['productUserDetails']->row()->full_name.'\'s Review, Check Latest Collection and Price of Products Offered by '. $this->data['productUserDetails']->row()->full_name;
 			}
 		else{
 					/*$this->data['meta_description'] = $this->data['productDetails']->row()->product_name;
