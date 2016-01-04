@@ -41,3 +41,10 @@ $(function() {
       }
 	}  
 });
+	
+	function login_account(){
+		next = $(location).attr('href');
+		next = next.replace(baseURL,'');
+		location.href = baseURL+'login'+(next?'?next='+encodeURIComponent(next):'');
+		return false;
+	}

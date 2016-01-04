@@ -208,7 +208,7 @@ jQuery(function($) {
 			//$("#exploreLocation").show();
 		}else{
 			//$("#exploreLocation").hide();
-			delete args.sort_by_location;
+			//delete args.sort_by_location;
 			if(sort_by_price){
 				args.sort_by_price = sort_by_price;
 			} else {

@@ -51,6 +51,7 @@ $this->load->view('site/templates/header_new_small');
 													<li class="m_bottom_15">
 														<label for="username" class="second_font m_bottom_4 d_inline_b fs_medium">City *</label>
 														<input type="text" name="s_city" id="s_city" class="w_full tr_all" style="display:none">
+														<input type="text" name="location" id="location" class="w_full tr_all" style="display:none">
 														<br>
 														<select id="s_city_dropdown" class="selectBox select-round select-shipping-addr select_title fs_medium fw_light color_light relative tr_all">
 
@@ -212,6 +213,8 @@ function validateSellerSignup(){
 	}*/
 	if($("#s_city_dropdown").val() != ''){
 		$('#s_city').val($("#s_city_dropdown").val());
+		$('#location').val($("#s_city_dropdown").val());
+		
 	}
 }
 
