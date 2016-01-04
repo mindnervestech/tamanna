@@ -234,7 +234,7 @@ $this->load->view('site/templates/header_new');
 												</div>
 												<br class="d_md_block d_none">
 												
-												<button  class="button_type_2 d_block f_sm_none m_sm_bottom_3 t_align_c lbrown state_2 tr_all second_font fs_medium tt_uppercase f_left m_right_3 product_button"
+												<button  class="add_to_cart button_type_2 d_block f_sm_none m_sm_bottom_3 t_align_c lbrown state_2 tr_all second_font fs_medium tt_uppercase f_left m_right_3 product_button"
 												<?php if ($loginCheck==''){echo 'require_login="true"';}?> name="addtocart" value="<?php if($this->lang->line('header_add_cart') != '') { echo stripslashes($this->lang->line('header_add_cart')); } else echo "Add to Cart"; ?>" onclick="ajax_add_cart('<?php echo $PrdAttrVal->num_rows; ?>');"
 												><i class="fa fa-shopping-cart d_inline_m m_right_9"></i>Add To Cart</button>
 												

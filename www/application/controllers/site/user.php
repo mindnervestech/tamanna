@@ -1713,7 +1713,7 @@ exit();
                                         //vinitj: send pending notification
                                         $this->send_sellerpending_mail($this->data['userDetails']);
 				        $this->setErrorMessage('success',$lg_err_msg);
-					redirect(base_url().'settings');
+					redirect(base_url().'add-thing');
 			//}
 		}
 	}

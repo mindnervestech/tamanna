@@ -91,7 +91,7 @@
 										<li><a class="sc_hover tr_delay" href="<?php echo 'user/'.$userDetails->row()->user_name;?>">Wishlist</a></li>
                                         <li><a class="sc_hover tr_delay" href="logout">Logout</a></li>
                                         <?php }else  { ?>
-                                        <li><a class="sc_hover tr_delay" href="login">Login</a></li>
+                                        <li><span class="sc_hover tr_delay" style="cursor: pointer;" onClick="login_account()">Login</span></li>
 										<li><a class="sc_hover tr_delay" href="signup">Signup</a></li>
                                         <?php } ?>
 									</ul>

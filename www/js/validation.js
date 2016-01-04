@@ -1056,7 +1056,12 @@ function shipping_cart_address_delete(){
 	});
 }
 
-
+function require_login(next){
+	next = $(location).attr('href');
+	next = next.replace(baseURL,'');
+	location.href = baseURL+'login'+(next?'?next='+encodeURIComponent(next):'');
+	return false;
+}
 
 function ajax_add_cart(AttrCountVal){
 	$('#QtyErr').html('');
