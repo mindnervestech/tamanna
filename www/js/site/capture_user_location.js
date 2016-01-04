@@ -5,11 +5,11 @@ $(function() {
 	    if (navigator && navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(successCallback, errorCallback, {timeout:100000});
         } else {
-          console.log('Geolocation is not supported');
+          //console.log('Geolocation is not supported');
         }
      
       function errorCallback(e) {
-	            console.log('Geolocation is not supported' + e.code);
+	            //console.log('Geolocation is not supported' + e.code);
 
 	  }
      
@@ -27,8 +27,8 @@ $(function() {
                 data : data,
                 dataType : 'json',
                 success : function(json){
-					debugger;
-					console.log(json);
+					//debugger;
+					//console.log(json);
                     if (json != 1) {
                     }
                 },

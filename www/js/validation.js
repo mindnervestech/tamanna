@@ -1254,7 +1254,7 @@ function change_user_password(){
 }
 
 function shipping_address_cart(id){
-	console.log(id);
+	//console.log(id);
 	var shipID = id;
 	$.ajax({
 			type:'POST',
@@ -1287,7 +1287,7 @@ function shipping_address_cart(id){
 }
 
 function delete_shipping_address_cart(id, isdefault){
-			debugger;
+			//debugger;
 			var $id = id;
 			event.preventDefault();
 

@@ -65,7 +65,7 @@ jQuery(function($) {
 					$stream.html('<p class="noproducts">No more products available</p>');
 				}else {
 					//$stream.html( $html.find('#can_change_layout').html());
-					debugger;
+					//debugger;
 					var $rows = $html.find('#can_change_layout')[0].children;
 					$stream.html("");
 					var temp,i;					
@@ -237,7 +237,7 @@ jQuery(function($) {
 	});
 	
 	$('#sort_By_Price_Range').click(function(event){
-		debugger;
+		//debugger;
 		event.preventDefault();
 		var minRange = $("#sliderPriceMin").val();
 		var maxRange = $("#sliderPriceMax").val();
