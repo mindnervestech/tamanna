@@ -166,16 +166,16 @@ $listSubCatSelBox.= '</select>';
 				if($sortbylocation == ''){
 					$orderBy = ' order by distance asc,p.sale_price '.$orderbyVal.'';
 				}else{
-					$orderBy = $sortbylocation.' order by p.sale_price';
+					$orderBy = $sortbylocation.' order by p.sale_price '.$orderbyVal.'';
 				}
-			}else {
+			}/*else {
 				if($sortbylocation == ''){				
 					$orderBy = ' order by distance asc,p.created desc';
 				}else{
 					$orderBy = $sortbylocation.' order by p.created desc';
 				}
 
-			}
+			}*/
 			if($searchCriteria != 'all') {
 				$userWherCond .= ' where FIND_IN_SET("'.$catID->row()->id.'",p.category_id) '.$userWherCond.' and p.status="Publish" and p.sale_price>0 and u.status="Active" and p.status="Publish" and p.global_visible=1';
 				$userWherCond = $userWherCond.' '.$orderBy.' '.$limitPaging.' ';
