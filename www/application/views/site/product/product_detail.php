@@ -177,7 +177,6 @@ $this->load->view('site/templates/header_new');
                     $origPrice = $productDetails->row()->sale_price;
                     $userId = $productDetails->row()->user_id;
                     $catId = $productDetails->row()->category_id;
-
                         $couponCode = '';
                         $discVal = 0.00;
                         $discPrice = '';
@@ -187,11 +186,9 @@ $this->load->view('site/templates/header_new');
                         $discPrice = $resultArr['disc_price'];
                         $discVal = $resultArr['disc_percent'];
                         $discDesc = $resultArr['disc_desc'];    
-                        
-                    
                     ?>
 			<!-- vinit code end -->
-			                <input type="hidden" class="option number" name="product_id" id="product_id" value="<?php echo $productDetails->row()->id;?>">
+			    <input type="hidden" class="option number" name="product_id" id="product_id" value="<?php echo $productDetails->row()->id;?>">
                 <input type="hidden" class="option number" name="cateory_id" id="cateory_id" value="<?php echo $productDetails->row()->category_id;?>">                
                 <input type="hidden" class="option number" name="sell_id" id="sell_id" value="<?php echo $productDetails->row()->user_id;?>">
                 <input type="hidden" class="option number" name="price" id="price" value="<?php echo $productDetails->row()->sale_price;?>">
@@ -227,7 +224,7 @@ $this->load->view('site/templates/header_new');
 										</div>
 									</div>
 									              <?php } ?>
-										<hr class="divider_light">
+
 										<footer class="bg_grey_light_2">
 											<div class="clearfix m_top_7">
 												<div class="quantity clearfix t_align_c f_left f_md_none m_right_10 m_md_bottom_3">

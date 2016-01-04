@@ -49,15 +49,15 @@ $this->load->view('site/templates/header_new');
 							</p>
 							</div>
 
-							<hr class="m_bottom_14">
+							<hr class="m_bottom_14 m_top_20">
 							<ul class="m_bottom_14">
 <!--														<p class="fw_light m_top_5 m_bottom_7 m_xs_top_0 m_xs_bottom_0">Our Price:</p>
 														<b><div><span class="fs_big second_font d_block m_bottom_7 m_xs_bottom_0 fs_sm_default" style="float:left;"><?php echo $currencySymbol;?>&nbsp; </span><span id="SalePrice" class="fs_big second_font d_block m_bottom_7 m_xs_bottom_0 fs_sm_default"> <?php echo number_format($productListVal->sale_price);?></span></div></b>-->
 							
-									<li class="m_bottom_3"><span style="width: 150px;" class="project_list_title second_font d_inline_b">Approx Price: </span><span class="fs_big second_font m_bottom_25 m_xs_bottom_10 fs_sm_default"> Rs <?php echo $productDetails->row()->sale_price;?></span></li>
+									<li class="m_bottom_3"><span style="width: 150px;" class="project_list_title second_font d_inline_b">Approx Price: </span><span class="fs_big second_font m_bottom_25 m_xs_bottom_10 fs_sm_default"> <?php echo $currencySymbol;?><?php echo $productDetails->row()->sale_price;?></span></li>
 									<li class="m_bottom_3"><span style="width: 150px;"  class="project_list_title second_font d_inline_b">Seller:</span> <span class="color_dark fw_light"><a href="user/<?php echo $productUserDetails->row()->user_name;?>/added"><?php echo $productDetails->row()->full_name;?></a></span></li>
 									<li class="m_bottom_3"><span style="width: 150px;"  class="project_list_title second_font d_inline_b">City:</span> <span class="color_dark fw_light"><?php echo $productUserDetails->row()->s_city;?></span></li>
-									<li class="m_bottom_3"><span style="width: 150px;"  class="project_list_title second_font d_inline_b">Contact Number:</span> <span class="color_dark fw_light"><?php echo $productUserDetails->row()->phone_no;?></span></li>
+									<li class="m_bottom_3"><span style="width: 150px;"  class="project_list_title second_font d_inline_b">Contact Number:</span> <span class="color_dark fw_light"><?php echo $productUserDetails->row()->s_phone_no;?></span></li>
 									<li class="m_bottom_3"><span style="width: 150px;"  class="project_list_title second_font d_inline_b">Address:</span> <span class="color_dark fw_light"><?php echo $productUserDetails->row()->s_address;?></span></li>
 							</ul>
 							<hr class="m_bottom_14">
@@ -67,37 +67,13 @@ $this->load->view('site/templates/header_new');
 					<h5 class="color_dark tt_uppercase second_font fw_light m_bottom_13">More Creations of this seller</h5>
 					<hr class="divider_bg m_bottom_25">
 					<!--carousel-->
-					<div class="row">
+					<div class="row m_bottom_25" style="padding-bottom:150px;">
 					
 					<ul>
-					<?php 
-					$limitProd = 0;
-					if ($seller_affiliate_products->num_rows()>0){
-						foreach ($seller_affiliate_products->result() as $seller_product_details_row){
-							if ($limitProd==6)break;
-							$limitProd++;
-							$img = 'dummyProductImage.jpg';
-							$imgArr = array_filter(explode(',', $seller_product_details_row->image));
-							if (count($imgArr)>0){
-								foreach ($imgArr as $imgRow){
-									if ($imgRow != ''){
-										$img = $imgRow;
-										break;
-									}
-								}
-							}
-					if ($seller_product_details_row->seller_product_id != $productDetails->row()->id){
-					?>
-                    
-					<li><a href="user/<?php echo $productDetails->row()->user_name;?>/things/<?php echo $seller_product_details_row->seller_product_id;?>/<?php echo url_title($seller_product_details_row->product_name,'-');?>" class="figure-img">
-						<span style="background-image: url(<?php echo base_url();?>images/product/<?php echo $img;?>);"></span>
-					</a></li>
-					<?php 
-					}}
-					}
+					<?php
 					if ($limitProd<6 && $seller_affiliate_products->num_rows()>0){
 						foreach ($seller_affiliate_products->result() as $seller_affiliate_products_row){
-							if ($limitProd==6)break;
+							if ($limitProd==4)break;
 							$limitProd++;
 							$img = 'dummyProductImage.jpg';
 							$imgArr = array_filter(explode(',', $seller_affiliate_products_row->image));
@@ -126,7 +102,7 @@ $this->load->view('site/templates/header_new');
 									</figcaption>
 								</figure>
 							</article>
-					
+					</div>
 					<?php 
 						}
 					}

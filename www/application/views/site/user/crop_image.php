@@ -132,14 +132,8 @@
 <div class="clearfix"></div>
 
 </div>
-<!--		<?php 
-     $this->load->view('site/templates/side_footer_menu');
-     ?> -->
 	</div>
 	<!-- / container -->
 </div>
 
 </div>
-
-
-<?php $this->load->view('site/templates/footer');?>

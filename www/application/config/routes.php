@@ -101,6 +101,7 @@ $route['fancybox/(:any)/(:any)'] = "site/fancybox/display_fancybox/$1";
 $route['sales/create'] = "site/product/sales_create";
 $route['seller-signup'] = "site/user/seller_signup_form";
 
+$route['pages/socktail-for-business'] = "site/cms/showcase";
 $route['pages/faq'] = "site/cms/whyus";
 $route['pages/contact-us'] = "site/cms/contactus";
 $route['pages/(:num)/(:any)'] = "site/cms/page_by_id";

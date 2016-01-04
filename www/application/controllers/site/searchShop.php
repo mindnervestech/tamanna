@@ -68,10 +68,10 @@ class SearchShop extends MY_Controller {
 		
 		$newPage = 1;
 		if($this->input->get('pg') != ''){
-				$paginationVal = $this->input->get('pg')*20;
-				$limitPaging = ' limit '.$paginationVal.',20 ';
+				$paginationVal = $this->input->get('pg')*21;
+				$limitPaging = ' limit '.$paginationVal.',21 ';
 		} else {
-				$limitPaging = ' limit 0,20';
+				$limitPaging = ' limit 0,21';
 		}
 		
 		
@@ -212,8 +212,8 @@ $WhereCond .= ' and ( p.sale_price > "'.$selling_price1.'")';
 		$this->data['list_details'] = $list_details = $this->product_model->get_all_details(LIST_VALUES,array('id'=>$lid));
 		$searchArr = array_filter(explode(',', $list_details->row()->products));
 		if (count($searchArr)>0){
-			$condition = ' where p.id in ('.implode(',', $searchArr).') and p.quantity>0 and p.status="Publish" and u.group="Seller" and u.status="Active" or p.id in ('.implode(',', $searchArr).') and p.status="Publish" and p.quantity > 0 and p.user_id=0 limit 20';
-			$usercondition = ' where p.id in ('.implode(',', $searchArr).') and p.status="Publish" and u.status="Active" or p.id in ('.implode(',', $searchArr).') and p.global_visible=1 order by p.created desc limit 20';
+			$condition = ' where p.id in ('.implode(',', $searchArr).') and p.quantity>0 and p.status="Publish" and u.group="Seller" and u.status="Active" or p.id in ('.implode(',', $searchArr).') and p.status="Publish" and p.quantity > 0 and p.user_id=0 limit 21';
+			$usercondition = ' where p.id in ('.implode(',', $searchArr).') and p.status="Publish" and u.status="Active" or p.id in ('.implode(',', $searchArr).') and p.global_visible=1 order by p.created desc limit 21';
 			$this->data['product_details'] = $product_details = $this->product_model->view_product_details($condition);
 			$this->data['userproduct_details'] = $userproduct_details = $this->product_model->view_product_details_user($usercondition);
 			$this->data['totalProducts'] = ($product_details->num_rows() + $userproduct_details->num_rows());
@@ -226,7 +226,7 @@ $WhereCond .= ' and ( p.sale_price > "'.$selling_price1.'")';
 	
 	public function ajax_load_more_price(){
 		$pageloaded = $this->input->post('group_no');
-		$limit = 20;
+		$limit = 21;
 		$start = $limit*$pageloaded;
 		$limitStr = $start.','.$limit;
 		$lid = $this->input->post('lid');
@@ -312,8 +312,8 @@ $WhereCond .= ' and ( p.sale_price > "'.$selling_price1.'")';
 		$this->data['list_details'] = $list_details = $this->product_model->get_all_details(LIST_VALUES,array('id'=>$lid));
 		$searchArr = array_filter(explode(',', $list_details->row()->products));
 		if (count($searchArr)>0){
-			$condition = ' where p.id in ('.implode(',', $searchArr).') and p.quantity>0 and p.status="Publish" and u.group="Seller" and u.status="Active" or p.id in ('.implode(',', $searchArr).') and p.status="Publish" and p.quantity > 0 and p.user_id=0 limit 20';
-			$usercondition = ' where FIND_IN_SET("'.$lid.'",p.list_value) and p.status="Publish" and u.status="Active" or FIND_IN_SET("'.$lid.'",p.list_value) and p.global_visible=1 order by p.created desc limit 20';
+			$condition = ' where p.id in ('.implode(',', $searchArr).') and p.quantity>0 and p.status="Publish" and u.group="Seller" and u.status="Active" or p.id in ('.implode(',', $searchArr).') and p.status="Publish" and p.quantity > 0 and p.user_id=0 limit 21';
+			$usercondition = ' where FIND_IN_SET("'.$lid.'",p.list_value) and p.status="Publish" and u.status="Active" or FIND_IN_SET("'.$lid.'",p.list_value) and p.global_visible=1 order by p.created desc limit 21';
 			$this->data['product_details'] = $product_details = $this->product_model->view_product_details($condition);
 			$this->data['userproduct_details'] = $userproduct_details = $this->product_model->view_product_details_user($usercondition);
 			$this->data['totalProducts'] = ($product_details->num_rows() + $userproduct_details->num_rows());

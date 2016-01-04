@@ -1,18 +1,5 @@
-<div class="contact" style="  background: #454B56;
-  border-radius: 9px 0 0 0;
-  cursor: pointer;
-  letter-spacing: 1px;
-  color: #f0f0f0;
-  padding: 10px 15px;
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  z-index: 40;
-  font-size: 16px;">
-       <span class="Contactsub" style="padding-right: 15px;"><i class="icon-chat"></i> +91  7304224488 </span><span><span class="icon-mail"></span> contact@socktail.com</span>
-   </div>
 <!-- Footer Start Here -->
-<div class="footer">
+<div class="footer" style="display:none;">
 <div class="footer-container">
       <div class="footer-inner">  
 <h2 style="    font-size: 25px;    padding-top: 30px;    padding-bottom: 30px;">FIND US ON FACEBOOK</h2>

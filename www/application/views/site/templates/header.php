@@ -34,10 +34,10 @@ if ($meta_title != '' and $meta_title != $title){?>
 </head>
 <body>
 <a href="https://plus.google.com/+Socktail" rel="publisher"></a>
-<a href="https://plus.google.com/+Socktail?rel=author">Google</a>
+<a href="https://plus.google.com/+Socktail?rel=author"></a>
 
 <!-- header_start -->
-<header style="margin-bottom: 21px;">
+<header style="margin-bottom: 21px;" style="display:none;">
   <div class="header_top">
   <?php  $pricesval = $pricefulllist->result_array(); 
   		$ColorsListVal = $mainColorLists->result_array();?>
@@ -52,7 +52,7 @@ if (is_file('google-login-mats/index.php'))
 <?php 
 	   		$by_creating_accnt = str_replace("{SITENAME}",$siteTitle,$this->lang->line('header_create_acc'));
 	   ?>
-<div class="main">
+<div class="main" style="display:none;">
       <div id="navigation-test">
         <div class="left">
           <div class="logo"><a href="<?php echo base_url();?>" alt="<?php echo $siteTitle;?>" title="<?php echo $siteTitle;?>"><img id="_logo6" src="images/logo/<?php echo $logo;?>" alt="socktail logo"/></a></div>

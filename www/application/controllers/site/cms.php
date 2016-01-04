@@ -88,6 +88,13 @@ class Cms extends MY_Controller {
   
     	    $this->load->view('site/cms/whyus',$this->data);
 	}
+	public function showcase(){
+			$this->data['heading'] = 'Sell on Socktail';
+			$this->data['meta_title'] = 'Socktail Local Marketplace: Sell your creations on Socktail';
+			$this->data['meta_description'] = 'Generate more leads by showcasing your products on Socktail - A One Stop Shop for Home Improvement';
+  
+    	    $this->load->view('site/cms/showcase',$this->data);
+	}
 	
 }
 /*End of file cms.php */

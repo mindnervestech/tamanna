@@ -74,10 +74,10 @@
 				<div class="header_top_part">
 					<div class="container">
 						<div class="row">
-							<div class="col-lg-3 col-md-3 col-sm-3 color_light fw_light t_xs_align_c">
-								<ul class="hr_list second_font si_list fs_small">
-									<li><i class="fa fa-phone color_dark fs_large" style="margin-top:1px;"></i> <a class="sc_hover d_inline_b" href="pages/contact-us"> 7304 22 44 88</a></li>
-									<li class="w_break" data-icon=""><i class="fa fa-envelope color_dark" style="margin-top:1px;"></i> <a href="mailto:contact@socktail.com" class="sc_hover d_inline_b"> contact@socktail.com</a></li>
+							<div class="col-lg-3 col-md-3 col-sm-3 color_light fw_light t_align_l t_xs_align_c">
+								<ul class="hr_list second_font si_list fs_small t_xs_align_c">
+									<li><i class="fa fa-phone color_dark fs_large" style="margin-top:1px;"></i> <a class="sc_hover tr_delay" href="pages/contact-us"> 7304 22 44 88</a></li>
+									<li class="w_break" data-icon=""><i class="fa fa-envelope color_dark" style="margin-top:1px;"></i> <a href="mailto:contact@socktail.com" class="sc_hover tr_delay"> contact@socktail.com</a></li>
 								</ul>
 							</div>
 							<div class="col-lg-9 col-md-9 col-sm-9 t_align_r t_xs_align_c">
@@ -91,6 +91,7 @@
 									<li><a href="pages/contact-us" class="sc_hover tr_delay" href="faq">Contact Us</a></li> -->
 
                                         <?php if ($loginCheck != ''){ ?>
+                                        <li><a class="sc_hover tr_delay" href="add-thing">Add Products</a></li>										
                                         <li><a class="sc_hover tr_delay" href="settings">My Account</a></li>
                                         <li><a class="sc_hover tr_delay" href="purchases">Purchase History</a></li>
 										<li><a class="sc_hover tr_delay" href="<?php echo 'user/'.$userDetails->row()->user_name;?>">Wishlist</a></li>
@@ -152,7 +153,7 @@
 								<button id="mobile_menu_button" class="vc_child d_xs_block db_xs_centered d_none m_bottom_10 m_top_15 bg_lbrown color_white tr_all"><i class="fa fa-navicon d_inline_m"></i></button>
 								<!--main menu-->
 								<nav role="navigation" class="d_xs_none">
-									<ul class="main_menu relative hr_list second_font fs_medium">
+									<ul class="main_menu relative hr_list second_font fs_large_0">
                                      <?php 
                                         foreach ($mainCategories->result() as $row){
                       	                     if ($row->cat_name != '' && $row->cat_name != 'Our Picks'){

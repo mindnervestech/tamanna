@@ -85,6 +85,7 @@
 								<nav class="d_inline_b">
 									<ul class="hr_list second_font si_list fs_small">
                                         <?php if ($loginCheck != ''){ ?>
+										<li><a class="sc_hover tr_delay" href="add-thing">Add Products</a></li>	
                                         <li><a class="sc_hover tr_delay" href="settings">My Account</a></li>
                                         <li><a class="sc_hover tr_delay" href="purchases">Purchase History</a></li>
 										<li><a class="sc_hover tr_delay" href="<?php echo 'user/'.$userDetails->row()->user_name;?>">Wishlist</a></li>

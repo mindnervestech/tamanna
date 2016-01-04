@@ -22,7 +22,7 @@ function everythingView(val){
 echo SITE_COMMON_DEFINE ?>timeline.css" />
 <!-- Section_ends -->
 <section>
-	<div id="container-wrapper" style="padding-bottom:500px; padding-top:100px;">
+	<div id="container-wrapper" style="padding-bottom:300px; padding-top:100px;">
 		<div class="container timeline <?php echo $viewhome; ?>">
 			<div class="wrapper-content landing_page">
 				 <div class="top-menu">
@@ -39,7 +39,6 @@ echo SITE_COMMON_DEFINE ?>timeline.css" />
 		</div>
 	</div>
 		<?php
-		$this->load->view('site/templates/sub_footer');
 		$this->load->view('site/templates/footer_menu');
 		?>
 </section>

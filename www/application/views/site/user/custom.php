@@ -8,17 +8,61 @@ margin-bottom: 50px;
 </style>
 			<!--main content-->
 			<div class="page_section_offset m_bottom_50" style="padding: 0 0 25px;">
+				<div class="container bg_grey_light_2">
+						  <h2 class="fw_light second_font color_dark m_bottom_40 tt_uppercase t_align_c p_top_25"><?php echo "We help you shape your ideas"; ?></h2>
+							<div class="row sh_container p_bottom_20">
+								<div class="col-lg-2 col-md-2 col-sm-2 col-xs-0 same_height animated visible fadeInDown" data-animation="fadeInDown">
+								</div>
+								<div class="col-lg-2 col-md-2 col-sm-2 col-xs-3 same_height animated visible fadeInDown" data-animation="fadeInDown">
+									<section class="item_represent relative m_bottom_25 m_xs_bottom_30 h_inherit t_sm_align_c t_align_c">
+										<!--icon-->
+										<i class="fa fa-lightbulb-o fa-3x"></i>
+										<!--description-->
+											<p class="fw_light m_bottom_10 m_top_15">Describe what you want</p>
+									</section>
+								</div>
+								<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 same_height animated visible fadeInDown" data-animation="fadeInDown">
+									<section class="item_represent relative m_bottom_25 m_xs_bottom_30 h_inherit t_sm_align_c t_align_c">
+										<!--icon-->
+										<i class="fa fa-long-arrow-right fa-3x"></i>
+									</section>
+								</div>
+								<div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 same_height animated visible fadeInDown" data-animation="fadeInDown">
+									<section class="item_represent relative m_bottom_25 m_xs_bottom_30 h_inherit t_sm_align_c t_align_c">
+										<i class="fa fa-tags fa-3x"></i>
+										<!--description-->
+											<p class="fw_light m_bottom_10 m_top_15">Get Quote and Delivery Dates</p>
+									</section>
+								</div>
+								<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 same_height animated visible fadeInDown" data-animation="fadeInDown">
+									<section class="item_represent relative m_bottom_25 m_xs_bottom_30 h_inherit t_sm_align_c t_align_c">
+										<!--icon-->
+										<i class="fa fa-long-arrow-right fa-3x"></i>
+									</section>
+								</div>								
+								<div class="col-lg-2 col-md-2 col-sm-2 col-xs-3 same_height animated visible fadeInDown" data-animation="fadeInDown">
+									<section class="item_represent relative m_bottom_25 m_xs_bottom_30 h_inherit t_sm_align_c t_align_c">
+										<!--icon-->
+										<i class="fa fa-wrench fa-3x"></i>
+										<!--description-->
+											<p class="fw_light m_bottom_10 m_top_15">Get it made for you</p>
+									</section>
+								</div>
+								<div class="col-lg-2 col-md-2 col-sm-2 col-xs-0 same_height animated visible fadeInDown" data-animation="fadeInDown">
+								</div>
+							</div>
+				</div>
 				<div class="container">
-					<div class="row">
+						<h4 class="fw_light second_font color_dark m_bottom_40 tt_uppercase t_align_c p_top_25"><?php echo "So, let's start with your requirements"; ?></h4>				
+				</div>
+				<div class="container bg_grey_light_2 p_bottom_25">
+					<div class="row p_top_25">
 						<aside class="col-lg-2 col-md-2 col-sm-2 p_top_4">
 						</aside>
 						<section class="col-lg-8 col-md-8 col-sm-8">
 							<div id="container-wrapper">
 									<div id="content">
-										<h2 class="fw_light second_font color_dark m_bottom_27 tt_uppercase t_align_c"><?php echo "Customization Request"; ?></h2>
-										<h5 class="fw_light second_font color_dark m_bottom_27 tt_uppercase t_align_c"><?php echo "Tell Us Your Customization Requirements "; ?></h5>
-										<hr class="divider_light m_bottom_5">
-										
+
 										<?php if($flash_data != '') { ?>
 											<div class="errorContainer" id="<?php echo $flash_data_type;?>">
 												<script>setTimeout("hideErrDiv('<?php echo $flash_data_type;?>')", 3000);</script>
@@ -247,6 +291,7 @@ margin-bottom: 50px;
 						<aside class="col-lg-2 col-md-2 col-sm-2 p_top_4">
 						</aside>
 					</div>
+				
 				</div>
 			</div>
 			<!--footer-->
@@ -318,7 +363,7 @@ margin-bottom: 50px;
 							  reader.readAsDataURL(selectedFile);
 						}else{
 							inputFile.val("");
-							alert("Choose image size below 3 MB and height and width 1400");
+							alert("Please choose image size below 3 MB and height and width below 1400 pixels");
 						}
 								
 					};

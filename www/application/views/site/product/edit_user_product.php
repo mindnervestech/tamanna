@@ -34,7 +34,7 @@ a.selectBox.option .selectBox-label {
 
  <!-- Section_start -->
 <div id="container-wrapper">
-	<div class="container " style="width: 880px;">
+	<div class="container " style="width: 880px; padding-top:5px;">
 		<?php if($flash_data != '') { ?>
 		<div class="errorContainer" id="<?php echo $flash_data_type;?>">
 			<script>setTimeout("hideErrDiv('<?php echo $flash_data_type;?>')", 3000);</script>
@@ -85,7 +85,7 @@ a.selectBox.option .selectBox-label {
 								<input type="text" value="<?php echo $productDetails->row()->web_link;?>" class="text" name="web_link" id="fancy-web-link">
 							</li>
 							<li>
-								<label for="fancy-comment"><?php if($this->lang->line('product_excerpt') != '') { echo stripslashes($this->lang->line('product_excerpt')); } else echo "Excerpt"; ?> <em><?php if($this->lang->line('product_share_thoughy') != '') { echo stripslashes($this->lang->line('product_share_thoughy')); } else echo "Share your thoughts!"; ?></em></label>
+								<label for="fancy-comment"><?php echo "Product Description and Specifications"; ?></label>
 								<br class="hidden">
 								<textarea class="global-input required mceEditor" maxlength="5000" rows="10" cols="30" name="excerpt" id="fancy-comment"><?php echo $productDetails->row()->excerpt;?></textarea> 
 
@@ -127,7 +127,7 @@ a.selectBox.option .selectBox-label {
 							</li>
 							<li>
 								<div class="sub-subCategory_edit" style="display:none">
-									<label><?php echo "Sub Category"; ?><span style="color:red"> *</span></label>
+									<label><?php echo "Sub Sub Category"; ?><span style="color:red"> *</span></label>
 									<select class="required" id="sub-sub-category_edit">
 									</select>
 								</div>

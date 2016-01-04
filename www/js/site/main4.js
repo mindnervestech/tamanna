@@ -1496,21 +1496,10 @@ jQuery(function($){
 //				$sandbox[0].innerHTML = data.replace(/^[\s\S]+<body.+?>|<((?:no)?script|header|nav)[\s\S]+?<\/\1>|<\/body>[\s\S]+$/ig, '');
 				$sandbox[0].innerHTML = data;
 				$next = $sandbox.find(options.nextSelector);
+//				$rows = $sandbox.find(options.itemSelector).html();
+				$rows = $sandbox.find(options.itemSelector).html();
 				
-				$rows = $sandbox.find(options.itemSelector)[0].children;
-				
-				while($rows.length != 0){
-						i = 0;
-						temp = $rows[i];
-						$contentBox.isotope( 'insert', temp);
-				}
-
-				setTimeout(function() {  
-					initializeQuickViewPopUps()
-					$("#can_change_layout").find('.tooltip_container').tooltip('.tooltip');
-				}, 2000);
-
-				
+				$contentBox.append($rows);
 				if ($next.length) {
 					url = $next.attr('href');
 					$url.attr({

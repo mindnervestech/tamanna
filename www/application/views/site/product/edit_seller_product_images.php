@@ -51,7 +51,7 @@ form label.error{
 
  <!-- Section_start -->
   <div id="container-wrapper">
-	<div class="container ">
+	<div class="container " style="padding-top:5px;">
 	<?php if($flash_data != '') { ?>
 		<div class="errorContainer" id="<?php echo $flash_data_type;?>">
 			<script>setTimeout("hideErrDiv('<?php echo $flash_data_type;?>')", 3000);</script>
@@ -190,9 +190,6 @@ form label.error{
 
 	</div>
 	<!-- / container -->
-		<?php 
-     $this->load->view('site/templates/footer_menu');
-     ?>
 </div>
 </div>
 <script src="js/site/<?php echo SITE_COMMON_DEFINE ?>filesjquery_zoomer.js" type="text/javascript"></script>
@@ -204,6 +201,3 @@ form label.error{
 <script>
 	$("#sellerProdEdit1").validate();
 </script>
-<?php
-$this->load->view('site/templates/footer');
-?>

@@ -24,7 +24,7 @@ $this->load->view('site/templates/header_new');
 								}	
 							}
 						?>
-							<div class="col-lg-4 col-md-4 col-sm-6 m_sm_bottom_30 animated hidden m_bottom_27" data-animation="fadeInDown">
+							<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 m_sm_bottom_30 animated hidden m_bottom_27" data-animation="fadeInDown">
 								<!--banner-->
 								<a href="shopby/<?php echo $mainCategoriesRow->seourl;?>">
 								<figure class="relative wrapper scale_image_container r_image_container">
@@ -50,21 +50,21 @@ $this->load->view('site/templates/header_new');
 				<div class="container bg_grey_light_2">
 					<hr class="divider_lbrown m_bottom_25 animated hidden" data-animation="fadeInDown">
 					<div class="row sh_container">
-						<div class="col-lg-2 col-md-2 col-sm-2 same_height animated hidden" data-animation="fadeInDown">
+						<div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 same_height animated hidden" data-animation="fadeInDown">
 							<section class="item_represent relative m_bottom_25 m_xs_bottom_30 h_inherit t_sm_align_c t_align_c">
 								<i class="fa fa-gift fa-3x"></i>
 								<!--description-->
 									<p class="fw_light m_bottom_10 m_top_15">Carefully Curated</p>
 							</section>
 						</div>
-						<div class="col-lg-2 col-md-2 col-sm-2 same_height animated hidden" data-animation="fadeInDown">
+						<div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 same_height animated hidden" data-animation="fadeInDown">
 							<section class="item_represent relative m_bottom_25 m_xs_bottom_30 h_inherit t_sm_align_c t_align_c">
 								<i class="fa fa-thumbs-up fa-3x"></i>
 								<!--description-->
 									<p class="fw_light m_bottom_10 m_top_15">Quality Products</p>
 							</section>
 						</div>	
-						<div class="col-lg-2 col-md-2 col-sm-2 same_height animated hidden" data-animation="fadeInDown">
+						<div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 same_height animated hidden" data-animation="fadeInDown">
 							<section class="item_represent relative m_bottom_25 m_xs_bottom_30 h_inherit t_sm_align_c t_align_c">
 								<!--icon-->
 								<i class="fa fa-money fa-3x"></i>
@@ -72,14 +72,14 @@ $this->load->view('site/templates/header_new');
 									<p class="fw_light m_bottom_10 m_top_15">No Fake Discounts</p>
 							</section>
 						</div>
-						<div class="col-lg-2 col-md-2 col-sm-2 same_height animated hidden" data-animation="fadeInDown">
+						<div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 same_height animated hidden" data-animation="fadeInDown">
 							<section class="item_represent relative m_bottom_25 m_xs_bottom_30 h_inherit t_sm_align_c t_align_c">
 								<i class="fa fa-credit-card fa-3x"></i>
 								<!--description-->
 									<p class="fw_light m_bottom_10 m_top_15">Easy Payment Terms</p>
 							</section>
 						</div>						
-						<div class="col-lg-2 col-md-2 col-sm-2 same_height animated hidden" data-animation="fadeInDown">
+						<div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 same_height animated hidden" data-animation="fadeInDown">
 							<section class="item_represent relative m_bottom_25 m_xs_bottom_30 h_inherit t_sm_align_c t_align_c">
 								<!--icon-->
 								<i class="fa fa-truck fa-3x"></i>
@@ -87,7 +87,7 @@ $this->load->view('site/templates/header_new');
 									<p class="fw_light m_bottom_10 m_top_15">Free Home Delivery</p>
 							</section>
 						</div>
-						<div class="col-lg-2 col-md-2 col-sm-2 same_height animated hidden" data-animation="fadeInDown">
+						<div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 same_height animated hidden" data-animation="fadeInDown">
 							<section class="item_represent relative m_bottom_25 m_xs_bottom_30 h_inherit t_sm_align_c t_align_c">
 								<i class="fa fa-wrench fa-3x"></i>
 								<!--description-->

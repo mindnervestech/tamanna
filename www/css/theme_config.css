@@ -693,8 +693,14 @@ iframe[src^="https://w.soundcloud.com/player/"]{
 .p_top_5{
 	padding-top:5px;
 }
+.p_top_25{
+	padding-top:25px;
+}
 .p_bottom_0{
 	padding-bottom:0 !important;
+}
+.p_bottom_25{
+	padding-bottom:25px !important;
 }
 .p_left_0{
 	padding-left:0px !important;

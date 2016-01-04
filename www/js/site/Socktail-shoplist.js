@@ -72,7 +72,7 @@ jQuery(function($) {
 					while($rows.length != 0){
 						i = 0;
 						temp = $rows[i];
-						$stream.isotope( 'insert', temp);
+						$stream.append(temp);
 					}
 				}
 				setTimeout(function() {  

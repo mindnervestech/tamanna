@@ -82,7 +82,7 @@ $this->load->view('admin/templates/header.php');
 								<div class="form_grid_12">
 									<label class="field_title" for="state_code">Picture 1<span class="req"></span></label>
 									<div class="form_input">
-										<a target="_blank" href="<?php echo base_url();?>/images/custom/<?php echo $custom_request_details->row()->pic1;?>"><?php echo $custom_request_details->row()->pic1;?></a>
+										<a target="_blank" href="<?php echo base_url();?>/images/users/custom/<?php echo $custom_request_details->row()->pic1;?>"><?php echo $custom_request_details->row()->pic1;?></a>
 									</div>
 								</div>
 								</li>
@@ -90,7 +90,7 @@ $this->load->view('admin/templates/header.php');
 								<div class="form_grid_12">
 									<label class="field_title" for="state_code">Picture 2<span class="req"></span></label>
 									<div class="form_input">
-										<a target="_blank" href="<?php echo base_url();?>/images/custom/<?php echo $custom_request_details->row()->pic2;?>"><?php echo $custom_request_details->row()->pic2;?></a>
+										<a target="_blank" href="<?php echo base_url();?>/images/users/custom/<?php echo $custom_request_details->row()->pic2;?>"><?php echo $custom_request_details->row()->pic2;?></a>
 									</div>
 								</div>
 								</li>
@@ -98,7 +98,7 @@ $this->load->view('admin/templates/header.php');
 								<div class="form_grid_12">
 									<label class="field_title" for="state_code">Picture 3<span class="req"></span></label>
 									<div class="form_input">
-										<a target="_blank" href="<?php echo base_url();?>/images/custom/<?php echo $custom_request_details->row()->pic3;?>"><?php echo $custom_request_details->row()->pic3;?></a>
+										<a target="_blank" href="<?php echo base_url();?>/images/users/custom/<?php echo $custom_request_details->row()->pic3;?>"><?php echo $custom_request_details->row()->pic3;?></a>
 									</div>
 								</div>
 								</li>
@@ -106,7 +106,7 @@ $this->load->view('admin/templates/header.php');
 								<div class="form_grid_12">
 									<label class="field_title" for="state_code">Picture 4<span class="req"></span></label>
 									<div class="form_input">
-										<a target="_blank" href="<?php echo base_url();?>/images/custom/<?php echo $custom_request_details->row()->pic4;?>"><?php echo $custom_request_details->row()->pic4;?></a>
+										<a target="_blank" href="<?php echo base_url();?>/images/users/custom/<?php echo $custom_request_details->row()->pic4;?>"><?php echo $custom_request_details->row()->pic4;?></a>
 									</div>
 								</div>
 								</li>
@@ -114,7 +114,7 @@ $this->load->view('admin/templates/header.php');
 								<div class="form_grid_12">
 									<label class="field_title" for="state_code">Picture 5<span class="req"></span></label>
 									<div class="form_input">
-										<a target="_blank" href="<?php echo base_url();?>/images/custom/<?php echo $custom_request_details->row()->pic5;?>"><?php echo $custom_request_details->row()->pic5;?></a>
+										<a target="_blank" href="<?php echo base_url();?>/images/users/custom/<?php echo $custom_request_details->row()->pic5;?>"><?php echo $custom_request_details->row()->pic5;?></a>
 									</div>
 								</div>
 								</li>

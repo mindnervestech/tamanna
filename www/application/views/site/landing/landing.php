@@ -9,9 +9,9 @@ $this->load->view('site/templates/header_new');
 				<div class="royalslider rsDefault relative">
 					<!--slide-->
 					<div  data-rsDelay="7000" class="rsContent t_align_r">
-						<img class="rsImg" src="images/Customized Furniture India.jpg" alt="">
+						<img class="rsImg" src="images/Customized Furniture India.jpg" alt="custom made furniture in India">
 						<div class="rsABlock d_mxs_none" style="right:95px;top:22.17%;" data-move-effect="right" data-delay="300" data-speed="700" data-easing="easeOutBack">
-							<p class="color_white fw_light tt_uppercase slider_fs_3">Custom Made Furniture</p>
+							<h2 class="color_white fw_light tt_uppercase slider_fs_3" style="font-size:20px;">Custom Made Furniture</h2>
 						</div>
 						<div class="rsABlock d_mxs_none" style="right:95px;top:28.94%;line-height:.94em;" data-move-effect="right" data-speed="700" data-delay="500" data-easing="easeOutBack">
 							<h1 class="color_white  second_font tt_uppercase fw_thin slider_fs_1"><b>Tell us what you need<br>we will make it<br> for you</b></h1>
@@ -22,7 +22,7 @@ $this->load->view('site/templates/header_new');
 					</div>
 					<!--slide-->
 					<div  data-rsDelay="7000" class="rsContent t_align_r">
-						<img class="rsImg" src="images/Buy Furniture in Your City.jpg" alt="">
+						<img class="rsImg" src="images/Buy Furniture in Your City.jpg" alt="Find Furniture in Uour City">
 				<!--		<div class="rsABlock d_mxs_none" style="right:95px;top:26.17%;" data-move-effect="right" data-delay="300" data-speed="700" data-easing="easeOutBack">
 							<p class="color_white fw_light tt_uppercase slider_fs_3">Explore Products Locally</p>
 						</div>
@@ -35,7 +35,7 @@ $this->load->view('site/templates/header_new');
 					</div>
 					<!--slide-->
 					<div  data-rsDelay="7000" class="rsContent">
-						<img class="rsImg" src="images/Buy Furniture Online.jpg" alt="">
+						<img class="rsImg" src="images/Buy Furniture Online.jpg" alt="Buy Furniture Online">
 						<div class="rsABlock d_mxs_none" style="left:95px;top:32.94%;line-height:.94em;" data-move-effect="left" data-speed="700" data-delay="500" data-easing="easeOutBack">
 							<h1 class="color_lbrown d_mxs_none second_font tt_uppercase fw_thin slider_fs_1"><b>Contemporary<br>Furniture</b></h1>
 						</div>
@@ -56,7 +56,7 @@ $this->load->view('site/templates/header_new');
 								<div class="d_inline_m m_sm_bottom_15 m_sm_right_0 bg_lbrown color_white m_right_17 icon_wrap_1 t_align_c vc_child"><i class="fa fa-pencil d_inline_m"></i></div>
 								<!--description-->
 								<div class="d_inline_m description">
-									<h3 class="second_font color_dark m_bottom_10">Get Custom Made</h3>
+									<h4 class="second_font color_dark m_bottom_10">Get Custom Made</h4>
 									<p class="fw_light m_bottom_10">Share your requirements with us, we will make it for you.</p>
 									<a href="customization-request" class="sc_hover second_font">Share Here!</a>
 								</div>
@@ -68,7 +68,7 @@ $this->load->view('site/templates/header_new');
 								<div class="d_inline_m m_sm_bottom_15 m_sm_right_0 bg_lbrown color_white m_right_17 icon_wrap_1 t_align_c vc_child"><i class="fa fa-map-marker d_inline_m"></i></div>
 								<!--description-->
 								<div class="d_inline_m description">
-									<h3 class="second_font color_dark m_bottom_10">Search Products Locally</h3>
+									<h4 class="second_font color_dark m_bottom_10">Search Products Locally</h4>
 									<p class="fw_light m_bottom_10">Check what products are available in your city with local sellers.</p>
 									<a href="design-ideas/all" class="sc_hover second_font">Browse Now!</a>
 								</div>
@@ -80,7 +80,7 @@ $this->load->view('site/templates/header_new');
 								<div class="d_inline_m m_sm_bottom_15 m_sm_right_0 bg_lbrown color_white m_right_17 icon_wrap_1 t_align_c vc_child"><i class="fa fa-shopping-cart d_inline_m"></i></div>
 								<!--description-->
 								<div class="d_inline_m description w_sm_full">
-									<h3 class="second_font color_dark m_bottom_10">Shop with Confidence</h3>
+									<h4 class="second_font color_dark m_bottom_10">Shop with Confidence</h4>
 									<p class="fw_light m_bottom_10">Shop our carefully designed and curated products.</p>
 									<a href="shop" class="sc_hover second_font">Buy Now!</a>
 								</div>
@@ -100,7 +100,7 @@ $this->load->view('site/templates/header_new');
 						<div class="col-lg-4 col-md-4 col-sm-4">
 							<!--banner-->
 							<figure class="relative wrapper scale_image_container m_bottom_30 r_image_container">
-								<img src="images/category/banner/Stria-Bed-Queen-31.jpg" alt="" class="tr_all scale_image">
+								<img src="images/category/banner/Stria-Bed-Queen-31.jpg" alt="Hand Picked furniture and Decor" class="tr_all scale_image">
 								<!--caption-->
 								<figcaption class="caption_type_1 tr_all">
 									<div class="d_inline_b color_white fw_light caption_title tt_uppercase bg_lbrown_translucent">
@@ -124,11 +124,11 @@ $this->load->view('site/templates/header_new');
 						<div class="col-lg-4 col-md-4 col-sm-4">
 							<!--banner-->
 							<figure class="relative wrapper scale_image_container r_image_container m_xs_bottom_30">
-								<img src="images/category/banner/Side_board.jpg" alt="" class="tr_all scale_image">
+								<img src="images/category/banner/Side_board.jpg" alt="Side board" class="tr_all scale_image">
 								<!--caption-->
 								<figcaption class="caption_type_1 tr_all">
 									<div class="d_inline_b color_white fw_light caption_title tt_uppercase bg_lbrown_translucent">
-										Special Offer
+										Hot Selling
 									</div>
 									<div class="caption_inner">
 										<h3 class="color_white second_font fw_light m_bottom_5 fs_sm_default">Fall in Love</h3>
@@ -148,7 +148,7 @@ $this->load->view('site/templates/header_new');
 							</div>
 							<!--banner-->
 							<figure class="relative wrapper scale_image_container r_image_container">
-								<img src="images/category/banner/Mumbai Chest of Drawers.png" alt="" class="tr_all scale_image">
+								<img src="images/category/banner/Mumbai Chest of Drawers.png" alt="Mumbai Chest of Drawer" class="tr_all scale_image">
 								<!--caption-->
 								<figcaption class="caption_type_1 tr_all">
 									<div class="d_inline_b color_white fw_light caption_title tt_uppercase bg_lbrown_translucent">
@@ -170,21 +170,21 @@ $this->load->view('site/templates/header_new');
 				<div class="container bg_grey_light_2">
 					<hr class="divider_lbrown m_bottom_25 animated hidden" data-animation="fadeInDown">
 					<div class="row sh_container">
-						<div class="col-lg-2 col-md-2 col-sm-2 same_height animated hidden" data-animation="fadeInDown">
+						<div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 same_height animated hidden" data-animation="fadeInDown">
 							<section class="item_represent relative m_bottom_25 m_xs_bottom_30 h_inherit t_sm_align_c t_align_c">
 								<i class="fa fa-gift fa-3x"></i>
 								<!--description-->
 									<p class="fw_light m_bottom_10 m_top_15">Carefully Curated</p>
 							</section>
 						</div>
-						<div class="col-lg-2 col-md-2 col-sm-2 same_height animated hidden" data-animation="fadeInDown">
+						<div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 same_height animated hidden" data-animation="fadeInDown">
 							<section class="item_represent relative m_bottom_25 m_xs_bottom_30 h_inherit t_sm_align_c t_align_c">
 								<i class="fa fa-thumbs-up fa-3x"></i>
 								<!--description-->
 									<p class="fw_light m_bottom_10 m_top_15">Quality Products</p>
 							</section>
 						</div>	
-						<div class="col-lg-2 col-md-2 col-sm-2 same_height animated hidden" data-animation="fadeInDown">
+						<div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 same_height animated hidden" data-animation="fadeInDown">
 							<section class="item_represent relative m_bottom_25 m_xs_bottom_30 h_inherit t_sm_align_c t_align_c">
 								<!--icon-->
 								<i class="fa fa-credit-card fa-3x"></i>
@@ -192,14 +192,14 @@ $this->load->view('site/templates/header_new');
 									<p class="fw_light m_bottom_10 m_top_15">No Fake Discounts</p>
 							</section>
 						</div>
-						<div class="col-lg-2 col-md-2 col-sm-2 same_height animated hidden" data-animation="fadeInDown">
+						<div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 same_height animated hidden" data-animation="fadeInDown">
 							<section class="item_represent relative m_bottom_25 m_xs_bottom_30 h_inherit t_sm_align_c t_align_c">
 								<i class="fa fa-money fa-3x"></i>
 								<!--description-->
 									<p class="fw_light m_bottom_10 m_top_15">Cash on Delivery</p>
 							</section>
 						</div>						
-						<div class="col-lg-2 col-md-2 col-sm-2 same_height animated hidden" data-animation="fadeInDown">
+						<div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 same_height animated hidden" data-animation="fadeInDown">
 							<section class="item_represent relative m_bottom_25 m_xs_bottom_30 h_inherit t_sm_align_c t_align_c">
 								<!--icon-->
 								<i class="fa fa-truck fa-3x"></i>
@@ -207,7 +207,7 @@ $this->load->view('site/templates/header_new');
 									<p class="fw_light m_bottom_10 m_top_15">Free Home Delivery</p>
 							</section>
 						</div>
-						<div class="col-lg-2 col-md-2 col-sm-2 same_height animated hidden" data-animation="fadeInDown">
+						<div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 same_height animated hidden" data-animation="fadeInDown">
 							<section class="item_represent relative m_bottom_25 m_xs_bottom_30 h_inherit t_sm_align_c t_align_c">
 								<i class="fa fa-wrench fa-3x"></i>
 								<!--description-->
@@ -481,10 +481,10 @@ $this->load->view('site/templates/header_new');
 						</div>
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-4 t_align_r d_table_cell f_none">
 							<!--carousel navigation-->
-						<!--	<div class="clearfix d_inline_b">
+							<div class="clearfix d_inline_b">
 								<button class="blog_prev black_hover button_type_4 grey state_2 tr_all d_block f_left vc_child m_right_5"><i class="fa fa-angle-left d_inline_m"></i></button>
 								<button class="blog_next black_hover button_type_4 grey state_2 tr_all d_block f_left vc_child"><i class="fa fa-angle-right d_inline_m"></i></button>
-							</div> -->
+							</div>
 						</div>
 					</div>
 					<hr class="divider_bg m_bottom_15 animated hidden" data-animation="fadeInDown" data-animation-delay="100">
@@ -509,7 +509,7 @@ $this->load->view('site/templates/header_new');
 							<div class="animated hidden" data-animation="fadeInDown" data-animation-delay="200">
 								<article class="frame_container scale_image_container">
 									<figure class="relative">
-										<a href="customization-request" class="d_block wrapper m_bottom_15"><img src="images/IMG-20141225-WA0000 (1).jpg" alt="" class="tr_all scale_image"></a>
+										<a href="customization-request" class="d_block wrapper m_bottom_15"><img src="images/IMG-20141225-WA0000 (1).jpg" alt="our custom made bed" class="tr_all scale_image"></a>
 									</figure>
 								</article>
 							</div>
@@ -517,7 +517,7 @@ $this->load->view('site/templates/header_new');
 							<div class="animated hidden" data-animation="fadeInDown" data-animation-delay="350">
 							<article class="frame_container scale_image_container">
 								<figure class="relative">
-									<a href="customization-request" class="d_block wrapper m_bottom_15"><img src="images/IMG-20150206-WA0005.jpg" alt="" class="tr_all scale_image"></a>
+									<a href="customization-request" class="d_block wrapper m_bottom_15"><img src="images/IMG-20150206-WA0005.jpg" alt="hand made sidebaord" class="tr_all scale_image"></a>
 								</figure>
 							</article>
 							</div>
@@ -525,7 +525,7 @@ $this->load->view('site/templates/header_new');
 							<div class="animated hidden" data-animation="fadeInDown" data-animation-delay="650">
 							<article class="frame_container scale_image_container">
 								<figure class="relative">
-									<a href="customization-request" class="d_block wrapper m_bottom_15"><img src="images/table.png" alt="" class="tr_all scale_image"></a>
+									<a href="customization-request" class="d_block wrapper m_bottom_15"><img src="images/table.png" alt="custom made vintage table" class="tr_all scale_image"></a>
 								</figure>
 							</article>
 							</div>
@@ -543,139 +543,6 @@ $this->load->view('site/templates/header_new');
 		<!--back to top-->
 		<button class="back_to_top animated button_type_6 grey state_2 d_block black_hover f_left vc_child tr_all"><i class="fa fa-angle-up d_inline_m"></i></button>
 		<button data-popup="#subscribe_popup" data-popup-transition-in="bounceInUp" data-popup-transition-out="bounceOutUp"></button>
-		<!--popup-->
-		<div class="init_popup" id="quick_view">
-			<div class="popup init">
-				<div class="clearfix">
-					<div class="product_preview f_left f_xs_none wrapper m_xs_bottom_15">
-						<div class="d_block relative r_image_container">
-							<img id="zoom" src="images/product_img_0.jpg" alt="" data-zoom-image="images/p_image1.jpg">
-							<div class="product_label fs_ex_small circle color_white bg_lbrown t_align_c vc_child tt_uppercase"><i class="d_inline_m">Sale!</i></div>
-						</div>
-						<!--thumbnails-->
-						<div class="product_thumbnails_wrap relative m_bottom_3">
-							<div class="owl-carousel" id="thumbnails" data-nav="thumbnails_product_" data-owl-carousel-options='{
-								"responsive" : {
-									"0" : {
-										"items" : 3
-									},
-									"321" : {
-										"items" : 4
-									},
-									"769" : {
-										"items" : 2
-									},
-									"992" : {
-										"items" : 3
-									}
-								},
-								"stagePadding" : 40,
-								"margin" : 10,
-								"URLhashListener" : false
-							}'>	
-								<a href="#" data-image="images/product_img_0.jpg" data-zoom-image="images/p_image1.jpg" class="d_block">
-									<img src="images/product_thumb_1.jpg" alt="">
-								</a>
-								<a href="#" data-image="images/product_img_1.jpg" data-zoom-image="images/p_image2.jpg" class="d_block">
-									<img src="images/product_thumb_2.jpg" alt="">
-								</a>
-								<a href="#" data-image="images/product_img_2.jpg" data-zoom-image="images/p_image3.jpg" class="d_block">
-									<img src="images/product_thumb_3.jpg" alt="">
-								</a>
-								<a href="#" data-image="images/product_img_3.jpg" data-zoom-image="images/p_image4.jpg" class="d_block">
-									<img src="images/product_thumb_4.jpg" alt="">
-								</a>
-								<a href="#" data-image="images/product_img_6.jpg" data-zoom-image="images/p_image7.jpg" class="d_block">
-									<img src="images/product_thumb_5.jpg" alt="">
-								</a>
-								<a href="#" data-image="images/product_img_9.jpg" data-zoom-image="images/p_image10.jpg" class="d_block">
-									<img src="images/product_thumb_6.jpg" alt="">
-								</a>
-								<a href="#" data-image="images/product_img_4.jpg" data-zoom-image="images/p_image5.jpg" class="d_block">
-									<img src="images/product_thumb_7.jpg" alt="">
-								</a>
-								<a href="#" data-image="images/product_img_7.jpg" data-zoom-image="images/p_image8.jpg" class="d_block">
-									<img src="images/product_thumb_8.jpg" alt="">
-								</a>
-								<a href="#" data-image="images/product_img_5.jpg" data-zoom-image="images/p_image6.jpg" class="d_block">
-									<img src="images/product_thumb_9.jpg" alt="">
-								</a>
-								<a href="#" data-image="images/product_img_8.jpg" data-zoom-image="images/p_image9.jpg" class="d_block">
-									<img src="images/product_thumb_10.jpg" alt="">
-								</a>
-							</div>
-							<button class="thumbnails_product_prev black_hover button_type_4 grey state_2 tr_all d_block vc_child"><i class="fa fa-angle-left d_inline_m"></i></button>
-							<button class="thumbnails_product_next black_hover button_type_4 grey state_2 tr_all d_block vc_child"><i class="fa fa-angle-right d_inline_m"></i></button>
-						</div>
-					</div>
-					<div class="product_description f_left f_xs_none">
-						<h3 class="second_font m_bottom_3 product_title"><a href="#" class="sc_hover">Sed in lacus ut enim</a></h3>
-						<ul class="m_bottom_14">
-										<li class="m_bottom_3"><span class="project_list_title second_font d_inline_b">Dispatched in:</span> <span class="color_dark fw_light">Chanel</span></li>
-										<li class="m_bottom_3"><span class="project_list_title second_font d_inline_b">Shipping Cost:</span> <span class="scheme_color fw_light">in stock</span> <span class="fw_light">20 items(s)</span></li>
-										<li class="m_bottom_3"><span class="project_list_title second_font d_inline_b">SKU Code:</span> <span class="fw_light">PS06</span></li>
-						</ul>
-						<hr class="divider_light m_bottom_15">
-						<p class="fw_light m_bottom_14 color_grey">Mauris fermentum dictum magna. Sed laoreet aliquam leo. Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis.</p>
-						<div class="product_options">
-							<b class="second_font d_block m_bottom_10">Available Options</b>
-							<p class="second_font m_bottom_3">Size:</p>
-							<div class="styled_select size_select relative m_bottom_15">
-								<div class="select_title type_2 fs_medium fw_light color_light relative d_none tr_all">Queen</div>
-								<select>
-									<option value="Queen">Queen</option>
-									<option value="King">King</option>
-									<option value="Grand">Grand</option>
-								</select>
-								<ul class="options_list d_none tr_all hidden bg_grey_light_2"></ul>
-							</div>
-							<p class="second_font">Color:</p>
-							<ul class="hr_list m_bottom_17">
-								<li class="m_right_5 m_bottom_3"><button class="color_button bg_light_red tr_all"></button></li>
-								<li class="m_right_5 m_bottom_3"><button class="color_button bg_light_blue tr_all"></button></li>
-								<li class="m_right_5 m_bottom_3"><button class="color_button bg_light_green tr_all"></button></li>
-								<li class="m_right_5 m_bottom_3"><button class="color_button bg_grey tr_all"></button></li>
-								<li class="m_right_5 m_bottom_3"><button class="color_button bg_light_yellow tr_all"></button></li>
-							</ul>
-							<hr class="divider_light">
-							<footer class="bg_grey_light_2">
-								<div class="fs_big second_font m_bottom_17"><s class="color_light">$1 302.00</s> <b class="scheme_color">$1 102.00</b></div>
-								<div class="clearfix">
-									<div class="quantity clearfix t_align_c f_left f_md_none m_right_10 m_md_bottom_3">
-										<button class="f_left d_block minus black_hover tr_all bg_white">-</button>
-										<input type="text" value="1" name="" readonly="" class="f_left color_light">
-										<button class="f_left d_block black_hover tr_all bg_white">+</button>
-									</div>
-									<br class="d_md_block d_none">
-									<button class="button_type_2 d_block f_sm_none m_sm_bottom_3 t_align_c lbrown state_2 tr_all second_font fs_medium tt_uppercase f_left m_right_3 product_button"><i class="fa fa-shopping-cart d_inline_m m_right_9"></i>Add To Cart</button>
-									<br class="d_sm_block d_none">
-									<button class="button_type_8 grey state_2 tr_delay color_dark t_align_c vc_child f_left m_right_3 tooltip_container relative"><i class="fa fa-heart fs_large d_inline_m"></i><span class="tooltip top fs_small color_white hidden animated" data-show="fadeInDown" data-hide="fadeOutUp">Add to Wishlist</span></button>
-								</div>
-							</footer>
-						</div>
-					</div>
-				</div>
-				<button class="close_popup fw_light fs_large tr_all">x</button>
-			</div>
-		</div>
-
-		<!--popup-->
-<!--		<div class="init_popup" id="add_to_cart_popup">
-			<div class="popup init">
-				<div class="clearfix m_bottom_15">
-					<a href="#" class="f_left d_block m_right_20">
-						<img src="images/bestsellers_img_1.jpg" alt="">
-					</a>
-					<p class="second_font fs_large color_dark">1 x Eget elementum vel<br> was added to your cart</p>
-				</div>
-				<div class="clearfix">
-					<a href="#" class="button_type_2 d_block f_left t_align_c grey state_2 tr_all second_font fs_medium tt_uppercase m_top_15">Continue Shopping</a>
-					<a href="pages_shopping_cart.html" class="button_type_2 d_block f_right t_align_c grey state_2 tr_all second_font fs_medium tt_uppercase m_top_15">Show Cart</a>
-				</div>
-				<button class="close_popup fw_light fs_large tr_all">x</button>
-			</div>
-		</div> -->
-
 		<!--libs include-->
 		<script src="plugins/royalslider/jquery.royalslider.min.js"></script>
 		<script src="plugins/jquery.appear.js"></script>
