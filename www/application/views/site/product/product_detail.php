@@ -119,36 +119,25 @@ $this->load->view('site/templates/header_new');
                        
                        switch($shipping)
                        {
-
                        	case '1': 
                        		echo stripslashes($this->lang->line('shipping_in_option_first')); 
                        	break;
-
                        	case '2':
                        		echo stripslashes($this->lang->line('shipping_in_option_second')); 
                        	break;
-
                        	case '3':
                        		echo stripslashes($this->lang->line('shipping_in_option_third')); 
                        	break;
-
                        	case '4':
                        		echo stripslashes($this->lang->line('shipping_in_option_fourth')); 
                        	break;
-
-
                        	case '5':
                        		echo stripslashes($this->lang->line('shipping_in_option_fifth')); 
                        	break;
-
-
                        	case '6':
                        		echo stripslashes($this->lang->line('shipping_in_option_sixth')); 
                        	break;
                        }
-
-
-
                        ?></span></li>
 										<li class="m_bottom_3"><span class="project_list_title second_font d_inline_b">Shipping Cost:</span><span class="fw_light"> <?php echo $currencySymbol;?> <?php echo $productDetails->row()->shipping_cost;?></span></li>
 										<li class="m_bottom_3"><span class="project_list_title second_font d_inline_b">SKU Code:</span> <span class="fw_light"> <?php echo $productDetails->row()->sku;?></span></li>
@@ -234,7 +223,7 @@ $this->load->view('site/templates/header_new');
 												</div>
 												<br class="d_md_block d_none">
 												
-												<button  class="button_type_2 d_block f_sm_none m_sm_bottom_3 t_align_c lbrown state_2 tr_all second_font fs_medium tt_uppercase f_left m_right_3 product_button"
+												<button  class="add_to_cart button_type_2 d_block f_sm_none m_sm_bottom_3 t_align_c lbrown state_2 tr_all second_font fs_medium tt_uppercase f_left m_right_3 product_button"
 												<?php if ($loginCheck==''){echo 'require_login="true"';}?> name="addtocart" value="<?php if($this->lang->line('header_add_cart') != '') { echo stripslashes($this->lang->line('header_add_cart')); } else echo "Add to Cart"; ?>" onclick="ajax_add_cart('<?php echo $PrdAttrVal->num_rows; ?>');"
 												><i class="fa fa-shopping-cart d_inline_m m_right_9"></i>Add To Cart</button>
 												
@@ -258,10 +247,8 @@ $this->load->view('site/templates/header_new');
 											$furCatArr = array('7','14','26','27','29','237');
 											$prodCat = $productDetails->row()->category_id;
 											$prodCatArr = @explode(',',$prodCat);
-
 											$combArr = array_merge($furCatArr, $prodCatArr);
 											$combArr1 = array_unique($combArr);
-
 											if(count($combArr) != count($combArr1)){?>  
 												<li class="m_right_3"><a href="#tab3" class="color_light border_light_3 d_block">Furniture Care</a></li>											
 										<?php } ?>
@@ -284,13 +271,9 @@ $this->load->view('site/templates/header_new');
 										if ($productDetails->row()->shipping_policies == '')
 										{
 										echo "<p>In case you have any questions or need any clarifications do not hesitate to call our Customer Support Team</p>
-
 										<p>In case of wooden furniture, please note that wood has inherent qualities such as marginal differences in stain and varnish, unique grain patterns etc. These are visible on a finished product and result in two otherwise identical items looking different. These are natural features of wood that provide character to each piece of wooden furniture and are accepted as per Industry standards. Small knots are also sometimes visible on the surface which is filled in by the furniture craftsmen during manufacture.</p>
-
 										<p><strong>Placing an order:</strong> Please <strong>check dimensions of the stairway and entrance to your premise before buying</strong>, so as to ensure that there is no problem in getting the product inside. In such a situation we will not be able to accept return or cancellation. There are some items that you will need to assemble on your own or you will need to arrange your own carpenter for assembly. Wherever Socktail provides, the carpenter visits will be scheduled subsequent to the delivery of the item.</p>
-
 										<p><strong>On Delivery:</strong> For all items that are expected to stand, ensure that the item is steady and straight. Unevenness up to 5 mm happens due to difference in surfaces and floor levels and is an accepted industry standard. Bushes will have to be attached to balance the item. In case of dust or a lack of shine, rubbing the surface with a cloth will help. This is an accepted method for cleaning the surface of a furniture item and making it shine.</p>
-
 										<p><strong>Damages:</strong> Socktail shipping arrangements to your doorstep have been designed to ensure a zero-damage, hassle-free experience, please contact us immediately, in case:
 										<ul>
 										<li>- Your item has any scratches or breakage that unfortunately might have occurred in the course of transit warranting your item to be fixed</li>
@@ -310,10 +293,8 @@ $this->load->view('site/templates/header_new');
 									$furCatArr = array('7','14','26','27','29','237');
 									$prodCat = $productDetails->row()->category_id;
 									$prodCatArr = @explode(',',$prodCat);
-
 									$combArr = array_merge($furCatArr, $prodCatArr);
 									$combArr1 = array_unique($combArr);
-
 									if(count($combArr) != count($combArr1)){?>  
 								
 															
@@ -324,7 +305,7 @@ $this->load->view('site/templates/header_new');
 										<li>* Keep furniture away from direct sunlight as it could cause fading.</li>
 										<li>* Keep furniture away from heaters, dehumidifiers and air conditioners.</li>
 										<li>* Use table clothes, runners, coasters and table pads on heavily used coffee and dining tables.</li>
-										<li>* Mop away any spills immediately. Don’t wipe. </li>
+										<li>* Mop away any spills immediately. Don?t wipe. </li>
 										<li>* Use a damp, soft cloth to clean away dust. </li>
 										<li>* Clean when needed with a good quality wax or polish. </li>
 										<li>* Don't allow perfumes, nail polish or remover etc to come in contact with the wood. </li>
@@ -368,7 +349,7 @@ $this->load->view('site/templates/header_new');
 										<li>* Vacuum wicker furniture routinely with the soft brush attachment.</li>
 										<li>* Maintain even humidity in your home to keep antique wicker happy. </li>
 										<li>* To add life to the seats of your wicker furniture, use padded chair seat cushions. </li>
-										<li>* Use tweezers to pick out lint and trapped pet hair that the vacuum and soft brush can’t remove.</li>
+										<li>* Use tweezers to pick out lint and trapped pet hair that the vacuum and soft brush can?t remove.</li>
 										<li>* If you do notice mold or mildew growing on your wicker furniture, clean immediately with a solution of bleach in water. </li>
 										</ul>
 										<br>
@@ -400,9 +381,7 @@ $this->load->view('site/templates/header_new');
 						<script>
 						//var baseURL = '<?php echo base_url();?>';
 $(function() {
-
 $(".submit").click(function() {
-
 	var requirelogin = $(this).attr('require-login');
 	if(requirelogin){
 		var thingURL = $(this).parent().next().find('a:first').attr('href');
