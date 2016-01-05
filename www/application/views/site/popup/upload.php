@@ -131,7 +131,7 @@ if($mainCat->id !=107){
 <iframe frameborder="0" name="iframe_img_upload"></iframe></div>
 
 <script>
-function getSubCategories(val,subCat,subcategory) {
+function getSubCategories(val,subCat,subcategory,selid) {
 	if(val != ""){
 		var url  = baseURL + 'site/add/getSubCategories';
 			var data = {
@@ -154,7 +154,9 @@ function getSubCategories(val,subCat,subcategory) {
 								text : item.cat_name 
 							}));
 						});
-						console.log(selectBox);
+						if(selid){
+							selectBox.val(selid);
+						}
 						$("."+subCat).show();
 					}else{
 						$("."+subCat).hide();

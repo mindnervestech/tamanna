@@ -98,7 +98,8 @@ a.selectBox.option .selectBox-label {
 							<li>
 								<label for="fancy-category"><?php if($this->lang->line('header_category') != '') { echo stripslashes($this->lang->line('header_category')); } else echo "Category"; ?><!-- <em><?php if($this->lang->line('product_how_should') != '') { echo stripslashes($this->lang->line('product_how_should')); } else echo "How should it be filed?"; ?></em>--></label>
 								<br class="hidden">
-								<select name="category_id" onchange="getSubCategories(value,'subCategory_edit','sub-category_edit');" class="required" id="fancy-category" style="font-size:13px;">
+								<input style="display:none" name="category_id" id="category_id"/>
+								<select onchange="getSubCategories(value,'subCategory_edit','sub-category_edit');" class="required" id="fancy-category_1" style="font-size:13px;">
 									<option selected="" value=""><?php if($this->lang->line('product_put_cate') != '') { echo stripslashes($this->lang->line('product_put_cate')); } else echo "Put in category"; ?>...</option>
 									<?php 
 									$prodCatArr = explode(',', $productDetails->row()->category_id);
@@ -115,7 +116,9 @@ a.selectBox.option .selectBox-label {
 									<option <?php if ($catRow->id == $catVal){echo 'selected="selected"';}?> value="<?php echo $catRow->id;?>"><?php echo $catRow->cat_name;?></option>
 									<?php } }?>
 									
+									
 								</select>
+								<input style="display:none" id="category_list" value="<?php echo $productDetails->row()->category_id; ?>"/>
 							</li>
 							
 							<li>
@@ -129,6 +132,7 @@ a.selectBox.option .selectBox-label {
 								<div class="sub-subCategory_edit" style="display:none">
 									<label><?php echo "Sub Sub Category"; ?><span style="color:red"> *</span></label>
 									<select class="required" id="sub-sub-category_edit">
+																		
 									</select>
 								</div>
 							</li>
@@ -171,6 +175,36 @@ a.selectBox.option .selectBox-label {
 <script type="text/javascript" src="js/site/jquery.validate.js"></script>
 <script>
 	$("#userProdEdit").validate();
+	function validateProduct(){
+		var cat = "";
+		var id1 = $("#fancy-category_1").val();
+		var id2 = $("#sub-category_edit").val();
+		var id3 = $("#sub-sub-category_edit").val();
+		if(id1!="" && id1 != null){
+			cat += id1;
+		}
+		if(id2!="" && id2 != null){
+			cat += "," + id2;
+		}
+		if(id3!="" && id3 != null){
+			cat += "," + id3;
+		}
+		$("#category_id").val(cat);
+		return;
+	}
+	$(document).ready(function(){
+		var catrgory = ($("#category_list").val()).split(",");
+		if(catrgory.length){
+			if(catrgory[0]){
+				getSubCategories(catrgory[0],'subCategory_edit','sub-category_edit',catrgory[1]);
+			}
+			if(catrgory[1]){
+				getSubCategories(catrgory[1],'sub-subCategory_edit','sub-sub-category_edit',catrgory[2]);
+			}
+
+
+		}
+	});
 </script>
 <?php
 $this->load->view('site/templates/footer');
