@@ -3,17 +3,9 @@ $(function() {
 	//console.log($("#user_location").val())
 	if($("#user_location").val() == "1"){
 	    if (navigator && navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(successCallback, errorCallback, {timeout:100000});
-        } else {
-          //console.log('Geolocation is not supported');
-        }
-     
-      function errorCallback(e) {
-	            //console.log('Geolocation is not supported' + e.code);
-
-	  }
-     
-      function successCallback(position) {
+          navigator.geolocation.getCurrentPosition(function(position){
+				
+			
 		//alert(position.coords.latitude + ',' + position.coords.longitude);
 		var url  = baseURL + 'site/user/add_user_locationtosession';
 		if(position.coords.latitude!='' && position.coords.longitude!=""){
@@ -38,7 +30,12 @@ $(function() {
                 }
             });
 		}
-      }
+			
+		}, function(e){
+		}, {timeout:100000});
+        } else {
+          //console.log('Geolocation is not supported');
+        }
 	}  
 });
 	
